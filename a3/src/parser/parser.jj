@@ -797,20 +797,18 @@ Expr BinaryPlusMinus() :
   int lineNum = JavaCharStream.getBeginLine();
 }{
     e1 = BinaryMultModDiv() [
-      (
-        (op = <PLUS> | op = <MINUS>) e2 = BinaryMultModDiv()
+      ((op = <PLUS> | op = <MINUS>) e2 = BinaryMultModDiv()
+       { if(op.toString() == "+") {
+           e1 =  new BinaryArithPlusExpr(lineNum, e1, e2);
+         }
+         else if(op.toString() == "-") {
+           e1 = new BinaryArithMinusExpr(lineNum, e1, e2);
+         }
+       }
       )+
     ] {
-      if(op == null) { 
         return e1;
       }
-      else if(op.toString() == "+") {
-        return new BinaryArithPlusExpr(lineNum, e1, e2);
-      }
-      else if(op.toString() == "-") {
-        return new BinaryArithMinusExpr(lineNum, e1, e2);
-      }
-    }
 }
 
 Expr BinaryMultModDiv() : 
@@ -824,20 +822,21 @@ Expr BinaryMultModDiv() :
       (
         (op = <MULT> | op = <MOD> | op = <DIVIDE>) 
         e2 = Cast()
+        {
+          if(op.toString() == "*") {
+            e1 = new BinaryArithTimesExpr(lineNum, e1, e2);
+          }
+          else if(op.toString() == "%") {
+            e1 = new BinaryArithModulusExpr(lineNum, e1, e2);
+          }
+          else if(op.toString() == "/") {
+            e1 = new BinaryArithDivideExpr(lineNum, e1, e2);
+          }
+        }
       )+
-    ] { 
-      if(op == null) { 
+    ] 
+    { 
         return e1;
-      }
-      else if(op.toString() == "*") {
-        return new BinaryArithTimesExpr(lineNum, e1, e2);
-      }
-      else if(op.toString() == "%") {
-        return new BinaryArithModulusExpr(lineNum, e1, e2);
-      }
-      else if(op.toString() == "/") {
-        return new BinaryArithDivideExpr(lineNum, e1, e2);
-      }
     }
 }
 

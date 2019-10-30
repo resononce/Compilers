@@ -1,5 +1,3 @@
-yoyoy ast.StmtList@7852e922
-yoyoy ast.StmtList@4e25154f
 // Source file: ArrayTest1.btm
 // Source line: 1
 class Main extends Object {
@@ -89,19 +87,10 @@ class Main extends Object {
                 (/*L46*/array[(/*L46*/array[(/*L46*/1)])] = (/*L46*/array[(/*L46*/array[(/*L46*/2)])]));
             }
         else
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.IfStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+            // Source line: 43
+            {
+            }
+        // Source line: 48
+        return (/*L48*/null);
+    }
+}

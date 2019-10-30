@@ -129,11 +129,12 @@ Precedence (from highest to lowest)
 */
   static final public Program Program() throws ParseException {
   int lineNum = JavaCharStream.getBeginLine();
-  ClassList cl = new ClassList(lineNum); Class_ c;
+  ClassList cl = new ClassList(lineNum);
+  Class_ c;
     label_1:
     while (true) {
       c = Class();
-                  cl.addElement(c);
+      cl.addElement(c);
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case CLASS:
         ;
@@ -152,9 +153,10 @@ Precedence (from highest to lowest)
   int lineNum = JavaCharStream.getBeginLine();
   Token cName, pName = null;
   MemberList ml = new MemberList(lineNum);
-  Member m; String parent;
+  Member m;
+  String parent;
     jj_consume_token(CLASS);
-              lineNum = JavaCharStream.getBeginLine();
+      lineNum = JavaCharStream.getBeginLine();
     cName = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case EXTENDS:
@@ -177,24 +179,30 @@ Precedence (from highest to lowest)
         break label_2;
       }
       m = Member();
-                                ml.addElement(m);
+                       ml.addElement(m);
     }
     jj_consume_token(RIGHTBRACE);
-      parent = (pName == null) ? "Object" : pName.toString();
-      {if (true) return new Class_(lineNum, getCurrFilename(),
-                        cName.toString(), parent, ml);}
+        parent = (pName == null) ? "Object" : pName.toString();
+        {if (true) return new Class_(lineNum,
+                          getCurrFilename(),
+                          cName.toString(),
+                          parent,
+                          ml);}
     throw new Error("Missing return statement in function");
   }
 
   static final public Member Member() throws ParseException {
-  int lineNum = JavaCharStream.getBeginLine(); Token type, name;
-  Method m = null; Field f = null; String lb = "";
+  int lineNum = JavaCharStream.getBeginLine();
+  Token type, name;
+  Method m = null;
+  Field f = null;
+  String lb = "";
     type = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LEFTBRACKET:
       jj_consume_token(LEFTBRACKET);
       jj_consume_token(RIGHTBRACKET);
-                                                  lb = "[]";
+                                      lb = "[]";
       break;
     default:
       jj_la1[3] = jj_gen;
@@ -214,19 +222,20 @@ Precedence (from highest to lowest)
       jj_consume_token(-1);
       throw new ParseException();
     }
-      {if (true) return (m == null) ? f : m;}
+        {if (true) return (m == null) ? f : m;}
     throw new Error("Missing return statement in function");
   }
 
   static final public Method Method(Token type, Token name, String lb) throws ParseException {
   int lineNum = JavaCharStream.getBeginLine();
-  FormalList fl = new FormalList(lineNum); StmtList sl = new StmtList(lineNum);
+  FormalList fl = new FormalList(lineNum);
+  StmtList sl = new StmtList(lineNum);
   Formal f; Stmt stmt;
     jj_consume_token(LEFTPAREN);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ID:
       f = Formal();
-                               fl.addElement(f);
+                    fl.addElement(f);
       label_3:
       while (true) {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -239,7 +248,7 @@ Precedence (from highest to lowest)
         }
         jj_consume_token(COMMA);
         f = Formal();
-                           fl.addElement(f);
+                              fl.addElement(f);
       }
       break;
     default:
@@ -274,10 +283,14 @@ Precedence (from highest to lowest)
         break label_4;
       }
       stmt = Stmt();
-                    sl.addElement(stmt);
+                     sl.addElement(stmt);
     }
     jj_consume_token(RIGHTBRACE);
-      {if (true) return new Method(lineNum, type.toString() + lb, name.toString(), fl, sl);}
+      {if (true) return new Method(lineNum,
+                        type.toString() + lb,
+                        name.toString(),
+                        fl,
+                        sl);}
     throw new Error("Missing return statement in function");
   }
 
@@ -294,26 +307,32 @@ Precedence (from highest to lowest)
       ;
     }
     jj_consume_token(SEMICOLON);
-      {if (true) return new Field(lineNum, type.toString() + lb, name.toString(), e);}
+      {if (true) return new Field(lineNum,
+                       type.toString() + lb,
+                       name.toString(),
+                       e);}
     throw new Error("Missing return statement in function");
   }
 
   static final public Formal Formal() throws ParseException {
-  int lineNum = JavaCharStream.getBeginLine(); Token type, name;
+  int lineNum = JavaCharStream.getBeginLine();
+  Token type, name;
   String lb = "";
     type = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LEFTBRACKET:
       jj_consume_token(LEFTBRACKET);
       jj_consume_token(RIGHTBRACKET);
-                                                lb = "[]";
+                                     lb = "[]";
       break;
     default:
       jj_la1[9] = jj_gen;
       ;
     }
     name = jj_consume_token(ID);
-      {if (true) return new Formal(lineNum, type.toString() + lb, name.toString());}
+      {if (true) return new Formal(lineNum,
+                        type.toString() + lb,
+                        name.toString());}
     throw new Error("Missing return statement in function");
   }
 
@@ -372,7 +391,8 @@ Precedence (from highest to lowest)
   }
 
   static final public ExprStmt ExprStmt() throws ParseException {
-  Expr e; int lineNum = JavaCharStream.getBeginLine();
+  Expr e;
+  int lineNum = JavaCharStream.getBeginLine();
     e = Expr();
     jj_consume_token(SEMICOLON);
       {if (true) return new ExprStmt(lineNum, e);}
@@ -380,7 +400,10 @@ Precedence (from highest to lowest)
   }
 
   static final public DeclStmt DeclStmt() throws ParseException {
-  Expr e; Token type, name; Token lb = null; String typeStr = "";
+  Expr e;
+  Token type, name;
+  Token lb = null;
+  String typeStr = "";
   int lineNum = JavaCharStream.getBeginLine();
     type = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -397,13 +420,18 @@ Precedence (from highest to lowest)
     jj_consume_token(ASSIGN);
     e = Expr();
     jj_consume_token(SEMICOLON);
-     {if (true) return new DeclStmt(lineNum,
-                          type.toString() + typeStr, name.toString(), e);}
+      {if (true) return new DeclStmt(lineNum,
+                          type.toString() + typeStr,
+                          name.toString(),
+                          e);}
     throw new Error("Missing return statement in function");
   }
 
   static final public IfStmt IfStmt() throws ParseException {
-  Expr e; Stmt then; IfStmt r; int lineNum = JavaCharStream.getBeginLine();
+  Expr e;
+  Stmt then;
+  IfStmt r;
+  int lineNum = JavaCharStream.getBeginLine();
     jj_consume_token(IF);
     jj_consume_token(LEFTPAREN);
     e = Expr();
@@ -416,22 +444,30 @@ Precedence (from highest to lowest)
 
   static final public IfStmt OptionalElse(Expr predExpr, Stmt then, int lineNum) throws ParseException {
   Stmt elseStmt = null;
+  BlockStmt bs = new BlockStmt(lineNum, new StmtList(lineNum));
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ELSE:
       jj_consume_token(ELSE);
       elseStmt = Stmt();
-      {if (true) return new IfStmt(lineNum, predExpr, then,
+      {if (true) return new IfStmt(lineNum,
+                        predExpr,
+                        then,
                         elseStmt);}
       break;
     default:
       jj_la1[13] = jj_gen;
-      {if (true) return new IfStmt(lineNum, predExpr, then, elseStmt);}
+      {if (true) return new IfStmt(lineNum,
+                        predExpr,
+                        then,
+                        bs);}
     }
     throw new Error("Missing return statement in function");
   }
 
   static final public WhileStmt WhileStmt() throws ParseException {
-  Expr e; Stmt body; int lineNum = JavaCharStream.getBeginLine();
+  Expr e;
+  Stmt body;
+  int lineNum = JavaCharStream.getBeginLine();
     jj_consume_token(WHILE);
     jj_consume_token(LEFTPAREN);
     e = Expr();
@@ -442,7 +478,11 @@ Precedence (from highest to lowest)
   }
 
   static final public ForStmt ForStmt() throws ParseException {
-  int lineNum = JavaCharStream.getBeginLine(); Expr init = null; Expr pred = null; Expr update = null; Stmt body;
+  int lineNum = JavaCharStream.getBeginLine();
+  Expr init = null;
+  Expr pred = null;
+  Expr update = null;
+  Stmt body;
     jj_consume_token(FOR);
     jj_consume_token(LEFTPAREN);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -500,7 +540,10 @@ Precedence (from highest to lowest)
     }
     jj_consume_token(RIGHTPAREN);
     body = Stmt();
-      {if (true) return new ForStmt(lineNum, init, pred, update,
+      {if (true) return new ForStmt(lineNum,
+                         init,
+                         pred,
+                         update,
                          body);}
     throw new Error("Missing return statement in function");
   }
@@ -541,8 +584,8 @@ Precedence (from highest to lowest)
 
   static final public BlockStmt BlockStmt() throws ParseException {
   int lineNum = JavaCharStream.getBeginLine();
-  StmtList sl = new StmtList(lineNum); Stmt s = null;
-   System.out.println("yoyoy " + sl);
+  StmtList sl = new StmtList(lineNum);
+  Stmt s = null;
     jj_consume_token(LEFTBRACE);
     label_5:
     while (true) {
@@ -570,7 +613,7 @@ Precedence (from highest to lowest)
         break label_5;
       }
       s = Stmt();
-                              sl.addElement(s);
+                   sl.addElement(s);
     }
     jj_consume_token(RIGHTBRACE);
       {if (true) return new BlockStmt(lineNum, sl);}
@@ -585,10 +628,16 @@ Precedence (from highest to lowest)
   }
 
   static final public Expr AssignExpr() throws ParseException {
-  Expr e1 = null; Expr e2 = null; Expr e3 = null; Token assign = null;
-  VarExpr v1 = null; VarExpr v2 = null;
-  String refName = null; DispatchExpr d1 = null;
-  ArrayExpr a1 = null; ArrayExpr a2 = null;
+  Expr e1 = null;
+  Expr e2 = null;
+  Expr e3 = null;
+  Token assign = null;
+  VarExpr v1 = null;
+  VarExpr v2 = null;
+  String refName = null;
+  DispatchExpr d1 = null;
+  ArrayExpr a1 = null;
+  ArrayExpr a2 = null;
   Expr r = null; int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryOr();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -600,65 +649,78 @@ Precedence (from highest to lowest)
       jj_la1[19] = jj_gen;
       ;
     }
-      if (assign == null) {
-        {if (true) return e1;}
-      }
-      else if (e1 instanceof VarExpr) {
-        v1 = (VarExpr) e1;
-        e3 = v1.getRef();
-        if (e3 == null) {
-          r = new AssignExpr(lineNum, refName,
-                              v1.getName(), e2);
+        if (assign == null) {
+          {if (true) return e1;}
+        }else if (e1 instanceof VarExpr) {
+          v1 = (VarExpr) e1;
+          e3 = v1.getRef();
+
+          if (e3 == null) {
+            r = new AssignExpr(lineNum,
+                               refName,
+                               v1.getName(),
+                               e2);
+          } else if (e3 instanceof VarExpr) {
+            v2 = (VarExpr) e3;
+            refName = v2.getName();
+            r = new AssignExpr(lineNum,
+                               refName,
+                               v1.getName(),
+                               e2);
+          } else if (e3 instanceof DispatchExpr) {
+            d1 = (DispatchExpr) e3;
+            refName = d1.getMethodName();
+            r = new AssignExpr(lineNum,
+                               refName,
+                               v1.getName(),
+                               e2);
+          } else if (e3 instanceof ArrayExpr) {
+            a1 = (ArrayExpr) e3;
+            refName = a1.getName();
+            r = new AssignExpr(lineNum,
+                               refName,
+                               v1.getName(),
+                               e2);
+          }
+        }else if (e1 instanceof ArrayExpr) {
+          a1 = (ArrayExpr) e1;
+          e3 = a1.getRef();
+
+          if (e3 == null) {
+            r = new ArrayAssignExpr(lineNum,
+                                    null,
+                                    a1.getName(), a1.getIndex(),
+                                    e2);
+          }else if (e3 instanceof ArrayExpr) {
+            a2 = (ArrayExpr) e3;
+            r = new ArrayAssignExpr(lineNum,
+                                    a2.getName(),
+                                    a1.getName(),
+                                    a1.getIndex(),
+                                    e2);
+          }else if (e3 instanceof DispatchExpr) {
+            d1 = (DispatchExpr) e3;
+            r = new ArrayAssignExpr(lineNum,
+                                    d1.getMethodName(),
+                                    a1.getName(),
+                                    a1.getIndex() , e2);
+          }else if (e3 instanceof VarExpr) {
+            v2 = (VarExpr) e3;
+            r = new ArrayAssignExpr(lineNum,
+                                    v2.getName(),
+                                    a1.getName(),
+                                    a1.getIndex(),
+                                    e2);
+          }
         }
-        else if (e3 instanceof VarExpr)
-        {
-          v2 = (VarExpr) e3;
-          refName = v2.getName();
-          r = new AssignExpr(lineNum, refName,
-                              v1.getName(), e2);
-        }
-        else if (e3 instanceof DispatchExpr){
-          d1 = (DispatchExpr) e3;
-          refName = d1.getMethodName();
-          r = new AssignExpr(lineNum, refName,
-                              v1.getName(), e2);
-        }
-        else if (e3 instanceof ArrayExpr) {
-          a1 = (ArrayExpr) e3;
-          refName = a1.getName();
-          r = new AssignExpr(lineNum, refName, v1.getName(),e2);
-        }
-      }
-      //Cheng newbie try to attempt array assign below
-      else if (e1 instanceof ArrayExpr) {
-        a1 = (ArrayExpr) e1;
-        e3 = a1.getRef();
-        if (e3 == null) {
-          r = new ArrayAssignExpr(lineNum, null,
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof ArrayExpr) {
-          a2 = (ArrayExpr) e3;
-          r = new ArrayAssignExpr(lineNum, a2.getName(),
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof DispatchExpr) {
-          d1 = (DispatchExpr) e3;
-          r = new ArrayAssignExpr(lineNum, d1.getMethodName(),
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof VarExpr) {
-          v2 = (VarExpr) e3;
-          r = new ArrayAssignExpr(lineNum, v2.getName(),
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-      }
-      {if (true) return r;}
+        {if (true) return r;}
     throw new Error("Missing return statement in function");
   }
 
   static final public Expr BinaryOr() throws ParseException {
-  Expr e1; Expr e2 = null; Token orOp = null;
+  Expr e1;
+  Expr e2 = null;
+  Token orOp = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryAnd();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -681,17 +743,18 @@ Precedence (from highest to lowest)
       jj_la1[21] = jj_gen;
       ;
     }
-      if (orOp == null) {
-        {if (true) return e1;}
-      }
-      else if (orOp.toString() == "||") {
-        {if (true) return new BinaryLogicOrExpr(lineNum, e1, e2);}
-      }
+        if (orOp == null) {
+          {if (true) return e1;}
+        } else if (orOp.toString() == "||") {
+          {if (true) return new BinaryLogicOrExpr(lineNum, e1, e2);}
+        }
     throw new Error("Missing return statement in function");
   }
 
   static final public Expr BinaryAnd() throws ParseException {
-  Expr e1; Expr e2 = null; Token andOp = null;
+  Expr e1;
+  Expr e2 = null;
+  Token andOp = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryEquals();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -724,7 +787,9 @@ Precedence (from highest to lowest)
   }
 
   static final public Expr BinaryEquals() throws ParseException {
-  Expr e1; Expr e2 = null; Token eqOp = null;
+  Expr e1;
+  Expr e2 = null;
+  Token eqOp = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryCompare();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -773,7 +838,10 @@ Precedence (from highest to lowest)
   }
 
   static final public Expr BinaryCompare() throws ParseException {
-  Expr e1; Expr e2 = null; String typeStr = null; Token compOp = null;
+  Expr e1;
+  Expr e2 = null;
+  String typeStr = null;
+  Token compOp = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryPlusMinus();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -857,7 +925,9 @@ Precedence (from highest to lowest)
   }
 
   static final public Expr BinaryPlusMinus() throws ParseException {
-  Expr e1 = null; Expr e2 = null; Token op = null;
+  Expr e1 = null;
+  Expr e2 = null;
+  Token op = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = BinaryMultModDiv();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -878,6 +948,12 @@ Precedence (from highest to lowest)
           throw new ParseException();
         }
         e2 = BinaryMultModDiv();
+         if(op.toString() == "+") {
+           e1 =  new BinaryArithPlusExpr(lineNum, e1, e2);
+         }
+         else if(op.toString() == "-") {
+           e1 = new BinaryArithMinusExpr(lineNum, e1, e2);
+         }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case MINUS:
         case PLUS:
@@ -893,20 +969,14 @@ Precedence (from highest to lowest)
       jj_la1[33] = jj_gen;
       ;
     }
-      if(op == null) {
         {if (true) return e1;}
-      }
-      else if(op.toString() == "+") {
-        {if (true) return new BinaryArithPlusExpr(lineNum, e1, e2);}
-      }
-      else if(op.toString() == "-") {
-        {if (true) return new BinaryArithMinusExpr(lineNum, e1, e2);}
-      }
     throw new Error("Missing return statement in function");
   }
 
   static final public Expr BinaryMultModDiv() throws ParseException {
-  Expr e1 = null; Expr e2 = null; Token op = null;
+  Expr e1 = null;
+  Expr e2 = null;
+  Token op = null;
   int lineNum = JavaCharStream.getBeginLine();
     e1 = Cast();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -931,6 +1001,15 @@ Precedence (from highest to lowest)
           throw new ParseException();
         }
         e2 = Cast();
+          if(op.toString() == "*") {
+            e1 = new BinaryArithTimesExpr(lineNum, e1, e2);
+          }
+          else if(op.toString() == "%") {
+            e1 = new BinaryArithModulusExpr(lineNum, e1, e2);
+          }
+          else if(op.toString() == "/") {
+            e1 = new BinaryArithDivideExpr(lineNum, e1, e2);
+          }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case MULT:
         case DIVIDE:
@@ -947,18 +1026,7 @@ Precedence (from highest to lowest)
       jj_la1[36] = jj_gen;
       ;
     }
-      if(op == null) {
         {if (true) return e1;}
-      }
-      else if(op.toString() == "*") {
-        {if (true) return new BinaryArithTimesExpr(lineNum, e1, e2);}
-      }
-      else if(op.toString() == "%") {
-        {if (true) return new BinaryArithModulusExpr(lineNum, e1, e2);}
-      }
-      else if(op.toString() == "/") {
-        {if (true) return new BinaryArithDivideExpr(lineNum, e1, e2);}
-      }
     throw new Error("Missing return statement in function");
   }
 
@@ -969,7 +1037,7 @@ Precedence (from highest to lowest)
     if (jj_2_2(4)) {
       typeStr = CastExpr();
       u = Unary();
-      {if (true) return new CastExpr(lineNum, typeStr, u);}
+        {if (true) return new CastExpr(lineNum, typeStr, u);}
     } else {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case NEW:
@@ -983,7 +1051,7 @@ Precedence (from highest to lowest)
       case STRING_CONST:
       case ID:
         u = Unary();
-      {if (true) return u;}
+        {if (true) return u;}
         break;
       default:
         jj_la1[37] = jj_gen;
@@ -995,7 +1063,8 @@ Precedence (from highest to lowest)
   }
 
   static final public String CastExpr() throws ParseException {
-  Token type; String lb = "";
+  Token type;
+  String lb = "";
     jj_consume_token(LEFTPAREN);
     type = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1344,9 +1413,138 @@ Precedence (from highest to lowest)
     finally { jj_save(1, xla); }
   }
 
+  static private boolean jj_3R_48() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_2()) {
+    jj_scanpos = xsp;
+    if (jj_3R_52()) return true;
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_59() {
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(ID)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_55() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_59()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_12() {
+    if (jj_3R_15()) return true;
+    if (jj_scan_token(SEMICOLON)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_40() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(11)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(12)) return true;
+    }
+    if (jj_3R_33()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_53() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(33)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(35)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(34)) return true;
+    }
+    }
+    if (jj_3R_48()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_60() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(17)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(18)) return true;
+    }
+    if (jj_3R_56()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_56() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_60()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_34() {
+    Token xsp;
+    if (jj_3R_40()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_40()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_49() {
+    Token xsp;
+    if (jj_3R_53()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_53()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  static private boolean jj_3_1() {
+    if (jj_3R_12()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_27() {
+    if (jj_3R_33()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_34()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_44() {
+    if (jj_3R_48()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_49()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_43() {
+    if (jj_scan_token(STRING_CONST)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_42() {
+    if (jj_scan_token(BOOLEAN_CONST)) return true;
+    return false;
+  }
+
   static private boolean jj_3R_58() {
     if (jj_scan_token(LEFTBRACKET)) return true;
     if (jj_3R_15()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_35() {
+    if (jj_scan_token(AND)) return true;
+    if (jj_3R_27()) return true;
     return false;
   }
 
@@ -1365,6 +1563,16 @@ Precedence (from highest to lowest)
 
   static private boolean jj_3R_41() {
     if (jj_scan_token(INT_CONST)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_28() {
+    Token xsp;
+    if (jj_3R_35()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_35()) { jj_scanpos = xsp; break; }
+    }
     return false;
   }
 
@@ -1388,6 +1596,31 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_50() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(32)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(31)) return true;
+    }
+    if (jj_3R_44()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_22() {
+    if (jj_scan_token(ASSIGN)) return true;
+    if (jj_3R_15()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_24() {
+    if (jj_3R_27()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_28()) jj_scanpos = xsp;
+    return false;
+  }
+
   static private boolean jj_3R_20() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1402,9 +1635,29 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_51() {
-    if (jj_scan_token(INSTANCEOF)) return true;
-    if (jj_scan_token(ID)) return true;
+  static private boolean jj_3R_45() {
+    Token xsp;
+    if (jj_3R_50()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_50()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_19() {
+    if (jj_3R_21()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_22()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_38() {
+    if (jj_3R_44()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_45()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1436,6 +1689,28 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_29() {
+    if (jj_scan_token(OR)) return true;
+    if (jj_3R_24()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_51() {
+    if (jj_scan_token(INSTANCEOF)) return true;
+    if (jj_scan_token(ID)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_25() {
+    Token xsp;
+    if (jj_3R_29()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_29()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
   static private boolean jj_3R_32() {
     if (jj_3R_37()) return true;
     return false;
@@ -1445,6 +1720,19 @@ Precedence (from highest to lowest)
     if (jj_scan_token(LEFTPAREN)) return true;
     if (jj_3R_15()) return true;
     if (jj_scan_token(RIGHTPAREN)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_15() {
+    if (jj_3R_19()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_21() {
+    if (jj_3R_24()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_25()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1463,11 +1751,6 @@ Precedence (from highest to lowest)
 
   static private boolean jj_3R_30() {
     if (jj_3R_36()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_47() {
-    if (jj_3R_51()) return true;
     return false;
   }
 
@@ -1508,6 +1791,35 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_13() {
+    if (jj_scan_token(LEFTPAREN)) return true;
+    if (jj_scan_token(ID)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_16()) jj_scanpos = xsp;
+    if (jj_scan_token(RIGHTPAREN)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_47() {
+    if (jj_3R_51()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_61() {
+    if (jj_scan_token(LEFTPAREN)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_62()) jj_scanpos = xsp;
+    if (jj_scan_token(RIGHTPAREN)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_52() {
+    if (jj_3R_14()) return true;
+    return false;
+  }
+
   static private boolean jj_3R_46() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1535,24 +1847,9 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_40() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(11)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(12)) return true;
-    }
-    if (jj_3R_33()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_34() {
-    Token xsp;
-    if (jj_3R_40()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_40()) { jj_scanpos = xsp; break; }
-    }
+  static private boolean jj_3_2() {
+    if (jj_3R_13()) return true;
+    if (jj_3R_14()) return true;
     return false;
   }
 
@@ -1561,234 +1858,6 @@ Precedence (from highest to lowest)
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_39()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_13() {
-    if (jj_scan_token(LEFTPAREN)) return true;
-    if (jj_scan_token(ID)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_16()) jj_scanpos = xsp;
-    if (jj_scan_token(RIGHTPAREN)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_22() {
-    if (jj_scan_token(ASSIGN)) return true;
-    if (jj_3R_15()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_61() {
-    if (jj_scan_token(LEFTPAREN)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_62()) jj_scanpos = xsp;
-    if (jj_scan_token(RIGHTPAREN)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_52() {
-    if (jj_3R_14()) return true;
-    return false;
-  }
-
-  static private boolean jj_3_2() {
-    if (jj_3R_13()) return true;
-    if (jj_3R_14()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_48() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_2()) {
-    jj_scanpos = xsp;
-    if (jj_3R_52()) return true;
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_35() {
-    if (jj_scan_token(AND)) return true;
-    if (jj_3R_27()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_28() {
-    Token xsp;
-    if (jj_3R_35()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_35()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_27() {
-    if (jj_3R_33()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_34()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_19() {
-    if (jj_3R_21()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_22()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_53() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(33)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(35)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(34)) return true;
-    }
-    }
-    if (jj_3R_48()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_59() {
-    if (jj_scan_token(DOT)) return true;
-    if (jj_scan_token(ID)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_49() {
-    Token xsp;
-    if (jj_3R_53()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_53()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_55() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_59()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_12() {
-    if (jj_3R_15()) return true;
-    if (jj_scan_token(SEMICOLON)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_50() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(32)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(31)) return true;
-    }
-    if (jj_3R_44()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_45() {
-    Token xsp;
-    if (jj_3R_50()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_50()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_15() {
-    if (jj_3R_19()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_29() {
-    if (jj_scan_token(OR)) return true;
-    if (jj_3R_24()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_25() {
-    Token xsp;
-    if (jj_3R_29()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_29()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3_1() {
-    if (jj_3R_12()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_24() {
-    if (jj_3R_27()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_28()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_44() {
-    if (jj_3R_48()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_49()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_60() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(17)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(18)) return true;
-    }
-    if (jj_3R_56()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_56() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_60()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_21() {
-    if (jj_3R_24()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_25()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_43() {
-    if (jj_scan_token(STRING_CONST)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_42() {
-    if (jj_scan_token(BOOLEAN_CONST)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_38() {
-    if (jj_3R_44()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_45()) jj_scanpos = xsp;
     return false;
   }
 

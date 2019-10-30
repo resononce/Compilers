@@ -1,7 +1,4 @@
-0a1,2
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-10,59c12,30
+10,59c10,28
 <         int n = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number:  "))).getInt());
 <         // Source line: 16
 <         if ((/*L16*/(/*L16*/n) < (/*L16*/0)))

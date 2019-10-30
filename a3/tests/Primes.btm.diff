@@ -1,9 +1,4 @@
-0a1,4
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-> yoyoy ast.StmtList@70dea4e
-> yoyoy ast.StmtList@5c647e05
-12,70c16,34
+12,70c12,30
 <         int max = (/*L13*/(/*L13*/io).getInt());
 <         // Source line: 15
 <         if ((/*L15*/(/*L15*/max) < (/*L15*/2)))

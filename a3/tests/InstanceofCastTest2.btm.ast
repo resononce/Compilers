@@ -1,18 +1,3 @@
-yoyoy ast.StmtList@7852e922
-yoyoy ast.StmtList@4e25154f
-yoyoy ast.StmtList@70dea4e
-yoyoy ast.StmtList@5c647e05
-yoyoy ast.StmtList@33909752
-yoyoy ast.StmtList@55f96302
-yoyoy ast.StmtList@3d4eac69
-yoyoy ast.StmtList@42a57993
-yoyoy ast.StmtList@75b84c92
-yoyoy ast.StmtList@6bc7c054
-yoyoy ast.StmtList@232204a1
-yoyoy ast.StmtList@4aa298b7
-yoyoy ast.StmtList@7d4991ad
-yoyoy ast.StmtList@28d93b30
-yoyoy ast.StmtList@1b6d3586
 // Source file: InstanceofCastTest2.btm
 // Source line: 1
 class Main extends Object {

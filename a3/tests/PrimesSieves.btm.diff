@@ -1,9 +1,4 @@
-0a1,4
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-> yoyoy ast.StmtList@70dea4e
-> yoyoy ast.StmtList@5c647e05
-17,61c21,47
+17,61c17,43
 <                 (/*L18*/n = (/*L18*/(/*L18*/(/*L18*/io).putString((/*L18*/"Enter a number >= 2: "))).getInt()));
 <                 // Source line: 20
 <                 if ((/*L20*/(/*L20*/n) < (/*L20*/2)))

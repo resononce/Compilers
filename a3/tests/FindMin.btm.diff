@@ -1,7 +1,4 @@
-0a1,2
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-19,59c21,47
+19,59c19,45
 <                 (/*L9*/n = (/*L9*/(/*L9*/io).getInt()));
 <                 // Source line: 10
 <                 if ((/*L10*/(/*L10*/n) < (/*L10*/0)))

@@ -1,9 +1,4 @@
-0a1,4
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-> yoyoy ast.StmtList@70dea4e
-> yoyoy ast.StmtList@5c647e05
-20,99c24,50
+20,99c20,46
 <                 (/*L22*/pickedBeans = (/*L22*/(/*L22*/io).getInt()));
 <                 // Source line: 25
 <                 if ((/*L25*/(/*L25*/(/*L25*/pickedBeans) < (/*L25*/1)) || (/*L25*/(/*L25*/pickedBeans) > (/*L25*/3))))

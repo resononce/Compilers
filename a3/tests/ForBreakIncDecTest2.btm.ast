@@ -1,4 +1,3 @@
-yoyoy ast.StmtList@7852e922
 // Source file: ForBreakIncDecTest2.btm
 // Source line: 1
 class Main extends Object {
@@ -15,25 +14,15 @@ class Main extends Object {
                     // Source line: 6
                     break;
                 else
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.IfStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.BlockStmt.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.ForStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+                    // Source line: 5
+                    {
+                    }
+                // Source line: 7
+                (/*L7*/(/*L7*/(/*L7*/new TextIO()).putInt((/*L7*/++((/*L7*/i))))).putString((/*L7*/"\n")));
+                // Source line: 8
+                (/*L8*/((/*L8*/i))++);
+            }
+        // Source line: 10
+        return;
+    }
+}

@@ -1,10 +1,4 @@
-0a1,5
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-> yoyoy ast.StmtList@70dea4e
-> yoyoy ast.StmtList@5c647e05
-> yoyoy ast.StmtList@33909752
-30,114c35,55
+30,114c30,50
 <         int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone())));
 <         // Source line: 19
 <         (/*L19*/array2[(/*L19*/5)] = (/*L19*/-((/*L19*/1))));

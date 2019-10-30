@@ -1,6 +1,4 @@
-0a1
-> yoyoy ast.StmtList@7852e922
-9,28c10,28
+9,28c9,27
 <         int n = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter the number of repetitions: "))).getInt());
 <         // Source line: 5
 <         int i = (/*L5*/0);

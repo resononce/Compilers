@@ -1,7 +1,4 @@
-0a1,2
-> yoyoy ast.StmtList@7852e922
-> yoyoy ast.StmtList@4e25154f
-12,46c14,32
+12,46c12,30
 <         int x = (/*L14*/(/*L14*/io).getInt());
 <         // Source line: 16
 <         if ((/*L16*/(/*L16*/x) < (/*L16*/0)))
