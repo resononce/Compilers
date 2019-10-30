@@ -728,7 +728,11 @@ Precedence (from highest to lowest)
       label_6:
       while (true) {
         orOp = jj_consume_token(OR);
+                      lineNum = JavaCharStream.getBeginLine();
         e2 = BinaryAnd();
+          if (orOp.toString() == "||") {
+            e1 = new BinaryLogicOrExpr(lineNum, e1, e2);
+          }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case OR:
           ;
@@ -743,11 +747,7 @@ Precedence (from highest to lowest)
       jj_la1[21] = jj_gen;
       ;
     }
-        if (orOp == null) {
           {if (true) return e1;}
-        } else if (orOp.toString() == "||") {
-          {if (true) return new BinaryLogicOrExpr(lineNum, e1, e2);}
-        }
     throw new Error("Missing return statement in function");
   }
 
@@ -763,6 +763,9 @@ Precedence (from highest to lowest)
       while (true) {
         andOp = jj_consume_token(AND);
         e2 = BinaryEquals();
+        if (andOp.toString() == "&&") {
+          e1 = new BinaryLogicAndExpr(lineNum, e1, e2);
+        }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case AND:
           ;
@@ -777,12 +780,7 @@ Precedence (from highest to lowest)
       jj_la1[23] = jj_gen;
       ;
     }
-      if (andOp == null) {
         {if (true) return e1;}
-      }
-      else if (andOp.toString() == "&&") {
-        {if (true) return new BinaryLogicAndExpr(lineNum, e1, e2);}
-      }
     throw new Error("Missing return statement in function");
   }
 
@@ -810,6 +808,12 @@ Precedence (from highest to lowest)
           throw new ParseException();
         }
         e2 = BinaryCompare();
+          if (eqOp.toString() == "==") {
+            e1 = new BinaryCompEqExpr(lineNum, e1, e2);
+          }
+          else if (eqOp.toString() == "!=") {
+            e1 = new BinaryCompNeExpr(lineNum, e1, e2);
+          }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case EQUALS:
         case NOTEQUAL:
@@ -825,15 +829,7 @@ Precedence (from highest to lowest)
       jj_la1[26] = jj_gen;
       ;
     }
-      if (eqOp == null) {
-        {if (true) return e1;}
-      }
-      else if (eqOp.toString() == "==") {
-        {if (true) return new BinaryCompEqExpr(lineNum, e1, e2);}
-      }
-      else if (eqOp.toString() == "!=") {
-        {if (true) return new BinaryCompNeExpr(lineNum, e1, e2);}
-      }
+      {if (true) return e1;}
     throw new Error("Missing return statement in function");
   }
 
@@ -874,6 +870,15 @@ Precedence (from highest to lowest)
           throw new ParseException();
         }
         e2 = BinaryPlusMinus();
+            if (compOp.toString() == ">") {
+              e1 = new BinaryCompGtExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == "<") {
+              e1 = new BinaryCompLtExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == ">=") {
+              e1 = new BinaryCompGeqExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == "<=") {
+              e1 = new BinaryCompLeqExpr(lineNum, e1, e2);
+            }
         break;
       case INSTANCEOF:
         typeStr = InstanceofExpr();
@@ -889,21 +894,7 @@ Precedence (from highest to lowest)
       jj_la1[29] = jj_gen;
       ;
     }
-      if (compOp == null) {
-        {if (true) return e1;}
-      }
-      else if (compOp.toString() == ">") {
-        {if (true) return new BinaryCompGtExpr(lineNum, e1, e2);}
-      }
-      else if (compOp.toString() == "<") {
-        {if (true) return new BinaryCompLtExpr(lineNum, e1, e2);}
-      }
-      else if (compOp.toString() == ">=") {
-        {if (true) return new BinaryCompGeqExpr(lineNum, e1, e2);}
-      }
-      else if (compOp.toString() == "<=") {
-        {if (true) return new BinaryCompLeqExpr(lineNum, e1, e2);}
-      }
+      {if (true) return e1;}
     throw new Error("Missing return statement in function");
   }
 
@@ -1363,6 +1354,7 @@ Precedence (from highest to lowest)
     case LEFTBRACKET:
       jj_consume_token(LEFTBRACKET);
       e = Expr();
+                                 lineNum = JavaCharStream.getBeginLine();
       jj_consume_token(RIGHTBRACKET);
       {if (true) return new NewArrayExpr(lineNum, type.toString(), e);}
       break;
@@ -1415,6 +1407,60 @@ Precedence (from highest to lowest)
     finally { jj_save(1, xla); }
   }
 
+  static private boolean jj_3R_61() {
+    if (jj_scan_token(LEFTPAREN)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_62()) jj_scanpos = xsp;
+    if (jj_scan_token(RIGHTPAREN)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_52() {
+    if (jj_3R_14()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_33() {
+    if (jj_3R_38()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_39()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3_2() {
+    if (jj_3R_13()) return true;
+    if (jj_3R_14()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_34() {
+    Token xsp;
+    if (jj_3R_40()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_40()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_48() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_2()) {
+    jj_scanpos = xsp;
+    if (jj_3R_52()) return true;
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_12() {
+    if (jj_3R_15()) return true;
+    if (jj_scan_token(SEMICOLON)) return true;
+    return false;
+  }
+
   static private boolean jj_3R_59() {
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(ID)) return true;
@@ -1428,9 +1474,27 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_12() {
-    if (jj_3R_15()) return true;
-    if (jj_scan_token(SEMICOLON)) return true;
+  static private boolean jj_3R_40() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(11)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(12)) return true;
+    }
+    if (jj_3R_33()) return true;
+    return false;
+  }
+
+  static private boolean jj_3_1() {
+    if (jj_3R_12()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_27() {
+    if (jj_3R_33()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_34()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1445,17 +1509,6 @@ Precedence (from highest to lowest)
     }
     }
     if (jj_3R_48()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_40() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(11)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(12)) return true;
-    }
-    if (jj_3R_33()) return true;
     return false;
   }
 
@@ -1487,29 +1540,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_34() {
-    Token xsp;
-    if (jj_3R_40()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_40()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3_1() {
-    if (jj_3R_12()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_27() {
-    if (jj_3R_33()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_34()) jj_scanpos = xsp;
-    return false;
-  }
-
   static private boolean jj_3R_44() {
     if (jj_3R_48()) return true;
     Token xsp;
@@ -1518,13 +1548,51 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_35() {
+    if (jj_scan_token(AND)) return true;
+    if (jj_3R_27()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_28() {
+    Token xsp;
+    if (jj_3R_35()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_35()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
   static private boolean jj_3R_43() {
     if (jj_scan_token(STRING_CONST)) return true;
     return false;
   }
 
+  static private boolean jj_3R_22() {
+    if (jj_scan_token(ASSIGN)) return true;
+    if (jj_3R_15()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_24() {
+    if (jj_3R_27()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_28()) jj_scanpos = xsp;
+    return false;
+  }
+
   static private boolean jj_3R_42() {
     if (jj_scan_token(BOOLEAN_CONST)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_19() {
+    if (jj_3R_21()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_22()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1552,12 +1620,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_35() {
-    if (jj_scan_token(AND)) return true;
-    if (jj_3R_27()) return true;
-    return false;
-  }
-
   static private boolean jj_3R_57() {
     if (jj_3R_61()) return true;
     return false;
@@ -1569,16 +1631,6 @@ Precedence (from highest to lowest)
     if (jj_3R_57()) {
     jj_scanpos = xsp;
     if (jj_3R_58()) return true;
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_28() {
-    Token xsp;
-    if (jj_3R_35()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_35()) { jj_scanpos = xsp; break; }
     }
     return false;
   }
@@ -1623,28 +1675,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_22() {
-    if (jj_scan_token(ASSIGN)) return true;
-    if (jj_3R_15()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_24() {
-    if (jj_3R_27()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_28()) jj_scanpos = xsp;
-    return false;
-  }
-
-  static private boolean jj_3R_19() {
-    if (jj_3R_21()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_22()) jj_scanpos = xsp;
-    return false;
-  }
-
   static private boolean jj_3R_38() {
     if (jj_3R_44()) return true;
     Token xsp;
@@ -1658,8 +1688,24 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_29() {
+    if (jj_scan_token(OR)) return true;
+    if (jj_3R_24()) return true;
+    return false;
+  }
+
   static private boolean jj_3R_63() {
     if (jj_scan_token(LEFTPAREN)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_25() {
+    Token xsp;
+    if (jj_3R_29()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_29()) { jj_scanpos = xsp; break; }
+    }
     return false;
   }
 
@@ -1681,40 +1727,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_51() {
-    if (jj_scan_token(INSTANCEOF)) return true;
-    if (jj_scan_token(ID)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_29() {
-    if (jj_scan_token(OR)) return true;
-    if (jj_3R_24()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_32() {
-    if (jj_3R_37()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_25() {
-    Token xsp;
-    if (jj_3R_29()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_29()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_31() {
-    if (jj_scan_token(LEFTPAREN)) return true;
-    if (jj_3R_15()) return true;
-    if (jj_scan_token(RIGHTPAREN)) return true;
-    return false;
-  }
-
   static private boolean jj_3R_15() {
     if (jj_3R_19()) return true;
     return false;
@@ -1725,6 +1737,24 @@ Precedence (from highest to lowest)
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_25()) jj_scanpos = xsp;
+    return false;
+  }
+
+  static private boolean jj_3R_51() {
+    if (jj_scan_token(INSTANCEOF)) return true;
+    if (jj_scan_token(ID)) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_32() {
+    if (jj_3R_37()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_31() {
+    if (jj_scan_token(LEFTPAREN)) return true;
+    if (jj_3R_15()) return true;
+    if (jj_scan_token(RIGHTPAREN)) return true;
     return false;
   }
 
@@ -1743,6 +1773,11 @@ Precedence (from highest to lowest)
 
   static private boolean jj_3R_30() {
     if (jj_3R_36()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_47() {
+    if (jj_3R_51()) return true;
     return false;
   }
 
@@ -1793,25 +1828,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_47() {
-    if (jj_3R_51()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_61() {
-    if (jj_scan_token(LEFTPAREN)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_62()) jj_scanpos = xsp;
-    if (jj_scan_token(RIGHTPAREN)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_52() {
-    if (jj_3R_14()) return true;
-    return false;
-  }
-
   static private boolean jj_3R_46() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1836,30 +1852,6 @@ Precedence (from highest to lowest)
     jj_scanpos = xsp;
     if (jj_3R_47()) return true;
     }
-    return false;
-  }
-
-  static private boolean jj_3_2() {
-    if (jj_3R_13()) return true;
-    if (jj_3R_14()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_48() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_2()) {
-    jj_scanpos = xsp;
-    if (jj_3R_52()) return true;
-    }
-    return false;
-  }
-
-  static private boolean jj_3R_33() {
-    if (jj_3R_38()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_39()) jj_scanpos = xsp;
     return false;
   }
 

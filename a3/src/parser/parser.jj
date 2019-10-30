@@ -687,14 +687,14 @@ Expr BinaryOr() :
 }{
     e1 = BinaryAnd() [
       (
-        orOp = <OR> e2 = BinaryAnd()
-        )+
-      ] {  
-        if (orOp == null) {
-          return e1;
-        } else if (orOp.toString() == "||") {
-          return new BinaryLogicOrExpr(lineNum, e1, e2);
+        orOp = <OR> { lineNum = JavaCharStream.getBeginLine(); }
+        e2 = BinaryAnd(){
+          if (orOp.toString() == "||") {
+            e1 = new BinaryLogicOrExpr(lineNum, e1, e2);
+          }
         }
+      )+] {  
+          return e1;      
       }
 }
 
@@ -706,14 +706,13 @@ Expr BinaryAnd() :
   int lineNum = JavaCharStream.getBeginLine();
 }{
     e1 = BinaryEquals() [
-      (andOp = <AND> e2 = BinaryEquals())+
+      (andOp = <AND> e2 = BinaryEquals() {
+        if (andOp.toString() == "&&") {
+          e1 = new BinaryLogicAndExpr(lineNum, e1, e2);
+        }
+      })+
       ] {  
-      if (andOp == null) {
         return e1;
-      }
-      else if (andOp.toString() == "&&") {
-        return new BinaryLogicAndExpr(lineNum, e1, e2);
-      }
     }
 }
 
@@ -724,22 +723,19 @@ Expr BinaryEquals() :
   Token eqOp = null;
   int lineNum = JavaCharStream.getBeginLine();
 }{
-    e1 = BinaryCompare() [
-      (
+    e1 = BinaryCompare() [(
         (
           eqOp = <EQUALS> | eqOp = <NOTEQUAL>
-        ) e2 = BinaryCompare()
-      )+
-    ]{
-      if (eqOp == null) {
-        return e1;
-      }
-      else if (eqOp.toString() == "==") {
-        return new BinaryCompEqExpr(lineNum, e1, e2);
-      }
-      else if (eqOp.toString() == "!=") {
-        return new BinaryCompNeExpr(lineNum, e1, e2);
-      }
+        ) e2 = BinaryCompare(){
+          if (eqOp.toString() == "==") {
+            e1 = new BinaryCompEqExpr(lineNum, e1, e2);
+          }
+          else if (eqOp.toString() == "!=") {
+            e1 = new BinaryCompNeExpr(lineNum, e1, e2);
+          }   
+        }
+      )+]{
+      return e1;
     }
 }
 
@@ -757,27 +753,22 @@ Expr BinaryCompare() :
           | compOp = <LESSTHAN> 
           | compOp = <GREATERTHANOREQUALTO> 
           | compOp = <LESSTHANOREQUALTO>
-          ) e2 = BinaryPlusMinus() 
+          ) e2 = BinaryPlusMinus() {
+            if (compOp.toString() == ">") {
+              e1 = new BinaryCompGtExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == "<") {
+              e1 = new BinaryCompLtExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == ">=") {
+              e1 = new BinaryCompGeqExpr(lineNum, e1, e2);
+            }else if (compOp.toString() == "<=") {
+              e1 = new BinaryCompLeqExpr(lineNum, e1, e2);
+            }
+          }
         | typeStr = InstanceofExpr() { 
           return new InstanceofExpr(lineNum, e1, typeStr);
         }
-    ] )
-    {
-      if (compOp == null) {
-        return e1;
-      }
-      else if (compOp.toString() == ">") {
-        return new BinaryCompGtExpr(lineNum, e1, e2);
-      }
-      else if (compOp.toString() == "<") {
-        return new BinaryCompLtExpr(lineNum, e1, e2);
-      }
-      else if (compOp.toString() == ">=") {
-        return new BinaryCompGeqExpr(lineNum, e1, e2);
-      }
-      else if (compOp.toString() == "<=") {
-        return new BinaryCompLeqExpr(lineNum, e1, e2);
-      }
+    ] ){
+      return e1;
     }
 }
 
@@ -983,7 +974,7 @@ Expr NewExpr() :
     <NEW> type = <ID> 
     (<LEFTPAREN> <RIGHTPAREN>
     { return new NewExpr(lineNum, type.image.toString()); }
-    | <LEFTBRACKET> e = Expr() <RIGHTBRACKET> 
+    | <LEFTBRACKET> e = Expr() { lineNum = JavaCharStream.getBeginLine(); } <RIGHTBRACKET> 
     { return new NewArrayExpr(lineNum, type.toString(), e); } 
     )
     
