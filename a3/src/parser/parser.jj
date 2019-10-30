@@ -326,264 +326,388 @@ Precedence (from highest to lowest)
 
 Program Program() :
 { int lineNum = JavaCharStream.getBeginLine();
-  ClassList cl = new ClassList(lineNum); Class_ c;
+  ClassList cl = new ClassList(lineNum); 
+  Class_ c;
 }
 {
-    (c = Class() {cl.addElement(c);})+  <EOF>
+    (c = Class() {
+      cl.addElement(c);
+    })+  <EOF>
     {return new Program(lineNum, cl); }
 }
 
 Class_ Class() : 
-{ int lineNum = JavaCharStream.getBeginLine();
+{ 
+  int lineNum = JavaCharStream.getBeginLine();
   Token cName, pName = null;
   MemberList ml = new MemberList(lineNum);
-  Member m; String parent;
+  Member m; 
+  String parent;
 } 
 {
-    <CLASS> { lineNum = JavaCharStream.getBeginLine();} cName = <ID> 
-    [<EXTENDS> pName = <ID>] 
-    <LEFTBRACE> (m = Member() { ml.addElement(m); })* <RIGHTBRACE>
-    { parent = (pName == null) ? "Object" : pName.toString(); 
-      return new Class_(lineNum, getCurrFilename(), 
-                        cName.toString(), parent, ml); }
+    <CLASS> { 
+      lineNum = JavaCharStream.getBeginLine();
+      } cName = <ID> [
+        <EXTENDS> pName = <ID>
+        ] <LEFTBRACE> (
+        m = Member() { ml.addElement(m); }
+      )* <RIGHTBRACE> { 
+        parent = (pName == null) ? "Object" : pName.toString(); 
+        return new Class_(lineNum, 
+                          getCurrFilename(), 
+                          cName.toString(), 
+                          parent, 
+                          ml);}
 }
 
 Member Member() : 
-{ int lineNum = JavaCharStream.getBeginLine(); Token type, name; 
-  Method m = null; Field f = null; String lb = "";}
-{
-    ( type = <ID> [<LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; }] name = <ID> 
-    (m = Method(type, name, lb) | f = Field(type, name, lb)) )
-    { return (m == null) ? f : m; }
+{ 
+  int lineNum = JavaCharStream.getBeginLine(); 
+  Token type, name; 
+  Method m = null; 
+  Field f = null; 
+  String lb = "";
+}{
+      (
+      type = <ID> [
+        <LEFTBRACKET> <RIGHTBRACKET> {lb = "[]"; }
+        ] name = <ID> (
+        m = Method(type, name, lb) 
+        | f = Field(type, name, lb)
+        ) 
+      ){ 
+        return (m == null) ? f : m; 
+        }
 }
 
 Method Method(Token type, Token name, String lb) : 
-{ int lineNum = JavaCharStream.getBeginLine();
-  FormalList fl = new FormalList(lineNum); StmtList sl = new StmtList(lineNum);
-  Formal f; Stmt stmt; }
-{
-    <LEFTPAREN> [f = Formal() {fl.addElement(f);} 
-    (<COMMA> f = Formal() {fl.addElement(f);})*] <RIGHTPAREN> <LEFTBRACE> 
-    (stmt = Stmt() {sl.addElement(stmt);})* <RIGHTBRACE>
-    { return new Method(lineNum, type.toString() + lb, name.toString(), fl, sl);}
+{ 
+  int lineNum = JavaCharStream.getBeginLine();
+  FormalList fl = new FormalList(lineNum); 
+  StmtList sl = new StmtList(lineNum);
+  Formal f; Stmt stmt; 
+}{
+    <LEFTPAREN> [
+      f = Formal() {fl.addElement(f);} (
+        <COMMA> f = Formal() {fl.addElement(f);}
+        )*
+      ] <RIGHTPAREN> <LEFTBRACE> (
+      stmt = Stmt() {sl.addElement(stmt);}
+      )* <RIGHTBRACE>
+    { 
+      return new Method(lineNum, 
+                        type.toString() + lb, 
+                        name.toString(), 
+                        fl, 
+                        sl);}
 }
 
 Field Field(Token type, Token name, String lb) : 
-{ int lineNum = JavaCharStream.getBeginLine();
+{ 
+  int lineNum = JavaCharStream.getBeginLine();
   Expr e = null;
-}
-{
+}{
     [<ASSIGN> e = Expr()] <SEMICOLON>
-    { return new Field(lineNum, type.toString() + lb, name.toString(), e); }
+    { 
+      return new Field(lineNum, 
+                       type.toString() + lb, 
+                       name.toString(), 
+                       e);
+    }
 }
 
 Formal Formal() : 
-{ int lineNum = JavaCharStream.getBeginLine(); Token type, name;
+{ 
+  int lineNum = JavaCharStream.getBeginLine(); 
+  Token type, name;
   String lb = "";
-}
-{
-    type = <ID> [<LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; } ] name = <ID>
-    { return new Formal(lineNum, type.toString() + lb, name.toString()); }
+}{
+    type = <ID> [
+      <LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; } 
+      ] name = <ID>
+    { 
+      return new Formal(lineNum, 
+                        type.toString() + lb, 
+                        name.toString()); 
+    }
 }
 
 Stmt Stmt() : 
 { Stmt stmt; }
 {
-    ( (LOOKAHEAD(3) stmt = ExprStmt()
-    | stmt = DeclStmt())
-    | stmt = IfStmt()
-    | stmt = WhileStmt()
-    | stmt = ForStmt()
-    | stmt = BreakStmt()
-    | stmt = ReturnStmt()
-    | stmt = BlockStmt() )
-    { return stmt; }
+    ( 
+      (
+        LOOKAHEAD(3) stmt = ExprStmt()
+        | stmt = DeclStmt()
+      )
+      | stmt = IfStmt()
+      | stmt = WhileStmt()
+      | stmt = ForStmt()
+      | stmt = BreakStmt()
+      | stmt = ReturnStmt()
+      | stmt = BlockStmt() 
+    ){ 
+      return stmt; 
+    }
 }
 
 ExprStmt ExprStmt() : 
-{ Expr e; int lineNum = JavaCharStream.getBeginLine();
-}
-{
+{ 
+  Expr e; 
+  int lineNum = JavaCharStream.getBeginLine();
+}{
     e = Expr() <SEMICOLON>
-    { return new ExprStmt(lineNum, e); }
+    { 
+      return new ExprStmt(lineNum, e); 
+      }
 }
 
 DeclStmt DeclStmt() : 
-{ Expr e; Token type, name; Token lb = null; String typeStr = "";
+{ 
+  Expr e; 
+  Token type, name; 
+  Token lb = null; 
+  String typeStr = "";
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    type = <ID> 
-    [ lb = <LEFTBRACKET> <RIGHTBRACKET> { typeStr = "[]"; } ] 
+}{
+    type = <ID> [ 
+      lb = <LEFTBRACKET> <RIGHTBRACKET> { typeStr = "[]"; } 
+      ] 
     name = <ID> <ASSIGN> e = Expr() <SEMICOLON>
-    {return new DeclStmt(lineNum, 
-                          type.toString() + typeStr, name.toString(), e);}
+    {
+      return new DeclStmt(lineNum, 
+                          type.toString() + typeStr, 
+                          name.toString(), 
+                          e);
+    }
 }
 
 IfStmt IfStmt() : 
-{ Expr e; Stmt then; IfStmt r; int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    <IF>
-    <LEFTPAREN> e = Expr() <RIGHTPAREN> then = Stmt() 
+{ 
+  Expr e; 
+  Stmt then; 
+  IfStmt r; 
+  int lineNum = JavaCharStream.getBeginLine();
+}{
+    <IF> <LEFTPAREN> e = Expr() <RIGHTPAREN> then = Stmt()
     r = OptionalElse(e, then, lineNum)
-    { return r; }
+    { 
+      return r; 
+    }
 }
 
-IfStmt OptionalElse(Expr predExpr, Stmt then, int lineNum) : 
-{ Stmt elseStmt = null;
-}
-{
+IfStmt OptionalElse(Expr predExpr, Stmt then, int lineNum) :
+{ 
+  Stmt elseStmt = null;
+  BlockStmt bs = new BlockStmt(lineNum, new StmtList(lineNum));
+}{
     <ELSE> elseStmt = Stmt()
-    { return new IfStmt(lineNum, predExpr, then, 
+    { 
+      return new IfStmt(lineNum, 
+                        predExpr, 
+                        then, 
                         elseStmt); 
     }
-    | 
-    { return new IfStmt(lineNum, predExpr, then, elseStmt); }
+  | 
+    { 
+      return new IfStmt(lineNum, 
+                        predExpr, 
+                        then, 
+                        bs); 
+    }
 }
 
 WhileStmt WhileStmt() : 
-{ Expr e; Stmt body; int lineNum = JavaCharStream.getBeginLine();
-}
-{
+{ 
+  Expr e; 
+  Stmt body; 
+  int lineNum = JavaCharStream.getBeginLine();
+}{
     <WHILE> <LEFTPAREN> e = Expr() <RIGHTPAREN> body = Stmt()
-    { return new WhileStmt(lineNum, e, body); }
+    { 
+      return new WhileStmt(lineNum, e, body); 
+    }
 }
 
 ForStmt ForStmt() : 
-{ int lineNum = JavaCharStream.getBeginLine(); Expr init = null; Expr pred = null; Expr update = null; Stmt body;
-}
-{
-    <FOR> <LEFTPAREN> [init = Expr()] <SEMICOLON> [pred = Expr()] 
-    <SEMICOLON> [update = Expr()] <RIGHTPAREN> body = Stmt()
-    { return new ForStmt(lineNum, init, pred, update, 
+{ 
+  int lineNum = JavaCharStream.getBeginLine(); 
+  Expr init = null; 
+  Expr pred = null; 
+  Expr update = null; 
+  Stmt body;
+}{
+    <FOR> <LEFTPAREN> [init = Expr()] <SEMICOLON> [
+      pred = Expr()
+      ] 
+    <SEMICOLON> [
+      update = Expr()
+      ] <RIGHTPAREN> body = Stmt()
+    { 
+      return new ForStmt(lineNum, 
+                         init, 
+                         pred, 
+                         update, 
                          body);
     }
 }
 
 BreakStmt BreakStmt() : 
-{ int lineNum = JavaCharStream.getBeginLine();
-}
-{
+{ 
+  int lineNum = JavaCharStream.getBeginLine();
+}{
     <BREAK> <SEMICOLON>
-    { return new BreakStmt(lineNum); }
+    { 
+      return new BreakStmt(lineNum); 
+    }
 }
 
 ReturnStmt ReturnStmt() : 
 { Expr e = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
+}{
     <RETURN> [e = Expr()] <SEMICOLON>
-    { return new ReturnStmt(lineNum, e); }
+    { 
+      return new ReturnStmt(lineNum, e); 
+    }
 }
 
 BlockStmt BlockStmt() : 
-{ int lineNum = JavaCharStream.getBeginLine();
-  StmtList sl = new StmtList(lineNum); Stmt s = null;
-}
-{
-    <LEFTBRACE> (s = Stmt() { sl.addElement(s); } )* <RIGHTBRACE>
-    { return new BlockStmt(lineNum, sl); }
+{ 
+  int lineNum = JavaCharStream.getBeginLine();
+  StmtList sl = new StmtList(lineNum); 
+  Stmt s = null;
+}{
+    <LEFTBRACE> (
+      s = Stmt() { sl.addElement(s); } 
+      )* <RIGHTBRACE>
+    { 
+      return new BlockStmt(lineNum, sl); 
+    }
 }
 
 Expr Expr() : 
-{ Expr e;
-}
-{
+{ 
+  Expr e;
+}{
     e = AssignExpr() { return e; }
 }
 
 Expr AssignExpr() : 
-{ Expr e1 = null; Expr e2 = null; Expr e3 = null; Token assign = null; 
-  VarExpr v1 = null; VarExpr v2 = null;
-  String refName = null; DispatchExpr d1 = null;  
-  ArrayExpr a1 = null; ArrayExpr a2 = null;
+{ 
+  Expr e1 = null; 
+  Expr e2 = null; 
+  Expr e3 = null; 
+  Token assign = null; 
+  VarExpr v1 = null; 
+  VarExpr v2 = null;
+  String refName = null; 
+  DispatchExpr d1 = null;  
+  ArrayExpr a1 = null; 
+  ArrayExpr a2 = null;
   Expr r = null; int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = BinaryOr() [assign = <ASSIGN> e2 = Expr()]
-    {
-      if (assign == null) { 
-        return e1;
+}{
+    e1 = BinaryOr() [
+      assign = <ASSIGN> e2 = Expr()
+      ]{
+        if (assign == null) { 
+          return e1;
+        }else if (e1 instanceof VarExpr) {
+          v1 = (VarExpr) e1;
+          e3 = v1.getRef();
+
+          if (e3 == null) {
+            r = new AssignExpr(lineNum, 
+                               refName, 
+                               v1.getName(), 
+                               e2);
+          } else if (e3 instanceof VarExpr) { 
+            v2 = (VarExpr) e3;
+            refName = v2.getName();
+            r = new AssignExpr(lineNum, 
+                               refName, 
+                               v1.getName(), 
+                               e2);
+          } else if (e3 instanceof DispatchExpr) {
+            d1 = (DispatchExpr) e3;
+            refName = d1.getMethodName();
+            r = new AssignExpr(lineNum, 
+                               refName, 
+                               v1.getName(), 
+                               e2);
+          } else if (e3 instanceof ArrayExpr) {
+            a1 = (ArrayExpr) e3;
+            refName = a1.getName();
+            r = new AssignExpr(lineNum, 
+                               refName, 
+                               v1.getName(),
+                               e2);
+          }
+        }else if (e1 instanceof ArrayExpr) {
+          a1 = (ArrayExpr) e1;
+          e3 = a1.getRef();
+
+          if (e3 == null) {
+            r = new ArrayAssignExpr(lineNum, 
+                                    null, 
+                                    a1.getName(), a1.getIndex(), 
+                                    e2);
+          }else if (e3 instanceof ArrayExpr) {
+            a2 = (ArrayExpr) e3;
+            r = new ArrayAssignExpr(lineNum, 
+                                    a2.getName(), 
+                                    a1.getName(),
+                                    a1.getIndex(), 
+                                    e2);
+          }else if (e3 instanceof DispatchExpr) {
+            d1 = (DispatchExpr) e3;
+            r = new ArrayAssignExpr(lineNum,
+                                    d1.getMethodName(),
+                                    a1.getName(), 
+                                    a1.getIndex() , e2);
+          }else if (e3 instanceof VarExpr) {
+            v2 = (VarExpr) e3;
+            r = new ArrayAssignExpr(lineNum, 
+                                    v2.getName(), 
+                                    a1.getName(),
+                                    a1.getIndex(), 
+                                    e2);
+          }
+        }
+        return r;
       }
-      else if (e1 instanceof VarExpr) {
-        v1 = (VarExpr) e1;
-        e3 = v1.getRef();
-        if (e3 == null) {
-          r = new AssignExpr(lineNum, refName, 
-                              v1.getName(), e2);
-        }
-        else if (e3 instanceof VarExpr)
-        { 
-          v2 = (VarExpr) e3;
-          refName = v2.getName();
-          r = new AssignExpr(lineNum, refName, 
-                              v1.getName(), e2);
-        } 
-        else if (e3 instanceof DispatchExpr){
-          d1 = (DispatchExpr) e3;
-          refName = d1.getMethodName();
-          r = new AssignExpr(lineNum, refName, 
-                              v1.getName(), e2);
-        }
-        else if (e3 instanceof ArrayExpr) {
-          a1 = (ArrayExpr) e3;
-          refName = a1.getName();
-          r = new AssignExpr(lineNum, refName, v1.getName(),e2);
-        }
-      }
-      //Cheng newbie try to attempt array assign below
-      else if (e1 instanceof ArrayExpr) {
-        a1 = (ArrayExpr) e1;
-        e3 = a1.getRef();
-        if (e3 == null) {
-          r = new ArrayAssignExpr(lineNum, null, 
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof ArrayExpr) {
-          a2 = (ArrayExpr) e3;
-          r = new ArrayAssignExpr(lineNum, a2.getName(), 
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof DispatchExpr) {
-          d1 = (DispatchExpr) e3;
-          r = new ArrayAssignExpr(lineNum, d1.getMethodName(), 
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-        else if (e3 instanceof VarExpr) {
-          v2 = (VarExpr) e3;
-          r = new ArrayAssignExpr(lineNum, v2.getName(), 
-                                  a1.getName(), a1.getIndex() , e2);
-        }
-      }
-      return r;
-    }
 }
 
 Expr BinaryOr() : 
-{ Expr e1; Expr e2 = null; Token orOp = null;
+{ 
+  Expr e1; 
+  Expr e2 = null; 
+  Token orOp = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = BinaryAnd() [(orOp = <OR> e2 = BinaryAnd())+]
-    {  
-      if (orOp == null) {
-        return e1;
+}{
+    e1 = BinaryAnd() [
+      (
+        orOp = <OR> e2 = BinaryAnd()
+        )+
+      ] {  
+        if (orOp == null) {
+          return e1;
+        } else if (orOp.toString() == "||") {
+          return new BinaryLogicOrExpr(lineNum, e1, e2);
+        }
       }
-      else if (orOp.toString() == "||") {
-        return new BinaryLogicOrExpr(lineNum, e1, e2);
-      }
-    }
 }
 
 Expr BinaryAnd() : 
-{ Expr e1; Expr e2 = null; Token andOp = null;
+{ 
+  Expr e1; 
+  Expr e2 = null; 
+  Token andOp = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = BinaryEquals() [(andOp = <AND> e2 = BinaryEquals())+]
-    {  
+}{
+    e1 = BinaryEquals() [
+      (andOp = <AND> e2 = BinaryEquals())+
+      ] {  
       if (andOp == null) {
         return e1;
       }
@@ -594,12 +718,19 @@ Expr BinaryAnd() :
 }
 
 Expr BinaryEquals() : 
-{ Expr e1; Expr e2 = null; Token eqOp = null;
+{ 
+  Expr e1; 
+  Expr e2 = null; 
+  Token eqOp = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = BinaryCompare() [((eqOp = <EQUALS> | eqOp = <NOTEQUAL>) e2 = BinaryCompare())+]
-    {
+}{
+    e1 = BinaryCompare() [
+      (
+        (
+          eqOp = <EQUALS> | eqOp = <NOTEQUAL>
+        ) e2 = BinaryCompare()
+      )+
+    ]{
       if (eqOp == null) {
         return e1;
       }
@@ -613,18 +744,23 @@ Expr BinaryEquals() :
 }
 
 Expr BinaryCompare() : 
-{ Expr e1; Expr e2 = null; String typeStr = null; Token compOp = null;
+{ 
+  Expr e1; 
+  Expr e2 = null; 
+  String typeStr = null; 
+  Token compOp = null;
   int lineNum = JavaCharStream.getBeginLine();
 }
 {
     ( e1 = BinaryPlusMinus() [
         (compOp = <GREATERTHAN> 
-            | compOp = <LESSTHAN> 
-            | compOp = <GREATERTHANOREQUALTO> 
-            | compOp = <LESSTHANOREQUALTO>
-            ) e2 = BinaryPlusMinus() 
-        | typeStr = InstanceofExpr() 
-        { return new InstanceofExpr(lineNum, e1, typeStr);}
+          | compOp = <LESSTHAN> 
+          | compOp = <GREATERTHANOREQUALTO> 
+          | compOp = <LESSTHANOREQUALTO>
+          ) e2 = BinaryPlusMinus() 
+        | typeStr = InstanceofExpr() { 
+          return new InstanceofExpr(lineNum, e1, typeStr);
+        }
     ] )
     {
       if (compOp == null) {
@@ -646,20 +782,25 @@ Expr BinaryCompare() :
 }
 
 String InstanceofExpr() : 
-{ Token type;
-}
-{
+{ 
+  Token type;
+}{
     <INSTANCEOF> type = <ID> [<LEFTBRACKET> <RIGHTBRACKET>]
     { return type.image.toString(); }
 }
 
 Expr BinaryPlusMinus() : 
-{ Expr e1 = null; Expr e2 = null; Token op = null;
+{ 
+  Expr e1 = null; 
+  Expr e2 = null; 
+  Token op = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = BinaryMultModDiv() [((op = <PLUS> | op = <MINUS>) e2 = BinaryMultModDiv())+]
-    {
+}{
+    e1 = BinaryMultModDiv() [
+      (
+        (op = <PLUS> | op = <MINUS>) e2 = BinaryMultModDiv()
+      )+
+    ] {
       if(op == null) { 
         return e1;
       }
@@ -673,12 +814,18 @@ Expr BinaryPlusMinus() :
 }
 
 Expr BinaryMultModDiv() : 
-{ Expr e1 = null; Expr e2 = null; Token op = null;
+{ 
+  Expr e1 = null; 
+  Expr e2 = null; 
+  Token op = null;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    e1 = Cast() [((op = <MULT> | op = <MOD> | op = <DIVIDE>) e2 = Cast())+]
-    { 
+}{
+    e1 = Cast() [
+      (
+        (op = <MULT> | op = <MOD> | op = <DIVIDE>) 
+        e2 = Cast()
+      )+
+    ] { 
       if(op == null) { 
         return e1;
       }
@@ -695,22 +842,25 @@ Expr BinaryMultModDiv() :
 }
 
 Expr Cast() : 
-{ Expr u;
+{ 
+  Expr u;
   String typeStr;
   int lineNum = JavaCharStream.getBeginLine();
-}
-{
-    (LOOKAHEAD(4) typeStr = CastExpr() u = Unary() 
-    { return new CastExpr(lineNum, typeStr, u); }
-    | u = Unary()
-    { return u; }
+}{
+    (
+      LOOKAHEAD(4) typeStr = CastExpr() u = Unary() 
+      { return new CastExpr(lineNum, typeStr, u); }
+      | 
+      u = Unary()
+      { return u; }
     )
 }
 
 String CastExpr() : 
-{ Token type; String lb = "";
-}
-{
+{ 
+  Token type; 
+  String lb = "";
+}{
     <LEFTPAREN> type = <ID> [<LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; }] <RIGHTPAREN> 
     { return type.image.toString() + lb;}
 }
