@@ -1272,8 +1272,8 @@ Precedence (from highest to lowest)
   }
 
   static final public Expr DispatchExpr(Expr ref, Token mName) throws ParseException {
-  ExprList el = null; Expr e = null; DispatchExpr d = null; VarExpr ve;
-  int lineNum = JavaCharStream.getBeginLine();
+  Expr e = null; DispatchExpr d = null; VarExpr ve;
+  int lineNum = JavaCharStream.getBeginLine(); ExprList el = new ExprList(lineNum);
     jj_consume_token(LEFTPAREN);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case NEW:
@@ -1287,7 +1287,7 @@ Precedence (from highest to lowest)
     case STRING_CONST:
     case ID:
       e = Expr();
-      el = new ExprList(lineNum);
+      //el = new ExprList(lineNum);
       el.addElement(e);
       label_11:
       while (true) {

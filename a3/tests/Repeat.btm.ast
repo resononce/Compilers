@@ -6,22 +6,10 @@ class Main extends Object {
         // Source line: 3
         TextIO io = (/*L3*/new TextIO());
         // Source line: 4
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
-        String s = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter some text: "))).getString(
+        String s = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter some text: "))).getString());
+        // Source line: 5
+        (/*L5*/(/*L5*/(/*L5*/(/*L5*/io).putString((/*L5*/"You entered: "))).putString((/*L5*/s))).putString((/*L5*/"\n")));
+        // Source line: 6
+        return;
+    }
+}

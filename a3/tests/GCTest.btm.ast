@@ -1198,24 +1198,141 @@ class Vector extends Object {
         // Source line: 107
         if ((/*L107*/(/*L107*/size) == (/*L107*/(/*L107*/elements).length)))
             // Source line: 108
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.ExprStmt.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.IfStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
-            (/*L108*/(/*L108*/this).resize(
+            (/*L108*/(/*L108*/this).resize());
+        else
+            // Source line: 107
+            {
+            }
+        // Source line: 110
+        int j = (/*L110*/size);
+        // Source line: 111
+        while ((/*L111*/(/*L111*/j) > (/*L111*/i)))
+            // Source line: 111
+            {
+                // Source line: 112
+                (/*L112*/elements[(/*L112*/j)] = (/*L112*/elements[(/*L112*/(/*L112*/j) - (/*L112*/1))]));
+                // Source line: 113
+                (/*L113*/j = (/*L113*/(/*L113*/j) - (/*L113*/1)));
+            }
+        // Source line: 115
+        (/*L115*/elements[(/*L115*/i)] = (/*L115*/o));
+        // Source line: 116
+        (/*L116*/size = (/*L116*/(/*L116*/size) + (/*L116*/1)));
+        // Source line: 118
+        return (/*L118*/this);
+    }
+    // Source line: 126
+    Vector setElementAt(/*line:126*/Object o, /*line:126*/int i) {
+        // Source line: 127
+        (/*L127*/(/*L127*/this).checkIndex((/*L127*/i), (/*L127*/"setElementAt"), (/*L127*/false)));
+        // Source line: 128
+        (/*L128*/(/*L128*/this).addElementAt((/*L128*/o), (/*L128*/i)));
+        // Source line: 129
+        (/*L129*/(/*L129*/this).removeElementAt((/*L129*/(/*L129*/i) + (/*L129*/1))));
+        // Source line: 131
+        return (/*L131*/this);
+    }
+    // Source line: 138
+    Vector removeElementAt(/*line:138*/int i) {
+        // Source line: 139
+        (/*L139*/(/*L139*/this).checkIndex((/*L139*/i), (/*L139*/"removeElementAt"), (/*L139*/false)));
+        // Source line: 141
+        int j = (/*L141*/i);
+        // Source line: 142
+        while ((/*L142*/(/*L142*/(/*L142*/j) + (/*L142*/1)) < (/*L142*/size)))
+            // Source line: 142
+            {
+                // Source line: 143
+                (/*L143*/elements[(/*L143*/j)] = (/*L143*/elements[(/*L143*/(/*L143*/j) + (/*L143*/1))]));
+                // Source line: 144
+                (/*L144*/j = (/*L144*/(/*L144*/j) + (/*L144*/1)));
+            }
+        // Source line: 146
+        (/*L146*/size = (/*L146*/(/*L146*/size) - (/*L146*/1)));
+        // Source line: 148
+        return (/*L148*/this);
+    }
+    // Source line: 155
+    Vector addElement(/*line:155*/Object o) {
+        // Source line: 156
+        return (/*L156*/(/*L156*/this).addElementAt((/*L156*/o), (/*L156*/size)));
+    }
+    // Source line: 163
+    Vector removeElement(/*line:163*/Object o) {
+        // Source line: 164
+        boolean removed = (/*L164*/false);
+        // Source line: 165
+        int i = (/*L165*/0);
+        // Source line: 167
+        while ((/*L167*/(/*L167*/(/*L167*/i) < (/*L167*/size)) && (/*L167*/!((/*L167*/removed)))))
+            // Source line: 167
+            {
+                // Source line: 168
+                if ((/*L168*/(/*L168*/elements[(/*L168*/i)]) == (/*L168*/o)))
+                    // Source line: 168
+                    {
+                        // Source line: 169
+                        int j = (/*L169*/i);
+                        // Source line: 170
+                        while ((/*L170*/(/*L170*/(/*L170*/j) + (/*L170*/1)) < (/*L170*/size)))
+                            // Source line: 170
+                            {
+                                // Source line: 171
+                                (/*L171*/elements[(/*L171*/j)] = (/*L171*/elements[(/*L171*/(/*L171*/j) + (/*L171*/1))]));
+                            }
+                        // Source line: 173
+                        (/*L173*/size = (/*L173*/(/*L173*/size) - (/*L173*/1)));
+                        // Source line: 174
+                        (/*L174*/removed = (/*L174*/true));
+                    }
+                else
+                    // Source line: 168
+                    {
+                    }
+                // Source line: 176
+                (/*L176*/i = (/*L176*/(/*L176*/i) + (/*L176*/1)));
+            }
+        // Source line: 179
+        if ((/*L179*/!((/*L179*/removed))))
+            // Source line: 180
+            (/*L180*/(/*L180*/this).error((/*L180*/"element not found in vector")));
+        else
+            // Source line: 179
+            {
+            }
+        // Source line: 182
+        return (/*L182*/this);
+    }
+}
+// Source file: Vector.btm
+// Source line: 190
+class VectorElement extends Object {
+    // Source line: 192
+    Object element;
+    // Source line: 194
+    VectorElement next;
+    // Source line: 199
+    Object getElement() {
+        // Source line: 200
+        return (/*L200*/element);
+    }
+    // Source line: 206
+    VectorElement setElement(/*line:206*/Object o) {
+        // Source line: 207
+        (/*L207*/element = (/*L207*/o));
+        // Source line: 208
+        return (/*L208*/this);
+    }
+    // Source line: 214
+    VectorElement getNext() {
+        // Source line: 215
+        return (/*L215*/next);
+    }
+    // Source line: 221
+    VectorElement setNext(/*line:221*/VectorElement ve) {
+        // Source line: 222
+        (/*L222*/next = (/*L222*/ve));
+        // Source line: 223
+        return (/*L223*/this);
+    }
+}

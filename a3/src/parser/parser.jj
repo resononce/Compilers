@@ -945,12 +945,12 @@ Expr Dispatch2(Expr leftExpr) :
 }
 
 Expr DispatchExpr(Expr ref, Token mName) : 
-{ ExprList el = null; Expr e = null; DispatchExpr d = null; VarExpr ve;
-  int lineNum = JavaCharStream.getBeginLine();
+{ Expr e = null; DispatchExpr d = null; VarExpr ve;
+  int lineNum = JavaCharStream.getBeginLine(); ExprList el = new ExprList(lineNum);
 }
 {
     <LEFTPAREN> [e = Expr() 
-    { el = new ExprList(lineNum);
+    { //el = new ExprList(lineNum);
       el.addElement(e);
     }
     (<COMMA> e = Expr() { el.addElement(e); } )*] <RIGHTPAREN>

@@ -6,22 +6,23 @@ class Main extends Object {
         // Source line: 3
         TextIO io = (/*L3*/new TextIO());
         // Source line: 4
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
-        int n = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter the number of repetitions: "))).getInt(
+        int n = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter the number of repetitions: "))).getInt());
+        // Source line: 5
+        int i = (/*L5*/0);
+        // Source line: 6
+        while ((/*L6*/(/*L6*/i) < (/*L6*/n)))
+            // Source line: 6
+            {
+                // Source line: 7
+                String s = (/*L7*/(/*L7*/(/*L7*/io).putString((/*L7*/"> "))).getString());
+                // Source line: 8
+                (/*L8*/(/*L8*/(/*L8*/(/*L8*/io).putString((/*L8*/"You entered: "))).putString((/*L8*/s))).putString((/*L8*/"\n")));
+                // Source line: 9
+                (/*L9*/i = (/*L9*/(/*L9*/i) + (/*L9*/1)));
+            }
+        // Source line: 11
+        (/*L11*/(/*L11*/(/*L11*/(/*L11*/io).putString((/*L11*/"Finished "))).putInt((/*L11*/n))).putString((/*L11*/" echoes...exiting\n")));
+        // Source line: 12
+        return;
+    }
+}

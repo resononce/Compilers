@@ -8,22 +8,8 @@ class Main extends Object {
         // Source line: 4
         (/*L4*/(/*L4*/io).readFile((/*L4*/"/foo")));
         // Source line: 5
-java.lang.NullPointerException
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at visitor.PrintVisitor.visit(Unknown Source)
-	at ast.Class_.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at ast.ClassList.accept(Unknown Source)
-	at visitor.Visitor.visit(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
-        String s = (/*L5*/(/*L5*/io).getString(
+        String s = (/*L5*/(/*L5*/io).getString());
+        // Source line: 6
+        return;
+    }
+}
