@@ -1,0 +1,52 @@
+0a1,15
+> yoyoy ast.StmtList@7852e922
+> yoyoy ast.StmtList@4e25154f
+> yoyoy ast.StmtList@70dea4e
+> yoyoy ast.StmtList@5c647e05
+> yoyoy ast.StmtList@33909752
+> yoyoy ast.StmtList@55f96302
+> yoyoy ast.StmtList@3d4eac69
+> yoyoy ast.StmtList@42a57993
+> yoyoy ast.StmtList@75b84c92
+> yoyoy ast.StmtList@6bc7c054
+> yoyoy ast.StmtList@232204a1
+> yoyoy ast.StmtList@4aa298b7
+> yoyoy ast.StmtList@7d4991ad
+> yoyoy ast.StmtList@28d93b30
+> yoyoy ast.StmtList@1b6d3586
+37c52
+<         if ((/*L19*/(/*L19*/objects) instanceof Object[]))
+---
+>         if ((/*L19*/(/*L19*/objects) instanceof Object))
+69c84
+<         if ((/*L38*/(/*L38*/ios) instanceof Object[]))
+---
+>         if ((/*L38*/(/*L38*/ios) instanceof Object))
+85c100
+<         if ((/*L46*/(/*L46*/ios) instanceof TextIO[]))
+---
+>         if ((/*L46*/(/*L46*/ios) instanceof TextIO))
+117c132
+<         if ((/*L65*/(/*L65*/strings) instanceof Object[]))
+---
+>         if ((/*L65*/(/*L65*/strings) instanceof Object))
+133c148
+<         if ((/*L73*/(/*L73*/strings) instanceof String[]))
+---
+>         if ((/*L73*/(/*L73*/strings) instanceof String))
+165c180
+<         if ((/*L92*/(/*L92*/sys) instanceof Object[]))
+---
+>         if ((/*L92*/(/*L92*/sys) instanceof Object))
+181c196
+<         if ((/*L100*/(/*L100*/sys) instanceof Sys[]))
+---
+>         if ((/*L100*/(/*L100*/sys) instanceof Sys))
+213c228
+<         if ((/*L119*/(/*L119*/ints) instanceof int[]))
+---
+>         if ((/*L119*/(/*L119*/ints) instanceof int))
+245c260
+<         if ((/*L139*/(/*L139*/bools) instanceof boolean[]))
+---
+>         if ((/*L139*/(/*L139*/bools) instanceof boolean))

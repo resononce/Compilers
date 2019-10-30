@@ -1,0 +1,47 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+// Source file: FindMin.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        TextIO io = (/*L3*/new TextIO());
+        // Source line: 4
+        int min = (/*L4*/0);
+        // Source line: 6
+        int n = (/*L6*/-((/*L6*/1)));
+        // Source line: 7
+        while ((/*L7*/(/*L7*/n) < (/*L7*/0)))
+            // Source line: 7
+            {
+                // Source line: 8
+                (/*L8*/(/*L8*/io).putString((/*L8*/"Enter number of times to repeat: ")));
+                // Source line: 9
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.AssignExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.WhileStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+                (/*L9*/n = (/*L9*/(/*L9*/io).getInt(

@@ -1,0 +1,114 @@
+0a1,5
+> yoyoy ast.StmtList@7852e922
+> yoyoy ast.StmtList@4e25154f
+> yoyoy ast.StmtList@70dea4e
+> yoyoy ast.StmtList@5c647e05
+> yoyoy ast.StmtList@33909752
+30,114c35,55
+<         int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone())));
+<         // Source line: 19
+<         (/*L19*/array2[(/*L19*/5)] = (/*L19*/-((/*L19*/1))));
+<         // Source line: 20
+<         (/*L20*/(/*L20*/io).putString((/*L20*/"Cloned array:\n")));
+<         // Source line: 21
+<         (/*L21*/(/*L21*/this).printArray((/*L21*/array2)));
+<         // Source line: 22
+<         (/*L22*/(/*L22*/io).putString((/*L22*/"Original array:\n")));
+<         // Source line: 23
+<         (/*L23*/(/*L23*/this).printArray((/*L23*/array)));
+<         // Source line: 24
+<         return;
+<     }
+<     // Source line: 27
+<     void buildArray(/*line:27*/int[] array) {
+<         // Source line: 28
+<         int i = (/*L28*/0);
+<         // Source line: 29
+<         while ((/*L29*/(/*L29*/i) < (/*L29*/(/*L29*/array).length)))
+<             // Source line: 29
+<             {
+<                 // Source line: 30
+<                 (/*L30*/array[(/*L30*/i)] = (/*L30*/(/*L30*/(/*L30*/(/*L30*/array).length) - (/*L30*/i)) - (/*L30*/1)));
+<                 // Source line: 31
+<                 (/*L31*/i = (/*L31*/(/*L31*/i) + (/*L31*/1)));
+<             }
+<         // Source line: 33
+<         return;
+<     }
+<     // Source line: 36
+<     void sortArray(/*line:36*/int[] array) {
+<         // Source line: 37
+<         int i = (/*L37*/0);
+<         // Source line: 38
+<         while ((/*L38*/(/*L38*/i) < (/*L38*/(/*L38*/array).length)))
+<             // Source line: 38
+<             {
+<                 // Source line: 39
+<                 int j = (/*L39*/(/*L39*/i) + (/*L39*/1));
+<                 // Source line: 40
+<                 while ((/*L40*/(/*L40*/j) < (/*L40*/(/*L40*/array).length)))
+<                     // Source line: 40
+<                     {
+<                         // Source line: 41
+<                         if ((/*L41*/(/*L41*/array[(/*L41*/i)]) > (/*L41*/array[(/*L41*/j)])))
+<                             // Source line: 41
+<                             {
+<                                 // Source line: 42
+<                                 int tmp = (/*L42*/array[(/*L42*/i)]);
+<                                 // Source line: 43
+<                                 (/*L43*/array[(/*L43*/i)] = (/*L43*/array[(/*L43*/j)]));
+<                                 // Source line: 44
+<                                 (/*L44*/array[(/*L44*/j)] = (/*L44*/tmp));
+<                             }
+<                         else
+<                             // Source line: 41
+<                             {
+<                             }
+<                         // Source line: 46
+<                         (/*L46*/j = (/*L46*/(/*L46*/j) + (/*L46*/1)));
+<                     }
+<                 // Source line: 48
+<                 (/*L48*/i = (/*L48*/(/*L48*/i) + (/*L48*/1)));
+<             }
+<         // Source line: 50
+<         return;
+<     }
+<     // Source line: 53
+<     void printArray(/*line:53*/int[] array) {
+<         // Source line: 54
+<         int i = (/*L54*/0);
+<         // Source line: 55
+<         while ((/*L55*/(/*L55*/i) < (/*L55*/(/*L55*/array).length)))
+<             // Source line: 55
+<             {
+<                 // Source line: 56
+<                 (/*L56*/(/*L56*/(/*L56*/io).putInt((/*L56*/array[(/*L56*/i)]))).putString((/*L56*/"\n")));
+<                 // Source line: 57
+<                 (/*L57*/i = (/*L57*/(/*L57*/i) + (/*L57*/1)));
+<             }
+<         // Source line: 59
+<         return;
+<     }
+< }
+---
+> java.lang.NullPointerException
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.CastExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Class_.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.ClassList.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation
+>         int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone(

@@ -1,0 +1,59 @@
+// Source file: Super.btm
+// Source line: 1
+class A extends Object {
+    // Source line: 2
+    TextIO io = 
+(/*L2*/new TextIO());
+    // Source line: 3
+    String name;
+    // Source line: 4
+    void setName() {
+        // Source line: 5
+        (/*L5*/this.name = (/*L5*/"A"));
+        // Source line: 6
+        return;
+    }
+    // Source line: 8
+    void foo() {
+        // Source line: 9
+        (/*L9*/(/*L9*/(/*L9*/(/*L9*/io).putString((/*L9*/"Static type = A, dynamic type = "))).putString((/*L9*/name))).putString((/*L9*/"\n")));
+        // Source line: 10
+        return;
+    }
+}
+// Source file: Super.btm
+// Source line: 14
+class B extends A {
+    // Source line: 15
+    String name;
+    // Source line: 16
+    void setName() {
+        // Source line: 17
+        (/*L17*/super.name = (/*L17*/"B"));
+        // Source line: 18
+        return;
+    }
+    // Source line: 20
+    void foo() {
+        // Source line: 21
+        (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"Static type = B, dynamic type = "))).putString((/*L21*/name))).putString((/*L21*/"\n")));
+        // Source line: 22
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+        (/*L22*/(/*L22*/super).foo(

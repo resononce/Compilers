@@ -1,0 +1,79 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+// Source file: ForBreakIncDecTest1.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        int[] array = (/*L3*/new int[(/*L3*/10)]);
+        // Source line: 4
+        int n = (/*L4*/100);
+        // Source line: 5
+        int i = (/*L5*/0);
+        // Source line: 6
+        for ((/*L6*/i = (/*L6*/0)); (/*L6*/(/*L6*/i) < (/*L6*/100)); (/*L6*/++((/*L6*/i))))
+            // Source line: 6
+            {
+                // Source line: 7
+                (/*L7*/((/*L7*/array[(/*L7*/0)]))--);
+                // Source line: 8
+                (/*L8*/--((/*L8*/array[(/*L8*/1)])));
+                // Source line: 9
+                (/*L9*/(/*L9*/this).print((/*L9*/++((/*L9*/i)))));
+                // Source line: 10
+                (/*L10*/(/*L10*/this).print((/*L10*/((/*L10*/n))++)));
+                // Source line: 11
+                int z = (/*L11*/10);
+                // Source line: 12
+                int j = (/*L12*/0);
+                // Source line: 13
+                int w = (/*L13*/5);
+                // Source line: 14
+                while ((/*L14*/(/*L14*/j) < (/*L14*/10)))
+                    // Source line: 14
+                    {
+                        // Source line: 15
+                        int a = (/*L15*/2);
+                        // Source line: 16
+                        int b = (/*L16*/3);
+                        // Source line: 17
+                        if ((/*L17*/(/*L17*/i) >= (/*L17*/24)))
+                            // Source line: 17
+                            {
+                                // Source line: 18
+                                int c = (/*L18*/5);
+                                // Source line: 19
+                                break;
+                            }
+                        else
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.IfStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.WhileStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ForStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

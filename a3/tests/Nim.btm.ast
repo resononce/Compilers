@@ -1,0 +1,50 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+// Source file: Nim.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 6
+    TextIO io = 
+(/*L6*/new TextIO());
+    // Source line: 13
+    int turn(/*line:13*/String name, /*line:13*/int numBeansLeft) {
+        // Source line: 14
+        int pickedBeans = (/*L14*/0);
+        // Source line: 18
+        while ((/*L18*/true))
+            // Source line: 18
+            {
+                // Source line: 20
+                (/*L20*/(/*L20*/(/*L20*/io).putString((/*L20*/name))).putString((/*L20*/", how many beans to pick up? (")));
+                // Source line: 21
+                (/*L21*/(/*L21*/(/*L21*/io).putInt((/*L21*/numBeansLeft))).putString((/*L21*/" left) ")));
+                // Source line: 22
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.AssignExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.WhileStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+                (/*L22*/pickedBeans = (/*L22*/(/*L22*/io).getInt(

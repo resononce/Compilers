@@ -1,0 +1,39 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+// Source file: CountDivisors.btm
+// Source line: 5
+class Main extends Object {
+    // Source line: 7
+    void main() {
+        // Source line: 8
+        TextIO io = (/*L8*/new TextIO());
+        // Source line: 9
+        int upperBound = (/*L9*/1);
+        // Source line: 10
+        int numWithMostDivisors = (/*L10*/0);
+        // Source line: 11
+        int maxDivisors = (/*L11*/0);
+        // Source line: 13
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.AssignExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+        (/*L13*/upperBound = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a number >= 1: "))).getInt(

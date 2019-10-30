@@ -1,0 +1,56 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+yoyoy ast.StmtList@33909752
+yoyoy ast.StmtList@55f96302
+yoyoy ast.StmtList@3d4eac69
+yoyoy ast.StmtList@42a57993
+yoyoy ast.StmtList@75b84c92
+yoyoy ast.StmtList@6bc7c054
+yoyoy ast.StmtList@232204a1
+yoyoy ast.StmtList@4aa298b7
+// Source file: GCTest.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        TextIO io = (/*L3*/new TextIO());
+        // Source line: 4
+        Vector v = (/*L4*/new Vector());
+        // Source line: 5
+        int i = (/*L5*/0);
+        // Source line: 6
+        while ((/*L6*/(/*L6*/i) < (/*L6*/1000)))
+            // Source line: 6
+            {
+                // Source line: 7
+                (/*L7*/(/*L7*/(/*L7*/io).putInt((/*L7*/i))).putString((/*L7*/"-1\n")));
+                // Source line: 8
+                if ((/*L8*/(/*L8*/(/*L8*/i) % (/*L8*/100)) == (/*L8*/0)))
+                    // Source line: 9
+                    (/*L9*/(/*L9*/v).addElement((/*L9*/new A())));
+                else
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.IfStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.WhileStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

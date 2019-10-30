@@ -1,0 +1,32 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+// Source file: Fact.btm
+// Source line: 5
+class Main extends Object {
+    // Source line: 7
+    TextIO io = 
+(/*L7*/new TextIO());
+    // Source line: 11
+    void main() {
+        // Source line: 13
+        (/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number: ")));
+        // Source line: 14
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DeclStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+        int x = (/*L14*/(/*L14*/io).getInt(

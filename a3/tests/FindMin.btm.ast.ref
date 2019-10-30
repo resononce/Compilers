@@ -1,0 +1,59 @@
+// Source file: FindMin.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        TextIO io = (/*L3*/new TextIO());
+        // Source line: 4
+        int min = (/*L4*/0);
+        // Source line: 6
+        int n = (/*L6*/-((/*L6*/1)));
+        // Source line: 7
+        while ((/*L7*/(/*L7*/n) < (/*L7*/0)))
+            // Source line: 7
+            {
+                // Source line: 8
+                (/*L8*/(/*L8*/io).putString((/*L8*/"Enter number of times to repeat: ")));
+                // Source line: 9
+                (/*L9*/n = (/*L9*/(/*L9*/io).getInt()));
+                // Source line: 10
+                if ((/*L10*/(/*L10*/n) < (/*L10*/0)))
+                    // Source line: 11
+                    (/*L11*/(/*L11*/io).putString((/*L11*/"Error: must enter non-negative number\n")));
+                else
+                    // Source line: 10
+                    {
+                    }
+            }
+        // Source line: 13
+        (/*L13*/(/*L13*/io).putString((/*L13*/"\n")));
+        // Source line: 15
+        int i = (/*L15*/1);
+        // Source line: 16
+        while ((/*L16*/(/*L16*/i) <= (/*L16*/n)))
+            // Source line: 16
+            {
+                // Source line: 17
+                (/*L17*/(/*L17*/(/*L17*/(/*L17*/io).putString((/*L17*/"Enter number "))).putInt((/*L17*/i))).putString((/*L17*/": ")));
+                // Source line: 18
+                int userInput = (/*L18*/(/*L18*/io).getInt());
+                // Source line: 19
+                if ((/*L19*/(/*L19*/(/*L19*/userInput) < (/*L19*/min)) || (/*L19*/(/*L19*/i) == (/*L19*/1))))
+                    // Source line: 20
+                    (/*L20*/min = (/*L20*/userInput));
+                else
+                    // Source line: 19
+                    {
+                    }
+                // Source line: 21
+                (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"You entered: "))).putInt((/*L21*/userInput))).putString((/*L21*/"\n\n")));
+                // Source line: 22
+                (/*L22*/i = (/*L22*/(/*L22*/i) + (/*L22*/1)));
+            }
+        // Source line: 25
+        (/*L25*/(/*L25*/(/*L25*/(/*L25*/io).putString((/*L25*/"The minimum number entered was: "))).putInt((/*L25*/min))).putString((/*L25*/"\n")));
+        // Source line: 27
+        return;
+    }
+}

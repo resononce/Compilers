@@ -1,0 +1,55 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+yoyoy ast.StmtList@33909752
+// Source file: ArrayTest3.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 5
+    TextIO io = 
+(/*L5*/new TextIO());
+    // Source line: 7
+    void main() {
+        // Source line: 8
+        int[] array = (/*L8*/new int[(/*L8*/10)]);
+        // Source line: 9
+        (/*L9*/(/*L9*/io).putString((/*L9*/"Building reverse sorted array...\n")));
+        // Source line: 10
+        (/*L10*/(/*L10*/this).buildArray((/*L10*/array)));
+        // Source line: 11
+        (/*L11*/(/*L11*/io).putString((/*L11*/"Unsorted array:\n")));
+        // Source line: 12
+        (/*L12*/(/*L12*/this).printArray((/*L12*/array)));
+        // Source line: 13
+        (/*L13*/(/*L13*/io).putString((/*L13*/"Sorting array...\n")));
+        // Source line: 14
+        (/*L14*/(/*L14*/this).sortArray((/*L14*/array)));
+        // Source line: 15
+        (/*L15*/(/*L15*/io).putString((/*L15*/"Sorted array:\n")));
+        // Source line: 16
+        (/*L16*/(/*L16*/this).printArray((/*L16*/array)));
+        // Source line: 17
+        (/*L17*/(/*L17*/io).putString((/*L17*/"Cloning array and setting element 5 to -1...\n")));
+        // Source line: 18
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.CastExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DeclStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+        int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone(

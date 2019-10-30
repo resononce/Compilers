@@ -1,0 +1,114 @@
+0a1,4
+> yoyoy ast.StmtList@7852e922
+> yoyoy ast.StmtList@4e25154f
+> yoyoy ast.StmtList@70dea4e
+> yoyoy ast.StmtList@5c647e05
+20,99c24,50
+<                 (/*L22*/pickedBeans = (/*L22*/(/*L22*/io).getInt()));
+<                 // Source line: 25
+<                 if ((/*L25*/(/*L25*/(/*L25*/pickedBeans) < (/*L25*/1)) || (/*L25*/(/*L25*/pickedBeans) > (/*L25*/3))))
+<                     // Source line: 26
+<                     (/*L26*/(/*L26*/io).putString((/*L26*/"number of beans must be 1, 2, or 3\n")));
+<                 else
+<                     // Source line: 28
+<                     if ((/*L28*/(/*L28*/pickedBeans) > (/*L28*/numBeansLeft)))
+<                         // Source line: 29
+<                         (/*L29*/(/*L29*/io).putString((/*L29*/"can't pick up more beans than are left\n")));
+<                     else
+<                         // Source line: 32
+<                         return (/*L32*/pickedBeans);
+<             }
+<         // Source line: 36
+<         return (/*L36*/0);
+<     }
+<     // Source line: 44
+<     void main() {
+<         // Source line: 46
+<         (/*L46*/(/*L46*/io).putString((/*L46*/"Player 1, enter your name: ")));
+<         // Source line: 47
+<         String player1 = (/*L47*/(/*L47*/io).getString());
+<         // Source line: 48
+<         (/*L48*/(/*L48*/io).putString((/*L48*/"Player 2, enter your name: ")));
+<         // Source line: 49
+<         String player2 = (/*L49*/(/*L49*/io).getString());
+<         // Source line: 50
+<         (/*L50*/(/*L50*/io).putString((/*L50*/"How many beans to start? ")));
+<         // Source line: 51
+<         int totalBeans = (/*L51*/(/*L51*/io).getInt());
+<         // Source line: 54
+<         while ((/*L54*/(/*L54*/totalBeans) < (/*L54*/1)))
+<             // Source line: 54
+<             {
+<                 // Source line: 55
+<                 (/*L55*/(/*L55*/io).putString((/*L55*/"Total beans must be > 0.  How many beans to start? ")));
+<                 // Source line: 56
+<                 (/*L56*/totalBeans = (/*L56*/(/*L56*/io).getInt()));
+<             }
+<         // Source line: 60
+<         int numBeansLeft = (/*L60*/totalBeans);
+<         // Source line: 62
+<         String currentPlayer = (/*L62*/player1);
+<         // Source line: 67
+<         int i = (/*L67*/0);
+<         // Source line: 68
+<         while ((/*L68*/(/*L68*/numBeansLeft) > (/*L68*/0)))
+<             // Source line: 68
+<             {
+<                 // Source line: 70
+<                 int pickedBeans = (/*L70*/(/*L70*/this).turn((/*L70*/currentPlayer), (/*L70*/numBeansLeft)));
+<                 // Source line: 72
+<                 (/*L72*/numBeansLeft = (/*L72*/(/*L72*/numBeansLeft) - (/*L72*/pickedBeans)));
+<                 // Source line: 75
+<                 if ((/*L75*/(/*L75*/numBeansLeft) > (/*L75*/0)))
+<                     // Source line: 75
+<                     {
+<                         // Source line: 77
+<                         (/*L77*/currentPlayer = (/*L77*/player2));
+<                         // Source line: 78
+<                         if ((/*L78*/(/*L78*/(/*L78*/i) % (/*L78*/2)) == (/*L78*/1)))
+<                             // Source line: 79
+<                             (/*L79*/currentPlayer = (/*L79*/player1));
+<                         else
+<                             // Source line: 78
+<                             {
+<                             }
+<                     }
+<                 else
+<                     // Source line: 75
+<                     {
+<                     }
+<                 // Source line: 82
+<                 (/*L82*/i = (/*L82*/(/*L82*/i) + (/*L82*/1)));
+<             }
+<         // Source line: 87
+<         (/*L87*/(/*L87*/(/*L87*/io).putString((/*L87*/currentPlayer))).putString((/*L87*/", you win!\n")));
+<     }
+< }
+---
+> java.lang.NullPointerException
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.AssignExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.ExprStmt.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.BlockStmt.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.WhileStmt.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Class_.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.ClassList.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation
+>                 (/*L22*/pickedBeans = (/*L22*/(/*L22*/io).getInt(

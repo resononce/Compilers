@@ -1,0 +1,74 @@
+0a1,2
+> yoyoy ast.StmtList@7852e922
+> yoyoy ast.StmtList@4e25154f
+10,59c12,30
+<         int n = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number:  "))).getInt());
+<         // Source line: 16
+<         if ((/*L16*/(/*L16*/n) < (/*L16*/0)))
+<             // Source line: 16
+<             {
+<                 // Source line: 18
+<                 (/*L18*/(/*L18*/io).putString((/*L18*/"Number cannot be negative\n")));
+<                 // Source line: 19
+<                 (/*L19*/(/*L19*/new Sys()).exit((/*L19*/1)));
+<             }
+<         else
+<             // Source line: 16
+<             {
+<             }
+<         // Source line: 23
+<         int i = (/*L23*/0);
+<         // Source line: 24
+<         while ((/*L24*/(/*L24*/i) < (/*L24*/n)))
+<             // Source line: 24
+<             {
+<                 // Source line: 26
+<                 (/*L26*/(/*L26*/(/*L26*/(/*L26*/io).putString((/*L26*/"Fibonacci number "))).putInt((/*L26*/i))).putString((/*L26*/": ")));
+<                 // Source line: 27
+<                 (/*L27*/(/*L27*/(/*L27*/io).putInt((/*L27*/(/*L27*/this).fib((/*L27*/i))))).putString((/*L27*/"\n")));
+<                 // Source line: 28
+<                 (/*L28*/i = (/*L28*/(/*L28*/i) + (/*L28*/1)));
+<             }
+<         // Source line: 31
+<         return;
+<     }
+<     // Source line: 38
+<     int fib(/*line:38*/int n) {
+<         // Source line: 39
+<         int result = (/*L39*/0);
+<         // Source line: 42
+<         if ((/*L42*/(/*L42*/n) == (/*L42*/0)))
+<             // Source line: 43
+<             (/*L43*/result = (/*L43*/0));
+<         else
+<             // Source line: 45
+<             if ((/*L45*/(/*L45*/n) == (/*L45*/1)))
+<                 // Source line: 46
+<                 (/*L46*/result = (/*L46*/1));
+<             else
+<                 // Source line: 50
+<                 (/*L50*/result = (/*L50*/(/*L50*/(/*L50*/this).fib((/*L50*/(/*L50*/n) - (/*L50*/1)))) + (/*L50*/(/*L50*/this).fib((/*L50*/(/*L50*/n) - (/*L50*/2))))));
+<         // Source line: 52
+<         return (/*L52*/result);
+<     }
+< }
+---
+> java.lang.NullPointerException
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Class_.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.ClassList.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation
+>         int n = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number:  "))).getInt(

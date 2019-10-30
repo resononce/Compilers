@@ -1,0 +1,82 @@
+// Source file: ForBreakIncDecTest1.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        int[] array = (/*L3*/new int[(/*L3*/10)]);
+        // Source line: 4
+        int n = (/*L4*/100);
+        // Source line: 5
+        int i = (/*L5*/0);
+        // Source line: 6
+        for ((/*L6*/i = (/*L6*/0)); (/*L6*/(/*L6*/i) < (/*L6*/100)); (/*L6*/++((/*L6*/i))))
+            // Source line: 6
+            {
+                // Source line: 7
+                (/*L7*/((/*L7*/array[(/*L7*/0)]))--);
+                // Source line: 8
+                (/*L8*/--((/*L8*/array[(/*L8*/1)])));
+                // Source line: 9
+                (/*L9*/(/*L9*/this).print((/*L9*/++((/*L9*/i)))));
+                // Source line: 10
+                (/*L10*/(/*L10*/this).print((/*L10*/((/*L10*/n))++)));
+                // Source line: 11
+                int z = (/*L11*/10);
+                // Source line: 12
+                int j = (/*L12*/0);
+                // Source line: 13
+                int w = (/*L13*/5);
+                // Source line: 14
+                while ((/*L14*/(/*L14*/j) < (/*L14*/10)))
+                    // Source line: 14
+                    {
+                        // Source line: 15
+                        int a = (/*L15*/2);
+                        // Source line: 16
+                        int b = (/*L16*/3);
+                        // Source line: 17
+                        if ((/*L17*/(/*L17*/i) >= (/*L17*/24)))
+                            // Source line: 17
+                            {
+                                // Source line: 18
+                                int c = (/*L18*/5);
+                                // Source line: 19
+                                break;
+                            }
+                        else
+                            // Source line: 17
+                            {
+                            }
+                        // Source line: 21
+                        (/*L21*/j = (/*L21*/(/*L21*/j) + (/*L21*/1)));
+                    }
+                // Source line: 23
+                if ((/*L23*/(/*L23*/i) >= (/*L23*/49)))
+                    // Source line: 23
+                    {
+                        // Source line: 24
+                        int c = (/*L24*/4);
+                        // Source line: 25
+                        break;
+                    }
+                else
+                    // Source line: 23
+                    {
+                    }
+            }
+        // Source line: 28
+        (/*L28*/(/*L28*/(/*L28*/new TextIO()).putInt((/*L28*/array[(/*L28*/0)]))).putString((/*L28*/"\n")));
+        // Source line: 29
+        (/*L29*/(/*L29*/(/*L29*/new TextIO()).putInt((/*L29*/array[(/*L29*/1)]))).putString((/*L29*/"\n")));
+        // Source line: 30
+        return;
+    }
+    // Source line: 33
+    void print(/*line:33*/int n) {
+        // Source line: 34
+        (/*L34*/(/*L34*/(/*L34*/new TextIO()).putInt((/*L34*/n))).putString((/*L34*/"\n")));
+        // Source line: 35
+        return;
+    }
+}

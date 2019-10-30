@@ -1,0 +1,59 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+yoyoy ast.StmtList@33909752
+yoyoy ast.StmtList@55f96302
+yoyoy ast.StmtList@3d4eac69
+yoyoy ast.StmtList@42a57993
+yoyoy ast.StmtList@75b84c92
+yoyoy ast.StmtList@6bc7c054
+yoyoy ast.StmtList@232204a1
+yoyoy ast.StmtList@4aa298b7
+yoyoy ast.StmtList@7d4991ad
+// Source file: TicTacToe.btm
+// Source line: 3
+class Main extends Object {
+    // Source line: 4
+    TextIO io = 
+(/*L4*/new TextIO());
+    // Source line: 5
+    int player = 
+(/*L5*/1);
+    // Source line: 6
+    int[] board = 
+(/*L6*/new int[(/*L6*/9)]);
+    // Source line: 9
+    void main() {
+        // Source line: 11
+        (/*L11*/(/*L11*/io).putString((/*L11*/"*** Tic Tac Toe ***\n")));
+        // Source line: 14
+        while ((/*L14*/true))
+            // Source line: 14
+            {
+                // Source line: 16
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.BlockStmt.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.WhileStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+                (/*L16*/(/*L16*/this).printBoard(

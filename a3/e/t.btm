@@ -1,0 +1,5 @@
+class Main {
+    void main() {
+	printElement(array[0], 0);
+   }
+}

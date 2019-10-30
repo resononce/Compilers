@@ -1,0 +1,63 @@
+yoyoy ast.StmtList@7852e922
+yoyoy ast.StmtList@4e25154f
+yoyoy ast.StmtList@70dea4e
+yoyoy ast.StmtList@5c647e05
+yoyoy ast.StmtList@33909752
+yoyoy ast.StmtList@55f96302
+yoyoy ast.StmtList@3d4eac69
+yoyoy ast.StmtList@42a57993
+yoyoy ast.StmtList@75b84c92
+yoyoy ast.StmtList@6bc7c054
+yoyoy ast.StmtList@232204a1
+yoyoy ast.StmtList@4aa298b7
+yoyoy ast.StmtList@7d4991ad
+yoyoy ast.StmtList@28d93b30
+yoyoy ast.StmtList@1b6d3586
+yoyoy ast.StmtList@4554617c
+yoyoy ast.StmtList@74a14482
+yoyoy ast.StmtList@1540e19d
+yoyoy ast.StmtList@677327b6
+yoyoy ast.StmtList@14ae5a5
+yoyoy ast.StmtList@7f31245a
+yoyoy ast.StmtList@6d6f6e28
+yoyoy ast.StmtList@135fbaa4
+yoyoy ast.StmtList@45ee12a7
+yoyoy ast.StmtList@330bedb4
+yoyoy ast.StmtList@2503dbd3
+yoyoy ast.StmtList@4b67cf4d
+yoyoy ast.StmtList@7ea987ac
+yoyoy ast.StmtList@12a3a380
+yoyoy ast.StmtList@29453f44
+yoyoy ast.StmtList@5cad8086
+yoyoy ast.StmtList@6e0be858
+// Source file: VectorTest.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 5
+    TextIO io = 
+(/*L5*/new TextIO());
+    // Source line: 6
+    Vector v = 
+(/*L6*/new Vector());
+    // Source line: 8
+    void main() {
+        // Source line: 9
+java.lang.NullPointerException
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at visitor.PrintVisitor.visit(Unknown Source)
+	at ast.Class_.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at ast.ClassList.accept(Unknown Source)
+	at visitor.Visitor.visit(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation
+        (/*L9*/(/*L9*/this).test1(

@@ -1,0 +1,52 @@
+41,71c41,59
+<         (/*L22*/(/*L22*/super).foo());
+<         // Source line: 23
+<         return;
+<     }
+< }
+< // Source file: Super.btm
+< // Source line: 27
+< class C extends B {
+<     // Source line: 28
+<     void setName() {
+<         // Source line: 29
+<         (/*L29*/this.name = (/*L29*/"C"));
+<         // Source line: 30
+<         return;
+<     }
+< }
+< // Source file: Super.btm
+< // Source line: 34
+< class Main extends Object {
+<     // Source line: 35
+<     void main() {
+<         // Source line: 36
+<         C c = (/*L36*/new C());
+<         // Source line: 37
+<         (/*L37*/(/*L37*/c).setName());
+<         // Source line: 38
+<         (/*L38*/(/*L38*/c).foo());
+<         // Source line: 39
+<         return;
+<     }
+< }
+---
+> java.lang.NullPointerException
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.ExprStmt.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at visitor.PrintVisitor.visit(Unknown Source)
+> 	at ast.Class_.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at ast.ClassList.accept(Unknown Source)
+> 	at visitor.Visitor.visit(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation
+>         (/*L22*/(/*L22*/super).foo(
