@@ -99,7 +99,7 @@ class Main extends Object {
         // Source line: 57
         (/*L57*/(/*L57*/v).addElement((/*L57*/s)));
         // Source line: 58
-        (/*L58*/(/*L58*/io).putString((/*L58*/"Added String (\"abc\") to end of vector\n")));
+        (/*L58*/(/*L58*/io).putString((/*L58*/"Added String ("abc") to end of vector\n")));
         // Source line: 60
         (/*L60*/(/*L60*/io).putString((/*L60*/"Printing vector:\n")));
         // Source line: 61

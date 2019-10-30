@@ -1,4 +1,0 @@
-102c102
-<         (/*L58*/(/*L58*/io).putString((/*L58*/"Added String ("abc") to end of vector\n")));
----
->         (/*L58*/(/*L58*/io).putString((/*L58*/"Added String (\"abc\") to end of vector\n")));

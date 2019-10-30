@@ -990,6 +990,10 @@ ConstExpr ConstExpr() :
                                             t.image.toString()); }
     | t = <BOOLEAN_CONST> { return new ConstBooleanExpr(lineNum,
                                             t.image.toString()); }
-    | t = <STRING_CONST> { return new ConstStringExpr(lineNum,
-                                            t.image.toString().substring(1, t.image.toString().length()-1)); }
+    | t = <STRING_CONST> { 
+      return new ConstStringExpr(lineNum,
+                                  t.image
+                                  .toString()
+                                  .substring(1, t.image.toString().length()-1)
+                                  .replaceAll("\\\\\"", "\"")); }
 }

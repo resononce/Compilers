@@ -1382,8 +1382,11 @@ Precedence (from highest to lowest)
       break;
     case STRING_CONST:
       t = jj_consume_token(STRING_CONST);
-                           {if (true) return new ConstStringExpr(lineNum,
-                                            t.image.toString().substring(1, t.image.toString().length()-1));}
+      {if (true) return new ConstStringExpr(lineNum,
+                                  t.image
+                                  .toString()
+                                  .substring(1, t.image.toString().length()-1)
+                                  .replaceAll("\u005c\u005c\u005c\u005c\u005c"", "\u005c""));}
       break;
     default:
       jj_la1[53] = jj_gen;
