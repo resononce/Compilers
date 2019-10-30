@@ -784,9 +784,10 @@ Expr BinaryCompare() :
 String InstanceofExpr() : 
 { 
   Token type;
+  String br = "";
 }{
-    <INSTANCEOF> type = <ID> [<LEFTBRACKET> <RIGHTBRACKET>]
-    { return type.image.toString(); }
+    <INSTANCEOF> type = <ID> [<LEFTBRACKET> <RIGHTBRACKET> { br = "[]"; }]
+    { return type.image.toString() + br; }
 }
 
 Expr BinaryPlusMinus() : 
@@ -950,7 +951,7 @@ Expr DispatchExpr(Expr ref, Token mName) :
 }
 {
     <LEFTPAREN> [e = Expr() 
-    { //el = new ExprList(lineNum);
+    { //el = new ExprList(lineNum); Initialized expression list above so it won't be null below
       el.addElement(e);
     }
     (<COMMA> e = Expr() { el.addElement(e); } )*] <RIGHTPAREN>

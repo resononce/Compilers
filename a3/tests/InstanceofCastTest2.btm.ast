@@ -34,7 +34,7 @@ class Main extends Object {
             // Source line: 18
             (/*L18*/(/*L18*/io).putString((/*L18*/"Object[] object not instance of Object\n")));
         // Source line: 19
-        if ((/*L19*/(/*L19*/objects) instanceof Object))
+        if ((/*L19*/(/*L19*/objects) instanceof Object[]))
             // Source line: 19
             {
                 // Source line: 20
@@ -66,7 +66,7 @@ class Main extends Object {
             // Source line: 37
             (/*L37*/(/*L37*/io).putString((/*L37*/"TextIO[] object not instance of Object\n")));
         // Source line: 38
-        if ((/*L38*/(/*L38*/ios) instanceof Object))
+        if ((/*L38*/(/*L38*/ios) instanceof Object[]))
             // Source line: 38
             {
                 // Source line: 39
@@ -82,7 +82,7 @@ class Main extends Object {
             // Source line: 45
             (/*L45*/(/*L45*/io).putString((/*L45*/"TextIO[] object not instance of Object[]\n")));
         // Source line: 46
-        if ((/*L46*/(/*L46*/ios) instanceof TextIO))
+        if ((/*L46*/(/*L46*/ios) instanceof TextIO[]))
             // Source line: 46
             {
                 // Source line: 47
@@ -114,7 +114,7 @@ class Main extends Object {
             // Source line: 64
             (/*L64*/(/*L64*/io).putString((/*L64*/"String[] object not instance of Object\n")));
         // Source line: 65
-        if ((/*L65*/(/*L65*/strings) instanceof Object))
+        if ((/*L65*/(/*L65*/strings) instanceof Object[]))
             // Source line: 65
             {
                 // Source line: 66
@@ -130,7 +130,7 @@ class Main extends Object {
             // Source line: 72
             (/*L72*/(/*L72*/io).putString((/*L72*/"String[] object not instance of Object[]\n")));
         // Source line: 73
-        if ((/*L73*/(/*L73*/strings) instanceof String))
+        if ((/*L73*/(/*L73*/strings) instanceof String[]))
             // Source line: 73
             {
                 // Source line: 74
@@ -162,7 +162,7 @@ class Main extends Object {
             // Source line: 91
             (/*L91*/(/*L91*/io).putString((/*L91*/"Sys[] object not instance of Object\n")));
         // Source line: 92
-        if ((/*L92*/(/*L92*/sys) instanceof Object))
+        if ((/*L92*/(/*L92*/sys) instanceof Object[]))
             // Source line: 92
             {
                 // Source line: 93
@@ -178,7 +178,7 @@ class Main extends Object {
             // Source line: 99
             (/*L99*/(/*L99*/io).putString((/*L99*/"Sys[] object not instance of Object[]\n")));
         // Source line: 100
-        if ((/*L100*/(/*L100*/sys) instanceof Sys))
+        if ((/*L100*/(/*L100*/sys) instanceof Sys[]))
             // Source line: 100
             {
                 // Source line: 101
@@ -210,7 +210,7 @@ class Main extends Object {
             // Source line: 118
             (/*L118*/(/*L118*/io).putString((/*L118*/"int[] object not instance of Object\n")));
         // Source line: 119
-        if ((/*L119*/(/*L119*/ints) instanceof int))
+        if ((/*L119*/(/*L119*/ints) instanceof int[]))
             // Source line: 119
             {
                 // Source line: 120
@@ -242,7 +242,7 @@ class Main extends Object {
             // Source line: 138
             (/*L138*/(/*L138*/io).putString((/*L138*/"boolean[] object not instance of Object\n")));
         // Source line: 139
-        if ((/*L139*/(/*L139*/bools) instanceof boolean))
+        if ((/*L139*/(/*L139*/bools) instanceof boolean[]))
             // Source line: 139
             {
                 // Source line: 140

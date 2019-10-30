@@ -909,18 +909,20 @@ Precedence (from highest to lowest)
 
   static final public String InstanceofExpr() throws ParseException {
   Token type;
+  String br = "";
     jj_consume_token(INSTANCEOF);
     type = jj_consume_token(ID);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LEFTBRACKET:
       jj_consume_token(LEFTBRACKET);
       jj_consume_token(RIGHTBRACKET);
+                                                             br = "[]";
       break;
     default:
       jj_la1[30] = jj_gen;
       ;
     }
-      {if (true) return type.image.toString();}
+      {if (true) return type.image.toString() + br;}
     throw new Error("Missing return statement in function");
   }
 
@@ -1287,7 +1289,7 @@ Precedence (from highest to lowest)
     case STRING_CONST:
     case ID:
       e = Expr();
-      //el = new ExprList(lineNum);
+      //el = new ExprList(lineNum); Initialized expression list above so it won't be null below
       el.addElement(e);
       label_11:
       while (true) {
@@ -1413,16 +1415,6 @@ Precedence (from highest to lowest)
     finally { jj_save(1, xla); }
   }
 
-  static private boolean jj_3R_48() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_2()) {
-    jj_scanpos = xsp;
-    if (jj_3R_52()) return true;
-    }
-    return false;
-  }
-
   static private boolean jj_3R_59() {
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(ID)) return true;
@@ -1442,17 +1434,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_40() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(11)) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(12)) return true;
-    }
-    if (jj_3R_33()) return true;
-    return false;
-  }
-
   static private boolean jj_3R_53() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1464,6 +1445,17 @@ Precedence (from highest to lowest)
     }
     }
     if (jj_3R_48()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_40() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(11)) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(12)) return true;
+    }
+    if (jj_3R_33()) return true;
     return false;
   }
 
@@ -1485,22 +1477,22 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_34() {
-    Token xsp;
-    if (jj_3R_40()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_40()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
   static private boolean jj_3R_49() {
     Token xsp;
     if (jj_3R_53()) return true;
     while (true) {
       xsp = jj_scanpos;
       if (jj_3R_53()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  static private boolean jj_3R_34() {
+    Token xsp;
+    if (jj_3R_40()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_40()) { jj_scanpos = xsp; break; }
     }
     return false;
   }
@@ -1542,12 +1534,6 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_35() {
-    if (jj_scan_token(AND)) return true;
-    if (jj_3R_27()) return true;
-    return false;
-  }
-
   static private boolean jj_3R_37() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1566,13 +1552,9 @@ Precedence (from highest to lowest)
     return false;
   }
 
-  static private boolean jj_3R_28() {
-    Token xsp;
-    if (jj_3R_35()) return true;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_35()) { jj_scanpos = xsp; break; }
-    }
+  static private boolean jj_3R_35() {
+    if (jj_scan_token(AND)) return true;
+    if (jj_3R_27()) return true;
     return false;
   }
 
@@ -1591,6 +1573,16 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_28() {
+    Token xsp;
+    if (jj_3R_35()) return true;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_35()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
   static private boolean jj_3R_23() {
     if (jj_3R_26()) return true;
     return false;
@@ -1604,20 +1596,6 @@ Precedence (from highest to lowest)
     if (jj_scan_token(31)) return true;
     }
     if (jj_3R_44()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_22() {
-    if (jj_scan_token(ASSIGN)) return true;
-    if (jj_3R_15()) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_24() {
-    if (jj_3R_27()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_28()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1642,6 +1620,20 @@ Precedence (from highest to lowest)
       xsp = jj_scanpos;
       if (jj_3R_50()) { jj_scanpos = xsp; break; }
     }
+    return false;
+  }
+
+  static private boolean jj_3R_22() {
+    if (jj_scan_token(ASSIGN)) return true;
+    if (jj_3R_15()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_24() {
+    if (jj_3R_27()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_28()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1689,15 +1681,20 @@ Precedence (from highest to lowest)
     return false;
   }
 
+  static private boolean jj_3R_51() {
+    if (jj_scan_token(INSTANCEOF)) return true;
+    if (jj_scan_token(ID)) return true;
+    return false;
+  }
+
   static private boolean jj_3R_29() {
     if (jj_scan_token(OR)) return true;
     if (jj_3R_24()) return true;
     return false;
   }
 
-  static private boolean jj_3R_51() {
-    if (jj_scan_token(INSTANCEOF)) return true;
-    if (jj_scan_token(ID)) return true;
+  static private boolean jj_3R_32() {
+    if (jj_3R_37()) return true;
     return false;
   }
 
@@ -1708,11 +1705,6 @@ Precedence (from highest to lowest)
       xsp = jj_scanpos;
       if (jj_3R_29()) { jj_scanpos = xsp; break; }
     }
-    return false;
-  }
-
-  static private boolean jj_3R_32() {
-    if (jj_3R_37()) return true;
     return false;
   }
 
@@ -1850,6 +1842,16 @@ Precedence (from highest to lowest)
   static private boolean jj_3_2() {
     if (jj_3R_13()) return true;
     if (jj_3R_14()) return true;
+    return false;
+  }
+
+  static private boolean jj_3R_48() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_2()) {
+    jj_scanpos = xsp;
+    if (jj_3R_52()) return true;
+    }
     return false;
   }
 
