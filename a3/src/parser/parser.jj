@@ -706,7 +706,9 @@ Expr BinaryAnd() :
   int lineNum = JavaCharStream.getBeginLine();
 }{
     e1 = BinaryEquals() [
-      (andOp = <AND> e2 = BinaryEquals() {
+      (andOp = <AND> { 
+        lineNum = JavaCharStream.getBeginLine(); 
+        } e2 = BinaryEquals() {
         if (andOp.toString() == "&&") {
           e1 = new BinaryLogicAndExpr(lineNum, e1, e2);
         }
@@ -725,7 +727,9 @@ Expr BinaryEquals() :
 }{
     e1 = BinaryCompare() [(
         (
-          eqOp = <EQUALS> | eqOp = <NOTEQUAL>
+          eqOp = <EQUALS> { lineNum = JavaCharStream.getBeginLine(); }
+
+          | eqOp = <NOTEQUAL> { lineNum = JavaCharStream.getBeginLine(); }
         ) e2 = BinaryCompare(){
           if (eqOp.toString() == "==") {
             e1 = new BinaryCompEqExpr(lineNum, e1, e2);
@@ -749,10 +753,13 @@ Expr BinaryCompare() :
 }
 {
     ( e1 = BinaryPlusMinus() [
-        (compOp = <GREATERTHAN> 
-          | compOp = <LESSTHAN> 
-          | compOp = <GREATERTHANOREQUALTO> 
-          | compOp = <LESSTHANOREQUALTO>
+        (compOp = <GREATERTHAN> { lineNum = JavaCharStream.getBeginLine(); }
+          | compOp = <LESSTHAN> { lineNum = JavaCharStream.getBeginLine(); }
+          | compOp = <GREATERTHANOREQUALTO> { 
+              lineNum = JavaCharStream.getBeginLine(); 
+            }
+          | compOp = <LESSTHANOREQUALTO> { 
+            lineNum = JavaCharStream.getBeginLine(); }
           ) e2 = BinaryPlusMinus() {
             if (compOp.toString() == ">") {
               e1 = new BinaryCompGtExpr(lineNum, e1, e2);
@@ -852,8 +859,11 @@ String CastExpr() :
   Token type; 
   String lb = "";
 }{
-    <LEFTPAREN> type = <ID> [<LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; }] <RIGHTPAREN> 
-    { return type.image.toString() + lb;}
+    <LEFTPAREN> type = <ID> [
+      <LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; }
+      ] <RIGHTPAREN> { 
+        return type.image.toString() + lb;
+        }
 }
 
 Expr Unary() : 
@@ -893,7 +903,6 @@ Expr Dispatch() :
     { if (ref != null) {
         name = ref.image.toString();
       }
-      // Cheng newbie change this part e1 = new VarExpr(lineNum, e1, name)
       e1 = new ArrayExpr(lineNum, null, name, e2);
     } ]
     { if (e1 == null) {
@@ -927,7 +936,7 @@ Expr Dispatch2(Expr leftExpr) :
 {
     [<DOT> name = <ID> (e = DispatchExpr(leftExpr, name) 
     | [<LEFTBRACKET> e1 = Expr() <RIGHTBRACKET>] 
-    { // Cheng newbie change this part e = new VarExpr(lineNum, leftExpr, name.image.toString())
+    {
       if (e1 != null) {
         e = new ArrayExpr(lineNum, leftExpr, name.image.toString(), e1);
       }
@@ -937,12 +946,13 @@ Expr Dispatch2(Expr leftExpr) :
 }
 
 Expr DispatchExpr(Expr ref, Token mName) : 
-{ Expr e = null; DispatchExpr d = null; VarExpr ve;
-  int lineNum = JavaCharStream.getBeginLine(); ExprList el = new ExprList(lineNum);
-}
-{
+{ 
+  Expr e = null; DispatchExpr d = null; VarExpr ve;
+  int lineNum = JavaCharStream.getBeginLine(); 
+  ExprList el = new ExprList(lineNum);
+}{
     <LEFTPAREN> [e = Expr() 
-    { //el = new ExprList(lineNum); Initialized expression list above so it won't be null below
+    {
       el.addElement(e);
     }
     (<COMMA> e = Expr() { el.addElement(e); } )*] <RIGHTPAREN>
@@ -974,7 +984,9 @@ Expr NewExpr() :
     <NEW> type = <ID> 
     (<LEFTPAREN> <RIGHTPAREN>
     { return new NewExpr(lineNum, type.image.toString()); }
-    | <LEFTBRACKET> e = Expr() { lineNum = JavaCharStream.getBeginLine(); } <RIGHTBRACKET> 
+    | <LEFTBRACKET> e = Expr() { 
+      lineNum = JavaCharStream.getBeginLine(); 
+      } <RIGHTBRACKET> 
     { return new NewArrayExpr(lineNum, type.toString(), e); } 
     )
     
