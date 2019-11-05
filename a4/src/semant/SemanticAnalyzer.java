@@ -1,4 +1,5 @@
-/* Bantam Java Compiler and Language Toolset.
+/* By Yee Thao, Cheng Xiong, Esteban Lopez
+   Bantam Java Compiler and Language Toolset.
 
    Copyright (C) 2007 by Marc Corliss (corliss@hws.edu) and 
                          E Christopher Lewis (lewis@vmware.com).
