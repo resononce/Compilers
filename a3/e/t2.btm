@@ -1,0 +1,7 @@
+class T2 {
+    void main() {
+        T1 t = new T1();
+        t.m();
+        System.out.println("T2");
+   }
+}

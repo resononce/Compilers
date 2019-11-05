@@ -1,5 +1,5 @@
-class Main {
-    void main() {
-	printElement(array[0], 0);
-   }
+class T1 {
+    void m(){
+        System.out.println("I'm in T1.");
+    }
 }
