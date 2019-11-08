@@ -362,12 +362,10 @@ public class SemanticAnalyzer {
 					Method m = (Method) mem;
 					String name = m.getName();
 					node.getMethodSymbolTable().add(name, m);
-					System.out.println("The method is " + m.getName());
 				}
 				else {
 					Field f = (Field) mem;
 					node.getVarSymbolTable().add(f.getName(), f.getType());
-					System.out.println("The data field is " + f.getName());
 				}
 			}
 		}
@@ -379,6 +377,23 @@ public class SemanticAnalyzer {
       * */
     private void checkMain()
     {
+		if (classMap.containsKey("Main")) {
+			if (classMap.get("Main").getMethodSymbolTable().getSize() == 0
+			    || classMap.get("Main").getMethodSymbolTable().lookup("main") 
+			    == null) {
+					Class_ c = classMap.get("Main").getASTNode();
+					errorHandler.register(errorHandler.SEMANT_ERROR, 
+									c.getFilename(), 
+									c.getLineNum(),
+									"no 'main' method defined in the 'Main' class.");	
+			}
+		}
+		else {
+			errorHandler.register(errorHandler.SEMANT_ERROR, 
+								  null, 
+								  0,
+								  "no class 'Main' defined.");
+		}
 	// complete this method
     }
     
