@@ -349,6 +349,28 @@ public class SemanticAnalyzer {
       * */
     private void buildSymbolTable()
     {
+		ClassEnvVisitor cev = new ClassEnvVisitor();
+		for (ClassTreeNode node : orderedClassList) {
+			node.getMethodSymbolTable().enterScope();
+			node.getVarSymbolTable().enterScope();
+			Object o1 = cev.visit(node.getASTNode());
+			MemberList ml = (MemberList) o1;
+			for (Iterator it = ml.getIterator(); it.hasNext(); ) {
+				Object o2 = it.next();
+				Member mem = (Member) o2;
+				if (mem instanceof Method) {
+					Method m = (Method) mem;
+					String name = m.getName();
+					node.getMethodSymbolTable().add(name, m);
+					System.out.println("The method is " + m.getName());
+				}
+				else {
+					Field f = (Field) mem;
+					node.getVarSymbolTable().add(f.getName(), f.getType());
+					System.out.println("The data field is " + f.getName());
+				}
+			}
+		}
 		
 	// complete this method
     }
