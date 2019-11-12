@@ -365,7 +365,49 @@ public class SemanticAnalyzer {
 				}
 				else {
 					Field f = (Field) mem;
-					node.getVarSymbolTable().add(f.getName(), f.getType());
+					String name = f.getName();
+					String fileName = node.getASTNode().getFilename();
+					int lineNum = node.getASTNode().getLineNum();
+					String className = node.getASTNode().getName();
+					String fieldType = f.getType();
+					if (name == "null") {
+						errorHandler.register(errorHandler.SEMANT_ERROR, 
+											  fileName, 
+											  lineNum,
+											  "fields cannot be named 'null'");
+					}
+					else if (name == "this") {
+						errorHandler.register(errorHandler.SEMANT_ERROR, 
+											  fileName, 
+											  lineNum,
+											  "fields cannot be named 'this'");
+					}
+					else if (name == "super") {
+						errorHandler.register(errorHandler.SEMANT_ERROR, 
+											  fileName, 
+											  lineNum,
+											  "fields cannot be named 'super'");
+					}
+					else if (name == node.getVarSymbolTable().lookup(name)) {
+						errorHandler.register(errorHandler.SEMANT_ERROR, 
+											  fileName, 
+											  lineNum,
+											  "field " + name +  
+											  " is already defined in classs" +
+											  " '" + className + "'");
+					} 
+					else if (fieldType != "int" || fieldType != "boolean" ||
+						     !classMap.containsKey(fieldType)) {
+						errorHandler.register(errorHandler.SEMANT_ERROR, 
+											  fileName, 
+											  lineNum,
+											  "type '" + fieldType +  
+											  "' of field '" + name +
+											  "' is undefined");
+					}
+					else {
+						node.getVarSymbolTable().add(f.getName(), f.getType());
+					} 
 				}
 			}
 		}

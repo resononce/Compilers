@@ -9,16 +9,6 @@ public class ClassEnvVisitor extends SemanticVisitor{
     }
 
     public Object visit(MemberList node) {
-        for (Iterator it = node.getIterator(); it.hasNext(); )
-            ((Member)it.next()).accept(this);
         return node;
-    }
-
-    public Object visit(Field node) { 
-        return node; 
-    }
-
-    public Object visit(Method node) {
-        return node; 
     }
 }
