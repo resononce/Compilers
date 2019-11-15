@@ -1,0 +1,8 @@
+7c7
+<         Object[] array = (/*L3,type:Object[]*/new Object[(/*L3,type:int*/0)]);
+---
+>         Object[] array = (/*L3*/new Object[(/*L3*/0)]);
+9c9
+<         (/*L4,type:Object[]*/array = (/*L4,type:Object[]*/new Object[(/*L4,type:int*/-((/*L4,type:int*/1)))]));
+---
+>         (/*L4*/array = (/*L4*/new Object[(/*L4*/-((/*L4*/1)))]));

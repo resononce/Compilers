@@ -1,0 +1,140 @@
+6c6
+< (/*L5,type:TextIO*/new TextIO());
+---
+> (/*L5*/new TextIO());
+10c10
+<         int[] array = (/*L8,type:int[]*/new int[(/*L8,type:int*/10)]);
+---
+>         int[] array = (/*L8*/new int[(/*L8*/10)]);
+12c12
+<         (/*L9,type:TextIO*/(/*L9,type:TextIO*/io).putString((/*L9,type:String*/"Building reverse sorted array...\n")));
+---
+>         (/*L9*/(/*L9*/io).putString((/*L9*/"Building reverse sorted array...\n")));
+14c14
+<         (/*L10,type:void*/(/*L10,type:Main*/this).buildArray((/*L10,type:int[]*/array)));
+---
+>         (/*L10*/(/*L10*/this).buildArray((/*L10*/array)));
+16c16
+<         (/*L11,type:TextIO*/(/*L11,type:TextIO*/io).putString((/*L11,type:String*/"Unsorted array:\n")));
+---
+>         (/*L11*/(/*L11*/io).putString((/*L11*/"Unsorted array:\n")));
+18c18
+<         (/*L12,type:void*/(/*L12,type:Main*/this).printArray((/*L12,type:int[]*/array)));
+---
+>         (/*L12*/(/*L12*/this).printArray((/*L12*/array)));
+20c20
+<         (/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"Sorting array...\n")));
+---
+>         (/*L13*/(/*L13*/io).putString((/*L13*/"Sorting array...\n")));
+22c22
+<         (/*L14,type:void*/(/*L14,type:Main*/this).sortArray((/*L14,type:int[]*/array)));
+---
+>         (/*L14*/(/*L14*/this).sortArray((/*L14*/array)));
+24c24
+<         (/*L15,type:TextIO*/(/*L15,type:TextIO*/io).putString((/*L15,type:String*/"Sorted array:\n")));
+---
+>         (/*L15*/(/*L15*/io).putString((/*L15*/"Sorted array:\n")));
+26c26
+<         (/*L16,type:void*/(/*L16,type:Main*/this).printArray((/*L16,type:int[]*/array)));
+---
+>         (/*L16*/(/*L16*/this).printArray((/*L16*/array)));
+28c28
+<         (/*L17,type:TextIO*/(/*L17,type:TextIO*/io).putString((/*L17,type:String*/"Cloning array and setting element 5 to -1...\n")));
+---
+>         (/*L17*/(/*L17*/io).putString((/*L17*/"Cloning array and setting element 5 to -1...\n")));
+30c30
+<         int[] array2 = (/*L18,type:int[]*/(int[])((/*L18,type:Object*/(/*L18,type:int[]*/array).clone())));
+---
+>         int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone())));
+32c32
+<         (/*L19,type:int*/array2[(/*L19,type:int*/5)] = (/*L19,type:int*/-((/*L19,type:int*/1))));
+---
+>         (/*L19*/array2[(/*L19*/5)] = (/*L19*/-((/*L19*/1))));
+34c34
+<         (/*L20,type:TextIO*/(/*L20,type:TextIO*/io).putString((/*L20,type:String*/"Cloned array:\n")));
+---
+>         (/*L20*/(/*L20*/io).putString((/*L20*/"Cloned array:\n")));
+36c36
+<         (/*L21,type:void*/(/*L21,type:Main*/this).printArray((/*L21,type:int[]*/array2)));
+---
+>         (/*L21*/(/*L21*/this).printArray((/*L21*/array2)));
+38c38
+<         (/*L22,type:TextIO*/(/*L22,type:TextIO*/io).putString((/*L22,type:String*/"Original array:\n")));
+---
+>         (/*L22*/(/*L22*/io).putString((/*L22*/"Original array:\n")));
+40c40
+<         (/*L23,type:void*/(/*L23,type:Main*/this).printArray((/*L23,type:int[]*/array)));
+---
+>         (/*L23*/(/*L23*/this).printArray((/*L23*/array)));
+47c47
+<         int i = (/*L28,type:int*/0);
+---
+>         int i = (/*L28*/0);
+49c49
+<         while ((/*L29,type:boolean*/(/*L29,type:int*/i) < (/*L29,type:int*/(/*L29,type:int[]*/array).length)))
+---
+>         while ((/*L29*/(/*L29*/i) < (/*L29*/(/*L29*/array).length)))
+53c53
+<                 (/*L30,type:int*/array[(/*L30,type:int*/i)] = (/*L30,type:int*/(/*L30,type:int*/(/*L30,type:int*/(/*L30,type:int[]*/array).length) - (/*L30,type:int*/i)) - (/*L30,type:int*/1)));
+---
+>                 (/*L30*/array[(/*L30*/i)] = (/*L30*/(/*L30*/(/*L30*/(/*L30*/array).length) - (/*L30*/i)) - (/*L30*/1)));
+55c55
+<                 (/*L31,type:int*/i = (/*L31,type:int*/(/*L31,type:int*/i) + (/*L31,type:int*/1)));
+---
+>                 (/*L31*/i = (/*L31*/(/*L31*/i) + (/*L31*/1)));
+63c63
+<         int i = (/*L37,type:int*/0);
+---
+>         int i = (/*L37*/0);
+65c65
+<         while ((/*L38,type:boolean*/(/*L38,type:int*/i) < (/*L38,type:int*/(/*L38,type:int[]*/array).length)))
+---
+>         while ((/*L38*/(/*L38*/i) < (/*L38*/(/*L38*/array).length)))
+69c69
+<                 int j = (/*L39,type:int*/(/*L39,type:int*/i) + (/*L39,type:int*/1));
+---
+>                 int j = (/*L39*/(/*L39*/i) + (/*L39*/1));
+71c71
+<                 while ((/*L40,type:boolean*/(/*L40,type:int*/j) < (/*L40,type:int*/(/*L40,type:int[]*/array).length)))
+---
+>                 while ((/*L40*/(/*L40*/j) < (/*L40*/(/*L40*/array).length)))
+75c75
+<                         if ((/*L41,type:boolean*/(/*L41,type:int*/array[(/*L41,type:int*/i)]) > (/*L41,type:int*/array[(/*L41,type:int*/j)])))
+---
+>                         if ((/*L41*/(/*L41*/array[(/*L41*/i)]) > (/*L41*/array[(/*L41*/j)])))
+79c79
+<                                 int tmp = (/*L42,type:int*/array[(/*L42,type:int*/i)]);
+---
+>                                 int tmp = (/*L42*/array[(/*L42*/i)]);
+81c81
+<                                 (/*L43,type:int*/array[(/*L43,type:int*/i)] = (/*L43,type:int*/array[(/*L43,type:int*/j)]));
+---
+>                                 (/*L43*/array[(/*L43*/i)] = (/*L43*/array[(/*L43*/j)]));
+83c83
+<                                 (/*L44,type:int*/array[(/*L44,type:int*/j)] = (/*L44,type:int*/tmp));
+---
+>                                 (/*L44*/array[(/*L44*/j)] = (/*L44*/tmp));
+90c90
+<                         (/*L46,type:int*/j = (/*L46,type:int*/(/*L46,type:int*/j) + (/*L46,type:int*/1)));
+---
+>                         (/*L46*/j = (/*L46*/(/*L46*/j) + (/*L46*/1)));
+93c93
+<                 (/*L48,type:int*/i = (/*L48,type:int*/(/*L48,type:int*/i) + (/*L48,type:int*/1)));
+---
+>                 (/*L48*/i = (/*L48*/(/*L48*/i) + (/*L48*/1)));
+101c101
+<         int i = (/*L54,type:int*/0);
+---
+>         int i = (/*L54*/0);
+103c103
+<         while ((/*L55,type:boolean*/(/*L55,type:int*/i) < (/*L55,type:int*/(/*L55,type:int[]*/array).length)))
+---
+>         while ((/*L55*/(/*L55*/i) < (/*L55*/(/*L55*/array).length)))
+107c107
+<                 (/*L56,type:TextIO*/(/*L56,type:TextIO*/(/*L56,type:TextIO*/io).putInt((/*L56,type:int*/array[(/*L56,type:int*/i)]))).putString((/*L56,type:String*/"\n")));
+---
+>                 (/*L56*/(/*L56*/(/*L56*/io).putInt((/*L56*/array[(/*L56*/i)]))).putString((/*L56*/"\n")));
+109c109
+<                 (/*L57,type:int*/i = (/*L57,type:int*/(/*L57,type:int*/i) + (/*L57,type:int*/1)));
+---
+>                 (/*L57*/i = (/*L57*/(/*L57*/i) + (/*L57*/1)));

@@ -1,0 +1,12 @@
+7c7
+<         (/*L3,type:TextIO*/(/*L3,type:TextIO*/new TextIO()).putString((/*L3,type:String*/"(3%2+(2*5)-6/3): ")));
+---
+>         (/*L3*/(/*L3*/new TextIO()).putString((/*L3*/"(3%2+(2*5)-6/3): ")));
+9c9
+<         (/*L4,type:TextIO*/(/*L4,type:TextIO*/new TextIO()).putInt((/*L4,type:int*/(/*L4,type:int*/(/*L4,type:int*/(/*L4,type:int*/3) % (/*L4,type:int*/2)) + (/*L4,type:int*/(/*L4,type:int*/2) * (/*L4,type:int*/5))) - (/*L4,type:int*/(/*L4,type:int*/6) / (/*L4,type:int*/3)))));
+---
+>         (/*L4*/(/*L4*/new TextIO()).putInt((/*L4*/(/*L4*/(/*L4*/(/*L4*/3) % (/*L4*/2)) + (/*L4*/(/*L4*/2) * (/*L4*/5))) - (/*L4*/(/*L4*/6) / (/*L4*/3)))));
+11c11
+<         (/*L5,type:TextIO*/(/*L5,type:TextIO*/new TextIO()).putString((/*L5,type:String*/"\n")));
+---
+>         (/*L5*/(/*L5*/new TextIO()).putString((/*L5*/"\n")));

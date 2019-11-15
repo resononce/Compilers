@@ -1009,5 +1009,12 @@ ConstExpr ConstExpr() :
                                   t.image
                                   .toString()
                                   .substring(1, t.image.toString().length()-1)
-                                  .replaceAll("\\\\\"", "\"")); }
+                                  .replaceAll("\\\\\"", "\"")
+                                  .replaceAll("\\\\t", "\t")
+                                  .replaceAll("\\\\b", "\b")
+                                  .replaceAll("\\\\n", "\n")
+                                  .replaceAll("\\\\r", "\r")
+                                  .replaceAll("\\\\f", "\f")
+                                  .replaceAll("\\\\'", "\'")
+                                  .replaceAll("\\\\\\", "\\")); }
 }

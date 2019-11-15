@@ -1,0 +1,24 @@
+6c6
+< (/*L2,type:int*/3);
+---
+> (/*L2*/3);
+9c9
+< (/*L3,type:int*/6513249);
+---
+> (/*L3*/6513249);
+13c13
+<         Object[] objects = (/*L5,type:String[]*/new String[(/*L5,type:int*/10)]);
+---
+>         Object[] objects = (/*L5*/new String[(/*L5*/10)]);
+15c15
+<         (/*L7,type:Main*/objects[(/*L7,type:int*/0)] = (/*L7,type:Main*/new Main()));
+---
+>         (/*L7*/objects[(/*L7*/0)] = (/*L7*/new Main()));
+17c17
+<         String[] strings = (/*L8,type:String[]*/(String[])((/*L8,type:Object[]*/objects)));
+---
+>         String[] strings = (/*L8*/(String[])((/*L8*/objects)));
+19c19
+<         (/*L9,type:TextIO*/(/*L9,type:TextIO*/(/*L9,type:TextIO*/new TextIO()).putString((/*L9,type:String*/strings[(/*L9,type:int*/0)]))).putString((/*L9,type:String*/"\n")));
+---
+>         (/*L9*/(/*L9*/(/*L9*/new TextIO()).putString((/*L9*/strings[(/*L9*/0)]))).putString((/*L9*/"\n")));

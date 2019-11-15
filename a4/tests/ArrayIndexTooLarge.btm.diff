@@ -1,0 +1,12 @@
+7c7
+<         int[] array = (/*L3,type:int[]*/new int[(/*L3,type:int*/3)]);
+---
+>         int[] array = (/*L3*/new int[(/*L3*/3)]);
+9c9
+<         (/*L4,type:int*/array[(/*L4,type:int*/2)] = (/*L4,type:int*/0));
+---
+>         (/*L4*/array[(/*L4*/2)] = (/*L4*/0));
+11c11
+<         (/*L5,type:int*/array[(/*L5,type:int*/3)] = (/*L5,type:int*/1));
+---
+>         (/*L5*/array[(/*L5*/3)] = (/*L5*/1));

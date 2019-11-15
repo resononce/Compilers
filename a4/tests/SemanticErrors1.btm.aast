@@ -1,0 +1,48 @@
+Here
+Where chu at?
+Here
+Where chu at?
+Here
+Where chu at?
+Error: semantic error: no class 'Main' defined.
+
+SemanticErrors1.btm:2:semantic error: built-in class 'String' cannot be redefined
+
+SemanticErrors1.btm:3:semantic error: duplicate class 'C1' (originally defined at line 3)
+
+SemanticErrors1.btm:5:semantic error: class 'C3' extends non-existent class 'NotThere'
+
+SemanticErrors1.btm:6:semantic error: class 'C4' extends non-extendable class 'String'
+
+SemanticErrors1.btm:8:semantic error: inheritance cycle found involving class 'C5'
+
+SemanticErrors1.btm:9:semantic error: inheritance cycle found involving class 'C6'
+
+SemanticErrors1.btm:10:semantic error: inheritance cycle found involving class 'C7'
+
+SemanticErrors1.btm:21:semantic error: fields cannot be named 'null'
+
+SemanticErrors1.btm:22:semantic error: fields cannot be named 'this'
+
+SemanticErrors1.btm:22:semantic error: type 'string' of field 'this' is undefined
+
+SemanticErrors1.btm:23:semantic error: fields cannot be named 'super'
+
+SemanticErrors1.btm:25:semantic error: field 'x' is already defined in class 'C9'
+
+SemanticErrors1.btm:26:semantic error: type 'bool' of field 'y' is undefined
+
+SemanticErrors1.btm:28:semantic error: methods cannot be named 'this'
+
+SemanticErrors1.btm:32:semantic error: methods cannot be named 'null'
+
+SemanticErrors1.btm:33:semantic error: methods cannot be named 'super'
+
+SemanticErrors1.btm:36:semantic error: method 'm1' is already defined in class 'C9'
+
+SemanticErrors1.btm:40:semantic error: overriding method 'm' has return type 'String', which differs from the inerited method's return type 'void'
+
+SemanticErrors1.btm:62:semantic error: method 'm3' is already defined in class 'C10'
+
+Stopping compilation due to errors
+20 error(s)

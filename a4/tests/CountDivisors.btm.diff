@@ -1,0 +1,88 @@
+7c7
+<         TextIO io = (/*L8,type:TextIO*/new TextIO());
+---
+>         TextIO io = (/*L8*/new TextIO());
+9c9
+<         int upperBound = (/*L9,type:int*/1);
+---
+>         int upperBound = (/*L9*/1);
+11c11
+<         int numWithMostDivisors = (/*L10,type:int*/0);
+---
+>         int numWithMostDivisors = (/*L10*/0);
+13c13
+<         int maxDivisors = (/*L11,type:int*/0);
+---
+>         int maxDivisors = (/*L11*/0);
+15c15
+<         (/*L13,type:int*/upperBound = (/*L13,type:int*/(/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"Enter a number >= 1: "))).getInt()));
+---
+>         (/*L13*/upperBound = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a number >= 1: "))).getInt()));
+17c17
+<         if ((/*L14,type:boolean*/(/*L14,type:int*/upperBound) < (/*L14,type:int*/1)))
+---
+>         if ((/*L14*/(/*L14*/upperBound) < (/*L14*/1)))
+21c21
+<                 (/*L15,type:TextIO*/(/*L15,type:TextIO*/io).putString((/*L15,type:String*/"Number must be >= 1")));
+---
+>                 (/*L15*/(/*L15*/io).putString((/*L15*/"Number must be >= 1")));
+23c23
+<                 (/*L16,type:void*/(/*L16,type:Sys*/new Sys()).exit((/*L16,type:int*/1)));
+---
+>                 (/*L16*/(/*L16*/new Sys()).exit((/*L16*/1)));
+30c30
+<         int i = (/*L20,type:int*/1);
+---
+>         int i = (/*L20*/1);
+32c32
+<         while ((/*L21,type:boolean*/(/*L21,type:int*/i) <= (/*L21,type:int*/upperBound)))
+---
+>         while ((/*L21*/(/*L21*/i) <= (/*L21*/upperBound)))
+36c36
+<                 int numDivisors = (/*L23,type:int*/0);
+---
+>                 int numDivisors = (/*L23*/0);
+38c38
+<                 int j = (/*L24,type:int*/1);
+---
+>                 int j = (/*L24*/1);
+40c40
+<                 while ((/*L25,type:boolean*/(/*L25,type:int*/j) <= (/*L25,type:int*/i)))
+---
+>                 while ((/*L25*/(/*L25*/j) <= (/*L25*/i)))
+44c44
+<                         if ((/*L27,type:boolean*/(/*L27,type:int*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
+---
+>                         if ((/*L27*/(/*L27*/(/*L27*/i) % (/*L27*/j)) == (/*L27*/0)))
+46c46
+<                             (/*L28,type:int*/numDivisors = (/*L28,type:int*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
+---
+>                             (/*L28*/numDivisors = (/*L28*/(/*L28*/numDivisors) + (/*L28*/1)));
+52c52
+<                         (/*L29,type:int*/j = (/*L29,type:int*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
+---
+>                         (/*L29*/j = (/*L29*/(/*L29*/j) + (/*L29*/1)));
+55c55
+<                 if ((/*L34,type:boolean*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
+---
+>                 if ((/*L34*/(/*L34*/numDivisors) > (/*L34*/maxDivisors)))
+59c59
+<                         (/*L35,type:int*/numWithMostDivisors = (/*L35,type:int*/i));
+---
+>                         (/*L35*/numWithMostDivisors = (/*L35*/i));
+61c61
+<                         (/*L36,type:int*/maxDivisors = (/*L36,type:int*/numDivisors));
+---
+>                         (/*L36*/maxDivisors = (/*L36*/numDivisors));
+68c68
+<                 (/*L39,type:int*/i = (/*L39,type:int*/(/*L39,type:int*/i) + (/*L39,type:int*/1)));
+---
+>                 (/*L39*/i = (/*L39*/(/*L39*/i) + (/*L39*/1)));
+71c71
+<         (/*L43,type:TextIO*/(/*L43,type:TextIO*/(/*L43,type:TextIO*/(/*L43,type:TextIO*/io).putString((/*L43,type:String*/"Number with most divisors: "))).putInt((/*L43,type:int*/numWithMostDivisors))).putString((/*L43,type:String*/"\n")));
+---
+>         (/*L43*/(/*L43*/(/*L43*/(/*L43*/io).putString((/*L43*/"Number with most divisors: "))).putInt((/*L43*/numWithMostDivisors))).putString((/*L43*/"\n")));
+73c73
+<         (/*L44,type:TextIO*/(/*L44,type:TextIO*/(/*L44,type:TextIO*/(/*L44,type:TextIO*/io).putString((/*L44,type:String*/"Number of divisors: "))).putInt((/*L44,type:int*/maxDivisors))).putString((/*L44,type:String*/"\n")));
+---
+>         (/*L44*/(/*L44*/(/*L44*/(/*L44*/io).putString((/*L44*/"Number of divisors: "))).putInt((/*L44*/maxDivisors))).putString((/*L44*/"\n")));

@@ -1,0 +1,47 @@
+0a1,6
+> Here
+> Where chu at?
+> Here
+> Where chu at?
+> Here
+> Where chu at?
+6c12
+< (/*L2,type:TextIO*/new TextIO());
+---
+> (/*L2*/new TextIO());
+12c18
+<         (/*L5,type:String*/this.name = (/*L5,type:String*/"A"));
+---
+>         (/*L5*/this.name = (/*L5*/"A"));
+19c25
+<         (/*L9,type:TextIO*/(/*L9,type:TextIO*/(/*L9,type:TextIO*/(/*L9,type:TextIO*/io).putString((/*L9,type:String*/"Static type = A, dynamic type = "))).putString((/*L9,type:String*/name))).putString((/*L9,type:String*/"\n")));
+---
+>         (/*L9*/(/*L9*/(/*L9*/(/*L9*/io).putString((/*L9*/"Static type = A, dynamic type = "))).putString((/*L9*/name))).putString((/*L9*/"\n")));
+32c38
+<         (/*L17,type:String*/super.name = (/*L17,type:String*/"B"));
+---
+>         (/*L17*/super.name = (/*L17*/"B"));
+39c45
+<         (/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/io).putString((/*L21,type:String*/"Static type = B, dynamic type = "))).putString((/*L21,type:String*/name))).putString((/*L21,type:String*/"\n")));
+---
+>         (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"Static type = B, dynamic type = "))).putString((/*L21*/name))).putString((/*L21*/"\n")));
+41c47
+<         (/*L22,type:void*/(/*L22,type:A*/super).foo());
+---
+>         (/*L22*/(/*L22*/super).foo());
+52c58
+<         (/*L29,type:String*/this.name = (/*L29,type:String*/"C"));
+---
+>         (/*L29*/this.name = (/*L29*/"C"));
+63c69
+<         C c = (/*L36,type:C*/new C());
+---
+>         C c = (/*L36*/new C());
+65c71
+<         (/*L37,type:void*/(/*L37,type:C*/c).setName());
+---
+>         (/*L37*/(/*L37*/c).setName());
+67c73
+<         (/*L38,type:void*/(/*L38,type:C*/c).foo());
+---
+>         (/*L38*/(/*L38*/c).foo());

@@ -1,0 +1,8 @@
+7c7
+<         String s = (/*L3,type:String*/"abcd");
+---
+>         String s = (/*L3*/"abcd");
+9c9
+<         String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4,type:int*/3), (/*L4,type:int*/2)));
+---
+>         String s2 = (/*L4*/(/*L4*/s).substring((/*L4*/3), (/*L4*/2)));

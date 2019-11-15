@@ -1,0 +1,44 @@
+6c6
+< (/*L7,type:TextIO*/new TextIO());
+---
+> (/*L7*/new TextIO());
+10c10
+<         (/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"Enter a non-negative number: ")));
+---
+>         (/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number: ")));
+12c12
+<         int x = (/*L14,type:int*/(/*L14,type:TextIO*/io).getInt());
+---
+>         int x = (/*L14*/(/*L14*/io).getInt());
+14c14
+<         if ((/*L16,type:boolean*/(/*L16,type:int*/x) < (/*L16,type:int*/0)))
+---
+>         if ((/*L16*/(/*L16*/x) < (/*L16*/0)))
+18c18
+<                 (/*L17,type:TextIO*/(/*L17,type:TextIO*/io).putString((/*L17,type:String*/"Error: number must be > 0\n")));
+---
+>                 (/*L17*/(/*L17*/io).putString((/*L17*/"Error: number must be > 0\n")));
+20c20
+<                 (/*L18,type:void*/(/*L18,type:Sys*/new Sys()).exit((/*L18,type:int*/1)));
+---
+>                 (/*L18*/(/*L18*/new Sys()).exit((/*L18*/1)));
+26c26
+<                 (/*L23,type:TextIO*/(/*L23,type:TextIO*/(/*L23,type:TextIO*/io).putInt((/*L23,type:int*/(/*L23,type:Main*/this).fact((/*L23,type:int*/x))))).putString((/*L23,type:String*/"\n")));
+---
+>                 (/*L23*/(/*L23*/(/*L23*/io).putInt((/*L23*/(/*L23*/this).fact((/*L23*/x))))).putString((/*L23*/"\n")));
+34c34
+<         int result = (/*L34,type:int*/1);
+---
+>         int result = (/*L34*/1);
+36c36
+<         if ((/*L37,type:boolean*/(/*L37,type:int*/n) > (/*L37,type:int*/1)))
+---
+>         if ((/*L37*/(/*L37*/n) > (/*L37*/1)))
+38c38
+<             (/*L38,type:int*/result = (/*L38,type:int*/(/*L38,type:int*/n) * (/*L38,type:int*/(/*L38,type:Main*/this).fact((/*L38,type:int*/(/*L38,type:int*/n) - (/*L38,type:int*/1))))));
+---
+>             (/*L38*/result = (/*L38*/(/*L38*/n) * (/*L38*/(/*L38*/this).fact((/*L38*/(/*L38*/n) - (/*L38*/1))))));
+44c44
+<         return (/*L39,type:int*/result);
+---
+>         return (/*L39*/result);

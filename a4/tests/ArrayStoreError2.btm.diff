@@ -1,0 +1,16 @@
+23c23
+<         Object[] objects = (/*L8,type:B[]*/new B[(/*L8,type:int*/10)]);
+---
+>         Object[] objects = (/*L8*/new B[(/*L8*/10)]);
+25c25
+<         (/*L9,type:B*/objects[(/*L9,type:int*/0)] = (/*L9,type:B*/new B()));
+---
+>         (/*L9*/objects[(/*L9*/0)] = (/*L9*/new B()));
+27c27
+<         (/*L10,type:D*/objects[(/*L10,type:int*/1)] = (/*L10,type:D*/new D()));
+---
+>         (/*L10*/objects[(/*L10*/1)] = (/*L10*/new D()));
+29c29
+<         (/*L11,type:A*/objects[(/*L11,type:int*/2)] = (/*L11,type:A*/new A()));
+---
+>         (/*L11*/objects[(/*L11*/2)] = (/*L11*/new A()));

@@ -1,0 +1,4 @@
+7c7
+<         (/*L3,type:TextIO*/(/*L3,type:TextIO*/new TextIO()).putString((/*L3,type:String*/"Hello, World!\n")));
+---
+>         (/*L3*/(/*L3*/new TextIO()).putString((/*L3*/"Hello, World!\n")));

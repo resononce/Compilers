@@ -1,0 +1,132 @@
+6c6
+< (/*L6,type:TextIO*/new TextIO());
+---
+> (/*L6*/new TextIO());
+10c10
+<         int pickedBeans = (/*L14,type:int*/0);
+---
+>         int pickedBeans = (/*L14*/0);
+12c12
+<         while ((/*L18,type:boolean*/true))
+---
+>         while ((/*L18*/true))
+16c16
+<                 (/*L20,type:TextIO*/(/*L20,type:TextIO*/(/*L20,type:TextIO*/io).putString((/*L20,type:String*/name))).putString((/*L20,type:String*/", how many beans to pick up? (")));
+---
+>                 (/*L20*/(/*L20*/(/*L20*/io).putString((/*L20*/name))).putString((/*L20*/", how many beans to pick up? (")));
+18c18
+<                 (/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/io).putInt((/*L21,type:int*/numBeansLeft))).putString((/*L21,type:String*/" left) ")));
+---
+>                 (/*L21*/(/*L21*/(/*L21*/io).putInt((/*L21*/numBeansLeft))).putString((/*L21*/" left) ")));
+20c20
+<                 (/*L22,type:int*/pickedBeans = (/*L22,type:int*/(/*L22,type:TextIO*/io).getInt()));
+---
+>                 (/*L22*/pickedBeans = (/*L22*/(/*L22*/io).getInt()));
+22c22
+<                 if ((/*L25,type:boolean*/(/*L25,type:boolean*/(/*L25,type:int*/pickedBeans) < (/*L25,type:int*/1)) || (/*L25,type:boolean*/(/*L25,type:int*/pickedBeans) > (/*L25,type:int*/3))))
+---
+>                 if ((/*L25*/(/*L25*/(/*L25*/pickedBeans) < (/*L25*/1)) || (/*L25*/(/*L25*/pickedBeans) > (/*L25*/3))))
+24c24
+<                     (/*L26,type:TextIO*/(/*L26,type:TextIO*/io).putString((/*L26,type:String*/"number of beans must be 1, 2, or 3\n")));
+---
+>                     (/*L26*/(/*L26*/io).putString((/*L26*/"number of beans must be 1, 2, or 3\n")));
+27c27
+<                     if ((/*L28,type:boolean*/(/*L28,type:int*/pickedBeans) > (/*L28,type:int*/numBeansLeft)))
+---
+>                     if ((/*L28*/(/*L28*/pickedBeans) > (/*L28*/numBeansLeft)))
+29c29
+<                         (/*L29,type:TextIO*/(/*L29,type:TextIO*/io).putString((/*L29,type:String*/"can't pick up more beans than are left\n")));
+---
+>                         (/*L29*/(/*L29*/io).putString((/*L29*/"can't pick up more beans than are left\n")));
+32c32
+<                         return (/*L32,type:int*/pickedBeans);
+---
+>                         return (/*L32*/pickedBeans);
+35c35
+<         return (/*L36,type:int*/0);
+---
+>         return (/*L36*/0);
+40c40
+<         (/*L46,type:TextIO*/(/*L46,type:TextIO*/io).putString((/*L46,type:String*/"Player 1, enter your name: ")));
+---
+>         (/*L46*/(/*L46*/io).putString((/*L46*/"Player 1, enter your name: ")));
+42c42
+<         String player1 = (/*L47,type:String*/(/*L47,type:TextIO*/io).getString());
+---
+>         String player1 = (/*L47*/(/*L47*/io).getString());
+44c44
+<         (/*L48,type:TextIO*/(/*L48,type:TextIO*/io).putString((/*L48,type:String*/"Player 2, enter your name: ")));
+---
+>         (/*L48*/(/*L48*/io).putString((/*L48*/"Player 2, enter your name: ")));
+46c46
+<         String player2 = (/*L49,type:String*/(/*L49,type:TextIO*/io).getString());
+---
+>         String player2 = (/*L49*/(/*L49*/io).getString());
+48c48
+<         (/*L50,type:TextIO*/(/*L50,type:TextIO*/io).putString((/*L50,type:String*/"How many beans to start? ")));
+---
+>         (/*L50*/(/*L50*/io).putString((/*L50*/"How many beans to start? ")));
+50c50
+<         int totalBeans = (/*L51,type:int*/(/*L51,type:TextIO*/io).getInt());
+---
+>         int totalBeans = (/*L51*/(/*L51*/io).getInt());
+52c52
+<         while ((/*L54,type:boolean*/(/*L54,type:int*/totalBeans) < (/*L54,type:int*/1)))
+---
+>         while ((/*L54*/(/*L54*/totalBeans) < (/*L54*/1)))
+56c56
+<                 (/*L55,type:TextIO*/(/*L55,type:TextIO*/io).putString((/*L55,type:String*/"Total beans must be > 0.  How many beans to start? ")));
+---
+>                 (/*L55*/(/*L55*/io).putString((/*L55*/"Total beans must be > 0.  How many beans to start? ")));
+58c58
+<                 (/*L56,type:int*/totalBeans = (/*L56,type:int*/(/*L56,type:TextIO*/io).getInt()));
+---
+>                 (/*L56*/totalBeans = (/*L56*/(/*L56*/io).getInt()));
+61c61
+<         int numBeansLeft = (/*L60,type:int*/totalBeans);
+---
+>         int numBeansLeft = (/*L60*/totalBeans);
+63c63
+<         String currentPlayer = (/*L62,type:String*/player1);
+---
+>         String currentPlayer = (/*L62*/player1);
+65c65
+<         int i = (/*L67,type:int*/0);
+---
+>         int i = (/*L67*/0);
+67c67
+<         while ((/*L68,type:boolean*/(/*L68,type:int*/numBeansLeft) > (/*L68,type:int*/0)))
+---
+>         while ((/*L68*/(/*L68*/numBeansLeft) > (/*L68*/0)))
+71c71
+<                 int pickedBeans = (/*L70,type:int*/(/*L70,type:Main*/this).turn((/*L70,type:String*/currentPlayer), (/*L70,type:int*/numBeansLeft)));
+---
+>                 int pickedBeans = (/*L70*/(/*L70*/this).turn((/*L70*/currentPlayer), (/*L70*/numBeansLeft)));
+73c73
+<                 (/*L72,type:int*/numBeansLeft = (/*L72,type:int*/(/*L72,type:int*/numBeansLeft) - (/*L72,type:int*/pickedBeans)));
+---
+>                 (/*L72*/numBeansLeft = (/*L72*/(/*L72*/numBeansLeft) - (/*L72*/pickedBeans)));
+75c75
+<                 if ((/*L75,type:boolean*/(/*L75,type:int*/numBeansLeft) > (/*L75,type:int*/0)))
+---
+>                 if ((/*L75*/(/*L75*/numBeansLeft) > (/*L75*/0)))
+79c79
+<                         (/*L77,type:String*/currentPlayer = (/*L77,type:String*/player2));
+---
+>                         (/*L77*/currentPlayer = (/*L77*/player2));
+81c81
+<                         if ((/*L78,type:boolean*/(/*L78,type:int*/(/*L78,type:int*/i) % (/*L78,type:int*/2)) == (/*L78,type:int*/1)))
+---
+>                         if ((/*L78*/(/*L78*/(/*L78*/i) % (/*L78*/2)) == (/*L78*/1)))
+83c83
+<                             (/*L79,type:String*/currentPlayer = (/*L79,type:String*/player1));
+---
+>                             (/*L79*/currentPlayer = (/*L79*/player1));
+94c94
+<                 (/*L82,type:int*/i = (/*L82,type:int*/(/*L82,type:int*/i) + (/*L82,type:int*/1)));
+---
+>                 (/*L82*/i = (/*L82*/(/*L82*/i) + (/*L82*/1)));
+97c97
+<         (/*L87,type:TextIO*/(/*L87,type:TextIO*/(/*L87,type:TextIO*/io).putString((/*L87,type:String*/currentPlayer))).putString((/*L87,type:String*/", you win!\n")));
+---
+>         (/*L87*/(/*L87*/(/*L87*/io).putString((/*L87*/currentPlayer))).putString((/*L87*/", you win!\n")));

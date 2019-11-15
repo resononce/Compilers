@@ -1,0 +1,16 @@
+7c7
+<         int i = (/*L3,type:int*/0);
+---
+>         int i = (/*L3*/0);
+13c13
+<                 if ((/*L5,type:boolean*/(/*L5,type:int*/i) >= (/*L5,type:int*/100)))
+---
+>                 if ((/*L5*/(/*L5*/i) >= (/*L5*/100)))
+21c21
+<                 (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int*/++((/*L7,type:int*/i))))).putString((/*L7,type:String*/"\n")));
+---
+>                 (/*L7*/(/*L7*/(/*L7*/new TextIO()).putInt((/*L7*/++((/*L7*/i))))).putString((/*L7*/"\n")));
+23c23
+<                 (/*L8,type:int*/((/*L8,type:int*/i))++);
+---
+>                 (/*L8*/((/*L8*/i))++);

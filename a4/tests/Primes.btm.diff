@@ -1,0 +1,72 @@
+6c6
+< (/*L6,type:TextIO*/new TextIO());
+---
+> (/*L6*/new TextIO());
+10c10
+<         (/*L12,type:TextIO*/(/*L12,type:TextIO*/io).putString((/*L12,type:String*/"Enter a positive number greater than 1: ")));
+---
+>         (/*L12*/(/*L12*/io).putString((/*L12*/"Enter a positive number greater than 1: ")));
+12c12
+<         int max = (/*L13,type:int*/(/*L13,type:TextIO*/io).getInt());
+---
+>         int max = (/*L13*/(/*L13*/io).getInt());
+14c14
+<         if ((/*L15,type:boolean*/(/*L15,type:int*/max) < (/*L15,type:int*/2)))
+---
+>         if ((/*L15*/(/*L15*/max) < (/*L15*/2)))
+18c18
+<                 (/*L16,type:TextIO*/(/*L16,type:TextIO*/io).putString((/*L16,type:String*/"number must be > 1\n")));
+---
+>                 (/*L16*/(/*L16*/io).putString((/*L16*/"number must be > 1\n")));
+20c20
+<                 (/*L17,type:void*/(/*L17,type:Sys*/new Sys()).exit((/*L17,type:int*/1)));
+---
+>                 (/*L17*/(/*L17*/new Sys()).exit((/*L17*/1)));
+26c26
+<                 int i = (/*L21,type:int*/2);
+---
+>                 int i = (/*L21*/2);
+28c28
+<                 while ((/*L22,type:boolean*/(/*L22,type:int*/i) <= (/*L22,type:int*/max)))
+---
+>                 while ((/*L22*/(/*L22*/i) <= (/*L22*/max)))
+32c32
+<                         if ((/*L24,type:boolean*/(/*L24,type:Main*/this).isPrime((/*L24,type:int*/i))))
+---
+>                         if ((/*L24*/(/*L24*/this).isPrime((/*L24*/i))))
+34c34
+<                             (/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/io).putInt((/*L25,type:int*/i))).putString((/*L25,type:String*/" is prime.\n")));
+---
+>                             (/*L25*/(/*L25*/(/*L25*/io).putInt((/*L25*/i))).putString((/*L25*/" is prime.\n")));
+40c40
+<                         (/*L26,type:int*/i = (/*L26,type:int*/(/*L26,type:int*/i) + (/*L26,type:int*/1)));
+---
+>                         (/*L26*/i = (/*L26*/(/*L26*/i) + (/*L26*/1)));
+49c49
+<         boolean isPrime = (/*L37,type:boolean*/true);
+---
+>         boolean isPrime = (/*L37*/true);
+51c51
+<         int i = (/*L38,type:int*/2);
+---
+>         int i = (/*L38*/2);
+53c53
+<         while ((/*L39,type:boolean*/(/*L39,type:boolean*/(/*L39,type:int*/i) < (/*L39,type:int*/(/*L39,type:int*/n) - (/*L39,type:int*/1))) && (/*L39,type:boolean*/isPrime)))
+---
+>         while ((/*L39*/(/*L39*/(/*L39*/i) < (/*L39*/(/*L39*/n) - (/*L39*/1))) && (/*L39*/isPrime)))
+57c57
+<                 if ((/*L40,type:boolean*/(/*L40,type:int*/(/*L40,type:int*/n) % (/*L40,type:int*/i)) == (/*L40,type:int*/0)))
+---
+>                 if ((/*L40*/(/*L40*/(/*L40*/n) % (/*L40*/i)) == (/*L40*/0)))
+59c59
+<                     (/*L41,type:boolean*/isPrime = (/*L41,type:boolean*/false));
+---
+>                     (/*L41*/isPrime = (/*L41*/false));
+65c65
+<                 (/*L42,type:int*/i = (/*L42,type:int*/(/*L42,type:int*/i) + (/*L42,type:int*/1)));
+---
+>                 (/*L42*/i = (/*L42*/(/*L42*/i) + (/*L42*/1)));
+68c68
+<         return (/*L44,type:boolean*/isPrime);
+---
+>         return (/*L44*/isPrime);

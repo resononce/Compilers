@@ -1,0 +1,4 @@
+Vector.btm:9:semantic error: type 'Object[]' of field 'elements' is undefined
+
+Stopping compilation due to errors
+1 error(s)

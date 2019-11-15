@@ -1,0 +1,4 @@
+TicTacToe.btm:6:semantic error: type 'int[]' of field 'board' is undefined
+
+Stopping compilation due to errors
+1 error(s)

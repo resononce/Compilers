@@ -1,0 +1,12 @@
+7c7
+<         TextIO io = (/*L3,type:TextIO*/new TextIO());
+---
+>         TextIO io = (/*L3*/new TextIO());
+9c9
+<         (/*L4,type:void*/(/*L4,type:TextIO*/io).writeFile((/*L4,type:String*/"/bin/ls")));
+---
+>         (/*L4*/(/*L4*/io).writeFile((/*L4*/"/bin/ls")));
+11c11
+<         (/*L5,type:TextIO*/(/*L5,type:TextIO*/io).putString((/*L5,type:String*/"this shouldn't work!!!\n")));
+---
+>         (/*L5*/(/*L5*/io).putString((/*L5*/"this shouldn't work!!!\n")));

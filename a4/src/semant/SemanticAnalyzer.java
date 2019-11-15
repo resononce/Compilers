@@ -258,13 +258,17 @@ public class SemanticAnalyzer {
       * */
     private void buildClassTree(ClassList classList)
     {
-	    updateBuiltins();
+		updateBuiltins();
+
 		//Part 1
 		Iterator iter = classList.getIterator();
 		while (iter.hasNext()) {
-			ClassTreeNode ctn = new ClassTreeNode((Class_)iter.next(), false, true,
-											      classMap);
-			if (!classMap.containsKey(ctn.getName())) {
+			ClassTreeNode ctn = new ClassTreeNode((Class_)iter.next(), 
+												  false, 
+												  true,
+												  classMap);
+												  
+			if ( !classMap.containsKey( ctn.getName() ) ) {
 				orderedClassList.addElement(ctn);
 				classMap.put(ctn.getName(), ctn);
 			}
@@ -285,7 +289,7 @@ public class SemanticAnalyzer {
 										  ctn.getName() + 
 										  "' (originally defined " +
 										  "at line " + 
-										  ctn.getASTNode().getLineNum());
+										  ctn.getASTNode().getLineNum() + ")");
 				}
 			}
 		}
@@ -304,8 +308,8 @@ public class SemanticAnalyzer {
 										  ctn.getASTNode().getLineNum(),
 										  "class '" +
 										  ctn.getName() + 
-										  "' extends non-extendable class " +
-										  ctn.getASTNode().getParent());
+										  "' extends non-extendable class '" +
+										  ctn.getASTNode().getParent() + "'");
 				}
 			}
 			else {
@@ -314,8 +318,8 @@ public class SemanticAnalyzer {
 										ctn.getASTNode().getLineNum(),
 										"class '" +
 										ctn.getName() + 
-										"' extends non-existent class " +
-										ctn.getASTNode().getParent());
+										"' extends non-existent class '" +
+										ctn.getASTNode().getParent() + "'");
 			}
 		}
 
@@ -330,7 +334,7 @@ public class SemanticAnalyzer {
 					errorHandler.register(errorHandler.SEMANT_ERROR, 
 								          ctn.getASTNode().getFilename(), 
 									      ctn.getASTNode().getLineNum(),
-								          "inheritance cylce " +
+								          "inheritance cycle " +
 										  "found involving class '" +
 									      ctn.getName() + "'");
 					break;
@@ -349,69 +353,21 @@ public class SemanticAnalyzer {
       * */
     private void buildSymbolTable()
     {
-		ClassEnvVisitor cev = new ClassEnvVisitor();
+		ClassEnvVisitor cev;
+		ClassTreeNode obby = root;
+		SymbolTable vTbl = obby.getVarSymbolTable();
+		SymbolTable mTbl = obby.getMethodSymbolTable();
+		//vTbl.enterScope();
+		//mTbl.enterScope();
+		cev = new ClassEnvVisitor(vTbl, mTbl, errorHandler, classMap);
+		cev.visit(obby.getASTNode()); 
+
 		for (ClassTreeNode node : orderedClassList) {
-			node.getMethodSymbolTable().enterScope();
-			node.getVarSymbolTable().enterScope();
-			Object o1 = cev.visit(node.getASTNode());
-			MemberList ml = (MemberList) o1;
-			for (Iterator it = ml.getIterator(); it.hasNext(); ) {
-				Object o2 = it.next();
-				Member mem = (Member) o2;
-				if (mem instanceof Method) {
-					Method m = (Method) mem;
-					String name = m.getName();
-					node.getMethodSymbolTable().add(name, m);
-				}
-				else {
-					Field f = (Field) mem;
-					String name = f.getName();
-					String fileName = node.getASTNode().getFilename();
-					int lineNum = node.getASTNode().getLineNum();
-					String className = node.getASTNode().getName();
-					String fieldType = f.getType();
-					if (name == "null") {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "fields cannot be named 'null'");
-					}
-					else if (name == "this") {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "fields cannot be named 'this'");
-					}
-					else if (name == "super") {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "fields cannot be named 'super'");
-					}
-					else if (name == node.getVarSymbolTable().lookup(name)) {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "field " + name +  
-											  " is already defined in classs" +
-											  " '" + className + "'");
-					} 
-					else if (fieldType != "int" || fieldType != "boolean" ||
-						     !classMap.containsKey(fieldType)) {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "type '" + fieldType +  
-											  "' of field '" + name +
-											  "' is undefined");
-					}
-					else {
-						node.getVarSymbolTable().add(f.getName(), f.getType());
-					} 
-				}
-			}
+			vTbl = node.getVarSymbolTable();
+			mTbl = node.getMethodSymbolTable();
+			cev = new ClassEnvVisitor(vTbl, mTbl, errorHandler, classMap);
+			cev.visit(node.getASTNode());
 		}
-		
 	// complete this method
     }
     

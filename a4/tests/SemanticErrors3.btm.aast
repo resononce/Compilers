@@ -1,0 +1,9 @@
+// Source file: SemanticErrors3.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 3
+    int main(/*line:3*/boolean b) {
+        // Source line: 5
+        return;
+    }
+}

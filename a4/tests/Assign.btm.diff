@@ -1,0 +1,48 @@
+7c7
+<         TextIO io = (/*L7,type:TextIO*/new TextIO());
+---
+>         TextIO io = (/*L7*/new TextIO());
+9c9
+<         int x = (/*L8,type:int*/0);
+---
+>         int x = (/*L8*/0);
+11c11
+<         int y = (/*L9,type:int*/1);
+---
+>         int y = (/*L9*/1);
+13c13
+<         int z = (/*L10,type:int*/2);
+---
+>         int z = (/*L10*/2);
+15c15
+<         (/*L12,type:TextIO*/(/*L12,type:TextIO*/(/*L12,type:TextIO*/(/*L12,type:TextIO*/io).putString((/*L12,type:String*/"x="))).putInt((/*L12,type:int*/x))).putString((/*L12,type:String*/"\n")));
+---
+>         (/*L12*/(/*L12*/(/*L12*/(/*L12*/io).putString((/*L12*/"x="))).putInt((/*L12*/x))).putString((/*L12*/"\n")));
+17c17
+<         (/*L13,type:TextIO*/(/*L13,type:TextIO*/(/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"y="))).putInt((/*L13,type:int*/y))).putString((/*L13,type:String*/"\n")));
+---
+>         (/*L13*/(/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"y="))).putInt((/*L13*/y))).putString((/*L13*/"\n")));
+19c19
+<         (/*L14,type:TextIO*/(/*L14,type:TextIO*/(/*L14,type:TextIO*/(/*L14,type:TextIO*/io).putString((/*L14,type:String*/"z="))).putInt((/*L14,type:int*/z))).putString((/*L14,type:String*/"\n")));
+---
+>         (/*L14*/(/*L14*/(/*L14*/(/*L14*/io).putString((/*L14*/"z="))).putInt((/*L14*/z))).putString((/*L14*/"\n")));
+21c21
+<         (/*L16,type:TextIO*/(/*L16,type:TextIO*/io).putString((/*L16,type:String*/"Executing: x = y = z\n")));
+---
+>         (/*L16*/(/*L16*/io).putString((/*L16*/"Executing: x = y = z\n")));
+23c23
+<         (/*L17,type:int*/x = (/*L17,type:int*/y = (/*L17,type:int*/z)));
+---
+>         (/*L17*/x = (/*L17*/y = (/*L17*/z)));
+25c25
+<         (/*L19,type:TextIO*/(/*L19,type:TextIO*/(/*L19,type:TextIO*/(/*L19,type:TextIO*/io).putString((/*L19,type:String*/"x="))).putInt((/*L19,type:int*/x))).putString((/*L19,type:String*/"\n")));
+---
+>         (/*L19*/(/*L19*/(/*L19*/(/*L19*/io).putString((/*L19*/"x="))).putInt((/*L19*/x))).putString((/*L19*/"\n")));
+27c27
+<         (/*L20,type:TextIO*/(/*L20,type:TextIO*/(/*L20,type:TextIO*/(/*L20,type:TextIO*/io).putString((/*L20,type:String*/"y="))).putInt((/*L20,type:int*/y))).putString((/*L20,type:String*/"\n")));
+---
+>         (/*L20*/(/*L20*/(/*L20*/(/*L20*/io).putString((/*L20*/"y="))).putInt((/*L20*/y))).putString((/*L20*/"\n")));
+29c29
+<         (/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/io).putString((/*L21,type:String*/"z="))).putInt((/*L21,type:int*/z))).putString((/*L21,type:String*/"\n")));
+---
+>         (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"z="))).putInt((/*L21*/z))).putString((/*L21*/"\n")));

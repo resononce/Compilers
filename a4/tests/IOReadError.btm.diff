@@ -1,0 +1,12 @@
+7c7
+<         TextIO io = (/*L3,type:TextIO*/new TextIO());
+---
+>         TextIO io = (/*L3*/new TextIO());
+9c9
+<         (/*L4,type:void*/(/*L4,type:TextIO*/io).readFile((/*L4,type:String*/"/foo")));
+---
+>         (/*L4*/(/*L4*/io).readFile((/*L4*/"/foo")));
+11c11
+<         String s = (/*L5,type:String*/(/*L5,type:TextIO*/io).getString());
+---
+>         String s = (/*L5*/(/*L5*/io).getString());

@@ -1,0 +1,8 @@
+7c7
+<         int[] array = (/*L3,type:null*/null);
+---
+>         int[] array = (/*L3*/null);
+9c9
+<         int x = (/*L4,type:int*/array[(/*L4,type:int*/0)]);
+---
+>         int x = (/*L4*/array[(/*L4*/0)]);

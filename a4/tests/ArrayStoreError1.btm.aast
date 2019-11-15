@@ -1,0 +1,21 @@
+// Source file: ArrayStoreError1.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    int length = 
+(/*L2*/3);
+    // Source line: 3
+    int abc = 
+(/*L3*/6513249);
+    // Source line: 4
+    void main() {
+        // Source line: 5
+        Object[] objects = (/*L5*/new String[(/*L5*/10)]);
+        // Source line: 7
+        (/*L7*/objects[(/*L7*/0)] = (/*L7*/new Main()));
+        // Source line: 8
+        String[] strings = (/*L8*/(String[])((/*L8*/objects)));
+        // Source line: 9
+        (/*L9*/(/*L9*/(/*L9*/new TextIO()).putString((/*L9*/strings[(/*L9*/0)]))).putString((/*L9*/"\n")));
+    }
+}

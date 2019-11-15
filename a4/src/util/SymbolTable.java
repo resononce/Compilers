@@ -102,8 +102,8 @@ public class SymbolTable {
 		return value;
 	}
 
-	if (parent != null)
-	    return parent.lookup(s);
+  if (parent != null){
+	    return parent.lookup(s);}
 	return null;
     }
 

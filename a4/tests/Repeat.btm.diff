@@ -1,0 +1,12 @@
+7c7
+<         TextIO io = (/*L3,type:TextIO*/new TextIO());
+---
+>         TextIO io = (/*L3*/new TextIO());
+9c9
+<         String s = (/*L4,type:String*/(/*L4,type:TextIO*/(/*L4,type:TextIO*/io).putString((/*L4,type:String*/"Enter some text: "))).getString());
+---
+>         String s = (/*L4*/(/*L4*/(/*L4*/io).putString((/*L4*/"Enter some text: "))).getString());
+11c11
+<         (/*L5,type:TextIO*/(/*L5,type:TextIO*/(/*L5,type:TextIO*/(/*L5,type:TextIO*/io).putString((/*L5,type:String*/"You entered: "))).putString((/*L5,type:String*/s))).putString((/*L5,type:String*/"\n")));
+---
+>         (/*L5*/(/*L5*/(/*L5*/(/*L5*/io).putString((/*L5*/"You entered: "))).putString((/*L5*/s))).putString((/*L5*/"\n")));
