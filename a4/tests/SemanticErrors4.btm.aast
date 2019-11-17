@@ -1,4 +1,4 @@
-SemanticErrors4.btm:3:semantic error: type 'int[]' of method 'm' is undefined
+SemanticErrors4.btm:3:semantic error: return type 'int[]' of method 'm' is undefined
 
 Stopping compilation due to errors
 1 error(s)

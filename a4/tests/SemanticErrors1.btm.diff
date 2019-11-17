@@ -1,31 +1,10 @@
-0a1,6
-> Here
-> Where chu at?
-> Here
-> Where chu at?
-> Here
-> Where chu at?
-5c11
-< SemanticErrors1.btm:3:semantic error: duplicate class 'C1' (originally defined at line 1)
----
-> SemanticErrors1.btm:3:semantic error: duplicate class 'C1' (originally defined at line 3)
-29,30d34
-< SemanticErrors1.btm:28:semantic error: return type 'bool' of method 'this' is undefined
-< 
-33,34d36
+33,34d32
 < SemanticErrors1.btm:28:semantic error: declared return type of method 'this' is 'bool' but method body is not returning any expression
 < 
-41,65c43
+41,42d38
 < SemanticErrors1.btm:36:semantic error: return type 'String' is not compatible with declared return type 'int' in method 'm1'
 < 
-< SemanticErrors1.btm:40:semantic error: overriding method 'm' has return type 'String', which differs from the inherited method's return type 'void'
-< 
-< SemanticErrors1.btm:43:semantic error: overriding method 'm' has 3 formals, which differs from the inherited method (2)
-< 
-< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'boolean' for formal 1, which differs from the inherited method's formal type 'int'
-< 
-< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'int' for formal 2, which differs from the inherited method's formal type 'boolean'
-< 
+51,66d46
 < SemanticErrors1.btm:52:semantic error: expression type 'boolean' of field 'x' does not match declared type 'int'
 < 
 < SemanticErrors1.btm:53:semantic error: expression type 'String' of field 'b' does not match declared type 'boolean'
@@ -41,9 +20,8 @@
 < SemanticErrors1.btm:60:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method 'm2'
 < 
 < SemanticErrors1.btm:61:semantic error: return type 'void' is not compatible with declared return type 'boolean' in method 'm3'
----
-> SemanticErrors1.btm:40:semantic error: overriding method 'm' has return type 'String', which differs from the inerited method's return type 'void'
-69,224d46
+< 
+69,224d48
 < SemanticErrors1.btm:62:semantic error: return type 'TextIO' does not conform to declared return type 'String' in method 'm3'
 < 
 < SemanticErrors1.btm:64:semantic error: return type 'Object' does not conform to declared return type 'String' in method 'm4'
@@ -200,7 +178,7 @@
 < 
 < SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
 < 
-226c48
+226c50
 < 112 error(s)
 ---
-> 20 error(s)
+> 24 error(s)

@@ -98,7 +98,7 @@
 ---
 > ArrayTest1.btm:2:semantic error: type 'boolean[]' of field 'goo' is undefined
 > 
-> ArrayTest1.btm:42:semantic error: type 'String[]' of method 'foo' is undefined
+> ArrayTest1.btm:42:semantic error: return type 'String[]' of method 'foo' is undefined
 > 
 > Stopping compilation due to errors
 > 2 error(s)

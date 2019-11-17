@@ -69,7 +69,7 @@
 < 
 < SemanticErrors4.btm:55:semantic error: variable 'c' in assignment is undeclared
 ---
-> SemanticErrors4.btm:3:semantic error: type 'int[]' of method 'm' is undefined
+> SemanticErrors4.btm:3:semantic error: return type 'int[]' of method 'm' is undefined
 72c4
 < 35 error(s)
 ---

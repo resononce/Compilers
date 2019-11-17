@@ -29,8 +29,6 @@ public class ClassEnvVisitor extends SemanticVisitor{
         fileName = node.getFilename();
         className = node.getName();
         node.getMemberList().accept(this);
-        //vTable.exitScope();
-        //mTable.exitScope();
         return node;
     }
 
@@ -48,27 +46,15 @@ public class ClassEnvVisitor extends SemanticVisitor{
         boolean noError = true;
         String name = node.getName();
         String fieldType = node.getType();
+        String checkType = fieldType.replaceAll("[]", "");
         int lineNum = node.getLineNum();
-        if (name.equals("null")) {
+        if (name.equals("null") || name.equals("this") || 
+            name.equals("super")) {
             noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                   fileName, 
                                   lineNum,
-                                  "fields cannot be named 'null'");
-        }
-        else if (name.equals("this")) {
-            noError = false;
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                  fileName, 
-                                  lineNum,
-                                  "fields cannot be named 'this'");
-        }
-        else if (name.equals("super")) {
-            noError = false;
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                  fileName, 
-                                  lineNum,
-                                  "fields cannot be named 'super'");
+                                  "fields cannot be named '" + name + "'");
         }
         else if (vTable.peek(name) != null) {
             noError = false;
@@ -79,8 +65,8 @@ public class ClassEnvVisitor extends SemanticVisitor{
 								  "' is already defined in class" +
 								  " '" + className + "'");
         }
-        if ((!fieldType.equals("int") && !fieldType.equals("boolean")) &&
-				  !classMap.containsKey(fieldType)) {
+        if ((!checkType.equals("int") && !checkType.equals("boolean")) &&
+				  !classMap.containsKey(checkType)) {
                     noError = false;
 					errorHandler.register(errorHandler.SEMANT_ERROR, 
 										  fileName, 
@@ -91,33 +77,51 @@ public class ClassEnvVisitor extends SemanticVisitor{
         }
         if (noError) {
             vTable.add(name, fieldType);
+            vTable.add("this." + name, fieldType);
         }
         return node;
     }
 
     public Object visit(Method node) {
+        boolean noError = true;
         String name = node.getName();
         String returnType = node.getReturnType();
+        String checkType = returnType.replaceAll("[]", "");
         int lineNum = node.getLineNum();
+        if ((!checkType.equals("int") && !checkType.equals("boolean") && 
+            !checkType.equals("void")) &&
+            !classMap.containsKey(checkType)) {
+            noError = false;
+			errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                  fileName, 
+                                  lineNum,
+                                  "return type '" + returnType +  
+                                  "' of method '" + name +
+                                  "' is undefined");
+        }
         if (name.equals("null")) {
+            noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                   fileName, 
                                   lineNum,
                                   "methods cannot be named 'null'");
         }
         else if (name.equals("this")) {
+            noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                   fileName, 
                                   lineNum,
                                   "methods cannot be named 'this'");
         }
         else if (name.equals("super")) {
+            noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                   fileName, 
                                   lineNum,
                                   "methods cannot be named 'super'");
         }
         else if (mTable.peek(name) != null) {
+            noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                   fileName, 
                                   lineNum,
@@ -126,34 +130,55 @@ public class ClassEnvVisitor extends SemanticVisitor{
 								  " '" + className + "'");
         }
         else if (mTable.lookup(name) != null) {
-            System.out.println("Here");
             Method n = (Method) mTable.lookup(name);
-            System.out.println("Where chu at?");
             if (!n.getReturnType().equals(returnType)) {
+                noError = false;
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
 									  fileName, 
 									  lineNum,
                                       "overriding method '" + name + 
                                       "' has return type '" + returnType +
-                                      "', which differs from the inerited "+ 
+                                      "', which differs from the inherited "+ 
                                       "method's return type '" + 
                                       n.getReturnType() + "'");
             }
-        }
-        else {
-            if ((!returnType.equals("int") && !returnType.equals("boolean") && 
-                 !returnType.equals("void")) &&
-                 !classMap.containsKey(returnType)) {
-						errorHandler.register(errorHandler.SEMANT_ERROR, 
-											  fileName, 
-											  lineNum,
-											  "type '" + returnType +  
-											  "' of method '" + name +
-											  "' is undefined");
-            }
+            else if (n.getFormalList().getSize()!= 
+                     node.getFormalList().getSize()) {
+                noError = false;
+                errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                      fileName, 
+                                      lineNum,
+                                      "overriding method '" + name +  
+                                      "' has " + node.getFormalList().getSize() 
+                                      + " formals, which differs from the" +
+                                      " inherited method (" + 
+                                      n.getFormalList().getSize() + ")");
+            } 
             else {
-                mTable.add(name, node);
+                int count = 1;
+                Iterator current = node.getFormalList().getIterator();
+                for(Iterator parent = n.getFormalList().getIterator();
+                    parent.hasNext();) {
+                    Formal p = (Formal) parent.next();
+                    Formal c = (Formal) current.next();
+                    if (!p.getType().equals(c.getType())) {
+                        noError = false;
+                        errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                              fileName, 
+                                              lineNum,
+                                              "overriding method '" + name +  
+                                              "' has formal type '" + 
+                                              c.getType() + "' for formal " + 
+                                              count + ", which differs from " +
+                                              "the inherited method's formal " +
+                                              "type '" + p.getType() + "'");
+                    }
+                    count++;
+                }
             }
+        }
+        if (noError) {
+            mTable.add(name, node);
         }
         return node;
     }

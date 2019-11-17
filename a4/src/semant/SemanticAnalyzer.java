@@ -289,7 +289,9 @@ public class SemanticAnalyzer {
 										  ctn.getName() + 
 										  "' (originally defined " +
 										  "at line " + 
-										  ctn.getASTNode().getLineNum() + ")");
+										  classMap.get(ctn.getASTNode()
+										  .getName()).getASTNode()
+										  .getLineNum() + ")");
 				}
 			}
 		}
@@ -357,8 +359,6 @@ public class SemanticAnalyzer {
 		ClassTreeNode obby = root;
 		SymbolTable vTbl = obby.getVarSymbolTable();
 		SymbolTable mTbl = obby.getMethodSymbolTable();
-		//vTbl.enterScope();
-		//mTbl.enterScope();
 		cev = new ClassEnvVisitor(vTbl, mTbl, errorHandler, classMap);
 		cev.visit(obby.getASTNode()); 
 
