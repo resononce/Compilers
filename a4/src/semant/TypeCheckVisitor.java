@@ -161,24 +161,27 @@ public class TypeCheckVisitor extends SemanticVisitor {
 
     public Object visit(DeclStmt node) {
         boolean noError = true;
-        int lineNum = node.getLineNum();
-        String type = node.getType();
+        int lineNum = node.getLineNum();        
         String name = node.getName();
+
+        String lhsType = node.getType();
         String rhsType = (String)node.getInit().accept(this);
-        String checkType = type.replace("[]", "");
+
+        String lhsTypeNoBracket = lhsType.replace("[]", "");
         String rhsTypeNoBracket = rhsType.replace("[]", "");
+
         boolean duplicate = false;
         //Type Check of rhs
-        if ((!checkType.equals("boolean") && !checkType.equals("int")) &&
-            !classMap.containsKey(checkType)) {
+        if ((!rhsType.equals("boolean") && !rhsType.equals("int")) &&
+            !classMap.containsKey(rhsTypeNoBracket)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
-                                      "type '" + type +  
+                                      "type '" + rhsType +  
                                       "' of declaration '" + name + 
                                       "' is undefined");
                 //Sets to default type "Object" when unknown
-                type = "Object";
+                lhsType = "Object";
         }
         //Reserved name check
         if (name.equals("null") || name.equals("super") || 
@@ -192,8 +195,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         }
         //Duplicate name check
         else if ( (vTable.getScopeLevel(name) > 0) &&
-                 (vTable.getScopeLevel(name) > (((ClassTreeNode) classMap.get(className)).getParent()
-                 .getVarSymbolTable().getCurrScopeLevel() + 1))) {
+                 (vTable.getScopeLevel(name) > (((ClassTreeNode) classMap
+                                                    .get(className))
+                                                    .getParent()
+                                                    .getVarSymbolTable().getCurrScopeLevel() + 1))) {
             duplicate = true;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                     fileName, 
@@ -202,18 +207,20 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     "' is already defined in method " +
                                     methodName );
         }
-        if (!rhsType.equals(type)) {
+        if (!rhsType.equals(lhsType)) {
             //Need to check if conforms or not
-            if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(checkType)){
+            if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(lhsTypeNoBracket)){
                 boolean doesConform = false;
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
                     parent = parent.getParent()){
+<<<<<<< HEAD
                     if (parent.getName().equals(checkType)) {
+=======
+                    if (parent.getName().equals(lhsTypeNoBracket)) {
+>>>>>>> 5150626e3a4504de989dcdb242bfc4e99120bc24
                         doesConform = true;
-                    }
-                
-                    
+                    }             
                 }
                 if (!doesConform) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -222,17 +229,16 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           "expression type '" + rhsType + "' " 
                                           + "of declaration '" + name + 
                                           "' does not conform to declared " +
-                                          "type '" + type + "'"
+                                          "type '" + lhsType + "'"
                                           );
-                }
-                if (doesConform && (type.contains("[]") != rhsType.contains("[]"))) {
+                }else if (doesConform && (lhsType.contains("[]") != rhsType.contains("[]"))) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "expression type '" + rhsType + "' " 
                                           + "of declaration '" + name + 
                                           "' does not conform to declared " +
-                                          "type '" + type + "'"
+                                          "type '" + lhsType + "'"
                                           );
                 }
             } 
@@ -244,11 +250,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     "expression type '" + rhsType +
                                     "' of declaration '" + name +
                                     "' does not match declared "
-                                    + "type '" + type + "'");
+                                    + "type '" + lhsType + "'");
             }
         } 
         if (!duplicate)
-            vTable.add(name, type);
+            vTable.add(name, lhsType);
         return null;
     }
 
@@ -798,7 +804,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   "size in the array construction has type " +
                                   "'" + size + "' rather than int");
         }
-        return type; 
+        node.setExprType(type + "[]");
+        return type + "[]"; 
     }
     
     //Returns a a null or "boolean"
