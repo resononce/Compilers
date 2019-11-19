@@ -13,11 +13,11 @@
 <     }
 < }
 ---
+> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: x compare level: 4 In Scope Level: 2
 > NullArrayUse.btm:3:semantic error: expression type 'null' of declaration 'array' does not match declared type 'int[]'
 > 
-> NullArrayUse.btm:4:semantic error: Variable in VarExpr not found
-> 
-> NullArrayUse.btm:4:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
+> NullArrayUse.btm:4:semantic error: expression type 'int[]' of declaration 'x' does not match declared type 'int'
 > 
 > Stopping compilation due to errors
-> 3 error(s)
+> 2 error(s)

@@ -1,63 +1,82 @@
-81c81
+0a1,20
+> total : 8 parent total: 4<>variable: b compare level: 3 In Scope Level: 4
+> total : 10 parent total: 4<>variable: b compare level: 2 In Scope Level: 6
+> total : 22 parent total: 4<>variable: this compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: super compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: null compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: y compare level: 4 In Scope Level: 18
+> total : 22 parent total: 4<>variable: z compare level: 4 In Scope Level: 18
+> total : 22 parent total: 4<>variable: y compare level: 0 In Scope Level: 18
+> total : 22 parent total: 4<>variable: x compare level: 0 In Scope Level: 18
+> total : 22 parent total: 4<>variable: b compare level: 2 In Scope Level: 18
+> total : 22 parent total: 4<>variable: s1 compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: s2 compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: s3 compare level: 23 In Scope Level: 18
+> total : 23 parent total: 4<>variable: s3 compare level: 1 In Scope Level: 19
+> total : 22 parent total: 4<>variable: u compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: v compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: s4 compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: t compare level: 17 In Scope Level: 18
+> total : 22 parent total: 4<>variable: n compare level: 23 In Scope Level: 18
+> total : 22 parent total: 4<>variable: io compare level: 23 In Scope Level: 18
+55,56d74
+< SemanticErrors1.btm:54:semantic error: expression type 'null' of field 'z' does not match declared type 'int'
+< 
+62a81,82
+> SemanticErrors1.btm:60:semantic error: variable 'b' is already defined in method m2
+> 
+81c101
 < SemanticErrors1.btm:70:semantic error: formals cannot be named 'this'
 ---
 > SemanticErrors1.btm:69:semantic error: formals cannot be named 'this'
-116a117,120
+102a123,124
+> SemanticErrors1.btm:85:semantic error: variable 'b' is already defined in method m7
+> 
+116a139,142
 > SemanticErrors1.btm:93:semantic error: the lefthand type 'int' in the binary operation ('||') is incorrect; should have been: boolean
 > 
 > SemanticErrors1.btm:93:semantic error: the righthand type 'int' in the binary operation ('||') is incorrect; should have been: boolean
 > 
-118a123,124
-> SemanticErrors1.btm:94:semantic error: Variable in VarExpr not found
-> 
-124a131,132
+124a151,152
 > SemanticErrors1.btm:97:semantic error: the expression type 'int' in the unary operation ('!') is incorrect; should have been: boolean
 > 
-131,132d138
-< SemanticErrors1.btm:102:semantic error: variable 's3' is already defined in method m7
-< 
-139c145
+139c167
 < SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs from number of formal parameters (2) in dispatch to method 'm6'
 ---
 > SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs fromnumber of formal parameters (2) in dispatch method 'm6'
-141c147
+141c169
 < SemanticErrors1.btm:112:semantic error: actual parameter 2 in the call to method m6 is void and cannot be used within an expression
 ---
 > SemanticErrors1.btm:112:semantic error: actual parameter 1in the call to method m6 is void and cannot be used within an expression
-143c149
+143c171
 < SemanticErrors1.btm:113:semantic error: actual parameter 2 with type 'boolean' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 ---
 > SemanticErrors1.btm:113:semantic error: actual parameter 1with type 'booleandoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
-145c151
+145c173
 < SemanticErrors1.btm:114:semantic error: actual parameter 2 with type 'String' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 ---
 > SemanticErrors1.btm:114:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
-149c155,157
+149c177
 < SemanticErrors1.btm:115:semantic error: actual parameter 2 with type 'Object' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 ---
-> SemanticErrors1.btm:115:semantic error: Inconvertible types: ('String'=>'Object')
-> 
 > SemanticErrors1.btm:115:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
-153c161
+153c181
 < SemanticErrors1.btm:117:semantic error: expression in cast has type 'int', which is primitive and can't be casted
 ---
 > SemanticErrors1.btm:117:semantic error: expression in cast has type 'int' which is primitive and can't be casted
-156a165,166
-> SemanticErrors1.btm:120:semantic error: Variable in VarExpr not found
-> 
-161c171
+161c189
 < SemanticErrors1.btm:123:semantic error: inconvertible types ('String'=>'TextIO')
 ---
 > SemanticErrors1.btm:123:semantic error: Inconvertible types: ('String'=>'TextIO')
-163c173
+163c191
 < SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 ---
 > SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
-167c177
+167c195
 < SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 ---
 > SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
-171,175c181
+171,175c199
 < SemanticErrors1.btm:130:semantic error: type 'int' of new construction is primitive and cannot be constructed
 < 
 < SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
@@ -65,71 +84,44 @@
 < SemanticErrors1.btm:132:semantic error: type 'Integer' of new construction is undefined
 ---
 > SemanticErrors1.btm:130:semantic error: the righthand type 'Object' does not conform to the lefthand type 'boolean' in assignment
-177c183
+177c201
 < SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
 ---
 > SemanticErrors1.btm:132:semantic error: the righthand type 'Object' does not conform to the lefthand type 'boolean' in assignment
-179c185
+179c203
 < SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' and righthand type 'int' are not compatible in assignment
 ---
 > SemanticErrors1.btm:134:semantic error: the righthand type 'int' does not conform to the lefthand type 'TextIO' in assignment
-181c187
+181c205
 < SemanticErrors1.btm:135:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 ---
-> SemanticErrors1.btm:135:semantic error: variable 'vin assignment is undeclared
-185c191
+> SemanticErrors1.btm:135:semantic error: the righthand type 'TextIO' does not conform to the lefthand type 'int' in assignment
+185c209
 < SemanticErrors1.btm:137:semantic error: bad reference 't': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
 ---
 > SemanticErrors1.btm:138:semantic error: variable 'xin assignment is undeclared
-187,189c193
+187,189c211
 < SemanticErrors1.btm:138:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 < 
 < SemanticErrors1.btm:139:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 ---
 > SemanticErrors1.btm:139:semantic error: variable 'yin assignment is undeclared
-197c201,203
-< SemanticErrors1.btm:145:semantic error: the lefthand type 'String' in the binary operation ('+') is incorrect; should have been: int
----
-> SemanticErrors1.btm:145:semantic error: Variable in VarExpr not found
-> 
-> SemanticErrors1.btm:145:semantic error: the lefthand type 'Object' in the binary operation ('+') is incorrect; should have been: int
-207c213
-< SemanticErrors1.btm:149:semantic error: can't dispatch on a primitive or void type
----
-> SemanticErrors1.btm:149:semantic error: Variable in VarExpr not found
-209c215,217
+209c231
 < SemanticErrors1.btm:149:semantic error: actual parameter 1 with type 'Object' does not conform to formal parameter 1 with declared type 'String' in dispatch to method 'putString'
 ---
-> SemanticErrors1.btm:149:semantic error: dispatch to unknown method 'substring'
-> 
 > SemanticErrors1.btm:149:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'Stringin dispath to method 'putString'
-213c221,225
+213c235
 < SemanticErrors1.btm:151:semantic error: actual parameter 1 with type 'int' does not match formal parameter 1 with declared type 'String' in dispatch to method 'putString'
 ---
 > SemanticErrors1.btm:151:semantic error: actual parameter 1with type 'intdoes not match forma parameter 1 with declaredtype 'Stringin dispath to method 'putString'
-> 
-> SemanticErrors1.btm:153:semantic error: Variable in VarExpr not found
-> 
-> SemanticErrors1.btm:153:semantic error: the lefthand type 'Object' in the binary operation ('/') is incorrect; should have been: int
-217c229
+217c239
 < SemanticErrors1.btm:154:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'boolean'
 ---
-> SemanticErrors1.btm:154:semantic error: Variable in VarExpr not found
-219c231
+> SemanticErrors1.btm:154:semantic error: the lefthand type 'int' in the binary operation ('==') does not match righthand type 'boolean'
+219c241
 < SemanticErrors1.btm:156:semantic error: the lefthand type 'int' in the binary operation ('!=') does not match the righthand type 'boolean'
 ---
-> SemanticErrors1.btm:154:semantic error: the lefthand type 'Object' in the binary operation ('==') does not match righthand type 'boolean'
-221c233
-< SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'void' from a method
----
-> SemanticErrors1.btm:156:semantic error: Variable in VarExpr not found
-223c235,237
+> SemanticErrors1.btm:156:semantic error: the lefthand type 'int' in the binary operation ('!=') does not match righthand type 'boolean'
+223,224d244
 < SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
----
-> SemanticErrors1.btm:156:semantic error: the lefthand type 'Object' in the binary operation ('!=') does not match righthand type 'boolean'
-> 
-> SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'void' from a method
-226c240
-< 112 error(s)
----
-> 119 error(s)
+< 

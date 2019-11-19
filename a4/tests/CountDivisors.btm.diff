@@ -1,32 +1,28 @@
-17c17
+0a1,7
+> total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: upperBound compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: numWithMostDivisors compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: maxDivisors compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+> total : 5 parent total: 1<>variable: numDivisors compare level: 6 In Scope Level: 4
+> total : 5 parent total: 1<>variable: j compare level: 6 In Scope Level: 4
+17c24
 <         if ((/*L14,type:boolean*/(/*L14,type:int*/upperBound) < (/*L14,type:int*/1)))
 ---
 >         if ((/*L14*/(/*L14,type:int*/upperBound) < (/*L14,type:int*/1)))
-32c32
+32c39
 <         while ((/*L21,type:boolean*/(/*L21,type:int*/i) <= (/*L21,type:int*/upperBound)))
 ---
 >         while ((/*L21*/(/*L21,type:int*/i) <= (/*L21,type:int*/upperBound)))
-40c40
+40c47
 <                 while ((/*L25,type:boolean*/(/*L25,type:int*/j) <= (/*L25,type:int*/i)))
 ---
 >                 while ((/*L25*/(/*L25,type:int*/j) <= (/*L25,type:int*/i)))
-44c44
+44c51
 <                         if ((/*L27,type:boolean*/(/*L27,type:int*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
 ---
 >                         if ((/*L27*/(/*L27*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
-46c46
-<                             (/*L28,type:int*/numDivisors = (/*L28,type:int*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
----
->                             (/*L28,type:int*/numDivisors = (/*L28*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
-52c52
-<                         (/*L29,type:int*/j = (/*L29,type:int*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
----
->                         (/*L29,type:int*/j = (/*L29*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
-55c55
+55c62
 <                 if ((/*L34,type:boolean*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
 ---
 >                 if ((/*L34*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
-68c68
-<                 (/*L39,type:int*/i = (/*L39,type:int*/(/*L39,type:int*/i) + (/*L39,type:int*/1)));
----
->                 (/*L39,type:int*/i = (/*L39*/(/*L39,type:int*/i) + (/*L39,type:int*/1)));

@@ -1,10 +1,11 @@
+total : 3 parent total: 1<>variable: objects compare level: 4 In Scope Level: 2
 ArrayStoreError2.btm:8:semantic error: expression type 'B' of declaration 'objects' does not conform to declared type 'Object[]'
 
-ArrayStoreError2.btm:9:semantic error: variable 'objectsin assignment is undeclared
+ArrayStoreError2.btm:9:semantic error: the righthand type 'B' does not conform to the lefthand type 'Object[]' in assignment
 
-ArrayStoreError2.btm:10:semantic error: variable 'objectsin assignment is undeclared
+ArrayStoreError2.btm:10:semantic error: the righthand type 'D' does not conform to the lefthand type 'Object[]' in assignment
 
-ArrayStoreError2.btm:11:semantic error: variable 'objectsin assignment is undeclared
+ArrayStoreError2.btm:11:semantic error: the righthand type 'A' does not conform to the lefthand type 'Object[]' in assignment
 
 Stopping compilation due to errors
 4 error(s)

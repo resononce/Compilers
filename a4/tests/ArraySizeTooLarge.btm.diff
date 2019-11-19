@@ -19,15 +19,15 @@
 <     }
 < }
 ---
+> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
 > ArraySizeTooLarge.btm:4:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
-> ArraySizeTooLarge.btm:5:semantic error: variable 'arrayin assignment is undeclared
+> ArraySizeTooLarge.btm:5:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
 > 
-> ArraySizeTooLarge.btm:7:semantic error: Variable in VarExpr not found
-> 
-> ArraySizeTooLarge.btm:7:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+> ArraySizeTooLarge.btm:7:semantic error: actual parameter 1with type 'int[]does not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
 > 
 > ArraySizeTooLarge.btm:7:semantic error: dispatch to unknown method 'putString'
 > 
 > Stopping compilation due to errors
-> 5 error(s)
+> 4 error(s)
