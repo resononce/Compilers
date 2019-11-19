@@ -1,6 +1,7 @@
+total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
 ArraySizeNegative.btm:3:semantic error: expression type 'Object' of declaration 'array' does not conform to declared type 'Object[]'
 
-ArraySizeNegative.btm:4:semantic error: variable 'arrayin assignment is undeclared
+ArraySizeNegative.btm:4:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
 
 Stopping compilation due to errors
 2 error(s)

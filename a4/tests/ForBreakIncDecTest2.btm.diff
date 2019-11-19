@@ -1,12 +1,14 @@
-13c13
+0a1
+> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+13c14
 <                 if ((/*L5,type:boolean*/(/*L5,type:int*/i) >= (/*L5,type:int*/100)))
 ---
 >                 if ((/*L5*/(/*L5,type:int*/i) >= (/*L5,type:int*/100)))
-21c21
+21c22
 <                 (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int*/++((/*L7,type:int*/i))))).putString((/*L7,type:String*/"\n")));
 ---
 >                 (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7*/++((/*L7,type:int*/i))))).putString((/*L7,type:String*/"\n")));
-23c23
+23c24
 <                 (/*L8,type:int*/((/*L8,type:int*/i))++);
 ---
 >                 (/*L8*/((/*L8,type:int*/i))++);

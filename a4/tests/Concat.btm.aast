@@ -1,3 +1,7 @@
+total : 3 parent total: 1<>variable: star compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: s1 compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
 // Source file: Concat.btm
 // Source line: 1
 class Main extends Object {
@@ -29,7 +33,7 @@ class Main extends Object {
                 // Source line: 15
                 (/*L15,type:String*/s2 = (/*L15,type:String*/(/*L15,type:String*/s2).concat((/*L15,type:String*/star))));
                 // Source line: 16
-                (/*L16,type:int*/i = (/*L16*/(/*L16,type:int*/i) + (/*L16,type:int*/1)));
+                (/*L16,type:int*/i = (/*L16,type:int*/(/*L16,type:int*/i) + (/*L16,type:int*/1)));
             }
         // Source line: 19
         (/*L19,type:String*/s1 = (/*L19,type:String*/(/*L19,type:String*/s1).concat((/*L19,type:String*/s2))));

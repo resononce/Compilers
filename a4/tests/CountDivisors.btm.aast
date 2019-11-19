@@ -1,3 +1,10 @@
+total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: upperBound compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: numWithMostDivisors compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: maxDivisors compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+total : 5 parent total: 1<>variable: numDivisors compare level: 6 In Scope Level: 4
+total : 5 parent total: 1<>variable: j compare level: 6 In Scope Level: 4
 // Source file: CountDivisors.btm
 // Source line: 5
 class Main extends Object {
@@ -43,13 +50,13 @@ class Main extends Object {
                         // Source line: 27
                         if ((/*L27*/(/*L27*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
                             // Source line: 28
-                            (/*L28,type:int*/numDivisors = (/*L28*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
+                            (/*L28,type:int*/numDivisors = (/*L28,type:int*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
                         else
                             // Source line: 27
                             {
                             }
                         // Source line: 29
-                        (/*L29,type:int*/j = (/*L29*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
+                        (/*L29,type:int*/j = (/*L29,type:int*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
                     }
                 // Source line: 34
                 if ((/*L34*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
@@ -65,7 +72,7 @@ class Main extends Object {
                     {
                     }
                 // Source line: 39
-                (/*L39,type:int*/i = (/*L39*/(/*L39,type:int*/i) + (/*L39,type:int*/1)));
+                (/*L39,type:int*/i = (/*L39,type:int*/(/*L39,type:int*/i) + (/*L39,type:int*/1)));
             }
         // Source line: 43
         (/*L43,type:TextIO*/(/*L43,type:TextIO*/(/*L43,type:TextIO*/(/*L43,type:TextIO*/io).putString((/*L43,type:String*/"Number with most divisors: "))).putInt((/*L43,type:int*/numWithMostDivisors))).putString((/*L43,type:String*/"\n")));
