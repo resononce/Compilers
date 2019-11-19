@@ -165,6 +165,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         String name = node.getName();
         String rhsType = (String)node.getInit().accept(this);
         String rhsTypeNoBracket = rhsType.replace("[]", "");
+        boolean duplicate = false;
         //Type Check of rhs
         if ((!checkType.equals("boolean") && !checkType.equals("int")) &&
             !classMap.containsKey(checkType)) {
@@ -190,6 +191,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         //Duplicate name check
         else if (vTable.peek(name) != null) {
             noError = false;
+            duplicate = true;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                     fileName, 
                                     lineNum,
@@ -239,10 +241,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     + "type '" + type + "'");
             }
         } 
-        else if (noError) {
-            //Put declaration name and type into varSymbolTable
+        if (!duplicate)
             vTable.add(name, type);
-        }
         return null;
     }
 
