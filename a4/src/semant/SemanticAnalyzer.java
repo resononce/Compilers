@@ -259,7 +259,12 @@ public class SemanticAnalyzer {
     private void buildClassTree(ClassList classList)
     {
 		updateBuiltins();
-
+		ClassTreeNode builtIn1 = classMap.get("String");
+		builtIn1.setParent(classMap.get("Object"));
+		builtIn1 = classMap.get("TextIO");
+		builtIn1.setParent(classMap.get("Object"));
+		builtIn1 = classMap.get("Sys");
+		builtIn1.setParent(classMap.get("Object"));
 		//Part 1
 		Iterator iter = classList.getIterator();
 		while (iter.hasNext()) {
