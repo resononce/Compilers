@@ -1,0 +1,9 @@
+class Main {
+	int x = main();
+	int main() {
+		return 0;
+	}
+	int m() {
+		return main() + 1;
+	}
+}

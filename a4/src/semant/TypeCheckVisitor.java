@@ -38,8 +38,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
 
     public Object visit(Field node) {
         if (node.getInit() != null) {
-            node.getInit().accept(this);
-            String rhsType = node.getInit().getExprType();
+            String rhsType = (String) node.getInit().accept(this);
             String lhsType = node.getType();
             int lineNum = node.getLineNum();
             String name = node.getName();
@@ -56,8 +55,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' cannot be void");
             } 
             //checks if either lhs or rhs is primitive and do not match
-            else if ((lCheckType.equals("boolean") || lCheckType.equals("int")) ||
-                     (rCheckType.equals("boolean") || rCheckType.equals("int")) &&
+            else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) ||
+                     (rCheckType.equals("boolean") || rCheckType.equals("int"))) &&
                      !lCheckType.equals(rCheckType)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
@@ -94,11 +93,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(Method node) {
+        int line = node.getLineNum();
+        methodReturnType = node.getReturnType();
         //moves forward into body of method
         node.getStmtList().accept(this);
         vTable.enterScope();  //Changed from mTable to vTable based on slide 15-2
         methodName = node.getName();
-        methodReturnType = node.getReturnType();
         //Goes through method arguments to check for type of each arg
         for (Iterator it = node.getFormalList().getIterator(); it.hasNext();) {
             Formal f = (Formal) it.next();
@@ -196,9 +196,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     methodName );
         } 
         //rhs = getInit()  THIS IS AN Experiment, Might not work------------------------
-        Object hold = node.getInit().accept(this);
-        Expr temp = (Expr) hold;
-        String rhsType = temp.getExprType();
+        String rhsType = (String)node.getInit().accept(this);
         if (!rhsType.equals(type)) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                  fileName,
@@ -216,11 +214,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(ExprStmt node) {
+        int lineNum = node.getLineNum();
         //Maybe set the Type of Expression with setExprType()****
         //Goes forward to the expression ..Original: node.getExpr().accept(this);
-        Expr temp = (Expr) node.getExpr().accept(this);
-        int lineNum = temp.getLineNum();
+        node.getExpr().accept(this);
         //Checks that the ExprStmt is a legit statement
+        Expr temp = node.getExpr();
         if (!(temp instanceof AssignExpr) || !(temp instanceof ArrayAssignExpr) ||
             !(temp instanceof NewExpr) || !(temp instanceof DispatchExpr) ||
             !(temp instanceof UnaryDecrExpr) || !(temp instanceof UnaryIncrExpr)) {
@@ -238,9 +237,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
         //Needs to enter a new scope
         vTable.enterScope();
         //Check if Pred is a boolean Expr
-        Expr temp = (Expr) node.getPredExpr().accept(this);
-        int lineNum = temp.getLineNum();
-        if (!temp.getExprType().equals("boolean")) {
+        String temp = (String) node.getPredExpr().accept(this);
+        int lineNum = node.getLineNum();
+        if (!temp.equals("boolean")) {
             //Register error here if not boolean
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -260,9 +259,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
         //Have to add something to check if a break; is within a loop
         //Enters a new scope
         vTable.enterScope();
-        Expr temp = (Expr) node.getPredExpr().accept(this);
-        int lineNum = temp.getLineNum();
-        if (!temp.getExprType().equals("boolean")) {
+        String temp = (String) node.getPredExpr().accept(this);
+        int lineNum = node.getLineNum();
+        if (!temp.equals("boolean")) {
             //Register error here if not boolean
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -284,9 +283,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
         if (node.getInitExpr() != null)
             node.getInitExpr().accept(this);
         if (node.getPredExpr() != null) {
-            Expr temp = (Expr) node.getPredExpr().accept(this);
-            int lineNum = temp.getLineNum();
-            if (!temp.getExprType().equals("boolean")) {
+            String temp = (String) node.getPredExpr().accept(this);
+            int lineNum = node.getLineNum();
+            if (!temp.equals("boolean")) {
                 //Register error here if not boolean
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
@@ -331,12 +330,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         boolean noError = true;
         String returnType = "void";
-        System.out.println("Return something");
         if (node.getExpr() != null) {
-            Expr expr = (Expr) node.getExpr().accept(this);
-            System.out.println("Return something");
+            returnType = (String) node.getExpr().accept(this);
+            Expr expr = (Expr) node.getExpr();
             lineNum = expr.getLineNum();
-            returnType = expr.getExprType();
             if (returnType.equals("void")) {
                 noError = false;
                 //Register void return error
@@ -430,7 +427,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             } 
         }
         //Whether incorrect or correct, we will always return the returnType
-        node.getExpr().setExprType(returnType);
+        //node.getExpr().setExprType(returnType);
         return returnType; 
     }
     
@@ -447,18 +444,14 @@ public class TypeCheckVisitor extends SemanticVisitor {
     //The type for this node can be obtained from getExprType() or
     //from the return of this visit
     public Object visit(DispatchExpr node) { 
-        node.getRefExpr().accept(this);
-        String exprType = (String) node.getExprType();
-        System.out.println(exprType);
+        String exprType = (String) node.getRefExpr().accept(this);
         node.getActualList().accept(this);
-        System.out.println(node.getActualList().getSize());
         String methodName = node.getMethodName();
         int lineNum = node.getLineNum();
         String toBeReturned = "Object";
         FormalList fl;
         ExprList el;
         int numFormals, numParams;
-        
         //Check that LHS refExpr is not primitive or void
         if (exprType.equals("boolean") || exprType.equals("int") 
         || exprType.equals("void")) {
@@ -487,6 +480,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             else {
                 fl = methodToUse.getFormalList();
                 el = (ExprList) node.getActualList();
+                
                 numFormals = fl.getSize();
                 numParams = el.getSize();
                 //Check if same number of arguments
@@ -554,10 +548,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "dispatch to unknown method '" +
                                       methodName + "'");
             } 
+            
             //If the method exists, we check parameters against formals
             else {
                 fl = methodToUse.getFormalList();
-                el = (ExprList) node.getActualList().accept(this);
+                el = (ExprList) node.getActualList();
                 numFormals = fl.getSize();
                 numParams = el.getSize();
                 //Check if same number of arguments
@@ -658,7 +653,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     //Returns a a null or "boolean"
     public Object visit(InstanceofExpr node) { 
         int lineNum = node.getLineNum();
-        String lhs = ((Expr) node.getExpr().accept(this)).getExprType();
+        String lhs = (String) node.getExpr().accept(this);
         String rhs = node.getType();
         String lhsNoArr = lhs.replace("[]", "");
         String rhsNoArr = rhs.replace("[]", "");
@@ -730,8 +725,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         boolean legitCast = false;
         boolean upCast = false;
         int lineNum = node.getLineNum();
-        Expr expr = (Expr) node.getExpr().accept(this);
-        String exprType = expr.getExprType();
+        String exprType = (String) node.getExpr().accept(this);
         String castTypeNoArr = castType.replace("[]", "");
         String exprTypeNoArr = exprType.replace("[]", "");
 
@@ -812,7 +806,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         return castType; 
     }
     
-    public Object visit(AssignExpr node) { 
+    public Object visit(AssignExpr node) {
         //Slide example a.b = RHS
         int lineNum = node.getLineNum();
         node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
@@ -1002,11 +996,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryCompEqExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals(type2)) {
             boolean is2NotPrimitive = !type2.equals("int") && !type2.equals("boolean");
             boolean is1NotPrimitve = !type1.equals("int") && !type1.equals("boolean");
@@ -1055,11 +1047,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryCompNeExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals(type2)) {
             boolean is2NotPrimitive = !type2.equals("int") && !type2.equals("boolean");
             boolean is1NotPrimitve = !type1.equals("int") && !type1.equals("boolean");
@@ -1108,11 +1098,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryCompLtExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1133,11 +1121,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryCompLeqExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1157,12 +1143,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         return "boolean";
     }
     
-    public Object visit(BinaryCompGtExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
+    public Object visit(BinaryCompGtExpr node) {
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1183,11 +1167,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryCompGeqExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1212,11 +1194,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryArithPlusExpr node) { 
-        int lineNum = node.getLineNum();
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        int lineNum = node.getLineNum(); 
+        
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1237,11 +1218,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryArithMinusExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1261,12 +1240,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         return "int"; 
     }
     
-    public Object visit(BinaryArithTimesExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
+    public Object visit(BinaryArithTimesExpr node) {
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1287,11 +1264,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryArithDivideExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1312,11 +1287,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryArithModulusExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1341,11 +1314,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryLogicAndExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("boolean")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1366,11 +1337,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
     
     public Object visit(BinaryLogicOrExpr node) { 
-        node.getLeftExpr().accept(this);
-        node.getRightExpr().accept(this);
         int lineNum = node.getLineNum();
-        String type1 = node.getLeftExpr().getExprType();
-        String type2 = node.getRightExpr().getExprType();
+        String type1 = (String) node.getLeftExpr().accept(this);
+        String type2 = (String) node.getRightExpr().accept(this);
         if (!type1.equals("boolean")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1397,8 +1366,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     public Object visit(UnaryNegExpr node) { 
         //Type check the expression, returns the type of the expression? Not sure though
         int lineNum = node.getLineNum();
-        node.getExpr().accept(this);
-        String type = node.getExpr().getExprType();
+        String type = (String) node.getExpr().accept(this);
         if (!type.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1413,8 +1381,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     public Object visit(UnaryNotExpr node) { 
         //Type check the expression, returns the type of the expression? Not sure though
         int lineNum = node.getLineNum();
-        node.getExpr().accept(this);
-        String type = node.getExpr().getExprType();
+        String type = (String) node.getExpr().accept(this);
         if (!type.equals("boolean")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1428,8 +1395,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     
     public Object visit(UnaryIncrExpr node) { 
         int lineNum = node.getLineNum();
-        node.getExpr().accept(this);
-        String type = node.getExpr().getExprType();
+        String type = (String) node.getExpr().accept(this);
         if (!type.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1443,8 +1409,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     
     public Object visit(UnaryDecrExpr node) { 
         int lineNum = node.getLineNum();
-        node.getExpr().accept(this);
-        String type = node.getExpr().getExprType();
+        String type = (String) node.getExpr().accept(this);
         if (!type.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -1464,9 +1429,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
         String name = node.getName();
         if (node.getRef() != null)
         {
-            String varType;
-            node.getRef().accept(this);
-            String refName = node.getRef().getExprType();
+            String varType;        
+            String refName = (String) node.getRef().accept(this);
             if (refName.equals("this")) {
                 //check local 
                 varType = (String) vTable.lookup("this." + name);
@@ -1557,7 +1521,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 return varType;
             }
         }
-        return null; 
+        return "Object"; 
     }
     
     public Object visit(ArrayExpr node) { 
@@ -1577,8 +1541,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
         if (node.getRef() != null)
         {
             String varType;
-            node.getRef().accept(this);
-            String refName = node.getRef().getExprType();
+            
+            String refName = (String) node.getRef().accept(this);
             if (refName.equals("this")) {
                 //check local 
                 varType = (String) vTable.lookup("this." + name);
@@ -1669,23 +1633,23 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 return varType;
             }
         }
-        return null; 
+        return "Object"; 
     }
     
     //Probably return a string of the type it is rather than this
     //Change very possibly
-    public Object visit(ConstIntExpr node) { 
+    public Object visit(ConstIntExpr node) {
         node.setExprType("int");
-        return node;
+        return "int";
     }
     
     public Object visit(ConstBooleanExpr node) { 
         node.setExprType("boolean");
-        return node; 
+        return "boolean"; 
     }
     
     public Object visit(ConstStringExpr node) { 
         node.setExprType("String");
-        return node; 
+        return "String"; 
     }
 }
