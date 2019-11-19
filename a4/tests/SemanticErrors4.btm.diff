@@ -1,5 +1,5 @@
 0a1,2
-> SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method'm'
+> SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method 'm'
 > 
 2a5,6
 > SemanticErrors4.btm:9:semantic error: expression type 'boolean' of declaration 'b' does not match declared type 'boolean[]'
@@ -17,103 +17,95 @@
 > SemanticErrors4.btm:15:semantic error: Variable in VarExpr not found
 > 
 > SemanticErrors4.btm:15:semantic error: the expression type 'Object' in the unary operation ('++') is incorrect; should have been: int
-15c27,47
+15c27,29
 < SemanticErrors4.btm:20:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method 'main'
 ---
 > SemanticErrors4.btm:20:semantic error: Variable in VarExpr not found
 > 
-> SemanticErrors4.btm:20:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'main'
-> 
-> SemanticErrors4.btm:21:semantic error: Variable in VarExpr not found
-> 
-> SemanticErrors4.btm:21:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'main'
-> 
-> SemanticErrors4.btm:22:semantic error: return type 'int' is not compatible with declared return type 'void' in method'main'
-> 
-> SemanticErrors4.btm:23:semantic error: return type 'int' is not compatible with declared return type 'void' in method'main'
-> 
-> SemanticErrors4.btm:24:semantic error: return type 'int[]' is not compatible with declared return type 'void' in method'main'
-> 
-> SemanticErrors4.btm:27:semantic error: type 'String[]' of declaration 'sa' is undefined
-> 
-> SemanticErrors4.btm:27:semantic error: type 'String' of newconstruction is undefined
-> 
-> SemanticErrors4.btm:28:semantic error: type 'Object[]' of declaration 'oa' is undefined
-> 
-> SemanticErrors4.btm:28:semantic error: type 'Object' of newconstruction is undefined
-17c49
+> SemanticErrors4.btm:20:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'main'
+17c31,33
 < SemanticErrors4.btm:21:semantic error: return type 'boolean[]' is not compatible with declared return type 'void' in method 'main'
 ---
-> SemanticErrors4.btm:29:semantic error: the target type 'String[]' is undefined
-19c51
-< SemanticErrors4.btm:22:semantic error: return type 'int' is not compatible with declared return type 'void' in method 'main'
----
-> SemanticErrors4.btm:29:semantic error: not a statement
-21c53
-< SemanticErrors4.btm:23:semantic error: return type 'int' is not compatible with declared return type 'void' in method 'main'
----
-> SemanticErrors4.btm:30:semantic error: the target type 'Object[]' is undefined
-23c55
-< SemanticErrors4.btm:24:semantic error: return type 'int[]' is not compatible with declared return type 'void' in method 'main'
----
-> SemanticErrors4.btm:30:semantic error: not a statement
-25c57
+> SemanticErrors4.btm:21:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors4.btm:21:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'main'
+25c41,51
 < SemanticErrors4.btm:32:semantic error: inconvertible types ('Object[]'=>'String')
 ---
-> SemanticErrors4.btm:32:semantic error: the target type 'String' is undefined
-27c59
+> SemanticErrors4.btm:27:semantic error: expression type 'String' of declaration 'sa' does not conform to declared type 'String[]'
+> 
+> SemanticErrors4.btm:28:semantic error: expression type 'Object' of declaration 'oa' does not conform to declared type 'Object[]'
+> 
+> SemanticErrors4.btm:29:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors4.btm:29:semantic error: Inconvertible types: ('Object'=>'String[]')
+> 
+> SemanticErrors4.btm:29:semantic error: variable 'sain assignment is undeclared
+> 
+> SemanticErrors4.btm:30:semantic error: Variable in VarExpr not found
+27c53
 < SemanticErrors4.btm:32:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
 ---
-> SemanticErrors4.btm:32:semantic error: not a statement
-29c61
+> SemanticErrors4.btm:30:semantic error: Inconvertible types: ('Object'=>'Object[]')
+29c55
 < SemanticErrors4.btm:33:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
 ---
-> SemanticErrors4.btm:33:semantic error: the target type 'Object' is undefined
-31c63
+> SemanticErrors4.btm:30:semantic error: variable 'oain assignment is undeclared
+31c57
 < SemanticErrors4.btm:34:semantic error: the base type in the target array type 'string' is undefined
 ---
-> SemanticErrors4.btm:33:semantic error: not a statement
-33c65
+> SemanticErrors4.btm:32:semantic error: Variable in VarExpr not found
+33c59
 < SemanticErrors4.btm:34:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
 ---
-> SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
-35c67
+> SemanticErrors4.btm:32:semantic error: Inconvertible types: ('Object'=>'String')
+35c61
 < SemanticErrors4.btm:35:semantic error: inconvertible types ('boolean[]'=>'String[]')
 ---
-> SemanticErrors4.btm:34:semantic error: not a statement
-37c69
+> SemanticErrors4.btm:32:semantic error: variable 'sain assignment is undeclared
+37c63
 < SemanticErrors4.btm:36:semantic error: inconvertible types ('boolean[]'=>'Object[]')
 ---
-> SemanticErrors4.btm:35:semantic error: Variable in VarExpr not found
-39c71
+> SemanticErrors4.btm:33:semantic error: Variable in VarExpr not found
+39c65
 < SemanticErrors4.btm:36:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
 ---
-> SemanticErrors4.btm:35:semantic error: the target type 'String[]' is undefined
-41c73
+> SemanticErrors4.btm:33:semantic error: variable 'oain assignment is undeclared
+41c67
 < SemanticErrors4.btm:39:semantic error: the base type in the instanceof righthand array type 'string' is undefined
 ---
-> SemanticErrors4.btm:35:semantic error: not a statement
-43c75
+> SemanticErrors4.btm:34:semantic error: Variable in VarExpr not found
+43c69
 < SemanticErrors4.btm:40:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 ---
-> SemanticErrors4.btm:36:semantic error: Variable in VarExpr not found
-45c77,89
+> SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
+45c71,93
 < SemanticErrors4.btm:41:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 ---
-> SemanticErrors4.btm:36:semantic error: the target type 'Object[]' is undefined
+> SemanticErrors4.btm:34:semantic error: variable 'sain assignment is undeclared
 > 
-> SemanticErrors4.btm:36:semantic error: not a statement
+> SemanticErrors4.btm:35:semantic error: Variable in VarExpr not found
 > 
-> SemanticErrors4.btm:38:semantic error: the base type in the instanceofrighthand array type 'String' is undefined
+> SemanticErrors4.btm:35:semantic error: Inconvertible types: ('Object'=>'String[]')
+> 
+> SemanticErrors4.btm:35:semantic error: variable 'sain assignment is undeclared
+> 
+> SemanticErrors4.btm:36:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors4.btm:36:semantic error: Inconvertible types: ('Object'=>'Object[]')
+> 
+> SemanticErrors4.btm:36:semantic error: variable 'sain assignment is undeclared
+> 
+> SemanticErrors4.btm:38:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors4.btm:39:semantic error: Variable in VarExpr not found
 > 
 > SemanticErrors4.btm:39:semantic error: the base type in the instanceofrighthand array type 'string' is undefined
 > 
 > SemanticErrors4.btm:40:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
 > 
-> SemanticErrors4.btm:40:semantic error: the base type in the instanceofrighthand array type 'String' is undefined
-> 
 > SemanticErrors4.btm:41:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
-49c93,97
+49c97,101
 < SemanticErrors4.btm:43:semantic error: type 'integer' of new construction is undefined
 ---
 > SemanticErrors4.btm:43:semantic error: type 'integer' of newconstruction is undefined
@@ -121,54 +113,39 @@
 > SemanticErrors4.btm:43:semantic error: expression type 'Object' of declaration 'ia' does not match declared type 'int[]'
 > 
 > SemanticErrors4.btm:44:semantic error: Variable in VarExpr not found
-51c99
+51c103
 < SemanticErrors4.btm:43:semantic error: expression type 'Object' of declaration 'ia' does not conform to declared type 'int[]'
 ---
 > SemanticErrors4.btm:44:semantic error: size in the array construction has type 'Object' rather than int
-53c101
+53c105
 < SemanticErrors4.btm:44:semantic error: size in the array construction has type 'boolean[]' rather than int
 ---
 > SemanticErrors4.btm:44:semantic error: expression type 'int' of declaration 'ia2' does not match declared type 'int[]'
-55c103
+55c107
 < SemanticErrors4.btm:45:semantic error: length field in array 'be': cannot be modified
 ---
-> SemanticErrors4.btm:45:semantic error: not a statement
-57c105
+> SemanticErrors4.btm:47:semantic error: Variable in VarExpr not found
+57c109
 < SemanticErrors4.btm:47:semantic error: the righthand type 'int[]' does not conform to the lefthand type 'boolean[]' in assignment
 ---
-> SemanticErrors4.btm:47:semantic error: Variable in VarExpr not found
-59c107
+> SemanticErrors4.btm:47:semantic error: variable 'bein assignment is undeclared
+59c111
 < SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 ---
-> SemanticErrors4.btm:47:semantic error: variable 'bein assignment is undeclared
-61c109
+> SemanticErrors4.btm:48:semantic error: variable 'bein assignment is undeclared
+61c113
 < SemanticErrors4.btm:50:semantic error: bad reference to 'i': arrays do not have this field (they only have a 'length' field)
 ---
-> SemanticErrors4.btm:47:semantic error: not a statement
-63c111,119
+> SemanticErrors4.btm:50:semantic error: Variable in VarExpr not found
+63c115
 < SemanticErrors4.btm:50:semantic error: the lefthand type 'int' and righthand type 'Object' are not compatible in assignment
 ---
-> SemanticErrors4.btm:48:semantic error: variable 'bein assignment is undeclared
-> 
-> SemanticErrors4.btm:48:semantic error: not a statement
-> 
-> SemanticErrors4.btm:50:semantic error: Variable in VarExpr not found
-> 
-> SemanticErrors4.btm:50:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-> 
-> SemanticErrors4.btm:50:semantic error: not a statement
-66a123,124
-> SemanticErrors4.btm:52:semantic error: not a statement
-> 
-69c127,131
+> SemanticErrors4.btm:50:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
+69c121
 < SemanticErrors4.btm:55:semantic error: variable 'c' in assignment is undeclared
 ---
-> SemanticErrors4.btm:53:semantic error: not a statement
-> 
 > SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
-> 
-> SemanticErrors4.btm:55:semantic error: not a statement
-72c134
+72c124
 < 35 error(s)
 ---
-> 66 error(s)
+> 61 error(s)

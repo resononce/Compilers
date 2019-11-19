@@ -2,11 +2,7 @@ ArrayIndexTooLarge.btm:3:semantic error: expression type 'int' of declaration 'a
 
 ArrayIndexTooLarge.btm:4:semantic error: variable 'arrayin assignment is undeclared
 
-ArrayIndexTooLarge.btm:4:semantic error: not a statement
-
 ArrayIndexTooLarge.btm:5:semantic error: variable 'arrayin assignment is undeclared
 
-ArrayIndexTooLarge.btm:5:semantic error: not a statement
-
 Stopping compilation due to errors
-5 error(s)
+3 error(s)

@@ -239,10 +239,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     + "type '" + type + "'");
             }
         } 
-        else if (noError) {
-            //Put declaration name and type into varSymbolTable
-            vTable.add(name, type);
-        }
+        vTable.add(name, type);
+        
         return null;
     }
 
@@ -391,6 +389,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 classMap.containsKey(methodReturnTypeNoArray)) {
                 //get children of method returnType if classType
                 Iterator children = classMap.get(methodReturnTypeNoArray).getChildrenList();
+                boolean conform = false;
                 if (!returnTypeNotArray.equals(methodReturnTypeNoArray)) {
                     //Stil need to check for conformity
                     boolean conform = false;
@@ -412,17 +411,19 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                                       methodReturnType + "' in method"
                                                       + " '" + methodName + "'");
                             }
-                            
+                            //Something might be wrong with this return
+                            //return returnType;
                         }
                     }
                     if (!conform) {
                         errorHandler.register(errorHandler.SEMANT_ERROR,
                                               fileName,
                                               lineNum,
-                                              "return type '" + returnType + "'" +
-                                              " does not conform to declared" + 
-                                              " return type '" + methodReturnType +
-                                              "' in method '" + methodName + "'");
+                                              "return type '" + returnType +
+                                              "' does not conform to declared" +
+                                              " return type '" +
+                                              methodReturnType + "' in " +
+                                              "method '" + methodName + "'");
                     }
                     return returnType;
                 }
@@ -697,14 +698,13 @@ public class TypeCheckVisitor extends SemanticVisitor {
             type = "Object";
         }
         String size = (String) node.getSize().accept(this);
-        if (!size.equals("int")) {
+        if ( !size.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,
                                   "size in the array construction has type " +
                                   "'" + size + "' rather than int");
         }
-        //Original: node.getSize().accept(this);
         return type; 
     }
     
@@ -1060,20 +1060,23 @@ public class TypeCheckVisitor extends SemanticVisitor {
             //both are classes
             if ( is2NotPrimitive && is1NotPrimitve) {
                 boolean foundRelation = false;
-                ClassTreeNode parent = classMap.get(type1).getParent();
-                while (parent != null && !foundRelation) {
+
+                for (ClassTreeNode parent = classMap.get(type1);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type2)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
-                parent = classMap.get(type2).getParent();
-                while (parent != null && !foundRelation) {
+                for (ClassTreeNode parent = classMap.get(type2);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type1)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
                 if (!foundRelation) {
@@ -1111,20 +1114,23 @@ public class TypeCheckVisitor extends SemanticVisitor {
             //both are classes
             if ( is2NotPrimitive && is1NotPrimitve) {
                 boolean foundRelation = false;
-                ClassTreeNode parent = classMap.get(type1).getParent();
-                while (parent != null && !foundRelation) {
+                
+                for (ClassTreeNode parent = classMap.get(type1);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type2)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
-                parent = classMap.get(type2).getParent();
-                while (parent != null && !foundRelation) {
+                for (ClassTreeNode parent = classMap.get(type2);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type1)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
                 if (!foundRelation) {

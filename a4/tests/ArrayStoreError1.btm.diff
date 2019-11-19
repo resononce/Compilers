@@ -1,4 +1,4 @@
-1,21c1,18
+1,21c1,14
 < // Source file: ArrayStoreError1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -21,21 +21,17 @@
 <     }
 < }
 ---
-> ArrayStoreError1.btm:5:semantic error: type 'Object[]' of declaration 'objects' is undefined
+> ArrayStoreError1.btm:5:semantic error: expression type 'String' of declaration 'objects' does not conform to declared type 'Object[]'
 > 
-> ArrayStoreError1.btm:5:semantic error: type 'String' of newconstruction is undefined
+> ArrayStoreError1.btm:7:semantic error: variable 'objectsin assignment is undeclared
 > 
-> ArrayStoreError1.btm:7:semantic error: not a statement
+> ArrayStoreError1.btm:8:semantic error: Variable in VarExpr not found
 > 
-> ArrayStoreError1.btm:8:semantic error: type 'String[]' of declaration 'strings' is undefined
+> ArrayStoreError1.btm:8:semantic error: Inconvertible types: ('Object'=>'String[]')
 > 
-> ArrayStoreError1.btm:8:semantic error: the target type 'String[]' is undefined
-> 
-> ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
+> ArrayStoreError1.btm:9:semantic error: actual parameter 1with type 'String[]does not match forma parameter 1 with declaredtype 'Stringin dispath to method 'putString'
 > 
 > ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
-> 
-> ArrayStoreError1.btm:9:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 8 error(s)
+> 6 error(s)

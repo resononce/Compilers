@@ -1,16 +1,6 @@
-ClassCastError.btm:3:semantic error: type 'String' of declaration 's' is undefined
+ClassCastError.btm:4:semantic error: Inconvertible types: ('String'=>'Object')
 
-ClassCastError.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
-
-ClassCastError.btm:4:semantic error: type 'Object' of declaration 'o' is undefined
-
-ClassCastError.btm:4:semantic error: Variable in VarExpr not found
-
-ClassCastError.btm:4:semantic error: the target type 'Object' is undefined
-
-ClassCastError.btm:5:semantic error: type 'TextIO' of declaration 'io' is undefined
-
-ClassCastError.btm:5:semantic error: the target type 'TextIO' is undefined
+ClassCastError.btm:5:semantic error: Inconvertible types: ('Object'=>'TextIO')
 
 Stopping compilation due to errors
-7 error(s)
+2 error(s)

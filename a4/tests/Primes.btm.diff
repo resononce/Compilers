@@ -1,4 +1,4 @@
-1,70c1,17
+1,70c1,4
 < // Source file: Primes.btm
 < // Source line: 4
 < class Main extends Object {
@@ -70,20 +70,7 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> Primes.btm:6:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> 
+> Stopping compilation due to errors
+> 1 error(s)

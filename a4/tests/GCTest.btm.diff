@@ -1,4 +1,4 @@
-1,1338c1,21
+1,1338c1,22
 < // Source file: GCTest.btm
 < // Source line: 1
 < class Main extends Object {
@@ -1338,16 +1338,17 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
+> java.lang.NullPointerException
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at ast.BinaryCompEqExpr.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at ast.IfStmt.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
+> 	at ast.BlockStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.WhileStmt.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
 > 	at ast.StmtList.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)

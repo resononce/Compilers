@@ -1,4 +1,4 @@
-1,100c1,17
+1,100c1,48
 < // Source file: ArrayTest2.btm
 < // Source line: 4
 < class Main extends Object {
@@ -100,20 +100,51 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> ArrayTest2.btm:5:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> 
+> ArrayTest2.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
+> 
+> ArrayTest2.btm:10:semantic error: Variable in VarExpr not found
+> 
+> ArrayTest2.btm:10:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'buildArray'
+> 
+> ArrayTest2.btm:12:semantic error: Variable in VarExpr not found
+> 
+> ArrayTest2.btm:12:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
+> 
+> ArrayTest2.btm:14:semantic error: Variable in VarExpr not found
+> 
+> ArrayTest2.btm:14:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'sortArray'
+> 
+> ArrayTest2.btm:16:semantic error: Variable in VarExpr not found
+> 
+> ArrayTest2.btm:16:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
+> 
+> ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:23:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
+> 
+> ArrayTest2.btm:31:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:33:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:34:semantic error: the lefthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:34:semantic error: the righthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:35:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
+> 
+> ArrayTest2.btm:37:semantic error: Variable in VarExpr not found
+> 
+> ArrayTest2.btm:37:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int[]' in assignment
+> 
+> ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> 
+> ArrayTest2.btm:49:semantic error: actual parameter 1with type 'int[]does not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+> 
+> ArrayTest2.btm:49:semantic error: dispatch to unknown method 'putString'
+> 
+> Stopping compilation due to errors
+> 23 error(s)

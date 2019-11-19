@@ -1,4 +1,4 @@
-1,15c1,12
+1,15c1,8
 < // Source file: ArrayIndexTooLarge.btm
 < // Source line: 1
 < class Main extends Object {
@@ -19,11 +19,7 @@
 > 
 > ArrayIndexTooLarge.btm:4:semantic error: variable 'arrayin assignment is undeclared
 > 
-> ArrayIndexTooLarge.btm:4:semantic error: not a statement
-> 
 > ArrayIndexTooLarge.btm:5:semantic error: variable 'arrayin assignment is undeclared
 > 
-> ArrayIndexTooLarge.btm:5:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 5 error(s)
+> 3 error(s)

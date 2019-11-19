@@ -1,12 +1,13 @@
-SubStringError3.btm:3:semantic error: type 'String' of declaration 's' is undefined
-
-SubStringError3.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
-
-SubStringError3.btm:4:semantic error: type 'String' of declaration 's2' is undefined
-
-SubStringError3.btm:4:semantic error: Variable in VarExpr not found
-
-SubStringError3.btm:4:semantic error: dispatch to unknown method 'substring'
-
-Stopping compilation due to errors
-5 error(s)
+// Source file: SubStringError3.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        String s = (/*L3,type:String*/"abcd");
+        // Source line: 4
+        String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4,type:int*/3), (/*L4,type:int*/2)));
+        // Source line: 5
+        return;
+    }
+}

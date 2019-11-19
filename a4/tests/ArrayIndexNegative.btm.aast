@@ -1,16 +1,8 @@
-java.lang.NullPointerException
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ArrayAssignExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ExprStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+ArrayIndexNegative.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
+
+ArrayIndexNegative.btm:4:semantic error: variable 'arrayin assignment is undeclared
+
+ArrayIndexNegative.btm:5:semantic error: variable 'arrayin assignment is undeclared
+
+Stopping compilation due to errors
+3 error(s)

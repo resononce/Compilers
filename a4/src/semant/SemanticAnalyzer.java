@@ -361,7 +361,18 @@ public class SemanticAnalyzer {
 		SymbolTable mTbl = obby.getMethodSymbolTable();
 		cev = new ClassEnvVisitor(vTbl, mTbl, errorHandler, classMap);
 		cev.visit(obby.getASTNode()); 
-
+		ClassTreeNode builtIn1 = classMap.get("String");
+		cev = new ClassEnvVisitor(builtIn1.getVarSymbolTable(), 
+								  builtIn1.getMethodSymbolTable(), 
+								  errorHandler, 
+								  classMap);
+        cev.visit(builtIn1.getASTNode());
+        builtIn1 = classMap.get("TextIO");
+        cev = new ClassEnvVisitor(builtIn1.getVarSymbolTable(), builtIn1.getMethodSymbolTable(), errorHandler, classMap);
+        cev.visit(builtIn1.getASTNode());
+        builtIn1 = classMap.get("Sys");
+        cev = new ClassEnvVisitor(builtIn1.getVarSymbolTable(), builtIn1.getMethodSymbolTable(), errorHandler, classMap);
+        cev.visit(builtIn1.getASTNode());
 		for (ClassTreeNode node : orderedClassList) {
 			vTbl = node.getVarSymbolTable();
 			mTbl = node.getMethodSymbolTable();

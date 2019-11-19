@@ -1,44 +1,12 @@
-PrimesSieves.btm:8:semantic error: type 'TextIO' of declaration 'io' is undefined
-
 PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
 
-PrimesSieves.btm:18:semantic error: dispatch to unknown method 'putString'
-
-PrimesSieves.btm:18:semantic error: dispatch to unknown method 'getInt'
-
-PrimesSieves.btm:18:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
-
-PrimesSieves.btm:18:semantic error: not a statement
-
-PrimesSieves.btm:21:semantic error: dispatch to unknown method 'putString'
-
-PrimesSieves.btm:21:semantic error: not a statement
-
 PrimesSieves.btm:25:semantic error: variable 'primesin assignment is undeclared
-
-PrimesSieves.btm:25:semantic error: not a statement
 
 PrimesSieves.btm:31:semantic error: Variable in VarExpr not found
 
 PrimesSieves.btm:31:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
 
-PrimesSieves.btm:33:semantic error: dispatch to unknown method 'putInt'
-
-PrimesSieves.btm:33:semantic error: dispatch to unknown method 'putString'
-
-PrimesSieves.btm:33:semantic error: not a statement
-
 PrimesSieves.btm:38:semantic error: variable 'primesin assignment is undeclared
 
-PrimesSieves.btm:38:semantic error: not a statement
-
-PrimesSieves.btm:39:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-
-PrimesSieves.btm:39:semantic error: not a statement
-
-PrimesSieves.btm:43:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-
-PrimesSieves.btm:43:semantic error: not a statement
-
 Stopping compilation due to errors
-21 error(s)
+5 error(s)

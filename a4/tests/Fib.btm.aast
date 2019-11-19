@@ -1,19 +1,4 @@
-java.lang.RuntimeException: Must enter a scope before looking up in table
-	at util.SymbolTable.lookup(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+Fib.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+
+Stopping compilation due to errors
+1 error(s)
