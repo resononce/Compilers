@@ -1,4 +1,4 @@
-1,96c1,71
+1,96c1,62
 < // Source file: ArrayTest1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -96,13 +96,8 @@
 <     }
 < }
 ---
-> total : 5 parent total: 1<>variable: array compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: s compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: o compare level: 2 In Scope Level: 4
-> total : 5 parent total: 1<>variable: strings compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: array2 compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: i compare level: 2 In Scope Level: 4
+> ArrayTest1.btm:2:semantic error: expression type 'null' of field 'goo' does not match declared type 'boolean[]'
+> 
 > ArrayTest1.btm:16:semantic error: expression type 'Object' of declaration 'array' does not conform to declared type 'Object[]'
 > 
 > ArrayTest1.btm:18:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
@@ -113,21 +108,19 @@
 > 
 > ArrayTest1.btm:20:semantic error: the righthand type 'null' does not conform to the lefthand type 'Object[]' in assignment
 > 
-> ArrayTest1.btm:21:semantic error: actual parameter 1with type 'Object[]does not match forma parameter 1 with declaredtype 'Objectin dispath to method 'printElement'
+> ArrayTest1.btm:21:semantic error: actual parameter 1 with type 'Object[]' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'printElement'
 > 
-> ArrayTest1.btm:22:semantic error: actual parameter 1with type 'Object[]does not match forma parameter 1 with declaredtype 'Objectin dispath to method 'printElement'
+> ArrayTest1.btm:22:semantic error: actual parameter 1 with type 'Object[]' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'printElement'
 > 
-> ArrayTest1.btm:23:semantic error: actual parameter 1with type 'Object[]does not match forma parameter 1 with declaredtype 'Objectin dispath to method 'printElement'
-> 
-> ArrayTest1.btm:24:semantic error: variable 'o' is already defined in method main
+> ArrayTest1.btm:23:semantic error: actual parameter 1 with type 'Object[]' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'printElement'
 > 
 > ArrayTest1.btm:24:semantic error: expression type 'Object[]' of declaration 'o' does not conform to declared type 'Object'
 > 
-> ArrayTest1.btm:25:semantic error: the righthand type 'boolean' does not conform to the lefthand type 'boolean[]' in assignment
+> ArrayTest1.btm:25:semantic error: the lefthand type 'boolean[]' does not conform to the righthand type 'boolean[]' in assignment
 > 
-> ArrayTest1.btm:26:semantic error: actual parameter 1with type 'intdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'foo'
+> ArrayTest1.btm:26:semantic error: actual parameter 1 with type 'int' does not match formal parameter 1 with declared type 'int[]' in dispatch to method 'foo'
 > 
-> ArrayTest1.btm:27:semantic error: actual parameter 1with type 'nulldoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'foo'
+> ArrayTest1.btm:27:semantic error: actual parameter 1 with type 'null' does not match formal parameter 1 with declared type 'int[]' in dispatch to method 'foo'
 > 
 > ArrayTest1.btm:27:semantic error: expression type 'Object' of declaration 'strings' does not conform to declared type 'String[]'
 > 
@@ -135,9 +128,7 @@
 > 
 > ArrayTest1.btm:29:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
 > 
-> ArrayTest1.btm:30:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
-> 
-> ArrayTest1.btm:31:semantic error: variable 'i' is already defined in method main
+> ArrayTest1.btm:30:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'String[]' in assignment
 > 
 > ArrayTest1.btm:33:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
 > 
@@ -147,15 +138,15 @@
 > 
 > ArrayTest1.btm:36:semantic error: the righthand type 'Object' does not conform to the lefthand type 'String[]' in assignment
 > 
-> ArrayTest1.btm:37:semantic error: actual parameter 1with type 'String[]does not match forma parameter 1 with declaredtype 'Stringin dispath to method 'putString'
+> ArrayTest1.btm:37:semantic error: actual parameter 1 with type 'String[]' does not match formal parameter 1 with declared type 'String' in dispatch to method 'putString'
 > 
 > ArrayTest1.btm:37:semantic error: dispatch to unknown method 'putString'
 > 
-> ArrayTest1.btm:39:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+> ArrayTest1.btm:39:semantic error: actual parameter 1 with type 'Object' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
 > 
 > ArrayTest1.btm:39:semantic error: dispatch to unknown method 'putString'
 > 
-> ArrayTest1.btm:43:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'null'
+> ArrayTest1.btm:43:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'null'
 > 
 > ArrayTest1.btm:44:semantic error: Index in ArrayExpr is not int
 > 
@@ -166,4 +157,4 @@
 > ArrayTest1.btm:46:semantic error: ArrayAssignExpr wrong size type, not int
 > 
 > Stopping compilation due to errors
-> 31 error(s)
+> 30 error(s)

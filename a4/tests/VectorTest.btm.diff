@@ -1,4 +1,4 @@
-1,668c1,90
+1,668c1,54
 < // Source file: VectorTest.btm
 < // Source line: 4
 < class Main extends Object {
@@ -668,93 +668,57 @@
 <     }
 < }
 ---
-> total : 5 parent total: 1<>variable: i compare level: 6 In Scope Level: 4
-> total : 9 parent total: 1<>variable: b compare level: 10 In Scope Level: 8
-> total : 9 parent total: 1<>variable: integer compare level: 10 In Scope Level: 8
-> total : 9 parent total: 1<>variable: s compare level: 10 In Scope Level: 8
-> total : 7 parent total: 1<>variable: integer compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: b compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: s compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: b2 compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: s2 compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: integer2 compare level: 8 In Scope Level: 6
-> total : 9 parent total: 1<>variable: max compare level: 10 In Scope Level: 8
-> total : 9 parent total: 1<>variable: i compare level: 4 In Scope Level: 8
-> total : 11 parent total: 1<>variable: integer compare level: 4 In Scope Level: 10
-> total : 11 parent total: 1<>variable: j compare level: 12 In Scope Level: 10
-> total : 13 parent total: 1<>variable: n1 compare level: 14 In Scope Level: 12
-> total : 13 parent total: 1<>variable: n2 compare level: 14 In Scope Level: 12
-> total : 11 parent total: 1<>variable: n compare level: 12 In Scope Level: 10
-> total : 7 parent total: 1<>variable: tmp compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: i compare level: 2 In Scope Level: 6
-> total : 11 parent total: 1<>variable: found compare level: 12 In Scope Level: 10
-> total : 11 parent total: 1<>variable: i compare level: 6 In Scope Level: 10
-> total : 15 parent total: 1<>variable: j compare level: 16 In Scope Level: 14
-> total : 19 parent total: 1<>variable: j compare level: 4 In Scope Level: 18
-> total : 23 parent total: 1<>variable: removed compare level: 24 In Scope Level: 22
-> total : 23 parent total: 1<>variable: i compare level: 4 In Scope Level: 22
-> total : 27 parent total: 1<>variable: j compare level: 8 In Scope Level: 26
-> VectorTest.btm:5:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> VectorTest.btm:45:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElement'
 > 
-> VectorTest.btm:6:semantic error: expression type 'Vector' of field 'v' does not conform to declared type 'Vector'
+> VectorTest.btm:51:semantic error: actual parameter 1 with type 'Boolean' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElementAt'
 > 
-> VectorTest.btm:45:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+> VectorTest.btm:57:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElement'
 > 
-> VectorTest.btm:51:semantic error: actual parameter 1with type 'Booleandoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElementAt'
-> 
-> VectorTest.btm:57:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
-> 
-> VectorTest.btm:69:semantic error: actual parameter 1with type 'Booleandoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:69:semantic error: actual parameter 1 with type 'Boolean' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:69:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
 > 
-> VectorTest.btm:76:semantic error: actual parameter 1with type 'Booleandoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:76:semantic error: actual parameter 1 with type 'Boolean' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:76:semantic error: predicate in if-statement does not have type boolean
 > 
-> VectorTest.btm:92:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:92:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:92:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
 > 
-> VectorTest.btm:99:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:99:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:99:semantic error: predicate in if-statement does not have type boolean
 > 
-> VectorTest.btm:115:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:115:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:115:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
 > 
-> VectorTest.btm:122:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'contains'
+> VectorTest.btm:122:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'contains'
 > 
 > VectorTest.btm:122:semantic error: predicate in if-statement does not have type boolean
 > 
-> VectorTest.btm:142:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+> VectorTest.btm:142:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElement'
 > 
-> VectorTest.btm:154:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElementAt'
+> VectorTest.btm:154:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElementAt'
 > 
-> VectorTest.btm:156:semantic error: actual parameter 1with type 'Integerdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElementAt'
-> 
-> Vector.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
-> 
-> Vector.btm:9:semantic error: expression type 'Object' of field 'elements' does not conform to declared type 'Object[]'
+> VectorTest.btm:156:semantic error: actual parameter 1 with type 'Integer' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElementAt'
 > 
 > Vector.btm:54:semantic error: the lefthand type 'Object' in the binary operation ('*') is incorrect; should have been: int
 > 
 > Vector.btm:54:semantic error: expression type 'Object' of declaration 'tmp' does not conform to declared type 'Object[]'
 > 
-> Vector.btm:55:semantic error: variable 'i' is already defined in method resize
-> 
 > Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
-> Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
+> Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
 > 
 > Vector.btm:96:semantic error: return type 'Object[]' is not compatible with declared return type 'Object' in method 'elementAt'
 > 
-> Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match righthand type 'Object'
+> Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'Object'
 > 
 > Vector.btm:115:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
 > 
-> Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
+> Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
 > 
 > Stopping compilation due to errors
-> 31 error(s)
+> 26 error(s)

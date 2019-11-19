@@ -1,4 +1,3 @@
-total : 3 parent total: 1<>variable: x compare level: 4 In Scope Level: 2
 // Source file: ModByZero.btm
 // Source line: 1
 class Main extends Object {

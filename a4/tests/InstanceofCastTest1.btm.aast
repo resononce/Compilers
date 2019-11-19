@@ -1,17 +1,3 @@
-total : 3 parent total: 1<>variable: o compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: sys compare level: 4 In Scope Level: 2
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
 // Source file: InstanceofCastTest1.btm
 // Source line: 1
 class Main extends Object {

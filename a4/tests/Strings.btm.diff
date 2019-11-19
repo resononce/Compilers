@@ -1,4 +1,4 @@
-1,75c1,21
+1,75c1,18
 < // Source file: Strings.btm
 < // Source line: 1
 < class Main extends Object {
@@ -75,22 +75,19 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: s3 compare level: 4 In Scope Level: 2
-> Strings.btm:14:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
+> Strings.btm:14:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 > 
 > Strings.btm:14:semantic error: predicate in if-statement does not have type boolean
 > 
-> Strings.btm:18:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
+> Strings.btm:18:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 > 
 > Strings.btm:18:semantic error: predicate in if-statement does not have type boolean
 > 
-> Strings.btm:26:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
+> Strings.btm:26:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 > 
 > Strings.btm:26:semantic error: predicate in if-statement does not have type boolean
 > 
-> Strings.btm:30:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
+> Strings.btm:30:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 > 
 > Strings.btm:30:semantic error: predicate in if-statement does not have type boolean
 > 

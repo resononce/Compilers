@@ -1,6 +1,4 @@
-0a1
-> total : 3 parent total: 1<>variable: x compare level: 4 In Scope Level: 2
-7c8
+7c7
 <         int x = (/*L3,type:int*/(/*L3,type:int*/3) / (/*L3,type:int*/0));
 ---
 >         int x = (/*L3*/(/*L3,type:int*/3) / (/*L3,type:int*/0));

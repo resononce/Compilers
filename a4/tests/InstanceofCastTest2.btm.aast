@@ -1,25 +1,3 @@
-total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: objects compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: ios compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: strings compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: sys compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: ints compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: bools compare level: 4 In Scope Level: 2
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
 InstanceofCastTest2.btm:4:semantic error: expression type 'Object' of declaration 'objects' does not conform to declared type 'Object[]'
 
 InstanceofCastTest2.btm:5:semantic error: expression type 'TextIO' of declaration 'ios' does not conform to declared type 'TextIO[]'
@@ -32,21 +10,13 @@ InstanceofCastTest2.btm:8:semantic error: expression type 'int' of declaration '
 
 InstanceofCastTest2.btm:9:semantic error: expression type 'boolean' of declaration 'bools' does not match declared type 'boolean[]'
 
-InstanceofCastTest2.btm:14:semantic error: Inconvertible types: ('Object[]'=>'Object')
+InstanceofCastTest2.btm:14:semantic error: inconvertible types ('Object[]'=>'Object')
 
-InstanceofCastTest2.btm:22:semantic error: Inconvertible types: ('Object[]'=>'Object[]')
+InstanceofCastTest2.btm:33:semantic error: inconvertible types ('TextIO[]'=>'Object')
 
-InstanceofCastTest2.btm:33:semantic error: Inconvertible types: ('TextIO[]'=>'Object')
+InstanceofCastTest2.btm:60:semantic error: inconvertible types ('String[]'=>'Object')
 
-InstanceofCastTest2.btm:49:semantic error: Inconvertible types: ('TextIO[]'=>'TextIO[]')
-
-InstanceofCastTest2.btm:60:semantic error: Inconvertible types: ('String[]'=>'Object')
-
-InstanceofCastTest2.btm:76:semantic error: Inconvertible types: ('String[]'=>'String[]')
-
-InstanceofCastTest2.btm:87:semantic error: Inconvertible types: ('Sys[]'=>'Object')
-
-InstanceofCastTest2.btm:103:semantic error: Inconvertible types: ('Sys[]'=>'Sys[]')
+InstanceofCastTest2.btm:87:semantic error: inconvertible types ('Sys[]'=>'Object')
 
 InstanceofCastTest2.btm:111:semantic error: the instanceof lefthand expression hastype 'int[]', which is primitive and not an object type
 
@@ -77,4 +47,4 @@ InstanceofCastTest2.btm:142:semantic error: expression in cast has type 'boolean
 InstanceofCastTest2.btm:142:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'boolean[]'
 
 Stopping compilation due to errors
-28 error(s)
+24 error(s)

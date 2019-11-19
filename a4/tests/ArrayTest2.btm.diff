@@ -1,4 +1,4 @@
-1,100c1,38
+1,100c1,28
 < // Source file: ArrayTest2.btm
 < // Source line: 4
 < class Main extends Object {
@@ -100,14 +100,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
-> total : 5 parent total: 1<>variable: i compare level: 6 In Scope Level: 4
-> total : 7 parent total: 1<>variable: i compare level: 2 In Scope Level: 6
-> total : 9 parent total: 1<>variable: j compare level: 10 In Scope Level: 8
-> total : 13 parent total: 1<>variable: tmp compare level: 14 In Scope Level: 12
-> total : 9 parent total: 1<>variable: i compare level: 4 In Scope Level: 8
-> ArrayTest2.btm:5:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
-> 
 > ArrayTest2.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
 > ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
@@ -115,8 +107,6 @@
 > ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
 > 
 > ArrayTest2.btm:23:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-> 
-> ArrayTest2.btm:30:semantic error: variable 'i' is already defined in method sortArray
 > 
 > ArrayTest2.btm:31:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
@@ -132,9 +122,9 @@
 > 
 > ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
-> ArrayTest2.btm:49:semantic error: actual parameter 1with type 'int[]does not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+> ArrayTest2.btm:49:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
 > 
 > ArrayTest2.btm:49:semantic error: dispatch to unknown method 'putString'
 > 
 > Stopping compilation due to errors
-> 15 error(s)
+> 13 error(s)

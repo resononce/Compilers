@@ -1,4 +1,4 @@
-1,61c1,15
+1,61c1,10
 < // Source file: PrimesSieves.btm
 < // Source line: 4
 < class Main extends Object {
@@ -61,14 +61,9 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: primes compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: n compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
-> total : 7 parent total: 1<>variable: j compare level: 8 In Scope Level: 6
 > PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
 > 
-> PrimesSieves.btm:25:semantic error: the righthand type 'boolean' does not conform to the lefthand type 'boolean[]' in assignment
+> PrimesSieves.btm:25:semantic error: the lefthand type 'boolean[]' does not conform to the righthand type 'boolean[]' in assignment
 > 
 > PrimesSieves.btm:31:semantic error: the expression type 'boolean[]' in the unary operation ('!') is incorrect; should have been: boolean
 > 

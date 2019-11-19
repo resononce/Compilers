@@ -1,7 +1,4 @@
-0a1,2
-> total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
-9c11
+9c9
 <         String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4,type:int*/-((/*L4,type:int*/1))), (/*L4,type:int*/4)));
 ---
 >         String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4*/-((/*L4,type:int*/1))), (/*L4,type:int*/4)));

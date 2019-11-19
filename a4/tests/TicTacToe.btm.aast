@@ -1,35 +1,28 @@
-total : 9 parent total: 1<>variable: i compare level: 10 In Scope Level: 8
-total : 11 parent total: 1<>variable: i compare level: 2 In Scope Level: 10
-total : 17 parent total: 1<>variable: position compare level: 4 In Scope Level: 16
-TicTacToe.btm:4:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+TicTacToe.btm:62:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:62:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:63:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:63:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:64:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:64:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:68:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:68:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:69:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:69:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:70:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:70:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:74:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:74:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:75:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
-TicTacToe.btm:75:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:93:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match the righthand type 'int'
 
-TicTacToe.btm:93:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
+TicTacToe.btm:117:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match the righthand type 'int'
 
-TicTacToe.btm:102:semantic error: variable 'i' is already defined in method printBoard
+TicTacToe.btm:120:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match the righthand type 'int'
 
-TicTacToe.btm:117:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
-
-TicTacToe.btm:120:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
-
-TicTacToe.btm:143:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
+TicTacToe.btm:143:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'int'
 
 TicTacToe.btm:149:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
 
 Stopping compilation due to errors
-15 error(s)
+13 error(s)

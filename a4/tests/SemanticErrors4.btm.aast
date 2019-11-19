@@ -1,10 +1,3 @@
-total : 5 parent total: 1<>variable: i compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: be compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: b compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: sa compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: oa compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: ia compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: ia2 compare level: 6 In Scope Level: 4
 SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method 'm'
 
 SemanticErrors4.btm:8:semantic error: expression type 'boolean' of declaration 'be' does not match declared type 'boolean[]'
@@ -39,25 +32,25 @@ SemanticErrors4.btm:27:semantic error: expression type 'String' of declaration '
 
 SemanticErrors4.btm:28:semantic error: expression type 'Object' of declaration 'oa' does not conform to declared type 'Object[]'
 
-SemanticErrors4.btm:32:semantic error: Inconvertible types: ('Object[]'=>'String')
+SemanticErrors4.btm:32:semantic error: inconvertible types ('Object[]'=>'String')
 
-SemanticErrors4.btm:32:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
+SemanticErrors4.btm:32:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'String[]' in assignment
 
-SemanticErrors4.btm:33:semantic error: Inconvertible types: ('String[]'=>'Object')
+SemanticErrors4.btm:33:semantic error: inconvertible types ('String[]'=>'Object')
 
-SemanticErrors4.btm:33:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
+SemanticErrors4.btm:33:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'Object[]' in assignment
 
 SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
 
-SemanticErrors4.btm:34:semantic error: Inconvertible types: ('Object[]'=>'Object')
+SemanticErrors4.btm:34:semantic error: inconvertible types ('Object[]'=>'Object')
 
-SemanticErrors4.btm:34:semantic error: the righthand type 'Object' does not conform to the lefthand type 'String[]' in assignment
+SemanticErrors4.btm:34:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'String[]' in assignment
 
 SemanticErrors4.btm:35:semantic error: expression in cast has type 'boolean[]' which is primitive and can't be casted
 
 SemanticErrors4.btm:36:semantic error: expression in cast has type 'boolean[]' which is primitive and can't be casted
 
-SemanticErrors4.btm:36:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
+SemanticErrors4.btm:36:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'String[]' in assignment
 
 SemanticErrors4.btm:39:semantic error: the base type in the instanceofrighthand array type 'string' is undefined
 
@@ -75,13 +68,13 @@ SemanticErrors4.btm:44:semantic error: size in the array construction has type '
 
 SemanticErrors4.btm:44:semantic error: expression type 'int' of declaration 'ia2' does not match declared type 'int[]'
 
-SemanticErrors4.btm:47:semantic error: the righthand type 'int[]' does not conform to the lefthand type 'boolean[]' in assignment
+SemanticErrors4.btm:47:semantic error: the lefthand type 'boolean[]' does not conform to the righthand type 'boolean[]' in assignment
 
 SemanticErrors4.btm:48:semantic error: the righthand type 'int' does not conform to the lefthand type 'boolean[]' in assignment
 
 SemanticErrors4.btm:50:semantic error: bad reference to 'boolean[]': arrays do not have this field (they only have a 'length' field)
 
-SemanticErrors4.btm:50:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
+SemanticErrors4.btm:50:semantic error: the lefthand type 'int' does not conform to the righthand type 'int' in assignment
 
 SemanticErrors4.btm:52:semantic error: the expression type 'boolean' in the unary operation ('++') is incorrect; should have been: int
 

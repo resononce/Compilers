@@ -1,4 +1,4 @@
-1,15c1,9
+1,15c1,8
 < // Source file: ArrayIndexNegative.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,7 +15,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
 > ArrayIndexNegative.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
 > ArrayIndexNegative.btm:4:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment

@@ -1,4 +1,4 @@
-1,21c1,12
+1,21c1,10
 < // Source file: ArrayStoreError1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -21,13 +21,11 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: objects compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: strings compare level: 4 In Scope Level: 2
 > ArrayStoreError1.btm:5:semantic error: expression type 'String' of declaration 'objects' does not conform to declared type 'Object[]'
 > 
 > ArrayStoreError1.btm:7:semantic error: the righthand type 'Main' does not conform to the lefthand type 'Object[]' in assignment
 > 
-> ArrayStoreError1.btm:9:semantic error: actual parameter 1with type 'String[]does not match forma parameter 1 with declaredtype 'Stringin dispath to method 'putString'
+> ArrayStoreError1.btm:9:semantic error: actual parameter 1 with type 'String[]' does not match formal parameter 1 with declared type 'String' in dispatch to method 'putString'
 > 
 > ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
 > 

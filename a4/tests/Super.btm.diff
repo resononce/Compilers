@@ -1,4 +1,4 @@
-1,71c1,7
+1,71c1,4
 < // Source file: Super.btm
 < // Source line: 1
 < class A extends Object {
@@ -71,10 +71,7 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: c compare level: 4 In Scope Level: 2
-> Super.btm:2:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
-> 
-> Super.btm:5:semantic error: variable 'namein assignment is undeclared
+> Super.btm:17:semantic error: variable 'namein assignment is undeclared
 > 
 > Stopping compilation due to errors
-> 2 error(s)
+> 1 error(s)
