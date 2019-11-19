@@ -194,9 +194,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
         else if ( (vTable.getScopeLevel(name) > 0) &&
                  (vTable.getScopeLevel(name) > (((ClassTreeNode) classMap.get(className)).getParent()
                  .getVarSymbolTable().getCurrScopeLevel() + 1))) {
-            System.out.println("total: " + vTable.getCurrScopeLevel());
-            System.out.println("found: " + vTable.getScopeLevel(name));
-            System.out.println("Parent: " + (((ClassTreeNode) classMap.get(className)).getParent()
             .getVarSymbolTable().getCurrScopeLevel() + 1));
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                     fileName, 
@@ -205,32 +202,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     "' is already defined in method " +
                                     methodName );
         }
-        /*else if (vTable.peek(name) != null) {
-            noError = false;
-            duplicate = true;
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                    fileName, 
-                                    lineNum,
-                                    "variable '" + name +  
-                                    "' is already defined in method " +
-                                    methodName );
-        } 
-        //Check to ensure that it is not a duplicate within the method scope
-        //getSize() = totalSize from current Scope
-        //getScopeLevel() = the first Scope where the var is found
-        else {
-            System.out.println("Something here");
-            int scopeFoundReplica = vTable.getScopeLevel(name); //The scope where a version is found
-            int totalScope = vTable.getCurrScopeLevel(); //The total scope of the class + parent Scope
-            if (scopeFoundReplica > 2) {
-                errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                      fileName, 
-                                      lineNum,
-                                      "variable '" + name +  
-                                      "' is already defined in method " +
-                                      methodName );
-            }
-        } */
         if (!rhsType.equals(type)) {
             //Need to check if conforms or not
             if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(checkType)){
@@ -238,8 +209,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
                     parent = parent.getParent()){
-                        System.out.println(node.getLineNum());
-                    System.out.println(parent.getName() + " :: " + checkType);
                     if (parent.getName().equals(checkType)) {
                         doesConform = true;
                     }
@@ -880,7 +849,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             }
 
             if (!legitCast) {
-                System.out.println("Bad Cast");
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
@@ -891,7 +859,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             //If legal cast but does not pass array check, register error
             if ((exprType.contains("[]") != castType.contains("[]")) && 
                 legitCast) {
-                    System.out.println("Array Mismatch");
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
