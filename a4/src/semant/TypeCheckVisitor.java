@@ -209,8 +209,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
                     parent = parent.getParent()){
-                        System.out.println(node.getLineNum());
-                    System.out.println(parent.getName() + " :: " + checkType);
                     if (parent.getName().equals(checkType)) {
                         doesConform = true;
                     }
@@ -558,7 +556,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           lineNum,
                                           "number of actual parameters (" +
                                           numParams + ") differs from" +
-                                          "number of formal parameters (" +
+                                          " number of formal parameters (" +
                                           numFormals + ") in dispatch " +
                                           "method '" + methodName + "'");
                 } 
@@ -571,30 +569,74 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     while (i1.hasNext()) {
                         String formalType = ((Formal) i1.next()).getType();
                         String paramType = (String) ((Expr)i2.next()).accept(this);
+                        String formalTypeNoArr = formalType.replace("[]", "");
+                        String paramTypeNoArray = paramType.replace("[]", "");
                         if (paramType.equals("void")) {
                             noError = false;
                             errorHandler.register(errorHandler.SEMANT_ERROR,
                                                   fileName,
                                                   lineNum,
                                                   "actual parameter " + 
-                                                  paramNumber + "in the call" +
+                                                  paramNumber + " in the call" +
                                                   " to method " + methodName +
                                                   " is void and cannot be used" +
                                                   " within an expression");
                         } 
-                        else if (!formalType.equals(paramType)) {
-                            noError = false;
-                            errorHandler.register(errorHandler.SEMANT_ERROR,
+                        else if (!formalTypeNoArr.equals(paramTypeNoArray)) {
+                            //Check for conformity
+                            if (classMap.containsKey(formalTypeNoArr) && classMap.containsKey(paramTypeNoArray)) {
+                                Iterator iterator = classMap.get(formalTypeNoArr).getChildrenList();
+                                boolean conforms = false;
+                                while (iterator.hasNext() && !conforms) {
+                                    if (((ClassTreeNode) iterator.next()).getName().equals(paramTypeNoArray)) {
+                                        conforms = true;
+                                    }
+                                }
+                                //Classes do not conform
+                                if (!conforms) {
+                                    noError = false;
+                                    errorHandler.register(errorHandler.SEMANT_ERROR,
                                                   fileName,
                                                   lineNum,
                                                   "actual parameter " + paramNumber
-                                                  + "with type '" + paramType +
-                                                  "does not match forma parameter " 
+                                                  + " with type '" + paramType +
+                                                  "' does not conform to formal parameter " 
                                                   + paramNumber + " with declared" +
-                                                  "type '" + formalType + "in " +
-                                                  "dispath to method '" + 
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
                                                   methodName + "'");
-                        } 
+                                }
+                                //If they conform, but one is not an array type and one is is
+                                if (conforms && (formalType.contains("[]") == paramType.contains("[]"))) {
+                                    noError = false;
+                                    errorHandler.register(errorHandler.SEMANT_ERROR,
+                                                  fileName,
+                                                  lineNum,
+                                                  "actual parameter " + paramNumber
+                                                  + " with type '" + paramType +
+                                                  "' does not match formal parameter " 
+                                                  + paramNumber + " with declared" +
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
+                                                  methodName + "'");
+                                }
+                            }
+                            //Simply register an error right away
+                            else {
+                                noError = false;
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                                  fileName,
+                                                  lineNum,
+                                                  "actual parameter " + paramNumber
+                                                  + " with type '" + paramType +
+                                                  "' does not match formal parameter " 
+                                                  + paramNumber + " with declared" +
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
+                                                  methodName + "'");
+                            }
+                        }
+                        paramNumber++; 
                     }
                     //If no error and everything matches, setExprType() and return Type
                     if (noError) {
@@ -605,8 +647,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
         }
         else {
             //Type must be a CLASS type
-            //Don't think it handles THIS.method()
-            
             Method methodToUse = (Method) classMap.get(exprType).getMethodSymbolTable()
                                 .lookup(methodName);
             //If the method does not exist, we register error
@@ -631,9 +671,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           lineNum,
                                           "number of actual parameters (" +
                                           numParams + ") differs from" +
-                                          "number of formal parameters (" +
+                                          " number of formal parameters (" +
                                           numFormals + ") in dispatch " +
-                                          "method '" + methodName + "'");
+                                          "to method '" + methodName + "'");
                 } 
                 //Check if same type of arguments
                 else {
@@ -644,30 +684,74 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     while (i1.hasNext()) {
                         String formalType = ((Formal) i1.next()).getType();
                         String paramType = (String) ((Expr)i2.next()).accept(this);
+                        String formalTypeNoArr = formalType.replace("[]", "");
+                        String paramTypeNoArray = paramType.replace("[]", "");
                         if (paramType.equals("void")) {
                             noError = false;
                             errorHandler.register(errorHandler.SEMANT_ERROR,
                                                   fileName,
                                                   lineNum,
                                                   "actual parameter " + 
-                                                  paramNumber + "in the call" +
+                                                  paramNumber + " in the call" +
                                                   " to method " + methodName +
                                                   " is void and cannot be used" +
                                                   " within an expression");
                         } 
-                        else if (!formalType.equals(paramType)) {
-                            noError = false;
-                            errorHandler.register(errorHandler.SEMANT_ERROR,
+                        else if (!formalTypeNoArr.equals(paramTypeNoArray)) {
+                            //Check for conformity
+                            if (classMap.containsKey(formalTypeNoArr) && classMap.containsKey(paramTypeNoArray)) {
+                                Iterator iterator = classMap.get(formalTypeNoArr).getChildrenList();
+                                boolean conforms = false;
+                                while (iterator.hasNext() && !conforms) {
+                                    if (((ClassTreeNode) iterator.next()).getName().equals(paramTypeNoArray)) {
+                                        conforms = true;
+                                    }
+                                }
+                                //Classes do not conform
+                                if (!conforms) {
+                                    noError = false;
+                                    errorHandler.register(errorHandler.SEMANT_ERROR,
                                                   fileName,
                                                   lineNum,
                                                   "actual parameter " + paramNumber
-                                                  + "with type '" + paramType +
-                                                  "does not match forma parameter " 
+                                                  + " with type '" + paramType +
+                                                  "' does not conform to formal parameter " 
                                                   + paramNumber + " with declared" +
-                                                  "type '" + formalType + "in " +
-                                                  "dispath to method '" + 
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
                                                   methodName + "'");
-                        } 
+                                }
+                                //If they conform, but one is not an array type and one is is
+                                if (conforms && (formalType.contains("[]") == paramType.contains("[]"))) {
+                                    noError = false;
+                                    errorHandler.register(errorHandler.SEMANT_ERROR,
+                                                  fileName,
+                                                  lineNum,
+                                                  "actual parameter " + paramNumber
+                                                  + " with type '" + paramType +
+                                                  "' does not match formal parameter " 
+                                                  + paramNumber + " with declared" +
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
+                                                  methodName + "'");
+                                }
+                            }
+                            //Simply register an error right away
+                            else {
+                                noError = false;
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                                  fileName,
+                                                  lineNum,
+                                                  "actual parameter " + paramNumber
+                                                  + " with type '" + paramType +
+                                                  "' does not match formal parameter " 
+                                                  + paramNumber + " with declared" +
+                                                  " type '" + formalType + "' in " +
+                                                  "dispatch to method '" + 
+                                                  methodName + "'");
+                            }
+                        }
+                        paramNumber++;
                     }
                     //If no error and everything matches, setExprType() and return Type
                     if (noError) {
@@ -733,7 +817,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   fileName,
                                   lineNum,
                                   "the instanceof lefthand expression has" +
-                                  "type '" + lhs + "', which is primitive" +
+                                  " type '" + lhs + "', which is primitive" +
                                   " and not an object type");
         }
         else if (lhsNoArr.equals("void")) {
@@ -823,7 +907,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                    fileName,
                                    lineNum,
                                    "expression in cast has type '" +
-                                   exprType + "' which is primitive"
+                                   exprType + "', which is primitive"
                                    + " and can't be casted");
         } 
         //Check for appropriate upcasting and downcasting
@@ -851,18 +935,16 @@ public class TypeCheckVisitor extends SemanticVisitor {
             }
 
             if (!legitCast) {
-                System.out.println("Bad Cast");
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
-                                      "Inconvertible types: ('" + exprType 
+                                      "inconvertible types ('" + exprType 
                                       + "'=>'" + castType + "')");
             }
             //This should take care of the array portion
             //If legal cast but does not pass array check, register error
             if ((exprType.contains("[]") != castType.contains("[]")) && 
                 legitCast) {
-                    System.out.println("Array Mismatch");
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
@@ -1090,7 +1172,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           lineNum,
                                           "the lefthand type '" + type1 + "'" +
                                           " in the binary operation ('==')" +
-                                          " does not match righthand type '" +
+                                          " does not match the righthand type '" +
                                           type2 + "'");
                 }
             }
@@ -1101,7 +1183,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lineNum,
                                       "the lefthand type '" + type1 + "'" +
                                       " in the binary operation ('==')" +
-                                      " does not match righthand type '" +
+                                      " does not match the righthand type '" +
                                       type2 + "'");
             }
         }
@@ -1144,7 +1226,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           lineNum,
                                           "the lefthand type '" + type1 + "'" +
                                           " in the binary operation ('!=')" +
-                                          " does not match righthand type '" +
+                                          " does not match the righthand type '" +
                                           type2 + "'");
                 }
             }
@@ -1155,7 +1237,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lineNum,
                                       "the lefthand type '" + type1 + "'" +
                                       " in the binary operation ('!=')" +
-                                      " does not match righthand type '" +
+                                      " does not match the righthand type '" +
                                       type2 + "'");
             }
         }
