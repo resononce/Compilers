@@ -241,8 +241,13 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     + "type '" + type + "'");
             }
         } 
+<<<<<<< HEAD
         if (!duplicate)
             vTable.add(name, type);
+=======
+        vTable.add(name, type);
+        
+>>>>>>> f76fd4fea543bae566873fda37d2c1fbe6c107c1
         return null;
     }
 
