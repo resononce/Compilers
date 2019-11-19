@@ -194,19 +194,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
         else if ( (vTable.getScopeLevel(name) > 0) &&
                  (vTable.getScopeLevel(name) > (((ClassTreeNode) classMap.get(className)).getParent()
                  .getVarSymbolTable().getCurrScopeLevel() + 1))) {
-            System.out.println("total: " + vTable.getCurrScopeLevel());
-            System.out.println("found: " + vTable.getScopeLevel(name));
-            System.out.println("Parent: " + (((ClassTreeNode) classMap.get(className)).getParent()
-            .getVarSymbolTable().getCurrScopeLevel() + 1));
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                    fileName, 
-                                    lineNum,
-                                    "variable '" + name +  
-                                    "' is already defined in method " +
-                                    methodName );
-        }
-        /*else if (vTable.peek(name) != null) {
-            noError = false;
             duplicate = true;
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                     fileName, 
@@ -214,23 +201,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     "variable '" + name +  
                                     "' is already defined in method " +
                                     methodName );
-        } 
-        //Check to ensure that it is not a duplicate within the method scope
-        //getSize() = totalSize from current Scope
-        //getScopeLevel() = the first Scope where the var is found
-        else {
-            System.out.println("Something here");
-            int scopeFoundReplica = vTable.getScopeLevel(name); //The scope where a version is found
-            int totalScope = vTable.getCurrScopeLevel(); //The total scope of the class + parent Scope
-            if (scopeFoundReplica > 2) {
-                errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                      fileName, 
-                                      lineNum,
-                                      "variable '" + name +  
-                                      "' is already defined in method " +
-                                      methodName );
-            }
-        } */
+        }
         if (!rhsType.equals(type)) {
             //Need to check if conforms or not
             if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(checkType)){
