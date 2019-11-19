@@ -1,4 +1,4 @@
-1,218c1,4
+1,218c1,13
 < // Source file: TicTacToe.btm
 < // Source line: 3
 < class Main extends Object {
@@ -218,7 +218,16 @@
 <     }
 < }
 ---
-> TicTacToe.btm:6:semantic error: type 'int[]' of field 'board' is undefined
-> 
-> Stopping compilation due to errors
-> 1 error(s)
+> io is type Object
+> player is type int
+> board is type null
+> java.lang.NullPointerException
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Field.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

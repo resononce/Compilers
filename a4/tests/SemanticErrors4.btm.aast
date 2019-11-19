@@ -1,4 +1,14 @@
-SemanticErrors4.btm:3:semantic error: return type 'int[]' of method 'm' is undefined
-
-Stopping compilation due to errors
-1 error(s)
+java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ReturnStmt.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+	at semant.SemanticAnalyzer.analyze(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

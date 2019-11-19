@@ -1,71 +1,11 @@
-// Source file: Super.btm
-// Source line: 1
-class A extends Object {
-    // Source line: 2
-    TextIO io = 
-(/*L2*/new TextIO());
-    // Source line: 3
-    String name;
-    // Source line: 4
-    void setName() {
-        // Source line: 5
-        (/*L5*/this.name = (/*L5*/"A"));
-        // Source line: 6
-        return;
-    }
-    // Source line: 8
-    void foo() {
-        // Source line: 9
-        (/*L9*/(/*L9*/(/*L9*/(/*L9*/io).putString((/*L9*/"Static type = A, dynamic type = "))).putString((/*L9*/name))).putString((/*L9*/"\n")));
-        // Source line: 10
-        return;
-    }
-}
-// Source file: Super.btm
-// Source line: 14
-class B extends A {
-    // Source line: 15
-    String name;
-    // Source line: 16
-    void setName() {
-        // Source line: 17
-        (/*L17*/super.name = (/*L17*/"B"));
-        // Source line: 18
-        return;
-    }
-    // Source line: 20
-    void foo() {
-        // Source line: 21
-        (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"Static type = B, dynamic type = "))).putString((/*L21*/name))).putString((/*L21*/"\n")));
-        // Source line: 22
-        (/*L22*/(/*L22*/super).foo());
-        // Source line: 23
-        return;
-    }
-}
-// Source file: Super.btm
-// Source line: 27
-class C extends B {
-    // Source line: 28
-    void setName() {
-        // Source line: 29
-        (/*L29*/this.name = (/*L29*/"C"));
-        // Source line: 30
-        return;
-    }
-}
-// Source file: Super.btm
-// Source line: 34
-class Main extends Object {
-    // Source line: 35
-    void main() {
-        // Source line: 36
-        C c = (/*L36*/new C());
-        // Source line: 37
-        (/*L37*/(/*L37*/c).setName());
-        // Source line: 38
-        (/*L38*/(/*L38*/c).foo());
-        // Source line: 39
-        return;
-    }
-}
+io is type Object
+java.lang.NullPointerException
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Field.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+	at semant.SemanticAnalyzer.analyze(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

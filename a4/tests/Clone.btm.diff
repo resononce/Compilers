@@ -1,72 +1,79 @@
-6c6
+1,66c1,11
+< // Source file: Clone.btm
+< // Source line: 1
+< class Main extends Object {
+<     // Source line: 2
+<     TextIO io = 
 < (/*L2,type:TextIO*/new TextIO());
----
-> (/*L2*/new TextIO());
-14c14
+<     // Source line: 3
+<     int x;
+<     // Source line: 4
+<     int y;
+<     // Source line: 5
+<     void setX(/*line:5*/int x) {
+<         // Source line: 6
 <         (/*L6,type:int*/this.x = (/*L6,type:int*/x));
----
->         (/*L6*/this.x = (/*L6*/x));
-21c21
+<         // Source line: 7
+<         return;
+<     }
+<     // Source line: 9
+<     int getX() {
+<         // Source line: 10
 <         return (/*L10,type:int*/x);
----
->         return (/*L10*/x);
-26c26
+<     }
+<     // Source line: 12
+<     void setY(/*line:12*/int y) {
+<         // Source line: 13
 <         (/*L13,type:int*/this.y = (/*L13,type:int*/y));
----
->         (/*L13*/this.y = (/*L13*/y));
-33c33
+<         // Source line: 14
+<         return;
+<     }
+<     // Source line: 16
+<     int getY() {
+<         // Source line: 17
 <         return (/*L17,type:int*/y);
----
->         return (/*L17*/y);
-38c38
+<     }
+<     // Source line: 19
+<     void main() {
+<         // Source line: 20
 <         (/*L20,type:TextIO*/(/*L20,type:TextIO*/io).putString((/*L20,type:String*/"Creating main object (m) and setting X to 5 and Y to 3\n")));
----
->         (/*L20*/(/*L20*/io).putString((/*L20*/"Creating main object (m) and setting X to 5 and Y to 3\n")));
-40c40
+<         // Source line: 21
 <         Main m = (/*L21,type:Main*/new Main());
----
->         Main m = (/*L21*/new Main());
-42c42
+<         // Source line: 22
 <         (/*L22,type:void*/(/*L22,type:Main*/m).setX((/*L22,type:int*/5)));
----
->         (/*L22*/(/*L22*/m).setX((/*L22*/5)));
-44c44
+<         // Source line: 23
 <         (/*L23,type:void*/(/*L23,type:Main*/m).setY((/*L23,type:int*/3)));
----
->         (/*L23*/(/*L23*/m).setY((/*L23*/3)));
-46c46
+<         // Source line: 24
 <         (/*L24,type:TextIO*/(/*L24,type:TextIO*/(/*L24,type:TextIO*/(/*L24,type:TextIO*/io).putString((/*L24,type:String*/"m.x="))).putInt((/*L24,type:int*/(/*L24,type:Main*/m).getX()))).putString((/*L24,type:String*/"\n")));
----
->         (/*L24*/(/*L24*/(/*L24*/(/*L24*/io).putString((/*L24*/"m.x="))).putInt((/*L24*/(/*L24*/m).getX()))).putString((/*L24*/"\n")));
-48c48
+<         // Source line: 25
 <         (/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/io).putString((/*L25,type:String*/"m.y="))).putInt((/*L25,type:int*/(/*L25,type:Main*/m).getY()))).putString((/*L25,type:String*/"\n")));
----
->         (/*L25*/(/*L25*/(/*L25*/(/*L25*/io).putString((/*L25*/"m.y="))).putInt((/*L25*/(/*L25*/m).getY()))).putString((/*L25*/"\n")));
-50c50
+<         // Source line: 26
 <         (/*L26,type:TextIO*/(/*L26,type:TextIO*/io).putString((/*L26,type:String*/"Cloning main object (m2) and setting X to 6\n")));
----
->         (/*L26*/(/*L26*/io).putString((/*L26*/"Cloning main object (m2) and setting X to 6\n")));
-52c52
+<         // Source line: 27
 <         Main m2 = (/*L27,type:Main*/(Main)((/*L27,type:Object*/(/*L27,type:Main*/m).clone())));
----
->         Main m2 = (/*L27*/(Main)((/*L27*/(/*L27*/m).clone())));
-54c54
+<         // Source line: 28
 <         (/*L28,type:void*/(/*L28,type:Main*/m2).setX((/*L28,type:int*/6)));
----
->         (/*L28*/(/*L28*/m2).setX((/*L28*/6)));
-56c56
+<         // Source line: 29
 <         (/*L29,type:TextIO*/(/*L29,type:TextIO*/(/*L29,type:TextIO*/(/*L29,type:TextIO*/io).putString((/*L29,type:String*/"m.x="))).putInt((/*L29,type:int*/(/*L29,type:Main*/m).getX()))).putString((/*L29,type:String*/"\n")));
----
->         (/*L29*/(/*L29*/(/*L29*/(/*L29*/io).putString((/*L29*/"m.x="))).putInt((/*L29*/(/*L29*/m).getX()))).putString((/*L29*/"\n")));
-58c58
+<         // Source line: 30
 <         (/*L30,type:TextIO*/(/*L30,type:TextIO*/(/*L30,type:TextIO*/(/*L30,type:TextIO*/io).putString((/*L30,type:String*/"m.y="))).putInt((/*L30,type:int*/(/*L30,type:Main*/m).getY()))).putString((/*L30,type:String*/"\n")));
----
->         (/*L30*/(/*L30*/(/*L30*/(/*L30*/io).putString((/*L30*/"m.y="))).putInt((/*L30*/(/*L30*/m).getY()))).putString((/*L30*/"\n")));
-60c60
+<         // Source line: 31
 <         (/*L31,type:TextIO*/(/*L31,type:TextIO*/(/*L31,type:TextIO*/(/*L31,type:TextIO*/io).putString((/*L31,type:String*/"m2.x="))).putInt((/*L31,type:int*/(/*L31,type:Main*/m2).getX()))).putString((/*L31,type:String*/"\n")));
----
->         (/*L31*/(/*L31*/(/*L31*/(/*L31*/io).putString((/*L31*/"m2.x="))).putInt((/*L31*/(/*L31*/m2).getX()))).putString((/*L31*/"\n")));
-62c62
+<         // Source line: 32
 <         (/*L32,type:TextIO*/(/*L32,type:TextIO*/(/*L32,type:TextIO*/(/*L32,type:TextIO*/io).putString((/*L32,type:String*/"m2.y="))).putInt((/*L32,type:int*/(/*L32,type:Main*/m2).getY()))).putString((/*L32,type:String*/"\n")));
+<         // Source line: 33
+<         return;
+<     }
+< }
 ---
->         (/*L32*/(/*L32*/(/*L32*/(/*L32*/io).putString((/*L32*/"m2.y="))).putInt((/*L32*/(/*L32*/m2).getY()))).putString((/*L32*/"\n")));
+> io is type Object
+> java.lang.NullPointerException
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Field.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

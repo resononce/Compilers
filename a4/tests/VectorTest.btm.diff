@@ -1,4 +1,4 @@
-1,668c1,4
+1,668c1,18
 < // Source file: VectorTest.btm
 < // Source line: 4
 < class Main extends Object {
@@ -668,7 +668,21 @@
 <     }
 < }
 ---
-> Vector.btm:9:semantic error: type 'Object[]' of field 'elements' is undefined
-> 
-> Stopping compilation due to errors
-> 1 error(s)
+> io is type Object
+> v is type Object
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.ExprStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

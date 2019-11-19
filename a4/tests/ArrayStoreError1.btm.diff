@@ -1,24 +1,39 @@
-6c6
+1,21c1,16
+< // Source file: ArrayStoreError1.btm
+< // Source line: 1
+< class Main extends Object {
+<     // Source line: 2
+<     int length = 
 < (/*L2,type:int*/3);
----
-> (/*L2*/3);
-9c9
+<     // Source line: 3
+<     int abc = 
 < (/*L3,type:int*/6513249);
----
-> (/*L3*/6513249);
-13c13
+<     // Source line: 4
+<     void main() {
+<         // Source line: 5
 <         Object[] objects = (/*L5,type:String[]*/new String[(/*L5,type:int*/10)]);
----
->         Object[] objects = (/*L5*/new String[(/*L5*/10)]);
-15c15
+<         // Source line: 7
 <         (/*L7,type:Main*/objects[(/*L7,type:int*/0)] = (/*L7,type:Main*/new Main()));
----
->         (/*L7*/objects[(/*L7*/0)] = (/*L7*/new Main()));
-17c17
+<         // Source line: 8
 <         String[] strings = (/*L8,type:String[]*/(String[])((/*L8,type:Object[]*/objects)));
----
->         String[] strings = (/*L8*/(String[])((/*L8*/objects)));
-19c19
+<         // Source line: 9
 <         (/*L9,type:TextIO*/(/*L9,type:TextIO*/(/*L9,type:TextIO*/new TextIO()).putString((/*L9,type:String*/strings[(/*L9,type:int*/0)]))).putString((/*L9,type:String*/"\n")));
+<     }
+< }
 ---
->         (/*L9*/(/*L9*/(/*L9*/new TextIO()).putString((/*L9*/strings[(/*L9*/0)]))).putString((/*L9*/"\n")));
+> length is type int
+> abc is type int
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

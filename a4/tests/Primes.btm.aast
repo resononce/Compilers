@@ -1,70 +1,17 @@
-// Source file: Primes.btm
-// Source line: 4
-class Main extends Object {
-    // Source line: 6
-    TextIO io = 
-(/*L6*/new TextIO());
-    // Source line: 10
-    void main() {
-        // Source line: 12
-        (/*L12*/(/*L12*/io).putString((/*L12*/"Enter a positive number greater than 1: ")));
-        // Source line: 13
-        int max = (/*L13*/(/*L13*/io).getInt());
-        // Source line: 15
-        if ((/*L15*/(/*L15*/max) < (/*L15*/2)))
-            // Source line: 15
-            {
-                // Source line: 16
-                (/*L16*/(/*L16*/io).putString((/*L16*/"number must be > 1\n")));
-                // Source line: 17
-                (/*L17*/(/*L17*/new Sys()).exit((/*L17*/1)));
-            }
-        else
-            // Source line: 19
-            {
-                // Source line: 21
-                int i = (/*L21*/2);
-                // Source line: 22
-                while ((/*L22*/(/*L22*/i) <= (/*L22*/max)))
-                    // Source line: 22
-                    {
-                        // Source line: 24
-                        if ((/*L24*/(/*L24*/this).isPrime((/*L24*/i))))
-                            // Source line: 25
-                            (/*L25*/(/*L25*/(/*L25*/io).putInt((/*L25*/i))).putString((/*L25*/" is prime.\n")));
-                        else
-                            // Source line: 24
-                            {
-                            }
-                        // Source line: 26
-                        (/*L26*/i = (/*L26*/(/*L26*/i) + (/*L26*/1)));
-                    }
-            }
-        // Source line: 29
-        return;
-    }
-    // Source line: 36
-    boolean isPrime(/*line:36*/int n) {
-        // Source line: 37
-        boolean isPrime = (/*L37*/true);
-        // Source line: 38
-        int i = (/*L38*/2);
-        // Source line: 39
-        while ((/*L39*/(/*L39*/(/*L39*/i) < (/*L39*/(/*L39*/n) - (/*L39*/1))) && (/*L39*/isPrime)))
-            // Source line: 39
-            {
-                // Source line: 40
-                if ((/*L40*/(/*L40*/(/*L40*/n) % (/*L40*/i)) == (/*L40*/0)))
-                    // Source line: 41
-                    (/*L41*/isPrime = (/*L41*/false));
-                else
-                    // Source line: 40
-                    {
-                    }
-                // Source line: 42
-                (/*L42*/i = (/*L42*/(/*L42*/i) + (/*L42*/1)));
-            }
-        // Source line: 44
-        return (/*L44*/isPrime);
-    }
-}
+io is type Object
+java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+	at semant.SemanticAnalyzer.analyze(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

@@ -1,16 +1,50 @@
-7c7
+1,28c1,20
+< // Source file: ForBreakIncDecTest2.btm
+< // Source line: 1
+< class Main extends Object {
+<     // Source line: 2
+<     void main() {
+<         // Source line: 3
 <         int i = (/*L3,type:int*/0);
----
->         int i = (/*L3*/0);
-13c13
+<         // Source line: 4
+<         for (; ; )
+<             // Source line: 4
+<             {
+<                 // Source line: 5
 <                 if ((/*L5,type:boolean*/(/*L5,type:int*/i) >= (/*L5,type:int*/100)))
----
->                 if ((/*L5*/(/*L5*/i) >= (/*L5*/100)))
-21c21
+<                     // Source line: 6
+<                     break;
+<                 else
+<                     // Source line: 5
+<                     {
+<                     }
+<                 // Source line: 7
 <                 (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int*/++((/*L7,type:int*/i))))).putString((/*L7,type:String*/"\n")));
----
->                 (/*L7*/(/*L7*/(/*L7*/new TextIO()).putInt((/*L7*/++((/*L7*/i))))).putString((/*L7*/"\n")));
-23c23
+<                 // Source line: 8
 <                 (/*L8,type:int*/((/*L8,type:int*/i))++);
+<             }
+<         // Source line: 10
+<         return;
+<     }
+< }
 ---
->                 (/*L8*/((/*L8*/i))++);
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.IfStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.BlockStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.ForStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

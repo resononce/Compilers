@@ -1,15 +1,16 @@
-// Source file: SimpleCalc.btm
-// Source line: 1
-class Main extends Object {
-    // Source line: 2
-    void main() {
-        // Source line: 3
-        (/*L3*/(/*L3*/new TextIO()).putString((/*L3*/"(3%2+(2*5)-6/3): ")));
-        // Source line: 4
-        (/*L4*/(/*L4*/new TextIO()).putInt((/*L4*/(/*L4*/(/*L4*/(/*L4*/3) % (/*L4*/2)) + (/*L4*/(/*L4*/2) * (/*L4*/5))) - (/*L4*/(/*L4*/6) / (/*L4*/3)))));
-        // Source line: 5
-        (/*L5*/(/*L5*/new TextIO()).putString((/*L5*/"\n")));
-        // Source line: 6
-        return;
-    }
-}
+java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+	at semant.SemanticAnalyzer.analyze(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

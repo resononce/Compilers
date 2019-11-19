@@ -1,46 +1,17 @@
-// Source file: Fact.btm
-// Source line: 5
-class Main extends Object {
-    // Source line: 7
-    TextIO io = 
-(/*L7*/new TextIO());
-    // Source line: 11
-    void main() {
-        // Source line: 13
-        (/*L13*/(/*L13*/io).putString((/*L13*/"Enter a non-negative number: ")));
-        // Source line: 14
-        int x = (/*L14*/(/*L14*/io).getInt());
-        // Source line: 16
-        if ((/*L16*/(/*L16*/x) < (/*L16*/0)))
-            // Source line: 16
-            {
-                // Source line: 17
-                (/*L17*/(/*L17*/io).putString((/*L17*/"Error: number must be > 0\n")));
-                // Source line: 18
-                (/*L18*/(/*L18*/new Sys()).exit((/*L18*/1)));
-            }
-        else
-            // Source line: 20
-            {
-                // Source line: 23
-                (/*L23*/(/*L23*/(/*L23*/io).putInt((/*L23*/(/*L23*/this).fact((/*L23*/x))))).putString((/*L23*/"\n")));
-            }
-        // Source line: 25
-        return;
-    }
-    // Source line: 32
-    int fact(/*line:32*/int n) {
-        // Source line: 34
-        int result = (/*L34*/1);
-        // Source line: 37
-        if ((/*L37*/(/*L37*/n) > (/*L37*/1)))
-            // Source line: 38
-            (/*L38*/result = (/*L38*/(/*L38*/n) * (/*L38*/(/*L38*/this).fact((/*L38*/(/*L38*/n) - (/*L38*/1))))));
-        else
-            // Source line: 37
-            {
-            }
-        // Source line: 39
-        return (/*L39*/result);
-    }
-}
+io is type Object
+java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.MemberList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+	at semant.SemanticAnalyzer.analyze(Unknown Source)
+	at Main.main(Unknown Source)
+Internal error within compiler: stopping compilation

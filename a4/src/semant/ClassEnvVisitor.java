@@ -46,7 +46,7 @@ public class ClassEnvVisitor extends SemanticVisitor{
         boolean noError = true;
         String name = node.getName();
         String fieldType = node.getType();
-        String checkType = fieldType.replaceAll("[]", "");
+        String checkType = fieldType.replace("[]", "");
         int lineNum = node.getLineNum();
         if (name.equals("null") || name.equals("this") || 
             name.equals("super")) {
@@ -86,7 +86,7 @@ public class ClassEnvVisitor extends SemanticVisitor{
         boolean noError = true;
         String name = node.getName();
         String returnType = node.getReturnType();
-        String checkType = returnType.replaceAll("[]", "");
+        String checkType = returnType.replace("[]", "");
         int lineNum = node.getLineNum();
         if ((!checkType.equals("int") && !checkType.equals("boolean") && 
             !checkType.equals("void")) &&

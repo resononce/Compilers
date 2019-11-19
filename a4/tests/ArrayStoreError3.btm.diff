@@ -1,16 +1,47 @@
-23c23
+1,31c1,14
+< // Source file: ArrayStoreError3.btm
+< // Source line: 1
+< class A extends Object {
+< }
+< // Source file: ArrayStoreError3.btm
+< // Source line: 2
+< class B extends A {
+< }
+< // Source file: ArrayStoreError3.btm
+< // Source line: 3
+< class C extends A {
+< }
+< // Source file: ArrayStoreError3.btm
+< // Source line: 4
+< class D extends B {
+< }
+< // Source file: ArrayStoreError3.btm
+< // Source line: 6
+< class Main extends Object {
+<     // Source line: 7
+<     void main() {
+<         // Source line: 8
 <         Object[] objects = (/*L8,type:B[]*/new B[(/*L8,type:int*/10)]);
----
->         Object[] objects = (/*L8*/new B[(/*L8*/10)]);
-25c25
+<         // Source line: 9
 <         (/*L9,type:B*/objects[(/*L9,type:int*/0)] = (/*L9,type:B*/new B()));
----
->         (/*L9*/objects[(/*L9*/0)] = (/*L9*/new B()));
-27c27
+<         // Source line: 10
 <         (/*L10,type:D*/objects[(/*L10,type:int*/1)] = (/*L10,type:D*/new D()));
----
->         (/*L10*/objects[(/*L10*/1)] = (/*L10*/new D()));
-29c29
+<         // Source line: 11
 <         (/*L11,type:C*/objects[(/*L11,type:int*/2)] = (/*L11,type:C*/new C()));
+<     }
+< }
 ---
->         (/*L11*/objects[(/*L11*/2)] = (/*L11*/new C()));
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

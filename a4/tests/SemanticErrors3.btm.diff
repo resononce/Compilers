@@ -1,19 +1,12 @@
-1,8c1,9
+1,5c1
 < SemanticErrors3.btm:3:semantic error: 'main' method in class 'Main' cannot take arguments
 < 
 < SemanticErrors3.btm:3:semantic error: 'main' method in class 'Main' must be void
 < 
 < SemanticErrors3.btm:5:semantic error: return type 'void' is not compatible with declared return type 'int' in method 'main'
-< 
-< Stopping compilation due to errors
+---
+> SemanticErrors3.btm:5:semantic error: return type 'void' is not compatible with declared return type 'int' in method'main'
+8c4
 < 3 error(s)
 ---
-> // Source file: SemanticErrors3.btm
-> // Source line: 1
-> class Main extends Object {
->     // Source line: 3
->     int main(/*line:3*/boolean b) {
->         // Source line: 5
->         return;
->     }
-> }
+> 1 error(s)

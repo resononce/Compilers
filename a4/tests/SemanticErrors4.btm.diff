@@ -1,4 +1,4 @@
-1,69c1
+1,72c1,14
 < SemanticErrors4.btm:8:semantic error: expression type 'boolean' of declaration 'be' does not match declared type 'boolean[]'
 < 
 < SemanticErrors4.btm:11:semantic error: predicate in if-statement does not have type boolean
@@ -68,9 +68,21 @@
 < SemanticErrors4.btm:53:semantic error: the expression type 'boolean' in the unary operation ('--') is incorrect; should have been: int
 < 
 < SemanticErrors4.btm:55:semantic error: variable 'c' in assignment is undeclared
----
-> SemanticErrors4.btm:3:semantic error: return type 'int[]' of method 'm' is undefined
-72c4
+< 
+< Stopping compilation due to errors
 < 35 error(s)
 ---
-> 1 error(s)
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.ReturnStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

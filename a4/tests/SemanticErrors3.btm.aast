@@ -1,9 +1,4 @@
-// Source file: SemanticErrors3.btm
-// Source line: 1
-class Main extends Object {
-    // Source line: 3
-    int main(/*line:3*/boolean b) {
-        // Source line: 5
-        return;
-    }
-}
+SemanticErrors3.btm:5:semantic error: return type 'void' is not compatible with declared return type 'int' in method'main'
+
+Stopping compilation due to errors
+1 error(s)

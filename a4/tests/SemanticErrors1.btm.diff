@@ -1,10 +1,54 @@
-33,34d32
+1,226c1,10
+< Error: semantic error: no class 'Main' defined.
+< 
+< SemanticErrors1.btm:2:semantic error: built-in class 'String' cannot be redefined
+< 
+< SemanticErrors1.btm:3:semantic error: duplicate class 'C1' (originally defined at line 1)
+< 
+< SemanticErrors1.btm:5:semantic error: class 'C3' extends non-existent class 'NotThere'
+< 
+< SemanticErrors1.btm:6:semantic error: class 'C4' extends non-extendable class 'String'
+< 
+< SemanticErrors1.btm:8:semantic error: inheritance cycle found involving class 'C5'
+< 
+< SemanticErrors1.btm:9:semantic error: inheritance cycle found involving class 'C6'
+< 
+< SemanticErrors1.btm:10:semantic error: inheritance cycle found involving class 'C7'
+< 
+< SemanticErrors1.btm:21:semantic error: fields cannot be named 'null'
+< 
+< SemanticErrors1.btm:22:semantic error: fields cannot be named 'this'
+< 
+< SemanticErrors1.btm:22:semantic error: type 'string' of field 'this' is undefined
+< 
+< SemanticErrors1.btm:23:semantic error: fields cannot be named 'super'
+< 
+< SemanticErrors1.btm:25:semantic error: field 'x' is already defined in class 'C9'
+< 
+< SemanticErrors1.btm:26:semantic error: type 'bool' of field 'y' is undefined
+< 
+< SemanticErrors1.btm:28:semantic error: return type 'bool' of method 'this' is undefined
+< 
+< SemanticErrors1.btm:28:semantic error: methods cannot be named 'this'
+< 
 < SemanticErrors1.btm:28:semantic error: declared return type of method 'this' is 'bool' but method body is not returning any expression
 < 
-41,42d38
+< SemanticErrors1.btm:32:semantic error: methods cannot be named 'null'
+< 
+< SemanticErrors1.btm:33:semantic error: methods cannot be named 'super'
+< 
+< SemanticErrors1.btm:36:semantic error: method 'm1' is already defined in class 'C9'
+< 
 < SemanticErrors1.btm:36:semantic error: return type 'String' is not compatible with declared return type 'int' in method 'm1'
 < 
-51,66d46
+< SemanticErrors1.btm:40:semantic error: overriding method 'm' has return type 'String', which differs from the inherited method's return type 'void'
+< 
+< SemanticErrors1.btm:43:semantic error: overriding method 'm' has 3 formals, which differs from the inherited method (2)
+< 
+< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'boolean' for formal 1, which differs from the inherited method's formal type 'int'
+< 
+< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'int' for formal 2, which differs from the inherited method's formal type 'boolean'
+< 
 < SemanticErrors1.btm:52:semantic error: expression type 'boolean' of field 'x' does not match declared type 'int'
 < 
 < SemanticErrors1.btm:53:semantic error: expression type 'String' of field 'b' does not match declared type 'boolean'
@@ -21,7 +65,8 @@
 < 
 < SemanticErrors1.btm:61:semantic error: return type 'void' is not compatible with declared return type 'boolean' in method 'm3'
 < 
-69,224d48
+< SemanticErrors1.btm:62:semantic error: method 'm3' is already defined in class 'C10'
+< 
 < SemanticErrors1.btm:62:semantic error: return type 'TextIO' does not conform to declared return type 'String' in method 'm3'
 < 
 < SemanticErrors1.btm:64:semantic error: return type 'Object' does not conform to declared return type 'String' in method 'm4'
@@ -178,7 +223,16 @@
 < 
 < SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
 < 
-226c50
+< Stopping compilation due to errors
 < 112 error(s)
 ---
-> 24 error(s)
+> java.lang.NullPointerException
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Field.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

@@ -37,54 +37,58 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(Field node) {
-        String rhsType = node.getInit().getExprType();
-        String lhsType = node.getType();
-        int lineNum = node.getLineNum();
-        String name = node.getName();
-        String rCheckType = rhsType.replaceAll("[]", "");
-        String lCheckType = lhsType.replaceAll("[]", "");
-        //checks if assigning a void to  the lhs
-        if (rhsType.equals("void")) {
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                  fileName, 
-                                  lineNum,
-                                  "expression type '" + rhsType +  
-                                  "' of field '" + name +
-                                  "' cannot be void");
-        } 
-        //checks if either lhs or rhs is primitive and do not match
-        else if ((lCheckType.equals("boolean") || lCheckType.equals("int")) ||
-                 (rCheckType.equals("boolean") || rCheckType.equals("int")) &&
-                 !lCheckType.equals(rCheckType)) {
-            errorHandler.register(errorHandler.SEMANT_ERROR, 
-                                  fileName, 
-                                  lineNum,
-                                  "expression type '" + rhsType +  
-                                  "' of field '" + name +
-                                  "' does not match declared type '" +
-                                  lhsType + "'");
-        } 
-        //checks if they are Class type and if rhs is subtype of lhs
-        else if (classMap.contains(lCheckType) && 
-                 classMap.contains(rCheckType)) {
-            Iterator childrenList = classMap.get(lCheckType).getChildrenList();
-            boolean notChild = true;
-            while (childrenList.hasNext()) {
-                ClassTreeNode ctn = (ClassTreeNode) childrenList.next();
-                if (ctn.getASTNode().getName().equals(rCheckType)) {
-                    notChild = false;
-                    break;
-                }
-            }
-            if (notChild) {
+        if (node.getInit() != null) {
+            node.getInit().accept(this);
+            String rhsType = node.getInit().getExprType();
+            String lhsType = node.getType();
+            int lineNum = node.getLineNum();
+            String name = node.getName();
+            //System.out.println(name + " is type " + rhsType);
+            String rCheckType = rhsType.replace("[]", "");
+            String lCheckType = lhsType.replace("[]", "");
+            //checks if assigning a void to  the lhs
+            if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
                                       "expression type '" + rhsType +  
                                       "' of field '" + name +
-                                      "' does not conform to declared type '" +
+                                      "' cannot be void");
+            } 
+            //checks if either lhs or rhs is primitive and do not match
+            else if ((lCheckType.equals("boolean") || lCheckType.equals("int")) ||
+                     (rCheckType.equals("boolean") || rCheckType.equals("int")) &&
+                     !lCheckType.equals(rCheckType)) {
+                errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                      fileName, 
+                                      lineNum,
+                                      "expression type '" + rhsType +  
+                                      "' of field '" + name +
+                                      "' does not match declared type '" +
                                       lhsType + "'");
             } 
+            //checks if they are Class type and if rhs is subtype of lhs
+                else if (classMap.contains(lCheckType) && 
+                     classMap.contains(rCheckType)) {
+                Iterator childrenList = classMap.get(lCheckType).getChildrenList();
+                boolean notChild = true;
+                while (childrenList.hasNext()) {
+                    ClassTreeNode ctn = (ClassTreeNode) childrenList.next();
+                    if (ctn.getASTNode().getName().equals(rCheckType)) {
+                        notChild = false;
+                        break;
+                    }
+                }
+                if (notChild) {
+                    errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                          fileName, 
+                                          lineNum,
+                                          "expression type '" + rhsType +  
+                                          "' of field '" + name +
+                                          "' does not conform to declared type '" +
+                                          lhsType + "'");
+                } 
+            }
         }
         return null; 
     }
@@ -99,7 +103,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             int lineNum = f.getLineNum();
             String name = f.getName();
             String type = f.getType();
-            String checkType = type.replaceAll("[]", "");
+            String checkType = type.replace("[]", "");
             boolean noError = true;
             boolean unknownType = false;
             //check type of arg exists
@@ -157,7 +161,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         boolean noError = true;
         int lineNum = node.getLineNum();
         String type = node.getType();
-        String checkType = type.replaceAll("[]", "");
+        String checkType = type.replace("[]", "");
         String name = node.getName();
         //Type Check
         if ((!checkType.equals("boolean") && !checkType.equals("int")) &&
@@ -344,8 +348,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
             }
 
             
-            String returnTypeNotArray = returnType.replaceAll("[]", "");
-            String methodReturnTypeNoArray = methodReturnType.replaceAll("[]", "");
+            String returnTypeNotArray = returnType.replace("[]", "");
+            String methodReturnTypeNoArray = methodReturnType.replace("[]", "");
             if (returnTypeNotArray.equals("null")) {
                 return "null";
             }
@@ -440,13 +444,18 @@ public class TypeCheckVisitor extends SemanticVisitor {
     //The type for this node can be obtained from getExprType() or
     //from the return of this visit
     public Object visit(DispatchExpr node) { 
+        node.getRefExpr().accept(this);
+        String exprType = (String) node.getExprType();
+        System.out.println(exprType);
+        node.getActualList().accept(this);
+        System.out.println(node.getActualList().getSize());
         String methodName = node.getMethodName();
         int lineNum = node.getLineNum();
         String toBeReturned = "Object";
-        String exprType = ((Expr) node.getRefExpr().accept(this)).getExprType();
         FormalList fl;
         ExprList el;
         int numFormals, numParams;
+        
         //Check that LHS refExpr is not primitive or void
         if (exprType.equals("boolean") || exprType.equals("int") 
         || exprType.equals("void")) {
@@ -474,7 +483,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             //if method exists, get formal list and get actual list
             else {
                 fl = methodToUse.getFormalList();
-                el = (ExprList) node.getActualList().accept(this);
+                el = (ExprList) node.getActualList();
                 numFormals = fl.getSize();
                 numParams = el.getSize();
                 //Check if same number of arguments
@@ -648,8 +657,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         String lhs = ((Expr) node.getExpr().accept(this)).getExprType();
         String rhs = node.getType();
-        String lhsNoArr = lhs.replaceAll("[]", "");
-        String rhsNoArr = rhs.replaceAll("[]", "");
+        String lhsNoArr = lhs.replace("[]", "");
+        String rhsNoArr = rhs.replace("[]", "");
         boolean noError = true;
         String toBeReturned = "boolean";
         //Check LHS
@@ -720,8 +729,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         Expr expr = (Expr) node.getExpr().accept(this);
         String exprType = expr.getExprType();
-        String castTypeNoArr = castType.replaceAll("[]", "");
-        String exprTypeNoArr = exprType.replaceAll("[]", "");
+        String castTypeNoArr = castType.replace("[]", "");
+        String exprTypeNoArr = exprType.replace("[]", "");
 
         if (castTypeNoArr.equals("int") || castTypeNoArr.equals("boolean")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,

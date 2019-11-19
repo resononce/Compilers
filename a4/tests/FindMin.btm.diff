@@ -1,72 +1,75 @@
-7c7
+1,59c1,14
+< // Source file: FindMin.btm
+< // Source line: 1
+< class Main extends Object {
+<     // Source line: 2
+<     void main() {
+<         // Source line: 3
 <         TextIO io = (/*L3,type:TextIO*/new TextIO());
----
->         TextIO io = (/*L3*/new TextIO());
-9c9
+<         // Source line: 4
 <         int min = (/*L4,type:int*/0);
----
->         int min = (/*L4*/0);
-11c11
+<         // Source line: 6
 <         int n = (/*L6,type:int*/-((/*L6,type:int*/1)));
----
->         int n = (/*L6*/-((/*L6*/1)));
-13c13
+<         // Source line: 7
 <         while ((/*L7,type:boolean*/(/*L7,type:int*/n) < (/*L7,type:int*/0)))
----
->         while ((/*L7*/(/*L7*/n) < (/*L7*/0)))
-17c17
+<             // Source line: 7
+<             {
+<                 // Source line: 8
 <                 (/*L8,type:TextIO*/(/*L8,type:TextIO*/io).putString((/*L8,type:String*/"Enter number of times to repeat: ")));
----
->                 (/*L8*/(/*L8*/io).putString((/*L8*/"Enter number of times to repeat: ")));
-19c19
+<                 // Source line: 9
 <                 (/*L9,type:int*/n = (/*L9,type:int*/(/*L9,type:TextIO*/io).getInt()));
----
->                 (/*L9*/n = (/*L9*/(/*L9*/io).getInt()));
-21c21
+<                 // Source line: 10
 <                 if ((/*L10,type:boolean*/(/*L10,type:int*/n) < (/*L10,type:int*/0)))
----
->                 if ((/*L10*/(/*L10*/n) < (/*L10*/0)))
-23c23
+<                     // Source line: 11
 <                     (/*L11,type:TextIO*/(/*L11,type:TextIO*/io).putString((/*L11,type:String*/"Error: must enter non-negative number\n")));
----
->                     (/*L11*/(/*L11*/io).putString((/*L11*/"Error: must enter non-negative number\n")));
-30c30
+<                 else
+<                     // Source line: 10
+<                     {
+<                     }
+<             }
+<         // Source line: 13
 <         (/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"\n")));
----
->         (/*L13*/(/*L13*/io).putString((/*L13*/"\n")));
-32c32
+<         // Source line: 15
 <         int i = (/*L15,type:int*/1);
----
->         int i = (/*L15*/1);
-34c34
+<         // Source line: 16
 <         while ((/*L16,type:boolean*/(/*L16,type:int*/i) <= (/*L16,type:int*/n)))
----
->         while ((/*L16*/(/*L16*/i) <= (/*L16*/n)))
-38c38
+<             // Source line: 16
+<             {
+<                 // Source line: 17
 <                 (/*L17,type:TextIO*/(/*L17,type:TextIO*/(/*L17,type:TextIO*/(/*L17,type:TextIO*/io).putString((/*L17,type:String*/"Enter number "))).putInt((/*L17,type:int*/i))).putString((/*L17,type:String*/": ")));
----
->                 (/*L17*/(/*L17*/(/*L17*/(/*L17*/io).putString((/*L17*/"Enter number "))).putInt((/*L17*/i))).putString((/*L17*/": ")));
-40c40
+<                 // Source line: 18
 <                 int userInput = (/*L18,type:int*/(/*L18,type:TextIO*/io).getInt());
----
->                 int userInput = (/*L18*/(/*L18*/io).getInt());
-42c42
+<                 // Source line: 19
 <                 if ((/*L19,type:boolean*/(/*L19,type:boolean*/(/*L19,type:int*/userInput) < (/*L19,type:int*/min)) || (/*L19,type:boolean*/(/*L19,type:int*/i) == (/*L19,type:int*/1))))
----
->                 if ((/*L19*/(/*L19*/(/*L19*/userInput) < (/*L19*/min)) || (/*L19*/(/*L19*/i) == (/*L19*/1))))
-44c44
+<                     // Source line: 20
 <                     (/*L20,type:int*/min = (/*L20,type:int*/userInput));
----
->                     (/*L20*/min = (/*L20*/userInput));
-50c50
+<                 else
+<                     // Source line: 19
+<                     {
+<                     }
+<                 // Source line: 21
 <                 (/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/io).putString((/*L21,type:String*/"You entered: "))).putInt((/*L21,type:int*/userInput))).putString((/*L21,type:String*/"\n\n")));
----
->                 (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"You entered: "))).putInt((/*L21*/userInput))).putString((/*L21*/"\n\n")));
-52c52
+<                 // Source line: 22
 <                 (/*L22,type:int*/i = (/*L22,type:int*/(/*L22,type:int*/i) + (/*L22,type:int*/1)));
----
->                 (/*L22*/i = (/*L22*/(/*L22*/i) + (/*L22*/1)));
-55c55
+<             }
+<         // Source line: 25
 <         (/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/io).putString((/*L25,type:String*/"The minimum number entered was: "))).putInt((/*L25,type:int*/min))).putString((/*L25,type:String*/"\n")));
+<         // Source line: 27
+<         return;
+<     }
+< }
 ---
->         (/*L25*/(/*L25*/(/*L25*/(/*L25*/io).putString((/*L25*/"The minimum number entered was: "))).putInt((/*L25*/min))).putString((/*L25*/"\n")));
+> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.StmtList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.Method.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.MemberList.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
+> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
+> 	at Main.main(Unknown Source)
+> Internal error within compiler: stopping compilation

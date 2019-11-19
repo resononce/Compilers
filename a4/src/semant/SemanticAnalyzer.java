@@ -399,6 +399,16 @@ public class SemanticAnalyzer {
       * */
     private void typeCheck()
     {
+		TypeCheckVisitor tcv;
+		SymbolTable vTbl;
+		SymbolTable mTbl;
+
+		for (ClassTreeNode node : orderedClassList) {
+			vTbl = node.getVarSymbolTable();
+			mTbl = node.getMethodSymbolTable();
+			tcv = new TypeCheckVisitor(vTbl, mTbl, errorHandler, classMap);
+			tcv.visit(node.getASTNode());
+		}
 	// complete this method
     }
 
