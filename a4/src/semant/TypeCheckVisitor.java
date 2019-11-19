@@ -55,9 +55,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' cannot be void");
             } 
             //checks if either lhs or rhs is primitive and do not match
-            else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) ||
-                     (rCheckType.equals("boolean") || rCheckType.equals("int"))) &&
-                     !lCheckType.equals(rCheckType)) {
+            else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) 
+                    || (rCheckType.equals("boolean") || rCheckType.equals("int"))) 
+                    && !lCheckType.equals(rCheckType) && !rCheckType.equals("null")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -67,8 +67,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lhsType + "'");
             } 
             //checks if they are Class type and if rhs is subtype of lhs
-                else if (classMap.containsKey(lCheckType) && 
-                     classMap.containsKey(rCheckType)) {
+                else if (classMap.containsKey(lCheckType) 
+                        && classMap.containsKey(rCheckType) 
+                        && !rCheckType.equals("null")) {
                 Iterator childrenList = classMap.get(lCheckType).getChildrenList();
                 boolean notChild = true;
                 while (childrenList.hasNext()) {
@@ -425,6 +426,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 boolean conform = false;
                 if (!returnTypeNotArray.equals(methodReturnTypeNoArray)) {
                     //Stil need to check for conformity
+                    
                     while (children.hasNext()) {
                         if (returnTypeNotArray.equals(((ClassTreeNode) children.next())
                             .getASTNode().getName())) {
@@ -1111,7 +1113,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     }
                 }
 
-                if (!foundRelation) {
+                if (!foundRelation && !type2.equals("null")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
@@ -1165,7 +1167,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     }
                 }
 
-                if (!foundRelation) {
+                if (!foundRelation && !type1.equals("boolean")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
