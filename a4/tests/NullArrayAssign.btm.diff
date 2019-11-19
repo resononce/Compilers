@@ -1,4 +1,4 @@
-1,13c1,7
+1,13c1,6
 < // Source file: NullArrayAssign.btm
 < // Source line: 1
 < class Main extends Object {
@@ -13,7 +13,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
 > NullArrayAssign.btm:3:semantic error: expression type 'null' of declaration 'array' does not match declared type 'int[]'
 > 
 > NullArrayAssign.btm:4:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment

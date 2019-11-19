@@ -1,10 +1,3 @@
-total : 5 parent total: 1<>variable: i compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: be compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: b compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: sa compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: oa compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: ia compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: ia2 compare level: 6 In Scope Level: 4
 SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method 'm'
 
 SemanticErrors4.btm:8:semantic error: expression type 'boolean' of declaration 'be' does not match declared type 'boolean[]'

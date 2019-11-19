@@ -1,6 +1,3 @@
-total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s3 compare level: 4 In Scope Level: 2
 Strings.btm:14:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
 
 Strings.btm:14:semantic error: predicate in if-statement does not have type boolean

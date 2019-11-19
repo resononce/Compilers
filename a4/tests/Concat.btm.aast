@@ -1,7 +1,3 @@
-total : 3 parent total: 1<>variable: star compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s1 compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
 // Source file: Concat.btm
 // Source line: 1
 class Main extends Object {

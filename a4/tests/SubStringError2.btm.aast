@@ -1,5 +1,3 @@
-total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-total : 3 parent total: 1<>variable: s2 compare level: 4 In Scope Level: 2
 // Source file: SubStringError2.btm
 // Source line: 1
 class Main extends Object {

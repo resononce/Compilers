@@ -1,5 +1,3 @@
-total : 11 parent total: 1<>variable: m compare level: 12 In Scope Level: 10
-total : 11 parent total: 1<>variable: m2 compare level: 12 In Scope Level: 10
 Clone.btm:2:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 
 Clone.btm:6:semantic error: variable 'xin assignment is undeclared

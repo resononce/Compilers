@@ -1,4 +1,4 @@
-1,391c1,50
+1,391c1,30
 < // Source file: FileIO.btm
 < // Source line: 1
 < class Main extends Object {
@@ -391,24 +391,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: fileInput compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: stdin compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: eof compare level: 4 In Scope Level: 2
-> total : 5 parent total: 1<>variable: s compare level: 6 In Scope Level: 4
-> total : 3 parent total: 1<>variable: endOfInput compare level: 4 In Scope Level: 2
-> total : 5 parent total: 1<>variable: s compare level: 6 In Scope Level: 4
-> total : 3 parent total: 1<>variable: s compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
-> total : 7 parent total: 1<>variable: tmp compare level: 8 In Scope Level: 6
-> total : 7 parent total: 1<>variable: i compare level: 2 In Scope Level: 6
-> total : 11 parent total: 1<>variable: found compare level: 12 In Scope Level: 10
-> total : 11 parent total: 1<>variable: i compare level: 6 In Scope Level: 10
-> total : 15 parent total: 1<>variable: j compare level: 16 In Scope Level: 14
-> total : 19 parent total: 1<>variable: j compare level: 4 In Scope Level: 18
-> total : 23 parent total: 1<>variable: removed compare level: 24 In Scope Level: 22
-> total : 23 parent total: 1<>variable: i compare level: 4 In Scope Level: 22
-> total : 27 parent total: 1<>variable: j compare level: 8 In Scope Level: 26
 > FileIO.btm:15:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
 > 
 > FileIO.btm:24:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
@@ -425,8 +407,6 @@
 > 
 > Vector.btm:54:semantic error: expression type 'Object' of declaration 'tmp' does not conform to declared type 'Object[]'
 > 
-> Vector.btm:55:semantic error: variable 'i' is already defined in method resize
-> 
 > Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
 > Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
@@ -440,4 +420,4 @@
 > Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
 > 
 > Stopping compilation due to errors
-> 15 error(s)
+> 14 error(s)

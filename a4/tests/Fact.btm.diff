@@ -1,4 +1,4 @@
-1,46c1,6
+1,46c1,4
 < // Source file: Fact.btm
 < // Source line: 5
 < class Main extends Object {
@@ -46,8 +46,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: x compare level: 4 In Scope Level: 2
-> total : 5 parent total: 1<>variable: result compare level: 6 In Scope Level: 4
 > Fact.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 > 
 > Stopping compilation due to errors

@@ -1,10 +1,5 @@
-total : 5 parent total: 1<>variable: array compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: s compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: o compare level: 2 In Scope Level: 4
-total : 5 parent total: 1<>variable: strings compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: array2 compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-total : 5 parent total: 1<>variable: i compare level: 2 In Scope Level: 4
+ArrayTest1.btm:2:semantic error: expression type 'null' of field 'goo' does not match declared type 'boolean[]'
+
 ArrayTest1.btm:16:semantic error: expression type 'Object' of declaration 'array' does not conform to declared type 'Object[]'
 
 ArrayTest1.btm:18:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
@@ -21,8 +16,6 @@ ArrayTest1.btm:22:semantic error: actual parameter 1with type 'Object[]does not 
 
 ArrayTest1.btm:23:semantic error: actual parameter 1with type 'Object[]does not match forma parameter 1 with declaredtype 'Objectin dispath to method 'printElement'
 
-ArrayTest1.btm:24:semantic error: variable 'o' is already defined in method main
-
 ArrayTest1.btm:24:semantic error: expression type 'Object[]' of declaration 'o' does not conform to declared type 'Object'
 
 ArrayTest1.btm:25:semantic error: the righthand type 'boolean' does not conform to the lefthand type 'boolean[]' in assignment
@@ -38,8 +31,6 @@ ArrayTest1.btm:28:semantic error: expression type 'null' of declaration 'array2'
 ArrayTest1.btm:29:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
 
 ArrayTest1.btm:30:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
-
-ArrayTest1.btm:31:semantic error: variable 'i' is already defined in method main
 
 ArrayTest1.btm:33:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
 
@@ -68,4 +59,4 @@ ArrayTest1.btm:46:semantic error: Index in ArrayExpr is not int
 ArrayTest1.btm:46:semantic error: ArrayAssignExpr wrong size type, not int
 
 Stopping compilation due to errors
-31 error(s)
+30 error(s)

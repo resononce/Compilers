@@ -1,4 +1,4 @@
-1,19c1,12
+1,19c1,10
 < // Source file: ArraySizeTooLarge.btm
 < // Source line: 1
 < class Main extends Object {
@@ -19,8 +19,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
 > ArraySizeTooLarge.btm:4:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
 > ArraySizeTooLarge.btm:5:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment

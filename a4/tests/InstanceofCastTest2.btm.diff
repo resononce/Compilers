@@ -1,4 +1,4 @@
-1,263c1,80
+1,263c1,58
 < // Source file: InstanceofCastTest2.btm
 < // Source line: 1
 < class Main extends Object {
@@ -263,28 +263,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: objects compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: ios compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: strings compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: sys compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: ints compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: bools compare level: 4 In Scope Level: 2
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
-> total : 5 parent total: 1<>variable: x compare level: 6 In Scope Level: 4
 > InstanceofCastTest2.btm:4:semantic error: expression type 'Object' of declaration 'objects' does not conform to declared type 'Object[]'
 > 
 > InstanceofCastTest2.btm:5:semantic error: expression type 'TextIO' of declaration 'ios' does not conform to declared type 'TextIO[]'

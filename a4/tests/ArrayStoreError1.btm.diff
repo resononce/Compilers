@@ -1,4 +1,4 @@
-1,21c1,12
+1,21c1,10
 < // Source file: ArrayStoreError1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -21,8 +21,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: objects compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: strings compare level: 4 In Scope Level: 2
 > ArrayStoreError1.btm:5:semantic error: expression type 'String' of declaration 'objects' does not conform to declared type 'Object[]'
 > 
 > ArrayStoreError1.btm:7:semantic error: the righthand type 'Main' does not conform to the lefthand type 'Object[]' in assignment

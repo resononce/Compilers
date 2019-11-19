@@ -1,4 +1,4 @@
-1,13c1,8
+1,13c1,6
 < // Source file: NullArrayUse.btm
 < // Source line: 1
 < class Main extends Object {
@@ -13,8 +13,6 @@
 <     }
 < }
 ---
-> total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
-> total : 3 parent total: 1<>variable: x compare level: 4 In Scope Level: 2
 > NullArrayUse.btm:3:semantic error: expression type 'null' of declaration 'array' does not match declared type 'int[]'
 > 
 > NullArrayUse.btm:4:semantic error: expression type 'int[]' of declaration 'x' does not match declared type 'int'

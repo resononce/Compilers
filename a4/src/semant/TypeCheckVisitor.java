@@ -56,8 +56,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
             } 
             //checks if either lhs or rhs is primitive and do not match
             else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) 
-                    || (rCheckType.equals("boolean") || rCheckType.equals("int"))) 
-                    && !lCheckType.equals(rCheckType) && !rCheckType.equals("null")) {
+                     || (rCheckType.equals("boolean") || rCheckType.equals("int"))) 
+                     && !lCheckType.equals(rCheckType) && rCheckType.equals("null")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -88,6 +88,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           "' does not conform to declared type '" +
                                           lhsType + "'");
                 } 
+            }
+            else {
+
             }
         }
         return null; 
