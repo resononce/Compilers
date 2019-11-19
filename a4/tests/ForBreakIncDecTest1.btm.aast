@@ -1,22 +1,42 @@
-java.lang.NullPointerException
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ExprStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.BlockStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ForStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+ForBreakIncDecTest1.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
+
+ForBreakIncDecTest1.btm:7:semantic error: Variable in VarExpr not found
+
+ForBreakIncDecTest1.btm:7:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
+
+ForBreakIncDecTest1.btm:7:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:8:semantic error: Variable in VarExpr not found
+
+ForBreakIncDecTest1.btm:8:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
+
+ForBreakIncDecTest1.btm:8:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:9:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:10:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:21:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
+
+ForBreakIncDecTest1.btm:28:semantic error: Variable in VarExpr not found
+
+ForBreakIncDecTest1.btm:28:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+
+ForBreakIncDecTest1.btm:28:semantic error: dispatch to unknown method 'putString'
+
+ForBreakIncDecTest1.btm:28:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:29:semantic error: Variable in VarExpr not found
+
+ForBreakIncDecTest1.btm:29:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+
+ForBreakIncDecTest1.btm:29:semantic error: dispatch to unknown method 'putString'
+
+ForBreakIncDecTest1.btm:29:semantic error: not a statement
+
+ForBreakIncDecTest1.btm:34:semantic error: not a statement
+
+Stopping compilation due to errors
+20 error(s)

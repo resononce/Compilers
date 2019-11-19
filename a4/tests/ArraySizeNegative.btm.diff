@@ -1,4 +1,4 @@
-1,13c1,12
+1,13c1,8
 < // Source file: ArraySizeNegative.btm
 < // Source line: 1
 < class Main extends Object {
@@ -13,15 +13,11 @@
 <     }
 < }
 ---
-> ArraySizeNegative.btm:3:semantic error: type 'Object[]' of declaration 'array' is undefined
+> ArraySizeNegative.btm:3:semantic error: expression type 'Object' of declaration 'array' does not conform to declared type 'Object[]'
 > 
-> ArraySizeNegative.btm:3:semantic error: type 'Object' of newconstruction is undefined
-> 
-> ArraySizeNegative.btm:4:semantic error: type 'Object' of newconstruction is undefined
-> 
-> ArraySizeNegative.btm:4:semantic error: the righthand type 'null' does not conform to the lefthand type 'Object' in assignment
+> ArraySizeNegative.btm:4:semantic error: variable 'arrayin assignment is undeclared
 > 
 > ArraySizeNegative.btm:4:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 5 error(s)
+> 3 error(s)

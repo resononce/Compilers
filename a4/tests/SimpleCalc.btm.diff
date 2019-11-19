@@ -1,4 +1,4 @@
-1,15c1,14
+1,15c1,8
 < // Source file: SimpleCalc.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,17 +15,11 @@
 <     }
 < }
 ---
-> SimpleCalc.btm:3:semantic error: dispatch to unknown method 'putString'
-> 
 > SimpleCalc.btm:3:semantic error: not a statement
 > 
-> SimpleCalc.btm:4:semantic error: dispatch to unknown method 'putInt'
-> 
 > SimpleCalc.btm:4:semantic error: not a statement
-> 
-> SimpleCalc.btm:5:semantic error: dispatch to unknown method 'putString'
 > 
 > SimpleCalc.btm:5:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 6 error(s)
+> 3 error(s)

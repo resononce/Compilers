@@ -1,4 +1,4 @@
-1,59c1,19
+1,59c1,20
 < // Source file: Fib.btm
 < // Source line: 5
 < class Main extends Object {
@@ -59,22 +59,23 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DeclStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> Fib.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> 
+> Fib.btm:18:semantic error: not a statement
+> 
+> Fib.btm:19:semantic error: not a statement
+> 
+> Fib.btm:26:semantic error: not a statement
+> 
+> Fib.btm:27:semantic error: not a statement
+> 
+> Fib.btm:28:semantic error: not a statement
+> 
+> Fib.btm:43:semantic error: not a statement
+> 
+> Fib.btm:46:semantic error: not a statement
+> 
+> Fib.btm:50:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 9 error(s)

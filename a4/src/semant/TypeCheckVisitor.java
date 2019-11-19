@@ -1,3 +1,4 @@
+
 package semant;
 import ast.*;
 
@@ -42,7 +43,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             String lhsType = node.getType();
             int lineNum = node.getLineNum();
             String name = node.getName();
-            //System.out.println(name + " is type " + rhsType);
             String rCheckType = rhsType.replace("[]", "");
             String lCheckType = lhsType.replace("[]", "");
             //checks if assigning a void to  the lhs
@@ -67,8 +67,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lhsType + "'");
             } 
             //checks if they are Class type and if rhs is subtype of lhs
-                else if (classMap.contains(lCheckType) && 
-                     classMap.contains(rCheckType)) {
+                else if (classMap.containsKey(lCheckType) && 
+                     classMap.containsKey(rCheckType)) {
                 Iterator childrenList = classMap.get(lCheckType).getChildrenList();
                 boolean notChild = true;
                 while (childrenList.hasNext()) {
@@ -97,7 +97,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         vTable.enterScope();  //Changed from mTable to vTable based on slide 15-2
         methodName = node.getName();
         //moves forward into body of method
-        node.getStmtList().accept(this);
+        //node.getStmtList().accept(this);
         //Goes through method arguments to check for type of each arg
         for (Iterator it = node.getFormalList().getIterator(); it.hasNext();) {
             Formal f = (Formal) it.next();
@@ -109,7 +109,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             boolean unknownType = false;
             //check type of arg exists
             if ((!checkType.equals("boolean") && !checkType.equals("int")) &&
-                !classMap.contains(checkType)) {
+                !classMap.containsKey(checkType)) {
                     unknownType = true;
                     errorHandler.register(errorHandler.SEMANT_ERROR, 
                                           fileName, 
@@ -146,6 +146,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 vTable.add(f.getName(), f.getType());
             }
         }
+        node.getStmtList().accept(this);
         return null; 
     }
 
@@ -162,9 +163,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
         String type = node.getType();
         String checkType = type.replace("[]", "");
         String name = node.getName();
-        //Type Check
+        String rhsType = (String)node.getInit().accept(this);
+        String rhsTypeNoBracket = rhsType.replace("[]", "");
+        //Type Check of rhs
         if ((!checkType.equals("boolean") && !checkType.equals("int")) &&
-            !classMap.contains(checkType)) {
+            !classMap.containsKey(checkType)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -191,19 +194,50 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     fileName, 
                                     lineNum,
                                     "variable '" + name +  
-                                    "' is already defined in method" +
+                                    "' is already defined in method " +
                                     methodName );
         } 
-        //rhs = getInit()  THIS IS AN Experiment, Might not work------------------------
-        String rhsType = (String)node.getInit().accept(this);
         if (!rhsType.equals(type)) {
-            errorHandler.register(errorHandler.SEMANT_ERROR,
-                                 fileName,
-                                 lineNum,
-                                 "expression type '" + rhsType +
-                                 "' of declaration '" + name +
-                                 "' does not match declared "
-                                 + "type '" + type + "'");
+            //Need to check if conforms or not
+            if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(checkType)){
+                Iterator iterate = classMap.get(checkType).getChildrenList();
+                boolean doesConform = false;
+                while (iterate.hasNext() && !doesConform) {
+                    if (((ClassTreeNode) iterate.next()).getName().equals(checkType)) {
+                        doesConform = true;
+                    }
+                }
+                if (!doesConform) {
+                    errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "expression type '" + rhsType + "' " 
+                                          + "of declaration '" + name + 
+                                          "' does not conform to declared " +
+                                          "type '" + type + "'"
+                                          );
+                }
+                if (doesConform && (type.contains("[]") != rhsType.contains("[]"))) {
+                    errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "expression type '" + rhsType + "' " 
+                                          + "of declaration '" + name + 
+                                          "' does not conform to declared " +
+                                          "type '" + type + "'"
+                                          );
+                }
+            } 
+            //at least one is not a class, and they don't match
+            else {
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                    fileName,
+                                    lineNum,
+                                    "expression type '" + rhsType +
+                                    "' of declaration '" + name +
+                                    "' does not match declared "
+                                    + "type '" + type + "'");
+            }
         } 
         else if (noError) {
             //Put declaration name and type into varSymbolTable
@@ -329,6 +363,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         boolean noError = true;
         String returnType = "void";
+        String methodReturnTypeNoArray = methodReturnType.replace("[]", "");
         if (node.getExpr() != null) {
             returnType = (String) node.getExpr().accept(this);
             Expr expr = (Expr) node.getExpr();
@@ -347,15 +382,16 @@ public class TypeCheckVisitor extends SemanticVisitor {
 
             
             String returnTypeNotArray = returnType.replace("[]", "");
-            String methodReturnTypeNoArray = methodReturnType.replace("[]", "");
+            //Double check this if later
             if (returnTypeNotArray.equals("null")) {
                 return "null";
             }
             //Check if return expr is class type and method return is class type
-            if (classMap.contains(returnTypeNotArray) && 
-                classMap.contains(methodReturnTypeNoArray)) {
+            if (classMap.containsKey(returnTypeNotArray) && 
+                classMap.containsKey(methodReturnTypeNoArray)) {
                 //get children of method returnType if classType
                 Iterator children = classMap.get(methodReturnTypeNoArray).getChildrenList();
+                boolean conform = false;
                 if (!returnTypeNotArray.equals(methodReturnTypeNoArray)) {
                     //Stil need to check for conformity
                     while (children.hasNext()) {
@@ -373,11 +409,23 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                                       "' is not compatible with " +
                                                       "declared return type '" + 
                                                       methodReturnType + "' in method"
-                                                      + "'" + methodName + "'");
+                                                      + " '" + methodName + "'");
                             }
-                            return returnType;
+                            //Something might be wrong with this return
+                            //return returnType;
                         }
                     }
+                    if (!conform) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                              fileName,
+                                              lineNum,
+                                              "return type '" + returnType +
+                                              "' does not conform to declared" +
+                                              " return type '" +
+                                              methodReturnType + "' in " +
+                                              "method '" + methodName + "'");
+                    }
+                    return returnType;
                 }
                 //Check if either one is an array type
                 else {
@@ -392,12 +440,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                               "' is not compatible with " +
                                               "declared return type '" + 
                                               methodReturnType + "' in method"
-                                              + "'" + methodName + "'");
+                                              + " '" + methodName + "'");
                     }
                     return returnType;
                 } 
             }
-            //return expression is primitive type
+            //return expression is primitive type 
             //if primitive types do not match, handles [] 
             else if (!returnType.equals(methodReturnType)) {
                 noError = false;
@@ -408,12 +456,24 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' is not compatible with " +
                                       "declared return type '" + 
                                       methodReturnType + "' in method"
-                                      + "'" + methodName + "'");
+                                      + " '" + methodName + "'");
             }
         }
         // in the case where it is just return; We return "void"
+        //bool this(){return;}
         else {
-            if (!methodReturnType.equals("void")) {
+            if (methodReturnTypeNoArray.equals("boolean") ||
+                methodReturnTypeNoArray.equals("int") ||
+                classMap.containsKey(methodReturnTypeNoArray)) {
+                    errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "return type 'void' is not"+
+                                          " compatible with declared return type" +
+                                          " '" + methodReturnType + "' " +
+                                          "in method '" + methodName + "'");
+                }
+            else if (!methodReturnType.equals("void")) {
                 noError = false;
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
@@ -444,7 +504,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     //from the return of this visit
     public Object visit(DispatchExpr node) { 
         String exprType = (String) node.getRefExpr().accept(this);
-        node.getActualList().accept(this);
+        //node.getActualList().accept(this);
         String methodName = node.getMethodName();
         int lineNum = node.getLineNum();
         String toBeReturned = "Object";
@@ -501,7 +561,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     boolean noError = true;
                     while (i1.hasNext()) {
                         String formalType = ((Formal) i1.next()).getType();
-                        String paramType = ((Expr) i2.next()).getExprType();
+                        String paramType = (String) ((Expr)i2.next()).accept(this);
                         if (paramType.equals("void")) {
                             noError = false;
                             errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -537,6 +597,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         else {
             //Type must be a CLASS type
             //Don't think it handles THIS.method()
+            
             Method methodToUse = (Method) classMap.get(exprType).getMethodSymbolTable()
                                 .lookup(methodName);
             //If the method does not exist, we register error
@@ -573,7 +634,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     boolean noError = true;
                     while (i1.hasNext()) {
                         String formalType = ((Formal) i1.next()).getType();
-                        String paramType = ((Expr) i2.next()).getExprType();
+                        String paramType = (String) ((Expr)i2.next()).accept(this);
                         if (paramType.equals("void")) {
                             noError = false;
                             errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -613,7 +674,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
     //Returns a String of its type
     public Object visit(NewExpr node) { 
         String newType = node.getType();
-        if (!classMap.contains(newType)) {
+        if (!classMap.containsKey(newType)) {
             newType = "Object";
             node.setExprType("Object");
         }
@@ -628,7 +689,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         String type = node.getType();
         if (!type.equals("int") && !type.equals("boolean") &&
-            !classMap.contains(type)) {
+            !classMap.containsKey(type)) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,
@@ -693,7 +754,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   "RHS void of instanceOf");
         }
         //If the rhs of castExpr is not a valid type
-        else if (!classMap.contains(rhsNoArr)) {
+        else if (!classMap.containsKey(rhsNoArr)) {
             noError = false;
             if (rhs.contains("[]")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -737,7 +798,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             castTypeNoArr = "Object";
             //Maybe node.setExprType("Object"); Slide 15-20
         }
-        else if (!classMap.contains(castTypeNoArr)) {
+        else if (!classMap.containsKey(castTypeNoArr)) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,
@@ -807,9 +868,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
     public Object visit(AssignExpr node) {
         //Slide example a.b = RHS
         int lineNum = node.getLineNum();
-        node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
+        String rhsType = (String) node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
         String refName = node.getRefName();
-        String rhsType = node.getExpr().getExprType();
         String varName = node.getName();
         String varType;
 
@@ -894,14 +954,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
     
     public Object visit(ArrayAssignExpr node) { 
         //Almost the same as visit(AssignExpr node) except an extra check to make sure that we have an int expr in array["int"]
-        node.getIndex().accept(this);
-        node.getExpr().accept(this);
+        String index = (String) node.getIndex().accept(this);
+        String rhsType = (String) node.getExpr().accept(this);
         int lineNum = node.getLineNum();
         //node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
         String refName = node.getRefName();
-        String rhsType = node.getExpr().getExprType();
         String varName = node.getName();
-        String index = node.getIndex().getExprType();
         String varType;
 
         if (!index.equals("int")) {

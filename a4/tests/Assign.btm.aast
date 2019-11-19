@@ -1,58 +1,18 @@
-Assign.btm:7:semantic error: type 'TextIO' of declaration 'io' is undefined
-
-Assign.btm:12:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:12:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:12:semantic error: dispatch to unknown method 'putString'
-
 Assign.btm:12:semantic error: not a statement
-
-Assign.btm:13:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:13:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:13:semantic error: dispatch to unknown method 'putString'
 
 Assign.btm:13:semantic error: not a statement
 
-Assign.btm:14:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:14:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:14:semantic error: dispatch to unknown method 'putString'
-
 Assign.btm:14:semantic error: not a statement
-
-Assign.btm:16:semantic error: dispatch to unknown method 'putString'
 
 Assign.btm:16:semantic error: not a statement
 
 Assign.btm:17:semantic error: not a statement
 
-Assign.btm:19:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:19:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:19:semantic error: dispatch to unknown method 'putString'
-
 Assign.btm:19:semantic error: not a statement
 
-Assign.btm:20:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:20:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:20:semantic error: dispatch to unknown method 'putString'
-
 Assign.btm:20:semantic error: not a statement
-
-Assign.btm:21:semantic error: dispatch to unknown method 'putString'
-
-Assign.btm:21:semantic error: dispatch to unknown method 'putInt'
-
-Assign.btm:21:semantic error: dispatch to unknown method 'putString'
 
 Assign.btm:21:semantic error: not a statement
 
 Stopping compilation due to errors
-28 error(s)
+8 error(s)

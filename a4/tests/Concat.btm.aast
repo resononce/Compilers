@@ -1,86 +1,20 @@
-Concat.btm:3:semantic error: type 'String' of declaration 'star' is undefined
-
-Concat.btm:3:semantic error: expression type 'String' of declaration 'star' does not match declared type 'Object'
-
-Concat.btm:4:semantic error: type 'String' of declaration 's1' is undefined
-
-Concat.btm:4:semantic error: Variable in VarExpr not found
-
-Concat.btm:4:semantic error: dispatch to unknown method 'substring'
-
-Concat.btm:5:semantic error: type 'String' of declaration 's2' is undefined
-
-Concat.btm:5:semantic error: expression type 'String' of declaration 's2' does not match declared type 'Object'
-
-Concat.btm:9:semantic error: dispatch to unknown method 'concat'
-
 Concat.btm:9:semantic error: not a statement
-
-Concat.btm:10:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:10:semantic error: dispatch to unknown method 'putInt'
-
-Concat.btm:10:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:10:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:10:semantic error: dispatch to unknown method 'putString'
 
 Concat.btm:10:semantic error: not a statement
 
-Concat.btm:11:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-
 Concat.btm:11:semantic error: not a statement
-
-Concat.btm:15:semantic error: Variable in VarExpr not found
-
-Concat.btm:15:semantic error: Variable in VarExpr not found
-
-Concat.btm:15:semantic error: dispatch to unknown method 'concat'
-
-Concat.btm:15:semantic error: variable 's2in assignment is undeclared
 
 Concat.btm:15:semantic error: not a statement
 
-Concat.btm:16:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-
 Concat.btm:16:semantic error: not a statement
-
-Concat.btm:19:semantic error: Variable in VarExpr not found
-
-Concat.btm:19:semantic error: dispatch to unknown method 'concat'
 
 Concat.btm:19:semantic error: not a statement
 
-Concat.btm:20:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:20:semantic error: dispatch to unknown method 'putInt'
-
-Concat.btm:20:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:20:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:20:semantic error: dispatch to unknown method 'putString'
-
 Concat.btm:20:semantic error: not a statement
 
-Concat.btm:22:semantic error: Variable in VarExpr not found
-
-Concat.btm:22:semantic error: dispatch to unknown method 'concat'
-
 Concat.btm:22:semantic error: not a statement
-
-Concat.btm:23:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:23:semantic error: dispatch to unknown method 'putInt'
-
-Concat.btm:23:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:23:semantic error: dispatch to unknown method 'putString'
-
-Concat.btm:23:semantic error: dispatch to unknown method 'putString'
 
 Concat.btm:23:semantic error: not a statement
 
 Stopping compilation due to errors
-42 error(s)
+9 error(s)

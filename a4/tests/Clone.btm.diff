@@ -1,4 +1,4 @@
-1,66c1,17
+1,66c1,34
 < // Source file: Clone.btm
 < // Source line: 1
 < class Main extends Object {
@@ -66,20 +66,37 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> Clone.btm:2:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> 
+> Clone.btm:6:semantic error: variable 'xin assignment is undeclared
+> 
+> Clone.btm:6:semantic error: not a statement
+> 
+> Clone.btm:13:semantic error: variable 'yin assignment is undeclared
+> 
+> Clone.btm:13:semantic error: not a statement
+> 
+> Clone.btm:20:semantic error: not a statement
+> 
+> Clone.btm:22:semantic error: not a statement
+> 
+> Clone.btm:23:semantic error: not a statement
+> 
+> Clone.btm:24:semantic error: not a statement
+> 
+> Clone.btm:25:semantic error: not a statement
+> 
+> Clone.btm:26:semantic error: not a statement
+> 
+> Clone.btm:28:semantic error: not a statement
+> 
+> Clone.btm:29:semantic error: not a statement
+> 
+> Clone.btm:30:semantic error: not a statement
+> 
+> Clone.btm:31:semantic error: not a statement
+> 
+> Clone.btm:32:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 16 error(s)

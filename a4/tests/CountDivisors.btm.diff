@@ -1,4 +1,4 @@
-1,77c1,52
+1,77c1,22
 < // Source file: CountDivisors.btm
 < // Source line: 5
 < class Main extends Object {
@@ -77,29 +77,13 @@
 <     }
 < }
 ---
-> CountDivisors.btm:8:semantic error: type 'TextIO' of declaration 'io' is undefined
-> 
-> CountDivisors.btm:13:semantic error: dispatch to unknown method 'putString'
-> 
-> CountDivisors.btm:13:semantic error: dispatch to unknown method 'getInt'
-> 
-> CountDivisors.btm:13:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
-> 
 > CountDivisors.btm:13:semantic error: not a statement
-> 
-> CountDivisors.btm:15:semantic error: dispatch to unknown method 'putString'
 > 
 > CountDivisors.btm:15:semantic error: not a statement
 > 
-> CountDivisors.btm:16:semantic error: dispatch to unknown method 'exit'
-> 
 > CountDivisors.btm:16:semantic error: not a statement
 > 
-> CountDivisors.btm:28:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-> 
 > CountDivisors.btm:28:semantic error: not a statement
-> 
-> CountDivisors.btm:29:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
 > 
 > CountDivisors.btm:29:semantic error: not a statement
 > 
@@ -107,25 +91,11 @@
 > 
 > CountDivisors.btm:36:semantic error: not a statement
 > 
-> CountDivisors.btm:39:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
-> 
 > CountDivisors.btm:39:semantic error: not a statement
 > 
-> CountDivisors.btm:43:semantic error: dispatch to unknown method 'putString'
-> 
-> CountDivisors.btm:43:semantic error: dispatch to unknown method 'putInt'
-> 
-> CountDivisors.btm:43:semantic error: dispatch to unknown method 'putString'
-> 
 > CountDivisors.btm:43:semantic error: not a statement
-> 
-> CountDivisors.btm:44:semantic error: dispatch to unknown method 'putString'
-> 
-> CountDivisors.btm:44:semantic error: dispatch to unknown method 'putInt'
-> 
-> CountDivisors.btm:44:semantic error: dispatch to unknown method 'putString'
 > 
 > CountDivisors.btm:44:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 25 error(s)
+> 10 error(s)

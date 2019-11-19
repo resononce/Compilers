@@ -1,4 +1,4 @@
-1,15c1,12
+1,15c1,6
 < // Source file: IOWriteError.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,15 +15,9 @@
 <     }
 < }
 ---
-> IOWriteError.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
-> 
-> IOWriteError.btm:4:semantic error: dispatch to unknown method 'writeFile'
-> 
 > IOWriteError.btm:4:semantic error: not a statement
-> 
-> IOWriteError.btm:5:semantic error: dispatch to unknown method 'putString'
 > 
 > IOWriteError.btm:5:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 5 error(s)
+> 2 error(s)

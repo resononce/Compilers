@@ -1,4 +1,4 @@
-1,15c1,12
+1,15c1,4
 < // Source file: IOReadError.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,15 +15,7 @@
 <     }
 < }
 ---
-> IOReadError.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
-> 
-> IOReadError.btm:4:semantic error: dispatch to unknown method 'readFile'
-> 
 > IOReadError.btm:4:semantic error: not a statement
 > 
-> IOReadError.btm:5:semantic error: type 'String' of declaration 's' is undefined
-> 
-> IOReadError.btm:5:semantic error: dispatch to unknown method 'getString'
-> 
 > Stopping compilation due to errors
-> 5 error(s)
+> 1 error(s)

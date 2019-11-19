@@ -1,4 +1,4 @@
-1,46c1,17
+1,46c1,14
 < // Source file: Fact.btm
 < // Source line: 5
 < class Main extends Object {
@@ -46,20 +46,17 @@
 <     }
 < }
 ---
-> java.lang.RuntimeException: Must enter a scope before looking up in table
-> 	at util.SymbolTable.lookup(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> Fact.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+> 
+> Fact.btm:13:semantic error: not a statement
+> 
+> Fact.btm:17:semantic error: not a statement
+> 
+> Fact.btm:18:semantic error: not a statement
+> 
+> Fact.btm:23:semantic error: not a statement
+> 
+> Fact.btm:38:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 6 error(s)

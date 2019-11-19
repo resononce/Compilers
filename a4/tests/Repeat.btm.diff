@@ -1,4 +1,4 @@
-1,15c1,18
+1,15c1,4
 < // Source file: Repeat.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,21 +15,7 @@
 <     }
 < }
 ---
-> Repeat.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
-> 
-> Repeat.btm:4:semantic error: type 'String' of declaration 's' is undefined
-> 
-> Repeat.btm:4:semantic error: dispatch to unknown method 'putString'
-> 
-> Repeat.btm:4:semantic error: dispatch to unknown method 'getString'
-> 
-> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
-> 
-> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
-> 
-> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
-> 
 > Repeat.btm:5:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 8 error(s)
+> 1 error(s)

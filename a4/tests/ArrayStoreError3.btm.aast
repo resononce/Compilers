@@ -1,12 +1,16 @@
-ArrayStoreError3.btm:8:semantic error: type 'Object[]' of declaration 'objects' is undefined
+ArrayStoreError3.btm:8:semantic error: expression type 'B' of declaration 'objects' does not conform to declared type 'Object[]'
 
-ArrayStoreError3.btm:8:semantic error: type 'B' of newconstruction is undefined
+ArrayStoreError3.btm:9:semantic error: variable 'objectsin assignment is undeclared
 
 ArrayStoreError3.btm:9:semantic error: not a statement
 
+ArrayStoreError3.btm:10:semantic error: variable 'objectsin assignment is undeclared
+
 ArrayStoreError3.btm:10:semantic error: not a statement
+
+ArrayStoreError3.btm:11:semantic error: variable 'objectsin assignment is undeclared
 
 ArrayStoreError3.btm:11:semantic error: not a statement
 
 Stopping compilation due to errors
-5 error(s)
+7 error(s)

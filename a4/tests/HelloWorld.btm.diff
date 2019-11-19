@@ -1,4 +1,4 @@
-1,11c1,6
+1,11c1,4
 < // Source file: HelloWorld.btm
 < // Source line: 1
 < class Main extends Object {
@@ -11,9 +11,7 @@
 <     }
 < }
 ---
-> HelloWorld.btm:3:semantic error: dispatch to unknown method 'putString'
-> 
 > HelloWorld.btm:3:semantic error: not a statement
 > 
 > Stopping compilation due to errors
-> 2 error(s)
+> 1 error(s)
