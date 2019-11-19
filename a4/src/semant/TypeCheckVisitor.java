@@ -1114,20 +1114,23 @@ public class TypeCheckVisitor extends SemanticVisitor {
             //both are classes
             if ( is2NotPrimitive && is1NotPrimitve) {
                 boolean foundRelation = false;
-                ClassTreeNode parent = classMap.get(type1).getParent();
-                while (parent != null && !foundRelation) {
+                
+                for (ClassTreeNode parent = classMap.get(type1);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type2)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
-                parent = classMap.get(type2).getParent();
-                while (parent != null && !foundRelation) {
+                for (ClassTreeNode parent = classMap.get(type2);
+                        parent != null && !foundRelation; 
+                        parent = parent.getParent()) {
+
                     if (parent.getASTNode().getName().equals(type1)) {
                         foundRelation = true;
                     }
-                    parent = parent.getParent();
                 }
 
                 if (!foundRelation) {
