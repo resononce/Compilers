@@ -1,16 +1,12 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+SubStringError2.btm:3:semantic error: type 'String' of delcaration 's' is undefined
+
+SubStringError2.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
+
+SubStringError2.btm:4:semantic error: type 'String' of delcaration 's2' is undefined
+
+SubStringError2.btm:4:semantic error: Variable in VarExpr not found
+
+SubStringError2.btm:4:semantic error: dispatch to unknown method 'substring'
+
+Stopping compilation due to errors
+5 error(s)

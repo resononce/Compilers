@@ -1,16 +1,16 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.CastExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+ClassCastError.btm:3:semantic error: type 'String' of delcaration 's' is undefined
+
+ClassCastError.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
+
+ClassCastError.btm:4:semantic error: type 'Object' of delcaration 'o' is undefined
+
+ClassCastError.btm:4:semantic error: Variable in VarExpr not found
+
+ClassCastError.btm:4:semantic error: the target type 'Object' is undefined
+
+ClassCastError.btm:5:semantic error: type 'TextIO' of delcaration 'io' is undefined
+
+ClassCastError.btm:5:semantic error: the target type 'TextIO' is undefined
+
+Stopping compilation due to errors
+7 error(s)

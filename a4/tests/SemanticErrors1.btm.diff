@@ -1,238 +1,317 @@
-1,226c1,10
-< Error: semantic error: no class 'Main' defined.
-< 
-< SemanticErrors1.btm:2:semantic error: built-in class 'String' cannot be redefined
-< 
-< SemanticErrors1.btm:3:semantic error: duplicate class 'C1' (originally defined at line 1)
-< 
-< SemanticErrors1.btm:5:semantic error: class 'C3' extends non-existent class 'NotThere'
-< 
-< SemanticErrors1.btm:6:semantic error: class 'C4' extends non-extendable class 'String'
-< 
-< SemanticErrors1.btm:8:semantic error: inheritance cycle found involving class 'C5'
-< 
-< SemanticErrors1.btm:9:semantic error: inheritance cycle found involving class 'C6'
-< 
-< SemanticErrors1.btm:10:semantic error: inheritance cycle found involving class 'C7'
-< 
-< SemanticErrors1.btm:21:semantic error: fields cannot be named 'null'
-< 
-< SemanticErrors1.btm:22:semantic error: fields cannot be named 'this'
-< 
-< SemanticErrors1.btm:22:semantic error: type 'string' of field 'this' is undefined
-< 
-< SemanticErrors1.btm:23:semantic error: fields cannot be named 'super'
-< 
-< SemanticErrors1.btm:25:semantic error: field 'x' is already defined in class 'C9'
-< 
-< SemanticErrors1.btm:26:semantic error: type 'bool' of field 'y' is undefined
-< 
-< SemanticErrors1.btm:28:semantic error: return type 'bool' of method 'this' is undefined
-< 
-< SemanticErrors1.btm:28:semantic error: methods cannot be named 'this'
-< 
+33c33
 < SemanticErrors1.btm:28:semantic error: declared return type of method 'this' is 'bool' but method body is not returning any expression
-< 
-< SemanticErrors1.btm:32:semantic error: methods cannot be named 'null'
-< 
-< SemanticErrors1.btm:33:semantic error: methods cannot be named 'super'
-< 
-< SemanticErrors1.btm:36:semantic error: method 'm1' is already defined in class 'C9'
-< 
+---
+> SemanticErrors1.btm:28:semantic error: declared return type of method 'null' is 'bool' but method body is not returning any expression
+41c41,45
 < SemanticErrors1.btm:36:semantic error: return type 'String' is not compatible with declared return type 'int' in method 'm1'
-< 
-< SemanticErrors1.btm:40:semantic error: overriding method 'm' has return type 'String', which differs from the inherited method's return type 'void'
-< 
-< SemanticErrors1.btm:43:semantic error: overriding method 'm' has 3 formals, which differs from the inherited method (2)
-< 
-< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'boolean' for formal 1, which differs from the inherited method's formal type 'int'
-< 
-< SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'int' for formal 2, which differs from the inherited method's formal type 'boolean'
-< 
-< SemanticErrors1.btm:52:semantic error: expression type 'boolean' of field 'x' does not match declared type 'int'
-< 
-< SemanticErrors1.btm:53:semantic error: expression type 'String' of field 'b' does not match declared type 'boolean'
-< 
-< SemanticErrors1.btm:54:semantic error: expression type 'null' of field 'z' does not match declared type 'int'
-< 
-< SemanticErrors1.btm:55:semantic error: expression type 'void' of field 's' cannot be void
-< 
+---
+> SemanticErrors1.btm:36:semantic error: return type 'String' is not compatible with declared return type 'int' in method'm1'
+> 
+> SemanticErrors1.btm:36:semantic error: declared return type of method 'm1' is 'int' but method body is not returning any expression
+> 
+> SemanticErrors1.btm:36:semantic error: type 'String' of formal 's' is undefined
+44a49,50
+> SemanticErrors1.btm:40:semantic error: declared return type of method 'm1' is 'String' but method body is not returning any expression
+> 
+46a53,54
+> SemanticErrors1.btm:43:semantic error: type 'TextIO' of formal 't' is undefined
+> 
+59c67
 < SemanticErrors1.btm:56:semantic error: expression type 'String' of field 't' does not conform to declared type 'TextIO'
-< 
+---
+> SemanticErrors1.btm:59:semantic error: return type 'boolean' is not compatible with declared return type 'int' in method'm0'
+61c69
 < SemanticErrors1.btm:59:semantic error: return type 'boolean' is not compatible with declared return type 'int' in method 'm1'
-< 
+---
+> SemanticErrors1.btm:59:semantic error: declared return type of method 'm0' is 'int' but method body is not returning any expression
+63c71
 < SemanticErrors1.btm:60:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method 'm2'
-< 
+---
+> SemanticErrors1.btm:60:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method'm1'
+65c73
 < SemanticErrors1.btm:61:semantic error: return type 'void' is not compatible with declared return type 'boolean' in method 'm3'
-< 
-< SemanticErrors1.btm:62:semantic error: method 'm3' is already defined in class 'C10'
-< 
+---
+> SemanticErrors1.btm:61:semantic error: declared return type of method 'm2' is 'boolean' but method body is not returning any expression
+69c77
 < SemanticErrors1.btm:62:semantic error: return type 'TextIO' does not conform to declared return type 'String' in method 'm3'
-< 
+---
+> SemanticErrors1.btm:62:semantic error: return type 'Object' is not compatible with declared return type 'String' in method'm3'
+71c79,83
 < SemanticErrors1.btm:64:semantic error: return type 'Object' does not conform to declared return type 'String' in method 'm4'
-< 
-< SemanticErrors1.btm:69:semantic error: type 'integer' of formal 'i' is undefined
-< 
-< SemanticErrors1.btm:69:semantic error: type 'this' of formal 'x' is undefined
-< 
-< SemanticErrors1.btm:69:semantic error: type 'super' of formal 'y' is undefined
-< 
-< SemanticErrors1.btm:69:semantic error: type 'null' of formal 'z' is undefined
-< 
+---
+> SemanticErrors1.btm:62:semantic error: declared return type of method 'm3' is 'String' but method body is not returning any expression
+> 
+> SemanticErrors1.btm:64:semantic error: return type 'Object' is not compatible with declared return type 'String' in method'm3'
+> 
+> SemanticErrors1.btm:64:semantic error: declared return type of method 'm3' is 'String' but method body is not returning any expression
+81c93
 < SemanticErrors1.btm:70:semantic error: formals cannot be named 'this'
-< 
-< SemanticErrors1.btm:70:semantic error: formals cannot be named 'super'
-< 
-< SemanticErrors1.btm:70:semantic error: formals cannot be named 'null'
-< 
-< SemanticErrors1.btm:75:semantic error: formal 'x' is multiply defined
-< 
-< SemanticErrors1.btm:77:semantic error: variables cannot be named 'this'
-< 
-< SemanticErrors1.btm:78:semantic error: variables cannot be named 'super'
-< 
-< SemanticErrors1.btm:79:semantic error: variables cannot be named 'null'
-< 
+---
+> SemanticErrors1.btm:69:semantic error: formals cannot be named 'this'
+95c107
 < SemanticErrors1.btm:81:semantic error: type 'integer' of declaration 'z' is undefined
-< 
-< SemanticErrors1.btm:81:semantic error: expression type 'int' of declaration 'z' does not match declared type 'Object'
-< 
+---
+> SemanticErrors1.btm:81:semantic error: type 'integer' of delcaration 'z' is undefined
+99c111
 < SemanticErrors1.btm:83:semantic error: variable 'y' is already defined in method m7
-< 
+---
+> SemanticErrors1.btm:83:semantic error: varible 'y' is already defined in methodm6
+101c113
 < SemanticErrors1.btm:84:semantic error: variable 'x' is already defined in method m7
-< 
-< SemanticErrors1.btm:85:semantic error: expression type 'int' of declaration 'b' does not match declared type 'boolean'
-< 
+---
+> SemanticErrors1.btm:85:semantic error: varible 'b' is already defined in methodm6
+105c117
 < SemanticErrors1.btm:86:semantic error: expression type 'TextIO' of declaration 's1' does not conform to declared type 'String'
-< 
+---
+> SemanticErrors1.btm:86:semantic error: type 'String' of delcaration 's1' is undefined
+107c119
 < SemanticErrors1.btm:87:semantic error: expression type 'Object' of declaration 's2' does not conform to declared type 'String'
-< 
+---
+> SemanticErrors1.btm:87:semantic error: type 'String' of delcaration 's2' is undefined
+109c121,123
 < SemanticErrors1.btm:88:semantic error: expression type 'int' of declaration 's3' does not match declared type 'String'
-< 
-< SemanticErrors1.btm:90:semantic error: not a statement
-< 
-< SemanticErrors1.btm:91:semantic error: not a statement
-< 
-< SemanticErrors1.btm:92:semantic error: not a statement
-< 
-< SemanticErrors1.btm:93:semantic error: not a statement
-< 
-< SemanticErrors1.btm:94:semantic error: not a statement
-< 
-< SemanticErrors1.btm:95:semantic error: not a statement
-< 
-< SemanticErrors1.btm:96:semantic error: not a statement
-< 
-< SemanticErrors1.btm:97:semantic error: not a statement
-< 
-< SemanticErrors1.btm:99:semantic error: predicate in if-statement does not have type boolean
-< 
-< SemanticErrors1.btm:100:semantic error: predicate in while-statement does not have type boolean
-< 
+---
+> SemanticErrors1.btm:88:semantic error: type 'String' of delcaration 's3' is undefined
+> 
+> SemanticErrors1.btm:88:semantic error: expression type 'int' of declaration 's3' does not match declared type 'Object'
+116a131,134
+> SemanticErrors1.btm:93:semantic error: the lefthand type 'int' in the binary operation ('||') is incorrect; should have been: boolean
+> 
+> SemanticErrors1.btm:93:semantic error: the righthand type 'int' in the binary operation ('||') is incorrect; should have been: boolean
+> 
+118a137,138
+> SemanticErrors1.btm:94:semantic error: the instanceof righthand type 'String' is undefined
+> 
+120a141,144
+> SemanticErrors1.btm:95:semantic error: the target type 'String' is undefined
+> 
+> SemanticErrors1.btm:95:semantic error: Inconvertible types: ('String'=>'Object')
+> 
+124a149,150
+> SemanticErrors1.btm:97:semantic error: the expression type 'int' in the unary operation ('!') is incorrect; should have been: boolean
+> 
+128a155,156
+> SemanticErrors1.btm:99:semantic error: not a statement
+> 
+131c159,165
 < SemanticErrors1.btm:102:semantic error: variable 's3' is already defined in method m7
-< 
-< SemanticErrors1.btm:104:semantic error: can't dispatch on a primitive or void type
-< 
-< SemanticErrors1.btm:108:semantic error: can't dispatch on a primitive or void type
-< 
-< SemanticErrors1.btm:109:semantic error: dispatch to unknown method 'm25'
-< 
+---
+> SemanticErrors1.btm:100:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
+> 
+> SemanticErrors1.btm:100:semantic error: not a statement
+> 
+> SemanticErrors1.btm:102:semantic error: type 'String' of delcaration 's3' is undefined
+> 
+> SemanticErrors1.btm:102:semantic error: expression type 'String' of declaration 's3' does not match declared type 'Object'
+134a169,170
+> SemanticErrors1.btm:104:semantic error: not a statement
+> 
+136a173,174
+> SemanticErrors1.btm:108:semantic error: not a statement
+> 
+139c177,187
 < SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs from number of formal parameters (2) in dispatch to method 'm6'
-< 
+---
+> SemanticErrors1.btm:109:semantic error: not a statement
+> 
+> SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs fromnumber of formal parameters (2) in dispatch method 'm6'
+> 
+> SemanticErrors1.btm:111:semantic error: not a statement
+> 
+> SemanticErrors1.btm:112:semantic error: actual parameter 1in the call to method m6 is void and cannot be used within an expression
+> 
+> SemanticErrors1.btm:112:semantic error: not a statement
+> 
+> SemanticErrors1.btm:113:semantic error: actual parameter 1with type 'booleandoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
+141c189
 < SemanticErrors1.btm:112:semantic error: actual parameter 2 in the call to method m6 is void and cannot be used within an expression
-< 
+---
+> SemanticErrors1.btm:113:semantic error: not a statement
+143c191
 < SemanticErrors1.btm:113:semantic error: actual parameter 2 with type 'boolean' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
-< 
+---
+> SemanticErrors1.btm:114:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
+145c193
 < SemanticErrors1.btm:114:semantic error: actual parameter 2 with type 'String' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
-< 
-< SemanticErrors1.btm:115:semantic error: the target type 'int' is primitive and not an object type
-< 
+---
+> SemanticErrors1.btm:114:semantic error: not a statement
+149c197,201
 < SemanticErrors1.btm:115:semantic error: actual parameter 2 with type 'Object' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
-< 
-< SemanticErrors1.btm:117:semantic error: the target type 'int' is primitive and not an object type
-< 
+---
+> SemanticErrors1.btm:115:semantic error: Inconvertible types: ('String'=>'Object')
+> 
+> SemanticErrors1.btm:115:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'm6'
+> 
+> SemanticErrors1.btm:115:semantic error: not a statement
+153c205
 < SemanticErrors1.btm:117:semantic error: expression in cast has type 'int', which is primitive and can't be casted
-< 
-< SemanticErrors1.btm:117:semantic error: expression type 'Object' of declaration 'u' does not match declared type 'int'
-< 
-< SemanticErrors1.btm:120:semantic error: the target type 'string' is undefined
-< 
-< SemanticErrors1.btm:120:semantic error: expression type 'Object' of declaration 'v' does not match declared type 'int'
-< 
+---
+> SemanticErrors1.btm:117:semantic error: expression in cast has type 'int' which is primitive and can't be casted
+156a209,210
+> SemanticErrors1.btm:120:semantic error: Variable in VarExpr not found
+> 
+161c215,217
 < SemanticErrors1.btm:123:semantic error: inconvertible types ('String'=>'TextIO')
-< 
+---
+> SemanticErrors1.btm:122:semantic error: type 'String' of delcaration 's4' is undefined
+> 
+> SemanticErrors1.btm:122:semantic error: expression type 'String' of declaration 's4' does not match declared type 'Object'
+163c219,225
 < SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
-< 
-< SemanticErrors1.btm:126:semantic error: the instanceof righthand type 'int' is primitive and not an object type
-< 
+---
+> SemanticErrors1.btm:123:semantic error: type 'TextIO' of delcaration 't' is undefined
+> 
+> SemanticErrors1.btm:123:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors1.btm:123:semantic error: the target type 'TextIO' is undefined
+> 
+> SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+167c229
 < SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
-< 
-< SemanticErrors1.btm:128:semantic error: the instanceof righthand type 'string' is undefined
-< 
+---
+> SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+171c233,235
 < SemanticErrors1.btm:130:semantic error: type 'int' of new construction is primitive and cannot be constructed
-< 
+---
+> SemanticErrors1.btm:128:semantic error: the righthand type 'null' does not conform to the lefthand type 'boolean' in assignment
+> 
+> SemanticErrors1.btm:128:semantic error: not a statement
+173c237
 < SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
-< 
+---
+> SemanticErrors1.btm:130:semantic error: the righthand type 'Object' does not conform to the lefthand type 'boolean' in assignment
+175c239
 < SemanticErrors1.btm:132:semantic error: type 'Integer' of new construction is undefined
-< 
+---
+> SemanticErrors1.btm:130:semantic error: not a statement
+177c241
 < SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
-< 
+---
+> SemanticErrors1.btm:132:semantic error: the righthand type 'Object' does not conform to the lefthand type 'boolean' in assignment
+179c243
 < SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' and righthand type 'int' are not compatible in assignment
-< 
+---
+> SemanticErrors1.btm:132:semantic error: not a statement
+181c245
 < SemanticErrors1.btm:135:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
-< 
+---
+> SemanticErrors1.btm:134:semantic error: the righthand type 'int' does not conform to the lefthand type 'Object' in assignment
+183c247
 < SemanticErrors1.btm:136:semantic error: the righthand type 'void' does not conform to the lefthand type 'TextIO' in assignment
-< 
+---
+> SemanticErrors1.btm:134:semantic error: not a statement
+185c249
 < SemanticErrors1.btm:137:semantic error: bad reference 't': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
-< 
+---
+> SemanticErrors1.btm:135:semantic error: variable 'vin assignment is undeclared
+187c251
 < SemanticErrors1.btm:138:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
-< 
+---
+> SemanticErrors1.btm:135:semantic error: not a statement
+189c253,265
 < SemanticErrors1.btm:139:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
-< 
-< SemanticErrors1.btm:142:semantic error: the expression type 'int' in the unary operation ('!') is incorrect; should have been: boolean
-< 
-< SemanticErrors1.btm:143:semantic error: the expression type 'boolean' in the unary operation ('-') is incorrect; should have been: int
-< 
-< SemanticErrors1.btm:144:semantic error: the righthand type 'boolean' in the binary operation ('*') is incorrect; should have been: int
-< 
+---
+> SemanticErrors1.btm:136:semantic error: the righthand type 'void' does not conform to the lefthand type 'Object' in assignment
+> 
+> SemanticErrors1.btm:136:semantic error: not a statement
+> 
+> SemanticErrors1.btm:137:semantic error: not a statement
+> 
+> SemanticErrors1.btm:138:semantic error: variable 'xin assignment is undeclared
+> 
+> SemanticErrors1.btm:138:semantic error: not a statement
+> 
+> SemanticErrors1.btm:139:semantic error: variable 'yin assignment is undeclared
+> 
+> SemanticErrors1.btm:139:semantic error: not a statement
+192a269,272
+> SemanticErrors1.btm:142:semantic error: the righthand type 'null' does not conform to the lefthand type 'boolean' in assignment
+> 
+> SemanticErrors1.btm:142:semantic error: not a statement
+> 
+194a275,278
+> SemanticErrors1.btm:143:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
+> 
+> SemanticErrors1.btm:143:semantic error: not a statement
+> 
+197c281,285
 < SemanticErrors1.btm:145:semantic error: the lefthand type 'String' in the binary operation ('+') is incorrect; should have been: int
-< 
-< SemanticErrors1.btm:145:semantic error: the righthand type 'boolean' in the binary operation ('+') is incorrect; should have been: int
-< 
-< SemanticErrors1.btm:146:semantic error: the righthand type 'boolean' in the binary operation ('-') is incorrect; should have been: int
-< 
-< SemanticErrors1.btm:147:semantic error: the lefthand type 'boolean' in the binary operation ('/') is incorrect; should have been: int
-< 
-< SemanticErrors1.btm:148:semantic error: the lefthand type 'boolean' in the binary operation ('%') is incorrect; should have been: int
-< 
+---
+> SemanticErrors1.btm:144:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:144:semantic error: not a statement
+> 
+> SemanticErrors1.btm:145:semantic error: the lefthand type 'Object' in the binary operation ('+') is incorrect; should have been: int
+200a289,292
+> SemanticErrors1.btm:145:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:145:semantic error: not a statement
+> 
+202a295,298
+> SemanticErrors1.btm:146:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:146:semantic error: not a statement
+> 
+204a301,304
+> SemanticErrors1.btm:147:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:147:semantic error: not a statement
+> 
+207c307,311
 < SemanticErrors1.btm:149:semantic error: can't dispatch on a primitive or void type
-< 
+---
+> SemanticErrors1.btm:148:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:148:semantic error: not a statement
+> 
+> SemanticErrors1.btm:149:semantic error: Variable in VarExpr not found
+209c313,317
 < SemanticErrors1.btm:149:semantic error: actual parameter 1 with type 'Object' does not conform to formal parameter 1 with declared type 'String' in dispatch to method 'putString'
-< 
-< SemanticErrors1.btm:151:semantic error: the lefthand type 'String' in the binary operation ('*') is incorrect; should have been: int
-< 
+---
+> SemanticErrors1.btm:149:semantic error: dispatch to unknown method 'substring'
+> 
+> SemanticErrors1.btm:149:semantic error: dispatch to unknown method 'putString'
+> 
+> SemanticErrors1.btm:149:semantic error: not a statement
+213c321
 < SemanticErrors1.btm:151:semantic error: actual parameter 1 with type 'int' does not match formal parameter 1 with declared type 'String' in dispatch to method 'putString'
-< 
+---
+> SemanticErrors1.btm:151:semantic error: dispatch to unknown method 'putString'
+215c323
 < SemanticErrors1.btm:153:semantic error: the righthand type 'String' in the binary operation ('/') is incorrect; should have been: int
-< 
+---
+> SemanticErrors1.btm:151:semantic error: not a statement
+217c325
 < SemanticErrors1.btm:154:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'boolean'
-< 
+---
+> SemanticErrors1.btm:153:semantic error: Variable in VarExpr not found
+219c327
 < SemanticErrors1.btm:156:semantic error: the lefthand type 'int' in the binary operation ('!=') does not match the righthand type 'boolean'
-< 
+---
+> SemanticErrors1.btm:153:semantic error: Variable in VarExpr not found
+221c329,331
 < SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'void' from a method
-< 
+---
+> SemanticErrors1.btm:153:semantic error: the lefthand type 'Object' in the binary operation ('/') is incorrect; should have been: int
+> 
+> SemanticErrors1.btm:153:semantic error: the righthand type 'Object' in the binary operation ('/') is incorrect; should have been: int
+223c333,345
 < SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
-< 
-< Stopping compilation due to errors
+---
+> SemanticErrors1.btm:153:semantic error: dispatch to unknown method 'putInt'
+> 
+> SemanticErrors1.btm:153:semantic error: not a statement
+> 
+> SemanticErrors1.btm:154:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors1.btm:154:semantic error: the lefthand type 'Object' in the binary operation ('==') does not match righthand type 'boolean'
+> 
+> SemanticErrors1.btm:156:semantic error: Variable in VarExpr not found
+> 
+> SemanticErrors1.btm:156:semantic error: the lefthand type 'Object' in the binary operation ('!=') does not match righthand type 'boolean'
+> 
+> SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'void' from a method
+226c348
 < 112 error(s)
 ---
-> java.lang.NullPointerException
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Field.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> 173 error(s)

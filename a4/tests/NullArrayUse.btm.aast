@@ -1,14 +1,8 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+NullArrayUse.btm:3:semantic error: expression type 'null' of declaration 'array' does not match declared type 'int[]'
+
+NullArrayUse.btm:4:semantic error: Variable in VarExpr not found
+
+NullArrayUse.btm:4:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
+
+Stopping compilation due to errors
+3 error(s)

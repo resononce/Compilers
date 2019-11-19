@@ -1,6 +1,8 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+java.lang.NullPointerException
 	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
+	at ast.ArrayAssignExpr.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
 	at semant.TypeCheckVisitor.visit(Unknown Source)
 	at ast.StmtList.accept(Unknown Source)
 	at semant.TypeCheckVisitor.visit(Unknown Source)

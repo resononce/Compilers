@@ -1,14 +1,136 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ReturnStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method'null'
+
+SemanticErrors4.btm:3:semantic error: declared return type of method 'null' is 'int[]' but method body is not returning any expression
+
+SemanticErrors4.btm:8:semantic error: expression type 'boolean' of declaration 'be' does not match declared type 'boolean[]'
+
+SemanticErrors4.btm:9:semantic error: expression type 'boolean' of declaration 'b' does not match declared type 'boolean[]'
+
+SemanticErrors4.btm:11:semantic error: predicate in if-statement does not have type boolean
+
+SemanticErrors4.btm:12:semantic error: predicate in if-statement does not have type boolean
+
+SemanticErrors4.btm:13:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:13:semantic error: predicate in if-statement does not have type boolean
+
+SemanticErrors4.btm:15:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:15:semantic error: predicate in for-statement does not have type boolean
+
+SemanticErrors4.btm:15:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:15:semantic error: the expression type 'Object' in the unary operation ('++') is incorrect; should have been: int
+
+SemanticErrors4.btm:16:semantic error: predicate in for-statement does not have type boolean
+
+SemanticErrors4.btm:18:semantic error: break statement is not inside a loop
+
+SemanticErrors4.btm:20:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:20:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'm'
+
+SemanticErrors4.btm:21:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:21:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'm'
+
+SemanticErrors4.btm:22:semantic error: return type 'int' is not compatible with declared return type 'void' in method'm'
+
+SemanticErrors4.btm:23:semantic error: return type 'int' is not compatible with declared return type 'void' in method'm'
+
+SemanticErrors4.btm:24:semantic error: return type 'int[]' is not compatible with declared return type 'void' in method'm'
+
+SemanticErrors4.btm:27:semantic error: type 'String[]' of delcaration 'sa' is undefined
+
+SemanticErrors4.btm:27:semantic error: type 'String' of newconstruction is undefined
+
+SemanticErrors4.btm:28:semantic error: type 'Object[]' of delcaration 'oa' is undefined
+
+SemanticErrors4.btm:28:semantic error: type 'Object' of newconstruction is undefined
+
+SemanticErrors4.btm:29:semantic error: the target type 'String[]' is undefined
+
+SemanticErrors4.btm:29:semantic error: not a statement
+
+SemanticErrors4.btm:30:semantic error: the target type 'Object[]' is undefined
+
+SemanticErrors4.btm:30:semantic error: not a statement
+
+SemanticErrors4.btm:32:semantic error: the target type 'String' is undefined
+
+SemanticErrors4.btm:32:semantic error: not a statement
+
+SemanticErrors4.btm:33:semantic error: the target type 'Object' is undefined
+
+SemanticErrors4.btm:33:semantic error: not a statement
+
+SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
+
+SemanticErrors4.btm:34:semantic error: not a statement
+
+SemanticErrors4.btm:35:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:35:semantic error: the target type 'String[]' is undefined
+
+SemanticErrors4.btm:35:semantic error: not a statement
+
+SemanticErrors4.btm:36:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:36:semantic error: the target type 'Object[]' is undefined
+
+SemanticErrors4.btm:36:semantic error: not a statement
+
+SemanticErrors4.btm:38:semantic error: the base type in the instanceofrighthand array type 'String' is undefined
+
+SemanticErrors4.btm:39:semantic error: the base type in the instanceofrighthand array type 'string' is undefined
+
+SemanticErrors4.btm:40:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+
+SemanticErrors4.btm:40:semantic error: the base type in the instanceofrighthand array type 'String' is undefined
+
+SemanticErrors4.btm:41:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+
+SemanticErrors4.btm:41:semantic error: the instanceof righthand type 'int' is primitive and not an object type
+
+SemanticErrors4.btm:43:semantic error: type 'integer' of newconstruction is undefined
+
+SemanticErrors4.btm:43:semantic error: expression type 'Object' of declaration 'ia' does not match declared type 'int[]'
+
+SemanticErrors4.btm:44:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:44:semantic error: size in the array construction has type 'Object' rather than int
+
+SemanticErrors4.btm:44:semantic error: expression type 'int' of declaration 'ia2' does not match declared type 'int[]'
+
+SemanticErrors4.btm:45:semantic error: not a statement
+
+SemanticErrors4.btm:47:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:47:semantic error: variable 'bein assignment is undeclared
+
+SemanticErrors4.btm:47:semantic error: not a statement
+
+SemanticErrors4.btm:48:semantic error: variable 'bein assignment is undeclared
+
+SemanticErrors4.btm:48:semantic error: not a statement
+
+SemanticErrors4.btm:50:semantic error: Variable in VarExpr not found
+
+SemanticErrors4.btm:50:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
+
+SemanticErrors4.btm:50:semantic error: not a statement
+
+SemanticErrors4.btm:52:semantic error: the expression type 'boolean' in the unary operation ('++') is incorrect; should have been: int
+
+SemanticErrors4.btm:52:semantic error: not a statement
+
+SemanticErrors4.btm:53:semantic error: the expression type 'boolean' in the unary operation ('--') is incorrect; should have been: int
+
+SemanticErrors4.btm:53:semantic error: not a statement
+
+SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
+
+SemanticErrors4.btm:55:semantic error: not a statement
+
+Stopping compilation due to errors
+67 error(s)

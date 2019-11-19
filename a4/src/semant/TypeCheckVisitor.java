@@ -93,7 +93,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(Method node) {
-        int line = node.getLineNum();
         methodReturnType = node.getReturnType();
         //moves forward into body of method
         node.getStmtList().accept(this);
@@ -170,7 +169,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       fileName, 
                                       lineNum,
                                       "type '" + type +  
-                                      "' of delcaration '" + name + 
+                                      "' of declaration '" + name + 
                                       "' is undefined");
                 //Sets to default type "Object" when unknown
                 type = "Object";
@@ -191,7 +190,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                     fileName, 
                                     lineNum,
-                                    "varible '" + name +  
+                                    "variable '" + name +  
                                     "' is already defined in method" +
                                     methodName );
         } 
@@ -419,12 +418,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
-                                      "return type 'void" +
-                                      "' is not compatible with " +
-                                      "declared return type '" + 
-                                      methodReturnType + "' in method"
-                                      + "'" + methodName + "'");
+                                      "declared return type of method '" + 
+                                      methodName + "' is '" + methodReturnType +
+                                      "' but method body is not returning "+ 
+                                      "any expression");
             } 
+            //declared return type of method 'this' is 'bool' but method body is not returning any expression
         }
         //Whether incorrect or correct, we will always return the returnType
         //node.getExpr().setExprType(returnType);
@@ -636,9 +635,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   "type '" + type + "' of new" 
                                   + "construction is undefined");
             type = "Object";
-        } 
-        Expr expr = (Expr) node.getSize().accept(this);
-        String size = expr.getExprType();
+        }
+        String size = (String) node.getSize().accept(this);
         if (!size.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,

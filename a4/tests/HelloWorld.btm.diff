@@ -1,4 +1,4 @@
-1,11c1,16
+1,11c1,6
 < // Source file: HelloWorld.btm
 < // Source line: 1
 < class Main extends Object {
@@ -11,19 +11,9 @@
 <     }
 < }
 ---
-> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DispatchExpr.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.ExprStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> HelloWorld.btm:3:semantic error: dispatch to unknown method 'putString'
+> 
+> HelloWorld.btm:3:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 2 error(s)

@@ -1,4 +1,4 @@
-1,15c1,14
+1,15c1,18
 < // Source file: Repeat.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,17 +15,21 @@
 <     }
 < }
 ---
-> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DeclStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> Repeat.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+> 
+> Repeat.btm:4:semantic error: type 'String' of delcaration 's' is undefined
+> 
+> Repeat.btm:4:semantic error: dispatch to unknown method 'putString'
+> 
+> Repeat.btm:4:semantic error: dispatch to unknown method 'getString'
+> 
+> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
+> 
+> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
+> 
+> Repeat.btm:5:semantic error: dispatch to unknown method 'putString'
+> 
+> Repeat.btm:5:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 8 error(s)

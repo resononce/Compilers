@@ -1,4 +1,4 @@
-1,28c1,14
+1,28c1,42
 < // Source file: IO.btm
 < // Source line: 1
 < class Main extends Object {
@@ -28,17 +28,45 @@
 <     }
 < }
 ---
-> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DeclStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> IO.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+> 
+> IO.btm:4:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:4:semantic error: dispatch to unknown method 'getInt'
+> 
+> IO.btm:4:semantic error: expression type 'Object' of declaration 'n' does not match declared type 'int'
+> 
+> IO.btm:6:semantic error: Variable in VarExpr not found
+> 
+> IO.btm:6:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> 
+> IO.btm:7:semantic error: type 'String' of delcaration 's' is undefined
+> 
+> IO.btm:7:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:7:semantic error: dispatch to unknown method 'getString'
+> 
+> IO.btm:8:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:8:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:8:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:8:semantic error: not a statement
+> 
+> IO.btm:9:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
+> 
+> IO.btm:9:semantic error: not a statement
+> 
+> IO.btm:11:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:11:semantic error: Variable in VarExpr not found
+> 
+> IO.btm:11:semantic error: dispatch to unknown method 'putInt'
+> 
+> IO.btm:11:semantic error: dispatch to unknown method 'putString'
+> 
+> IO.btm:11:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 20 error(s)

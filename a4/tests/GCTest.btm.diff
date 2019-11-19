@@ -1,4 +1,4 @@
-1,1338c1,14
+1,1338c1,21
 < // Source file: GCTest.btm
 < // Source line: 1
 < class Main extends Object {
@@ -1338,9 +1338,16 @@
 <     }
 < }
 ---
-> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
+> java.lang.RuntimeException: Must enter a scope before looking up in table
+> 	at util.SymbolTable.lookup(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DeclStmt.accept(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.DispatchExpr.accept(Unknown Source)
+> 	at semant.TypeCheckVisitor.visit(Unknown Source)
+> 	at ast.ExprStmt.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)
 > 	at ast.StmtList.accept(Unknown Source)
 > 	at semant.TypeCheckVisitor.visit(Unknown Source)

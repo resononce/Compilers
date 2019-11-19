@@ -1,16 +1,18 @@
-length is type int
-abc is type int
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+ArrayStoreError1.btm:5:semantic error: type 'Object[]' of delcaration 'objects' is undefined
+
+ArrayStoreError1.btm:5:semantic error: type 'String' of newconstruction is undefined
+
+ArrayStoreError1.btm:7:semantic error: not a statement
+
+ArrayStoreError1.btm:8:semantic error: type 'String[]' of delcaration 'strings' is undefined
+
+ArrayStoreError1.btm:8:semantic error: the target type 'String[]' is undefined
+
+ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
+
+ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
+
+ArrayStoreError1.btm:9:semantic error: not a statement
+
+Stopping compilation due to errors
+8 error(s)

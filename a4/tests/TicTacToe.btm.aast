@@ -1,9 +1,13 @@
-io is type Object
-player is type int
-board is type null
-java.lang.NullPointerException
+java.lang.RuntimeException: Must enter a scope before looking up in table
+	at util.SymbolTable.lookup(Unknown Source)
 	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Field.accept(Unknown Source)
+	at ast.DispatchExpr.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.ExprStmt.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.StmtList.accept(Unknown Source)
+	at semant.TypeCheckVisitor.visit(Unknown Source)
+	at ast.Method.accept(Unknown Source)
 	at semant.TypeCheckVisitor.visit(Unknown Source)
 	at ast.MemberList.accept(Unknown Source)
 	at semant.TypeCheckVisitor.visit(Unknown Source)

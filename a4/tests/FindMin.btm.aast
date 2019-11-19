@@ -1,14 +1,66 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DeclStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+FindMin.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+
+FindMin.btm:8:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:8:semantic error: not a statement
+
+FindMin.btm:9:semantic error: dispatch to unknown method 'getInt'
+
+FindMin.btm:9:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
+
+FindMin.btm:9:semantic error: not a statement
+
+FindMin.btm:11:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:11:semantic error: not a statement
+
+FindMin.btm:13:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:13:semantic error: not a statement
+
+FindMin.btm:17:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:17:semantic error: dispatch to unknown method 'putInt'
+
+FindMin.btm:17:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:17:semantic error: not a statement
+
+FindMin.btm:18:semantic error: dispatch to unknown method 'getInt'
+
+FindMin.btm:18:semantic error: expression type 'Object' of declaration 'userInput' does not match declared type 'int'
+
+FindMin.btm:19:semantic error: Variable in VarExpr not found
+
+FindMin.btm:19:semantic error: the lefthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+
+FindMin.btm:20:semantic error: Variable in VarExpr not found
+
+FindMin.btm:20:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
+
+FindMin.btm:20:semantic error: not a statement
+
+FindMin.btm:21:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:21:semantic error: Variable in VarExpr not found
+
+FindMin.btm:21:semantic error: dispatch to unknown method 'putInt'
+
+FindMin.btm:21:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:21:semantic error: not a statement
+
+FindMin.btm:22:semantic error: the righthand type 'null' does not conform to the lefthand type 'int' in assignment
+
+FindMin.btm:22:semantic error: not a statement
+
+FindMin.btm:25:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:25:semantic error: dispatch to unknown method 'putInt'
+
+FindMin.btm:25:semantic error: dispatch to unknown method 'putString'
+
+FindMin.btm:25:semantic error: not a statement
+
+Stopping compilation due to errors
+32 error(s)

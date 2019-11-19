@@ -1,4 +1,4 @@
-1,15c1,14
+1,15c1,12
 < // Source file: ArrayIndexTooLarge.btm
 < // Source line: 1
 < class Main extends Object {
@@ -15,17 +15,15 @@
 <     }
 < }
 ---
-> java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.DeclStmt.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.StmtList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.Method.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at ast.MemberList.accept(Unknown Source)
-> 	at semant.TypeCheckVisitor.visit(Unknown Source)
-> 	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-> 	at semant.SemanticAnalyzer.analyze(Unknown Source)
-> 	at Main.main(Unknown Source)
-> Internal error within compiler: stopping compilation
+> ArrayIndexTooLarge.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
+> 
+> ArrayIndexTooLarge.btm:4:semantic error: variable 'arrayin assignment is undeclared
+> 
+> ArrayIndexTooLarge.btm:4:semantic error: not a statement
+> 
+> ArrayIndexTooLarge.btm:5:semantic error: variable 'arrayin assignment is undeclared
+> 
+> ArrayIndexTooLarge.btm:5:semantic error: not a statement
+> 
+> Stopping compilation due to errors
+> 5 error(s)

@@ -1,20 +1,272 @@
-java.lang.ClassCastException: java.lang.String cannot be cast to ast.Expr
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.DispatchExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.ExprStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+Strings.btm:3:semantic error: type 'String' of delcaration 's' is undefined
+
+Strings.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
+
+Strings.btm:4:semantic error: type 'String' of delcaration 's2' is undefined
+
+Strings.btm:4:semantic error: expression type 'String' of declaration 's2' does not match declared type 'Object'
+
+Strings.btm:5:semantic error: type 'String' of delcaration 's3' is undefined
+
+Strings.btm:5:semantic error: expression type 'String' of declaration 's3' does not match declared type 'Object'
+
+Strings.btm:7:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:7:semantic error: Variable in VarExpr not found
+
+Strings.btm:7:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:7:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:7:semantic error: not a statement
+
+Strings.btm:9:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:9:semantic error: Variable in VarExpr not found
+
+Strings.btm:9:semantic error: dispatch to unknown method 'length'
+
+Strings.btm:9:semantic error: dispatch to unknown method 'putInt'
+
+Strings.btm:9:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:9:semantic error: not a statement
+
+Strings.btm:11:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:11:semantic error: Variable in VarExpr not found
+
+Strings.btm:11:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:11:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:11:semantic error: not a statement
+
+Strings.btm:12:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:12:semantic error: Variable in VarExpr not found
+
+Strings.btm:12:semantic error: dispatch to unknown method 'length'
+
+Strings.btm:12:semantic error: dispatch to unknown method 'putInt'
+
+Strings.btm:12:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:12:semantic error: not a statement
+
+Strings.btm:14:semantic error: Variable in VarExpr not found
+
+Strings.btm:14:semantic error: Variable in VarExpr not found
+
+Strings.btm:14:semantic error: dispatch to unknown method 'equals'
+
+Strings.btm:14:semantic error: predicate in if-statement does not have type boolean
+
+Strings.btm:15:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:15:semantic error: not a statement
+
+Strings.btm:17:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:17:semantic error: not a statement
+
+Strings.btm:18:semantic error: Variable in VarExpr not found
+
+Strings.btm:18:semantic error: Variable in VarExpr not found
+
+Strings.btm:18:semantic error: dispatch to unknown method 'equals'
+
+Strings.btm:18:semantic error: predicate in if-statement does not have type boolean
+
+Strings.btm:19:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:19:semantic error: not a statement
+
+Strings.btm:21:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:21:semantic error: not a statement
+
+Strings.btm:23:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:23:semantic error: Variable in VarExpr not found
+
+Strings.btm:23:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:23:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:23:semantic error: not a statement
+
+Strings.btm:24:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:24:semantic error: Variable in VarExpr not found
+
+Strings.btm:24:semantic error: dispatch to unknown method 'length'
+
+Strings.btm:24:semantic error: dispatch to unknown method 'putInt'
+
+Strings.btm:24:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:24:semantic error: not a statement
+
+Strings.btm:26:semantic error: Variable in VarExpr not found
+
+Strings.btm:26:semantic error: Variable in VarExpr not found
+
+Strings.btm:26:semantic error: dispatch to unknown method 'equals'
+
+Strings.btm:26:semantic error: predicate in if-statement does not have type boolean
+
+Strings.btm:27:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:27:semantic error: not a statement
+
+Strings.btm:29:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:29:semantic error: not a statement
+
+Strings.btm:30:semantic error: Variable in VarExpr not found
+
+Strings.btm:30:semantic error: Variable in VarExpr not found
+
+Strings.btm:30:semantic error: dispatch to unknown method 'equals'
+
+Strings.btm:30:semantic error: predicate in if-statement does not have type boolean
+
+Strings.btm:31:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:31:semantic error: not a statement
+
+Strings.btm:33:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:33:semantic error: not a statement
+
+Strings.btm:35:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:35:semantic error: Variable in VarExpr not found
+
+Strings.btm:35:semantic error: Variable in VarExpr not found
+
+Strings.btm:35:semantic error: dispatch to unknown method 'concat'
+
+Strings.btm:35:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:35:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:35:semantic error: not a statement
+
+Strings.btm:36:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:36:semantic error: Variable in VarExpr not found
+
+Strings.btm:36:semantic error: Variable in VarExpr not found
+
+Strings.btm:36:semantic error: dispatch to unknown method 'concat'
+
+Strings.btm:36:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:36:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:36:semantic error: not a statement
+
+Strings.btm:38:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:38:semantic error: Variable in VarExpr not found
+
+Strings.btm:38:semantic error: Variable in VarExpr not found
+
+Strings.btm:38:semantic error: dispatch to unknown method 'concat'
+
+Strings.btm:38:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:38:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:38:semantic error: not a statement
+
+Strings.btm:39:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:39:semantic error: Variable in VarExpr not found
+
+Strings.btm:39:semantic error: Variable in VarExpr not found
+
+Strings.btm:39:semantic error: dispatch to unknown method 'concat'
+
+Strings.btm:39:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:39:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:39:semantic error: not a statement
+
+Strings.btm:43:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:43:semantic error: Variable in VarExpr not found
+
+Strings.btm:43:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:43:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:43:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:43:semantic error: not a statement
+
+Strings.btm:44:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:44:semantic error: Variable in VarExpr not found
+
+Strings.btm:44:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:44:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:44:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:44:semantic error: not a statement
+
+Strings.btm:45:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:45:semantic error: Variable in VarExpr not found
+
+Strings.btm:45:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:45:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:45:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:45:semantic error: not a statement
+
+Strings.btm:46:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:46:semantic error: Variable in VarExpr not found
+
+Strings.btm:46:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:46:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:46:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:46:semantic error: not a statement
+
+Strings.btm:47:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:47:semantic error: Variable in VarExpr not found
+
+Strings.btm:47:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:47:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:47:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:47:semantic error: not a statement
+
+Strings.btm:48:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:48:semantic error: Variable in VarExpr not found
+
+Strings.btm:48:semantic error: dispatch to unknown method 'substring'
+
+Strings.btm:48:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:48:semantic error: dispatch to unknown method 'putString'
+
+Strings.btm:48:semantic error: not a statement
+
+Stopping compilation due to errors
+135 error(s)

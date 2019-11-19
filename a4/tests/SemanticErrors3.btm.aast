@@ -1,4 +1,4 @@
-SemanticErrors3.btm:5:semantic error: return type 'void' is not compatible with declared return type 'int' in method'main'
+SemanticErrors3.btm:5:semantic error: declared return type of method 'null' is 'int' but method body is not returning any expression
 
 Stopping compilation due to errors
 1 error(s)
