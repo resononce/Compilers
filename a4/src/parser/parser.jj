@@ -419,11 +419,11 @@ Field Field(Token type, Token name, String lb) :
 
 Formal Formal() : 
 { 
-  int lineNum = JavaCharStream.getBeginLine(); 
+  int lineNum; 
   Token type, name;
   String lb = "";
 }{
-    type = <ID> [
+    type = <ID> {lineNum = JavaCharStream.getBeginLine();} [ 
       <LEFTBRACKET> <RIGHTBRACKET> { lb = "[]"; } 
       ] name = <ID>
     { 
