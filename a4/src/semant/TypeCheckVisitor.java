@@ -239,10 +239,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     + "type '" + type + "'");
             }
         } 
-        else if (noError) {
-            //Put declaration name and type into varSymbolTable
-            vTable.add(name, type);
-        }
+        vTable.add(name, type);
+        
         return null;
     }
 
