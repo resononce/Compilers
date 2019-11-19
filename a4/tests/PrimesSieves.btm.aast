@@ -1,4 +1,4 @@
-PrimesSieves.btm:8:semantic error: type 'TextIO' of delcaration 'io' is undefined
+PrimesSieves.btm:8:semantic error: type 'TextIO' of declaration 'io' is undefined
 
 PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
 

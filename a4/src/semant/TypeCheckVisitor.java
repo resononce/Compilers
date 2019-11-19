@@ -94,10 +94,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
 
     public Object visit(Method node) {
         methodReturnType = node.getReturnType();
-        //moves forward into body of method
-        node.getStmtList().accept(this);
         vTable.enterScope();  //Changed from mTable to vTable based on slide 15-2
         methodName = node.getName();
+        //moves forward into body of method
+        node.getStmtList().accept(this);
         //Goes through method arguments to check for type of each arg
         for (Iterator it = node.getFormalList().getIterator(); it.hasNext();) {
             Formal f = (Formal) it.next();

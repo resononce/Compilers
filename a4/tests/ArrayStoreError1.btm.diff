@@ -21,13 +21,13 @@
 <     }
 < }
 ---
-> ArrayStoreError1.btm:5:semantic error: type 'Object[]' of delcaration 'objects' is undefined
+> ArrayStoreError1.btm:5:semantic error: type 'Object[]' of declaration 'objects' is undefined
 > 
 > ArrayStoreError1.btm:5:semantic error: type 'String' of newconstruction is undefined
 > 
 > ArrayStoreError1.btm:7:semantic error: not a statement
 > 
-> ArrayStoreError1.btm:8:semantic error: type 'String[]' of delcaration 'strings' is undefined
+> ArrayStoreError1.btm:8:semantic error: type 'String[]' of declaration 'strings' is undefined
 > 
 > ArrayStoreError1.btm:8:semantic error: the target type 'String[]' is undefined
 > 

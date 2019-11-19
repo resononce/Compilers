@@ -1,12 +1,12 @@
-Strings.btm:3:semantic error: type 'String' of delcaration 's' is undefined
+Strings.btm:3:semantic error: type 'String' of declaration 's' is undefined
 
 Strings.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
 
-Strings.btm:4:semantic error: type 'String' of delcaration 's2' is undefined
+Strings.btm:4:semantic error: type 'String' of declaration 's2' is undefined
 
 Strings.btm:4:semantic error: expression type 'String' of declaration 's2' does not match declared type 'Object'
 
-Strings.btm:5:semantic error: type 'String' of delcaration 's3' is undefined
+Strings.btm:5:semantic error: type 'String' of declaration 's3' is undefined
 
 Strings.btm:5:semantic error: expression type 'String' of declaration 's3' does not match declared type 'Object'
 

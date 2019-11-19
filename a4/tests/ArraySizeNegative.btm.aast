@@ -1,4 +1,4 @@
-ArraySizeNegative.btm:3:semantic error: type 'Object[]' of delcaration 'array' is undefined
+ArraySizeNegative.btm:3:semantic error: type 'Object[]' of declaration 'array' is undefined
 
 ArraySizeNegative.btm:3:semantic error: type 'Object' of newconstruction is undefined
 

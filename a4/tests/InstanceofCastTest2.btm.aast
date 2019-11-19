@@ -1,18 +1,18 @@
-InstanceofCastTest2.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+InstanceofCastTest2.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
 
-InstanceofCastTest2.btm:4:semantic error: type 'Object[]' of delcaration 'objects' is undefined
+InstanceofCastTest2.btm:4:semantic error: type 'Object[]' of declaration 'objects' is undefined
 
 InstanceofCastTest2.btm:4:semantic error: type 'Object' of newconstruction is undefined
 
-InstanceofCastTest2.btm:5:semantic error: type 'TextIO[]' of delcaration 'ios' is undefined
+InstanceofCastTest2.btm:5:semantic error: type 'TextIO[]' of declaration 'ios' is undefined
 
 InstanceofCastTest2.btm:5:semantic error: type 'TextIO' of newconstruction is undefined
 
-InstanceofCastTest2.btm:6:semantic error: type 'String[]' of delcaration 'strings' is undefined
+InstanceofCastTest2.btm:6:semantic error: type 'String[]' of declaration 'strings' is undefined
 
 InstanceofCastTest2.btm:6:semantic error: type 'String' of newconstruction is undefined
 
-InstanceofCastTest2.btm:7:semantic error: type 'Sys[]' of delcaration 'sys' is undefined
+InstanceofCastTest2.btm:7:semantic error: type 'Sys[]' of declaration 'sys' is undefined
 
 InstanceofCastTest2.btm:7:semantic error: type 'Sys' of newconstruction is undefined
 
@@ -30,7 +30,7 @@ InstanceofCastTest2.btm:13:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:13:semantic error: not a statement
 
-InstanceofCastTest2.btm:14:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:14:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:14:semantic error: the target type 'Object' is undefined
 
@@ -52,7 +52,7 @@ InstanceofCastTest2.btm:21:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:21:semantic error: not a statement
 
-InstanceofCastTest2.btm:22:semantic error: type 'Object[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:22:semantic error: type 'Object[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:22:semantic error: the target type 'Object[]' is undefined
 
@@ -74,7 +74,7 @@ InstanceofCastTest2.btm:32:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:32:semantic error: not a statement
 
-InstanceofCastTest2.btm:33:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:33:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:33:semantic error: the target type 'Object' is undefined
 
@@ -96,7 +96,7 @@ InstanceofCastTest2.btm:40:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:40:semantic error: not a statement
 
-InstanceofCastTest2.btm:41:semantic error: type 'Object[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:41:semantic error: type 'Object[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:41:semantic error: the target type 'Object[]' is undefined
 
@@ -118,7 +118,7 @@ InstanceofCastTest2.btm:48:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:48:semantic error: not a statement
 
-InstanceofCastTest2.btm:49:semantic error: type 'TextIO[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:49:semantic error: type 'TextIO[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:49:semantic error: the target type 'TextIO[]' is undefined
 
@@ -140,7 +140,7 @@ InstanceofCastTest2.btm:59:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:59:semantic error: not a statement
 
-InstanceofCastTest2.btm:60:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:60:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:60:semantic error: the target type 'Object' is undefined
 
@@ -162,7 +162,7 @@ InstanceofCastTest2.btm:67:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:67:semantic error: not a statement
 
-InstanceofCastTest2.btm:68:semantic error: type 'Object[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:68:semantic error: type 'Object[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:68:semantic error: the target type 'Object[]' is undefined
 
@@ -184,7 +184,7 @@ InstanceofCastTest2.btm:75:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:75:semantic error: not a statement
 
-InstanceofCastTest2.btm:76:semantic error: type 'String[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:76:semantic error: type 'String[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:76:semantic error: the target type 'String[]' is undefined
 
@@ -206,7 +206,7 @@ InstanceofCastTest2.btm:86:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:86:semantic error: not a statement
 
-InstanceofCastTest2.btm:87:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:87:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:87:semantic error: the target type 'Object' is undefined
 
@@ -228,7 +228,7 @@ InstanceofCastTest2.btm:94:semantic error: dispatch to unknown method 'putString
 
 InstanceofCastTest2.btm:94:semantic error: not a statement
 
-InstanceofCastTest2.btm:95:semantic error: type 'Object[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:95:semantic error: type 'Object[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:95:semantic error: the target type 'Object[]' is undefined
 
@@ -250,7 +250,7 @@ InstanceofCastTest2.btm:102:semantic error: dispatch to unknown method 'putStrin
 
 InstanceofCastTest2.btm:102:semantic error: not a statement
 
-InstanceofCastTest2.btm:103:semantic error: type 'Sys[]' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:103:semantic error: type 'Sys[]' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:103:semantic error: the target type 'Sys[]' is undefined
 
@@ -274,7 +274,7 @@ InstanceofCastTest2.btm:113:semantic error: dispatch to unknown method 'putStrin
 
 InstanceofCastTest2.btm:113:semantic error: not a statement
 
-InstanceofCastTest2.btm:114:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:114:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:114:semantic error: Variable in VarExpr not found
 
@@ -328,7 +328,7 @@ InstanceofCastTest2.btm:133:semantic error: dispatch to unknown method 'putStrin
 
 InstanceofCastTest2.btm:133:semantic error: not a statement
 
-InstanceofCastTest2.btm:134:semantic error: type 'Object' of delcaration 'x' is undefined
+InstanceofCastTest2.btm:134:semantic error: type 'Object' of declaration 'x' is undefined
 
 InstanceofCastTest2.btm:134:semantic error: Variable in VarExpr not found
 

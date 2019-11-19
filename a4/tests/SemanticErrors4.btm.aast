@@ -1,6 +1,4 @@
-SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method'null'
-
-SemanticErrors4.btm:3:semantic error: declared return type of method 'null' is 'int[]' but method body is not returning any expression
+SemanticErrors4.btm:3:semantic error: return type 'int' is not compatible with declared return type 'int[]' in method'm'
 
 SemanticErrors4.btm:8:semantic error: expression type 'boolean' of declaration 'be' does not match declared type 'boolean[]'
 
@@ -28,23 +26,23 @@ SemanticErrors4.btm:18:semantic error: break statement is not inside a loop
 
 SemanticErrors4.btm:20:semantic error: Variable in VarExpr not found
 
-SemanticErrors4.btm:20:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'm'
+SemanticErrors4.btm:20:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'main'
 
 SemanticErrors4.btm:21:semantic error: Variable in VarExpr not found
 
-SemanticErrors4.btm:21:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'm'
+SemanticErrors4.btm:21:semantic error: return type 'Object' is not compatible with declared return type 'void' in method'main'
 
-SemanticErrors4.btm:22:semantic error: return type 'int' is not compatible with declared return type 'void' in method'm'
+SemanticErrors4.btm:22:semantic error: return type 'int' is not compatible with declared return type 'void' in method'main'
 
-SemanticErrors4.btm:23:semantic error: return type 'int' is not compatible with declared return type 'void' in method'm'
+SemanticErrors4.btm:23:semantic error: return type 'int' is not compatible with declared return type 'void' in method'main'
 
-SemanticErrors4.btm:24:semantic error: return type 'int[]' is not compatible with declared return type 'void' in method'm'
+SemanticErrors4.btm:24:semantic error: return type 'int[]' is not compatible with declared return type 'void' in method'main'
 
-SemanticErrors4.btm:27:semantic error: type 'String[]' of delcaration 'sa' is undefined
+SemanticErrors4.btm:27:semantic error: type 'String[]' of declaration 'sa' is undefined
 
 SemanticErrors4.btm:27:semantic error: type 'String' of newconstruction is undefined
 
-SemanticErrors4.btm:28:semantic error: type 'Object[]' of delcaration 'oa' is undefined
+SemanticErrors4.btm:28:semantic error: type 'Object[]' of declaration 'oa' is undefined
 
 SemanticErrors4.btm:28:semantic error: type 'Object' of newconstruction is undefined
 
@@ -133,4 +131,4 @@ SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
 SemanticErrors4.btm:55:semantic error: not a statement
 
 Stopping compilation due to errors
-67 error(s)
+66 error(s)

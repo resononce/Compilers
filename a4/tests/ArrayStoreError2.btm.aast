@@ -1,4 +1,4 @@
-ArrayStoreError2.btm:8:semantic error: type 'Object[]' of delcaration 'objects' is undefined
+ArrayStoreError2.btm:8:semantic error: type 'Object[]' of declaration 'objects' is undefined
 
 ArrayStoreError2.btm:8:semantic error: type 'B' of newconstruction is undefined
 

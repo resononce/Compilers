@@ -1,4 +1,4 @@
-FindMin.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+FindMin.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
 
 FindMin.btm:8:semantic error: dispatch to unknown method 'putString'
 

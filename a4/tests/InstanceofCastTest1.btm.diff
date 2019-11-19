@@ -177,15 +177,15 @@
 <     }
 < }
 ---
-> InstanceofCastTest1.btm:3:semantic error: type 'Object' of delcaration 'o' is undefined
+> InstanceofCastTest1.btm:3:semantic error: type 'Object' of declaration 'o' is undefined
 > 
-> InstanceofCastTest1.btm:4:semantic error: type 'TextIO' of delcaration 'io' is undefined
+> InstanceofCastTest1.btm:4:semantic error: type 'TextIO' of declaration 'io' is undefined
 > 
-> InstanceofCastTest1.btm:5:semantic error: type 'String' of delcaration 's' is undefined
+> InstanceofCastTest1.btm:5:semantic error: type 'String' of declaration 's' is undefined
 > 
 > InstanceofCastTest1.btm:5:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
 > 
-> InstanceofCastTest1.btm:6:semantic error: type 'Sys' of delcaration 'sys' is undefined
+> InstanceofCastTest1.btm:6:semantic error: type 'Sys' of declaration 'sys' is undefined
 > 
 > InstanceofCastTest1.btm:8:semantic error: the instanceof righthand type 'Object' is undefined
 > 
@@ -197,7 +197,7 @@
 > 
 > InstanceofCastTest1.btm:10:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:11:semantic error: type 'Object' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:11:semantic error: type 'Object' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:11:semantic error: the target type 'Object' is undefined
 > 
@@ -219,7 +219,7 @@
 > 
 > InstanceofCastTest1.btm:18:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:19:semantic error: type 'TextIO' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:19:semantic error: type 'TextIO' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:19:semantic error: the target type 'TextIO' is undefined
 > 
@@ -241,7 +241,7 @@
 > 
 > InstanceofCastTest1.btm:26:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:27:semantic error: type 'String' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:27:semantic error: type 'String' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:27:semantic error: the target type 'String' is undefined
 > 
@@ -263,7 +263,7 @@
 > 
 > InstanceofCastTest1.btm:34:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:35:semantic error: type 'Sys' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:35:semantic error: type 'Sys' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:35:semantic error: the target type 'Sys' is undefined
 > 
@@ -285,7 +285,7 @@
 > 
 > InstanceofCastTest1.btm:45:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:46:semantic error: type 'Object' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:46:semantic error: type 'Object' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:46:semantic error: the target type 'Object' is undefined
 > 
@@ -307,7 +307,7 @@
 > 
 > InstanceofCastTest1.btm:53:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:54:semantic error: type 'TextIO' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:54:semantic error: type 'TextIO' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:54:semantic error: the target type 'TextIO' is undefined
 > 
@@ -331,7 +331,7 @@
 > 
 > InstanceofCastTest1.btm:64:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:65:semantic error: type 'Object' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:65:semantic error: type 'Object' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:65:semantic error: Variable in VarExpr not found
 > 
@@ -357,7 +357,7 @@
 > 
 > InstanceofCastTest1.btm:72:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:73:semantic error: type 'String' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:73:semantic error: type 'String' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:73:semantic error: Variable in VarExpr not found
 > 
@@ -381,7 +381,7 @@
 > 
 > InstanceofCastTest1.btm:83:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:84:semantic error: type 'Object' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:84:semantic error: type 'Object' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:84:semantic error: the target type 'Object' is undefined
 > 
@@ -403,7 +403,7 @@
 > 
 > InstanceofCastTest1.btm:91:semantic error: not a statement
 > 
-> InstanceofCastTest1.btm:92:semantic error: type 'Sys' of delcaration 'x' is undefined
+> InstanceofCastTest1.btm:92:semantic error: type 'Sys' of declaration 'x' is undefined
 > 
 > InstanceofCastTest1.btm:92:semantic error: the target type 'Sys' is undefined
 > 

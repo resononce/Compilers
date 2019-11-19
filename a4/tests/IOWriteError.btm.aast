@@ -1,4 +1,4 @@
-IOWriteError.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+IOWriteError.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
 
 IOWriteError.btm:4:semantic error: dispatch to unknown method 'writeFile'
 

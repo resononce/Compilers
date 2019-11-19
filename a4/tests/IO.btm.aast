@@ -1,4 +1,4 @@
-IO.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+IO.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
 
 IO.btm:4:semantic error: dispatch to unknown method 'putString'
 
@@ -10,7 +10,7 @@ IO.btm:6:semantic error: Variable in VarExpr not found
 
 IO.btm:6:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
-IO.btm:7:semantic error: type 'String' of delcaration 's' is undefined
+IO.btm:7:semantic error: type 'String' of declaration 's' is undefined
 
 IO.btm:7:semantic error: dispatch to unknown method 'putString'
 

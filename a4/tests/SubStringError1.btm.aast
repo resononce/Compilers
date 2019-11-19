@@ -1,8 +1,8 @@
-SubStringError1.btm:3:semantic error: type 'String' of delcaration 's' is undefined
+SubStringError1.btm:3:semantic error: type 'String' of declaration 's' is undefined
 
 SubStringError1.btm:3:semantic error: expression type 'String' of declaration 's' does not match declared type 'Object'
 
-SubStringError1.btm:4:semantic error: type 'String' of delcaration 's2' is undefined
+SubStringError1.btm:4:semantic error: type 'String' of declaration 's2' is undefined
 
 SubStringError1.btm:4:semantic error: Variable in VarExpr not found
 

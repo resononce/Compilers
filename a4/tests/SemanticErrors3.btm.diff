@@ -5,7 +5,7 @@
 < 
 < SemanticErrors3.btm:5:semantic error: return type 'void' is not compatible with declared return type 'int' in method 'main'
 ---
-> SemanticErrors3.btm:5:semantic error: declared return type of method 'null' is 'int' but method body is not returning any expression
+> SemanticErrors3.btm:5:semantic error: declared return type of method 'main' is 'int' but method body is not returning any expression
 8c4
 < 3 error(s)
 ---

@@ -1,14 +1,14 @@
-Concat.btm:3:semantic error: type 'String' of delcaration 'star' is undefined
+Concat.btm:3:semantic error: type 'String' of declaration 'star' is undefined
 
 Concat.btm:3:semantic error: expression type 'String' of declaration 'star' does not match declared type 'Object'
 
-Concat.btm:4:semantic error: type 'String' of delcaration 's1' is undefined
+Concat.btm:4:semantic error: type 'String' of declaration 's1' is undefined
 
 Concat.btm:4:semantic error: Variable in VarExpr not found
 
 Concat.btm:4:semantic error: dispatch to unknown method 'substring'
 
-Concat.btm:5:semantic error: type 'String' of delcaration 's2' is undefined
+Concat.btm:5:semantic error: type 'String' of declaration 's2' is undefined
 
 Concat.btm:5:semantic error: expression type 'String' of declaration 's2' does not match declared type 'Object'
 

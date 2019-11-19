@@ -1,10 +1,10 @@
-IOReadError.btm:3:semantic error: type 'TextIO' of delcaration 'io' is undefined
+IOReadError.btm:3:semantic error: type 'TextIO' of declaration 'io' is undefined
 
 IOReadError.btm:4:semantic error: dispatch to unknown method 'readFile'
 
 IOReadError.btm:4:semantic error: not a statement
 
-IOReadError.btm:5:semantic error: type 'String' of delcaration 's' is undefined
+IOReadError.btm:5:semantic error: type 'String' of declaration 's' is undefined
 
 IOReadError.btm:5:semantic error: dispatch to unknown method 'getString'
 
