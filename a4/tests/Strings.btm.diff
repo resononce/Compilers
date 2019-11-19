@@ -1,4 +1,4 @@
-1,75c1,66
+1,75c1,18
 < // Source file: Strings.btm
 < // Source line: 1
 < class Main extends Object {
@@ -75,69 +75,21 @@
 <     }
 < }
 ---
-> Strings.btm:7:semantic error: not a statement
-> 
-> Strings.btm:9:semantic error: not a statement
-> 
-> Strings.btm:11:semantic error: not a statement
-> 
-> Strings.btm:12:semantic error: not a statement
-> 
 > Strings.btm:14:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
 > 
 > Strings.btm:14:semantic error: predicate in if-statement does not have type boolean
-> 
-> Strings.btm:15:semantic error: not a statement
-> 
-> Strings.btm:17:semantic error: not a statement
 > 
 > Strings.btm:18:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
 > 
 > Strings.btm:18:semantic error: predicate in if-statement does not have type boolean
 > 
-> Strings.btm:19:semantic error: not a statement
-> 
-> Strings.btm:21:semantic error: not a statement
-> 
-> Strings.btm:23:semantic error: not a statement
-> 
-> Strings.btm:24:semantic error: not a statement
-> 
 > Strings.btm:26:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
 > 
 > Strings.btm:26:semantic error: predicate in if-statement does not have type boolean
-> 
-> Strings.btm:27:semantic error: not a statement
-> 
-> Strings.btm:29:semantic error: not a statement
 > 
 > Strings.btm:30:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'equals'
 > 
 > Strings.btm:30:semantic error: predicate in if-statement does not have type boolean
 > 
-> Strings.btm:31:semantic error: not a statement
-> 
-> Strings.btm:33:semantic error: not a statement
-> 
-> Strings.btm:35:semantic error: not a statement
-> 
-> Strings.btm:36:semantic error: not a statement
-> 
-> Strings.btm:38:semantic error: not a statement
-> 
-> Strings.btm:39:semantic error: not a statement
-> 
-> Strings.btm:43:semantic error: not a statement
-> 
-> Strings.btm:44:semantic error: not a statement
-> 
-> Strings.btm:45:semantic error: not a statement
-> 
-> Strings.btm:46:semantic error: not a statement
-> 
-> Strings.btm:47:semantic error: not a statement
-> 
-> Strings.btm:48:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 32 error(s)
+> 8 error(s)

@@ -1,4 +1,4 @@
-1,263c1,220
+1,263c1,100
 < // Source file: InstanceofCastTest2.btm
 < // Source line: 1
 < class Main extends Object {
@@ -277,169 +277,69 @@
 > 
 > InstanceofCastTest2.btm:11:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:12:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:13:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:14:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:15:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:18:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:19:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:20:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:21:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:22:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:22:semantic error: Inconvertible types: ('Object'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:23:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:26:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:30:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:31:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:32:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:33:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:34:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:37:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:38:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:39:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:40:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:41:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:41:semantic error: Inconvertible types: ('Object'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:42:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:45:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:46:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:47:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:48:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:49:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:49:semantic error: Inconvertible types: ('Object'=>'TextIO[]')
 > 
-> InstanceofCastTest2.btm:50:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:53:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:57:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:58:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:59:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:60:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:61:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:64:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:65:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:66:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:67:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:68:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:68:semantic error: Inconvertible types: ('Object'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:69:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:72:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:73:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:74:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:75:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:76:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:76:semantic error: Inconvertible types: ('Object'=>'String[]')
 > 
-> InstanceofCastTest2.btm:77:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:80:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:84:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:85:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:86:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:87:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:88:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:91:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:92:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:93:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:94:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:95:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:95:semantic error: Inconvertible types: ('Object'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:96:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:99:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:100:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:101:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:102:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:103:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:103:semantic error: Inconvertible types: ('Object'=>'Sys[]')
 > 
-> InstanceofCastTest2.btm:104:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:107:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:111:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:112:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:113:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:114:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:115:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:118:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:119:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:119:semantic error: the instanceof righthand type 'int[]' is primitive and not an object type
-> 
-> InstanceofCastTest2.btm:120:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:121:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:122:semantic error: Variable in VarExpr not found
 > 
@@ -447,29 +347,13 @@
 > 
 > InstanceofCastTest2.btm:122:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int[]'
 > 
-> InstanceofCastTest2.btm:123:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:126:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:131:semantic error: Variable in VarExpr not found
 > 
-> InstanceofCastTest2.btm:132:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:133:semantic error: not a statement
-> 
 > InstanceofCastTest2.btm:134:semantic error: Variable in VarExpr not found
-> 
-> InstanceofCastTest2.btm:135:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:138:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:139:semantic error: Variable in VarExpr not found
 > 
 > InstanceofCastTest2.btm:139:semantic error: the instanceof righthand type 'boolean[]' is primitive and not an object type
-> 
-> InstanceofCastTest2.btm:140:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:141:semantic error: not a statement
 > 
 > InstanceofCastTest2.btm:142:semantic error: Variable in VarExpr not found
 > 
@@ -477,9 +361,5 @@
 > 
 > InstanceofCastTest2.btm:142:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'boolean[]'
 > 
-> InstanceofCastTest2.btm:143:semantic error: not a statement
-> 
-> InstanceofCastTest2.btm:146:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 109 error(s)
+> 49 error(s)

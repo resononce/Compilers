@@ -1,4 +1,4 @@
-1,46c1,14
+1,46c1,4
 < // Source file: Fact.btm
 < // Source line: 5
 < class Main extends Object {
@@ -48,15 +48,5 @@
 ---
 > Fact.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 > 
-> Fact.btm:13:semantic error: not a statement
-> 
-> Fact.btm:17:semantic error: not a statement
-> 
-> Fact.btm:18:semantic error: not a statement
-> 
-> Fact.btm:23:semantic error: not a statement
-> 
-> Fact.btm:38:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 6 error(s)
+> 1 error(s)

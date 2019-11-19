@@ -1,18 +1,4 @@
 Primes.btm:6:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 
-Primes.btm:12:semantic error: not a statement
-
-Primes.btm:16:semantic error: not a statement
-
-Primes.btm:17:semantic error: not a statement
-
-Primes.btm:25:semantic error: not a statement
-
-Primes.btm:26:semantic error: not a statement
-
-Primes.btm:41:semantic error: not a statement
-
-Primes.btm:42:semantic error: not a statement
-
 Stopping compilation due to errors
-8 error(s)
+1 error(s)

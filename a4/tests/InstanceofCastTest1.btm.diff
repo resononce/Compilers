@@ -1,4 +1,4 @@
-1,177c1,94
+1,177c1,14
 < // Source file: InstanceofCastTest1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -177,97 +177,17 @@
 <     }
 < }
 ---
-> InstanceofCastTest1.btm:9:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:10:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:12:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:15:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:17:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:18:semantic error: not a statement
-> 
 > InstanceofCastTest1.btm:19:semantic error: Inconvertible types: ('Object'=>'TextIO')
-> 
-> InstanceofCastTest1.btm:20:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:23:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:25:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:26:semantic error: not a statement
 > 
 > InstanceofCastTest1.btm:27:semantic error: Inconvertible types: ('Object'=>'String')
 > 
-> InstanceofCastTest1.btm:28:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:31:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:33:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:34:semantic error: not a statement
-> 
 > InstanceofCastTest1.btm:35:semantic error: Inconvertible types: ('Object'=>'Sys')
-> 
-> InstanceofCastTest1.btm:36:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:39:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:44:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:45:semantic error: not a statement
 > 
 > InstanceofCastTest1.btm:46:semantic error: Inconvertible types: ('TextIO'=>'Object')
 > 
-> InstanceofCastTest1.btm:47:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:50:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:52:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:53:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:55:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:58:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:63:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:64:semantic error: not a statement
-> 
 > InstanceofCastTest1.btm:65:semantic error: Inconvertible types: ('String'=>'Object')
-> 
-> InstanceofCastTest1.btm:66:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:69:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:71:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:72:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:74:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:77:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:82:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:83:semantic error: not a statement
 > 
 > InstanceofCastTest1.btm:84:semantic error: Inconvertible types: ('Sys'=>'Object')
 > 
-> InstanceofCastTest1.btm:85:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:88:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:90:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:91:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:93:semantic error: not a statement
-> 
-> InstanceofCastTest1.btm:96:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 46 error(s)
+> 6 error(s)

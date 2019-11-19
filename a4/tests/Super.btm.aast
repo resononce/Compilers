@@ -2,25 +2,9 @@ Super.btm:2:semantic error: expression type 'TextIO' of field 'io' does not conf
 
 Super.btm:5:semantic error: variable 'namein assignment is undeclared
 
-Super.btm:5:semantic error: not a statement
-
-Super.btm:9:semantic error: not a statement
-
 Super.btm:17:semantic error: variable 'namein assignment is undeclared
-
-Super.btm:17:semantic error: not a statement
-
-Super.btm:21:semantic error: not a statement
-
-Super.btm:22:semantic error: not a statement
 
 Super.btm:29:semantic error: variable 'namein assignment is undeclared
 
-Super.btm:29:semantic error: not a statement
-
-Super.btm:37:semantic error: not a statement
-
-Super.btm:38:semantic error: not a statement
-
 Stopping compilation due to errors
-12 error(s)
+4 error(s)

@@ -2,15 +2,11 @@ ArraySizeTooLarge.btm:4:semantic error: expression type 'int' of declaration 'ar
 
 ArraySizeTooLarge.btm:5:semantic error: variable 'arrayin assignment is undeclared
 
-ArraySizeTooLarge.btm:5:semantic error: not a statement
-
 ArraySizeTooLarge.btm:7:semantic error: Variable in VarExpr not found
 
 ArraySizeTooLarge.btm:7:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
 
 ArraySizeTooLarge.btm:7:semantic error: dispatch to unknown method 'putString'
 
-ArraySizeTooLarge.btm:7:semantic error: not a statement
-
 Stopping compilation due to errors
-7 error(s)
+5 error(s)

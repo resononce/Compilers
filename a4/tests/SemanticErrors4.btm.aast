@@ -48,15 +48,11 @@ SemanticErrors4.btm:29:semantic error: Inconvertible types: ('Object'=>'String[]
 
 SemanticErrors4.btm:29:semantic error: variable 'sain assignment is undeclared
 
-SemanticErrors4.btm:29:semantic error: not a statement
-
 SemanticErrors4.btm:30:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:30:semantic error: Inconvertible types: ('Object'=>'Object[]')
 
 SemanticErrors4.btm:30:semantic error: variable 'oain assignment is undeclared
-
-SemanticErrors4.btm:30:semantic error: not a statement
 
 SemanticErrors4.btm:32:semantic error: Variable in VarExpr not found
 
@@ -64,13 +60,9 @@ SemanticErrors4.btm:32:semantic error: Inconvertible types: ('Object'=>'String')
 
 SemanticErrors4.btm:32:semantic error: variable 'sain assignment is undeclared
 
-SemanticErrors4.btm:32:semantic error: not a statement
-
 SemanticErrors4.btm:33:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:33:semantic error: variable 'oain assignment is undeclared
-
-SemanticErrors4.btm:33:semantic error: not a statement
 
 SemanticErrors4.btm:34:semantic error: Variable in VarExpr not found
 
@@ -78,23 +70,17 @@ SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
 
 SemanticErrors4.btm:34:semantic error: variable 'sain assignment is undeclared
 
-SemanticErrors4.btm:34:semantic error: not a statement
-
 SemanticErrors4.btm:35:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:35:semantic error: Inconvertible types: ('Object'=>'String[]')
 
 SemanticErrors4.btm:35:semantic error: variable 'sain assignment is undeclared
 
-SemanticErrors4.btm:35:semantic error: not a statement
-
 SemanticErrors4.btm:36:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:36:semantic error: Inconvertible types: ('Object'=>'Object[]')
 
 SemanticErrors4.btm:36:semantic error: variable 'sain assignment is undeclared
-
-SemanticErrors4.btm:36:semantic error: not a statement
 
 SemanticErrors4.btm:38:semantic error: Variable in VarExpr not found
 
@@ -118,35 +104,21 @@ SemanticErrors4.btm:44:semantic error: size in the array construction has type '
 
 SemanticErrors4.btm:44:semantic error: expression type 'int' of declaration 'ia2' does not match declared type 'int[]'
 
-SemanticErrors4.btm:45:semantic error: not a statement
-
 SemanticErrors4.btm:47:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:47:semantic error: variable 'bein assignment is undeclared
 
-SemanticErrors4.btm:47:semantic error: not a statement
-
 SemanticErrors4.btm:48:semantic error: variable 'bein assignment is undeclared
-
-SemanticErrors4.btm:48:semantic error: not a statement
 
 SemanticErrors4.btm:50:semantic error: Variable in VarExpr not found
 
 SemanticErrors4.btm:50:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int' in assignment
 
-SemanticErrors4.btm:50:semantic error: not a statement
-
 SemanticErrors4.btm:52:semantic error: the expression type 'boolean' in the unary operation ('++') is incorrect; should have been: int
-
-SemanticErrors4.btm:52:semantic error: not a statement
 
 SemanticErrors4.btm:53:semantic error: the expression type 'boolean' in the unary operation ('--') is incorrect; should have been: int
 
-SemanticErrors4.btm:53:semantic error: not a statement
-
 SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
 
-SemanticErrors4.btm:55:semantic error: not a statement
-
 Stopping compilation due to errors
-75 error(s)
+61 error(s)

@@ -2,8 +2,6 @@ ArrayStoreError1.btm:5:semantic error: expression type 'String' of declaration '
 
 ArrayStoreError1.btm:7:semantic error: variable 'objectsin assignment is undeclared
 
-ArrayStoreError1.btm:7:semantic error: not a statement
-
 ArrayStoreError1.btm:8:semantic error: Variable in VarExpr not found
 
 ArrayStoreError1.btm:8:semantic error: Inconvertible types: ('Object'=>'String[]')
@@ -12,7 +10,5 @@ ArrayStoreError1.btm:9:semantic error: actual parameter 1with type 'String[]does
 
 ArrayStoreError1.btm:9:semantic error: dispatch to unknown method 'putString'
 
-ArrayStoreError1.btm:9:semantic error: not a statement
-
 Stopping compilation due to errors
-8 error(s)
+6 error(s)

@@ -1,4 +1,4 @@
-1,114c1,108
+1,114c1,64
 < // Source file: ArrayTest3.btm
 < // Source line: 4
 < class Main extends Object {
@@ -118,39 +118,21 @@
 > 
 > ArrayTest3.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
-> ArrayTest3.btm:9:semantic error: not a statement
-> 
 > ArrayTest3.btm:10:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:10:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'buildArray'
-> 
-> ArrayTest3.btm:10:semantic error: not a statement
-> 
-> ArrayTest3.btm:11:semantic error: not a statement
 > 
 > ArrayTest3.btm:12:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:12:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
 > 
-> ArrayTest3.btm:12:semantic error: not a statement
-> 
-> ArrayTest3.btm:13:semantic error: not a statement
-> 
 > ArrayTest3.btm:14:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:14:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'sortArray'
 > 
-> ArrayTest3.btm:14:semantic error: not a statement
-> 
-> ArrayTest3.btm:15:semantic error: not a statement
-> 
 > ArrayTest3.btm:16:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:16:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
-> 
-> ArrayTest3.btm:16:semantic error: not a statement
-> 
-> ArrayTest3.btm:17:semantic error: not a statement
 > 
 > ArrayTest3.btm:18:semantic error: Variable in VarExpr not found
 > 
@@ -160,33 +142,19 @@
 > 
 > ArrayTest3.btm:19:semantic error: variable 'array2in assignment is undeclared
 > 
-> ArrayTest3.btm:19:semantic error: not a statement
-> 
-> ArrayTest3.btm:20:semantic error: not a statement
-> 
 > ArrayTest3.btm:21:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:21:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
 > 
-> ArrayTest3.btm:21:semantic error: not a statement
-> 
-> ArrayTest3.btm:22:semantic error: not a statement
-> 
 > ArrayTest3.btm:23:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:23:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
-> 
-> ArrayTest3.btm:23:semantic error: not a statement
 > 
 > ArrayTest3.btm:29:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
 > ArrayTest3.btm:30:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
 > 
 > ArrayTest3.btm:30:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-> 
-> ArrayTest3.btm:30:semantic error: not a statement
-> 
-> ArrayTest3.btm:31:semantic error: not a statement
 > 
 > ArrayTest3.btm:38:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
@@ -198,17 +166,9 @@
 > 
 > ArrayTest3.btm:42:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
 > 
-> ArrayTest3.btm:43:semantic error: not a statement
-> 
 > ArrayTest3.btm:44:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest3.btm:44:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int[]' in assignment
-> 
-> ArrayTest3.btm:44:semantic error: not a statement
-> 
-> ArrayTest3.btm:46:semantic error: not a statement
-> 
-> ArrayTest3.btm:48:semantic error: not a statement
 > 
 > ArrayTest3.btm:55:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
@@ -216,9 +176,5 @@
 > 
 > ArrayTest3.btm:56:semantic error: dispatch to unknown method 'putString'
 > 
-> ArrayTest3.btm:56:semantic error: not a statement
-> 
-> ArrayTest3.btm:57:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 53 error(s)
+> 31 error(s)

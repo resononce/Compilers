@@ -1,4 +1,4 @@
-1,100c1,80
+1,100c1,48
 < // Source file: ArrayTest2.btm
 < // Source line: 4
 < class Main extends Object {
@@ -104,47 +104,27 @@
 > 
 > ArrayTest2.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 > 
-> ArrayTest2.btm:9:semantic error: not a statement
-> 
 > ArrayTest2.btm:10:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest2.btm:10:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'buildArray'
-> 
-> ArrayTest2.btm:10:semantic error: not a statement
-> 
-> ArrayTest2.btm:11:semantic error: not a statement
 > 
 > ArrayTest2.btm:12:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest2.btm:12:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
 > 
-> ArrayTest2.btm:12:semantic error: not a statement
-> 
-> ArrayTest2.btm:13:semantic error: not a statement
-> 
 > ArrayTest2.btm:14:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest2.btm:14:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'sortArray'
 > 
-> ArrayTest2.btm:14:semantic error: not a statement
-> 
-> ArrayTest2.btm:15:semantic error: not a statement
-> 
 > ArrayTest2.btm:16:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest2.btm:16:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'int[]in dispath to method 'printArray'
-> 
-> ArrayTest2.btm:16:semantic error: not a statement
 > 
 > ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
 > ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
 > 
 > ArrayTest2.btm:23:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-> 
-> ArrayTest2.btm:23:semantic error: not a statement
-> 
-> ArrayTest2.btm:24:semantic error: not a statement
 > 
 > ArrayTest2.btm:31:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
@@ -156,17 +136,9 @@
 > 
 > ArrayTest2.btm:35:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
 > 
-> ArrayTest2.btm:36:semantic error: not a statement
-> 
 > ArrayTest2.btm:37:semantic error: Variable in VarExpr not found
 > 
 > ArrayTest2.btm:37:semantic error: the righthand type 'Object' does not conform to the lefthand type 'int[]' in assignment
-> 
-> ArrayTest2.btm:37:semantic error: not a statement
-> 
-> ArrayTest2.btm:39:semantic error: not a statement
-> 
-> ArrayTest2.btm:41:semantic error: not a statement
 > 
 > ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
@@ -174,9 +146,5 @@
 > 
 > ArrayTest2.btm:49:semantic error: dispatch to unknown method 'putString'
 > 
-> ArrayTest2.btm:49:semantic error: not a statement
-> 
-> ArrayTest2.btm:50:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 39 error(s)
+> 23 error(s)

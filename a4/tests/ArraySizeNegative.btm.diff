@@ -1,4 +1,4 @@
-1,13c1,8
+1,13c1,6
 < // Source file: ArraySizeNegative.btm
 < // Source line: 1
 < class Main extends Object {
@@ -17,7 +17,5 @@
 > 
 > ArraySizeNegative.btm:4:semantic error: variable 'arrayin assignment is undeclared
 > 
-> ArraySizeNegative.btm:4:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 3 error(s)
+> 2 error(s)

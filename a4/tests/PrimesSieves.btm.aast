@@ -1,26 +1,12 @@
 PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
 
-PrimesSieves.btm:18:semantic error: not a statement
-
-PrimesSieves.btm:21:semantic error: not a statement
-
 PrimesSieves.btm:25:semantic error: variable 'primesin assignment is undeclared
-
-PrimesSieves.btm:25:semantic error: not a statement
 
 PrimesSieves.btm:31:semantic error: Variable in VarExpr not found
 
 PrimesSieves.btm:31:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
 
-PrimesSieves.btm:33:semantic error: not a statement
-
 PrimesSieves.btm:38:semantic error: variable 'primesin assignment is undeclared
 
-PrimesSieves.btm:38:semantic error: not a statement
-
-PrimesSieves.btm:39:semantic error: not a statement
-
-PrimesSieves.btm:43:semantic error: not a statement
-
 Stopping compilation due to errors
-12 error(s)
+5 error(s)

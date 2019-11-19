@@ -2,7 +2,5 @@ ArraySizeNegative.btm:3:semantic error: expression type 'Object' of declaration 
 
 ArraySizeNegative.btm:4:semantic error: variable 'arrayin assignment is undeclared
 
-ArraySizeNegative.btm:4:semantic error: not a statement
-
 Stopping compilation due to errors
-3 error(s)
+2 error(s)

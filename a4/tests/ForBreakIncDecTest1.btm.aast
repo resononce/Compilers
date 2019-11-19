@@ -4,19 +4,9 @@ ForBreakIncDecTest1.btm:7:semantic error: Variable in VarExpr not found
 
 ForBreakIncDecTest1.btm:7:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
 
-ForBreakIncDecTest1.btm:7:semantic error: not a statement
-
 ForBreakIncDecTest1.btm:8:semantic error: Variable in VarExpr not found
 
 ForBreakIncDecTest1.btm:8:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
-
-ForBreakIncDecTest1.btm:8:semantic error: not a statement
-
-ForBreakIncDecTest1.btm:9:semantic error: not a statement
-
-ForBreakIncDecTest1.btm:10:semantic error: not a statement
-
-ForBreakIncDecTest1.btm:21:semantic error: not a statement
 
 ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
 
@@ -26,17 +16,11 @@ ForBreakIncDecTest1.btm:28:semantic error: actual parameter 1with type 'Objectdo
 
 ForBreakIncDecTest1.btm:28:semantic error: dispatch to unknown method 'putString'
 
-ForBreakIncDecTest1.btm:28:semantic error: not a statement
-
 ForBreakIncDecTest1.btm:29:semantic error: Variable in VarExpr not found
 
 ForBreakIncDecTest1.btm:29:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
 
 ForBreakIncDecTest1.btm:29:semantic error: dispatch to unknown method 'putString'
 
-ForBreakIncDecTest1.btm:29:semantic error: not a statement
-
-ForBreakIncDecTest1.btm:34:semantic error: not a statement
-
 Stopping compilation due to errors
-20 error(s)
+12 error(s)

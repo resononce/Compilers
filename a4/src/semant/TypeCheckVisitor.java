@@ -253,9 +253,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
         node.getExpr().accept(this);
         //Checks that the ExprStmt is a legit statement
         Expr temp = node.getExpr();
-        if (!(temp instanceof AssignExpr) || !(temp instanceof ArrayAssignExpr) ||
-            !(temp instanceof NewExpr) || !(temp instanceof DispatchExpr) ||
-            !(temp instanceof UnaryDecrExpr) || !(temp instanceof UnaryIncrExpr)) {
+        if (!(temp instanceof AssignExpr) && !(temp instanceof ArrayAssignExpr) &&
+            !(temp instanceof NewExpr) && !(temp instanceof DispatchExpr) &&
+            !(temp instanceof UnaryDecrExpr) && !(temp instanceof UnaryIncrExpr)) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,

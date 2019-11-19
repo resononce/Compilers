@@ -1,4 +1,4 @@
-1,31c1,16
+1,31c1,10
 < // Source file: ArrayStoreError2.btm
 < // Source line: 1
 < class A extends Object {
@@ -35,15 +35,9 @@
 > 
 > ArrayStoreError2.btm:9:semantic error: variable 'objectsin assignment is undeclared
 > 
-> ArrayStoreError2.btm:9:semantic error: not a statement
-> 
 > ArrayStoreError2.btm:10:semantic error: variable 'objectsin assignment is undeclared
-> 
-> ArrayStoreError2.btm:10:semantic error: not a statement
 > 
 > ArrayStoreError2.btm:11:semantic error: variable 'objectsin assignment is undeclared
 > 
-> ArrayStoreError2.btm:11:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 7 error(s)
+> 4 error(s)

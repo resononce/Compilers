@@ -1,4 +1,4 @@
-1,218c1,72
+1,218c1,30
 < // Source file: TicTacToe.btm
 < // Source line: 3
 < class Main extends Object {
@@ -220,24 +220,6 @@
 ---
 > TicTacToe.btm:4:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 > 
-> TicTacToe.btm:11:semantic error: not a statement
-> 
-> TicTacToe.btm:16:semantic error: not a statement
-> 
-> TicTacToe.btm:19:semantic error: not a statement
-> 
-> TicTacToe.btm:25:semantic error: not a statement
-> 
-> TicTacToe.btm:26:semantic error: not a statement
-> 
-> TicTacToe.btm:30:semantic error: not a statement
-> 
-> TicTacToe.btm:31:semantic error: not a statement
-> 
-> TicTacToe.btm:38:semantic error: not a statement
-> 
-> TicTacToe.btm:40:semantic error: not a statement
-> 
 > TicTacToe.btm:62:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
 > 
 > TicTacToe.btm:63:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
@@ -256,37 +238,13 @@
 > 
 > TicTacToe.btm:93:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
 > 
-> TicTacToe.btm:103:semantic error: not a statement
-> 
-> TicTacToe.btm:105:semantic error: not a statement
-> 
-> TicTacToe.btm:106:semantic error: not a statement
-> 
-> TicTacToe.btm:108:semantic error: not a statement
-> 
-> TicTacToe.btm:110:semantic error: not a statement
-> 
 > TicTacToe.btm:117:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
-> 
-> TicTacToe.btm:118:semantic error: not a statement
 > 
 > TicTacToe.btm:120:semantic error: the lefthand type 'int[]' in the binary operation ('==') does not match righthand type 'int'
 > 
-> TicTacToe.btm:121:semantic error: not a statement
-> 
-> TicTacToe.btm:124:semantic error: not a statement
-> 
-> TicTacToe.btm:134:semantic error: not a statement
-> 
-> TicTacToe.btm:140:semantic error: not a statement
-> 
 > TicTacToe.btm:143:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match righthand type 'int'
-> 
-> TicTacToe.btm:145:semantic error: not a statement
 > 
 > TicTacToe.btm:149:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
 > 
-> TicTacToe.btm:149:semantic error: not a statement
-> 
 > Stopping compilation due to errors
-> 35 error(s)
+> 14 error(s)
