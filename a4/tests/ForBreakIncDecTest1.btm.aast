@@ -1,26 +1,28 @@
+total : 3 parent total: 1<>variable: array compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: n compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+total : 5 parent total: 1<>variable: z compare level: 6 In Scope Level: 4
+total : 5 parent total: 1<>variable: j compare level: 6 In Scope Level: 4
+total : 5 parent total: 1<>variable: w compare level: 6 In Scope Level: 4
+total : 7 parent total: 1<>variable: a compare level: 8 In Scope Level: 6
+total : 7 parent total: 1<>variable: b compare level: 8 In Scope Level: 6
+total : 9 parent total: 1<>variable: c compare level: 10 In Scope Level: 8
+total : 7 parent total: 1<>variable: c compare level: 8 In Scope Level: 6
 ForBreakIncDecTest1.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
 
-ForBreakIncDecTest1.btm:7:semantic error: Variable in VarExpr not found
+ForBreakIncDecTest1.btm:7:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
 
-ForBreakIncDecTest1.btm:7:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
-
-ForBreakIncDecTest1.btm:8:semantic error: Variable in VarExpr not found
-
-ForBreakIncDecTest1.btm:8:semantic error: the expression type 'Object' in the unary operation ('--') is incorrect; should have been: int
+ForBreakIncDecTest1.btm:8:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
 
 ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
 
-ForBreakIncDecTest1.btm:28:semantic error: Variable in VarExpr not found
-
-ForBreakIncDecTest1.btm:28:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+ForBreakIncDecTest1.btm:28:semantic error: actual parameter 1with type 'int[]does not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
 
 ForBreakIncDecTest1.btm:28:semantic error: dispatch to unknown method 'putString'
 
-ForBreakIncDecTest1.btm:29:semantic error: Variable in VarExpr not found
-
-ForBreakIncDecTest1.btm:29:semantic error: actual parameter 1with type 'Objectdoes not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
+ForBreakIncDecTest1.btm:29:semantic error: actual parameter 1with type 'int[]does not match forma parameter 1 with declaredtype 'intin dispath to method 'putInt'
 
 ForBreakIncDecTest1.btm:29:semantic error: dispatch to unknown method 'putString'
 
 Stopping compilation due to errors
-12 error(s)
+8 error(s)

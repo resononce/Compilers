@@ -1,22 +1,45 @@
-java.lang.NullPointerException
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.BinaryCompEqExpr.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.IfStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.BlockStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.WhileStmt.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.StmtList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.Method.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at ast.MemberList.accept(Unknown Source)
-	at semant.TypeCheckVisitor.visit(Unknown Source)
-	at semant.SemanticAnalyzer.typeCheck(Unknown Source)
-	at semant.SemanticAnalyzer.analyze(Unknown Source)
-	at Main.main(Unknown Source)
-Internal error within compiler: stopping compilation
+total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: v compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+total : 5 parent total: 1<>variable: s compare level: 6 In Scope Level: 4
+total : 7 parent total: 1<>variable: tmp compare level: 8 In Scope Level: 6
+total : 7 parent total: 1<>variable: i compare level: 2 In Scope Level: 6
+total : 11 parent total: 1<>variable: found compare level: 12 In Scope Level: 10
+total : 11 parent total: 1<>variable: i compare level: 6 In Scope Level: 10
+total : 15 parent total: 1<>variable: j compare level: 16 In Scope Level: 14
+total : 19 parent total: 1<>variable: j compare level: 4 In Scope Level: 18
+total : 23 parent total: 1<>variable: removed compare level: 24 In Scope Level: 22
+total : 23 parent total: 1<>variable: i compare level: 4 In Scope Level: 22
+total : 27 parent total: 1<>variable: j compare level: 8 In Scope Level: 26
+GCTest.btm:9:semantic error: actual parameter 1with type 'Adoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+
+GCTest.btm:18:semantic error: actual parameter 1with type 'TextIOdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+
+GCTest.btm:23:semantic error: actual parameter 1with type 'Sysdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+
+GCTest.btm:25:semantic error: actual parameter 1with type 'Stringdoes not match forma parameter 1 with declaredtype 'Objectin dispath to method 'addElement'
+
+Vector.btm:7:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
+
+Vector.btm:9:semantic error: expression type 'Object' of field 'elements' does not conform to declared type 'Object[]'
+
+Vector.btm:54:semantic error: the lefthand type 'Object' in the binary operation ('*') is incorrect; should have been: int
+
+Vector.btm:54:semantic error: expression type 'Object' of declaration 'tmp' does not conform to declared type 'Object[]'
+
+Vector.btm:55:semantic error: variable 'i' is already defined in method resize
+
+Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+
+Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
+
+Vector.btm:96:semantic error: return type 'Object[]' is not compatible with declared return type 'Object' in method 'elementAt'
+
+Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match righthand type 'Object'
+
+Vector.btm:115:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
+
+Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match righthand type 'Object'
+
+Stopping compilation due to errors
+15 error(s)

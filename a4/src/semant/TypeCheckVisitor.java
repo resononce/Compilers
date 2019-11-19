@@ -423,10 +423,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 classMap.containsKey(methodReturnTypeNoArray)) {
                 //get children of method returnType if classType
                 Iterator children = classMap.get(methodReturnTypeNoArray).getChildrenList();
-                boolean conform = false;
                 if (!returnTypeNotArray.equals(methodReturnTypeNoArray)) {
                     //Stil need to check for conformity
-                    
+                    boolean conform = false;
                     while (children.hasNext()) {
                         if (returnTypeNotArray.equals(((ClassTreeNode) children.next())
                             .getASTNode().getName())) {
@@ -1309,6 +1308,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   + "the binary operation ('+') is incorrect;"
                                   + " should have been: int");
         }
+        node.setExprType("int");
         return "int"; 
     }
     

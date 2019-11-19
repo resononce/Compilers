@@ -1,4 +1,4 @@
-1,70c1,4
+1,70c1,8
 < // Source file: Primes.btm
 < // Source line: 4
 < class Main extends Object {
@@ -70,6 +70,10 @@
 <     }
 < }
 ---
+> total : 3 parent total: 1<>variable: max compare level: 4 In Scope Level: 2
+> total : 4 parent total: 1<>variable: i compare level: 5 In Scope Level: 3
+> total : 5 parent total: 1<>variable: isPrime compare level: 6 In Scope Level: 4
+> total : 5 parent total: 1<>variable: i compare level: 6 In Scope Level: 4
 > Primes.btm:6:semantic error: expression type 'TextIO' of field 'io' does not conform to declared type 'TextIO'
 > 
 > Stopping compilation due to errors

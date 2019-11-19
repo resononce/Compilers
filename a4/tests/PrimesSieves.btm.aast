@@ -1,12 +1,15 @@
+total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: primes compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: n compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+total : 7 parent total: 1<>variable: j compare level: 8 In Scope Level: 6
 PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
 
-PrimesSieves.btm:25:semantic error: variable 'primesin assignment is undeclared
+PrimesSieves.btm:25:semantic error: the righthand type 'boolean' does not conform to the lefthand type 'boolean[]' in assignment
 
-PrimesSieves.btm:31:semantic error: Variable in VarExpr not found
+PrimesSieves.btm:31:semantic error: the expression type 'boolean[]' in the unary operation ('!') is incorrect; should have been: boolean
 
-PrimesSieves.btm:31:semantic error: the expression type 'Object' in the unary operation ('!') is incorrect; should have been: boolean
-
-PrimesSieves.btm:38:semantic error: variable 'primesin assignment is undeclared
+PrimesSieves.btm:38:semantic error: the righthand type 'boolean' does not conform to the lefthand type 'boolean[]' in assignment
 
 Stopping compilation due to errors
-5 error(s)
+4 error(s)

@@ -1,3 +1,8 @@
+total : 3 parent total: 1<>variable: io compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: min compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: n compare level: 4 In Scope Level: 2
+total : 3 parent total: 1<>variable: i compare level: 4 In Scope Level: 2
+total : 5 parent total: 1<>variable: userInput compare level: 6 In Scope Level: 4
 // Source file: FindMin.btm
 // Source line: 1
 class Main extends Object {
@@ -49,7 +54,7 @@ class Main extends Object {
                 // Source line: 21
                 (/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/(/*L21,type:TextIO*/io).putString((/*L21,type:String*/"You entered: "))).putInt((/*L21,type:int*/userInput))).putString((/*L21,type:String*/"\n\n")));
                 // Source line: 22
-                (/*L22,type:int*/i = (/*L22*/(/*L22,type:int*/i) + (/*L22,type:int*/1)));
+                (/*L22,type:int*/i = (/*L22,type:int*/(/*L22,type:int*/i) + (/*L22,type:int*/1)));
             }
         // Source line: 25
         (/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/(/*L25,type:TextIO*/io).putString((/*L25,type:String*/"The minimum number entered was: "))).putInt((/*L25,type:int*/min))).putString((/*L25,type:String*/"\n")));
