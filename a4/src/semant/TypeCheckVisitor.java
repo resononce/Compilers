@@ -94,6 +94,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(Method node) {
+        //moves forward into body of method
+        node.getStmtList().accept(this);
         vTable.enterScope();  //Changed from mTable to vTable based on slide 15-2
         methodName = node.getName();
         methodReturnType = node.getReturnType();
@@ -145,8 +147,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 vTable.add(f.getName(), f.getType());
             }
         }
-        //moves forward into body of method
-        node.getStmtList().accept(this);
         return null; 
     }
 
@@ -331,8 +331,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         int lineNum = node.getLineNum();
         boolean noError = true;
         String returnType = "void";
+        System.out.println("Return something");
         if (node.getExpr() != null) {
             Expr expr = (Expr) node.getExpr().accept(this);
+            System.out.println("Return something");
             lineNum = expr.getLineNum();
             returnType = expr.getExprType();
             if (returnType.equals("void")) {
@@ -428,6 +430,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             } 
         }
         //Whether incorrect or correct, we will always return the returnType
+        node.getExpr().setExprType(returnType);
         return returnType; 
     }
     
