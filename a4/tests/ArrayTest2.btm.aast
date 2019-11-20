@@ -2,8 +2,6 @@ ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary oper
 
 ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
 
-ArrayTest2.btm:23:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-
 ArrayTest2.btm:31:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 ArrayTest2.btm:33:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
@@ -14,9 +12,7 @@ ArrayTest2.btm:34:semantic error: the righthand type 'int[]' in the binary opera
 
 ArrayTest2.btm:35:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
 
-ArrayTest2.btm:37:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-
 ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 Stopping compilation due to errors
-10 error(s)
+8 error(s)

@@ -21,7 +21,7 @@
 <     }
 < }
 ---
-> ArrayStoreError1.btm:7:semantic error: the righthand type 'Main' does not conform to the lefthand type 'Object[]' in assignment
+> ArrayStoreError1.btm:7:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'Main' in assignment
 > 
 > Stopping compilation due to errors
 > 1 error(s)

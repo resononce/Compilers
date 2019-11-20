@@ -2,13 +2,9 @@ ArrayTest3.btm:18:semantic error: the target type 'int[]' is primitive and not a
 
 ArrayTest3.btm:18:semantic error: expression type 'Object' of declaration 'array2' does not match declared type 'int[]'
 
-ArrayTest3.btm:19:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-
 ArrayTest3.btm:29:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 ArrayTest3.btm:30:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
-
-ArrayTest3.btm:30:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
 
 ArrayTest3.btm:38:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
@@ -20,9 +16,7 @@ ArrayTest3.btm:41:semantic error: the righthand type 'int[]' in the binary opera
 
 ArrayTest3.btm:42:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
 
-ArrayTest3.btm:44:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-
 ArrayTest3.btm:55:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 Stopping compilation due to errors
-13 error(s)
+10 error(s)

@@ -44,9 +44,7 @@ Vector.btm:96:semantic error: return type 'Object[]' is not compatible with decl
 
 Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'Object'
 
-Vector.btm:115:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
-
 Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
 
 Stopping compilation due to errors
-25 error(s)
+24 error(s)

@@ -1,4 +1,4 @@
-1,391c1,24
+1,391c1,22
 < // Source file: FileIO.btm
 < // Source line: 1
 < class Main extends Object {
@@ -409,9 +409,7 @@
 > 
 > Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'Object'
 > 
-> Vector.btm:115:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
-> 
 > Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
 > 
 > Stopping compilation due to errors
-> 11 error(s)
+> 10 error(s)

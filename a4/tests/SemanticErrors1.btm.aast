@@ -180,7 +180,9 @@ SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' and righthand
 
 SemanticErrors1.btm:135:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 
-SemanticErrors1.btm:136:semantic error: the righthand type  'void' does not conform to the lefthand type 'TextIO' in assignment
+SemanticErrors1.btm:136:semantic error: the righthand type 'void' does not conform to the lefthand type 'TextIO' in assignment
+
+SemanticErrors1.btm:137:semantic error: bad reference 't': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
 
 SemanticErrors1.btm:138:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 
@@ -221,4 +223,4 @@ SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'voi
 SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
 
 Stopping compilation due to errors
-111 error(s)
+112 error(s)

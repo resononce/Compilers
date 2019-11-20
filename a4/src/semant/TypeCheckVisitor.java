@@ -105,15 +105,32 @@ public class TypeCheckVisitor extends SemanticVisitor {
     }
 
     public Object visit(Method node) {
+        int lineNum = node.getLineNum();
         methodReturnType = node.getReturnType();
         vTable.enterScope();  //Changed from mTable to vTable based on slide 15-2
         methodName = node.getName();
+        if (methodName.equals("main") && className.equals("Main")) {
+            if (((ListNode) node.getFormalList()).getSize() > 0) {
+                errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                          fileName, 
+                                          lineNum,
+                                          "'main' method in class " +
+                                          "'Main' cannot take arguments");
+            }
+            if (!node.getReturnType().equals("void")) {
+                errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                          fileName, 
+                                          lineNum,
+                                          "'main' method in class "+
+                                          "'Main' must be void");
+            }
+        }
         //moves forward into body of method
         //node.getStmtList().accept(this);
         //Goes through method arguments to check for type of each arg
         for (Iterator it = node.getFormalList().getIterator(); it.hasNext();) {
             Formal f = (Formal) it.next();
-            int lineNum = f.getLineNum();
+            lineNum = f.getLineNum();
             String name = f.getName();
             String type = f.getType();
             String checkType = type.replace("[]", "");
@@ -420,7 +437,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             returnType = (String) node.getExpr().accept(this);
             Expr expr = (Expr) node.getExpr();
             lineNum = expr.getLineNum();
-
             if (returnType.equals("void")) {
                 noError = false;
                 //Register void return error
@@ -432,6 +448,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 //set to default type "Object" when type is void
                 returnType = "Object";
             }
+
             
             String returnTypeNotArray = returnType.replace("[]", "");
             //Double check this if later
@@ -525,7 +542,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           " compatible with declared return type" +
                                           " '" + methodReturnType + "' " +
                                           "in method '" + methodName + "'");
-                }
+            }
             else if (!methodReturnType.equals("void")) {
                 noError = false;
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1168,6 +1185,16 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 }
                 node.setExprType(rhsType);
             }
+            else {
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                      fileName,
+                                      lineNum,
+                                      "bad reference '" + refName + "': " 
+                                      + "fields are 'protected' and " +
+                                      "can only be accessed within the " +
+                                      "class or subclass via" + 
+                                      " 'this' or 'super'");
+            } 
         }
         else {
             lhsType = (String) vTable.lookup(varName);
@@ -1249,10 +1276,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
         String rhsType = (String) node.getExpr().accept(this);
         node.getExpr().setExprType(rhsType);
         int lineNum = node.getLineNum();
-        //node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
         String refName = node.getRefName();
         String varName = node.getName();
-        String varType;
+        String lhsType;
 
         if (!index.equals("int")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1262,77 +1288,221 @@ public class TypeCheckVisitor extends SemanticVisitor {
         }
         if (refName != null) {
             if (refName.equals("this")) {
-                //get the parent, because we're gonna remove it
-                //SymbolTable tempParent = classMap.get(className).getParent().getVarSymbolTable();
-                //vTable.setParent(null);
-                varType = (String) vTable.lookup("this." + varName);
-                int scopeLevel = vTable.getScopeLevel("this." + varName); //-1 if not found
-                // getSize() is total size, getCurrScopeSize is child size
-                int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize(); //0 if not found
-                if (scopeLevel <= inheritedScopeSize) {
+                lhsType = (String) vTable.lookup("this." + varName);
+                if (lhsType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
                                           "in assignment is undeclared");
                 }
-                else if (!varType.equals(rhsType)) {
+                else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
+                                        fileName,
+                                        lineNum,
+                                        "the righthand type 'void' does not" + 
+                                        " conform to the lefthand type '" +
+                                        lhsType + "' in assignment");
+                }
+                else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the righthand type '" + rhsType +
-                                          "' does not conform to the lefthand"
-                                          + " type '" + varType + "'" +
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
                                           " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsType.equals(rhsType)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
                 }
                 node.setExprType(rhsType);
-            } else if (refName.equals("super")) {
+            } 
+            else if (refName.equals("super")) {
                 //check the parent's VarSymbolTable scope for type of b in a.b
-                varType = (String) classMap.get(className).getParent()
+                lhsType = (String) classMap.get(className).getParent()
                                         .getVarSymbolTable().lookup(varName);
                 int scopeLevel = vTable.getScopeLevel("this." + varName); //-1 if not found
-                int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize();
-                //TODO
-                if (scopeLevel <= inheritedScopeSize) {
+                //Couldn't find the variable
+                if (scopeLevel <= 0) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
                                           "in assignment is undeclared");
                 }
-                else if (!varType.equals(rhsType)) {
+                else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
+                                        fileName,
+                                        lineNum,
+                                        "the righthand type 'void' does not" + 
+                                        " conform to the lefthand type '" +
+                                        lhsType + "' in assignment");
+                }
+                else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the righthand type '" + rhsType +
-                                          "' does not conform to the lefthand"
-                                          + " type '" + varType + "'" +
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
                                           " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsType.equals(rhsType)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
                 }
                 node.setExprType(rhsType);
             }
+            else {
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                      fileName,
+                                      lineNum,
+                                      "bad reference '" + refName + "': " 
+                                      + "fields are 'protected' and " +
+                                      "can only be accessed within the " +
+                                      "class or subclass via" + 
+                                      " 'this' or 'super'");
+            } 
         }
         else {
-            varType = (String) vTable.lookup(varName);
-            if (varType == null) {
+            lhsType = (String) vTable.lookup(varName);
+            if (lhsType == null) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
                                       "variable '" + varName + 
                                       "in assignment is undeclared");
             }
-            else if (!varType.equals(rhsType)) {
+            else if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
-                                      fileName,
-                                      lineNum,
-                                      "the righthand type '" + rhsType +
-                                      "' does not conform to the lefthand"
-                                      + " type '" + varType + "'" +
-                                      " in assignment");
+                                    fileName,
+                                    lineNum,
+                                    "the righthand type 'void' does not" + 
+                                    " conform to the lefthand type '" +
+                                    lhsType + "' in assignment");
             }
+            else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
+                }
             node.setExprType(rhsType);
         }
-        return null; 
+        //If RHS = void, error register
+
+        //If RHS != LHS type b, error register
+        //return the RHS return type
+        node.setExprType(rhsType);
+        return rhsType; 
     }
     
     public Object visit(BinaryExpr node) { 
@@ -1829,10 +1999,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
             if (refName.equals("this")) {
                 //check local 
                 varType = (String) vTable.lookup("this." + name);
-                int scopeLevel = vTable.getScopeLevel("this." + name); //-1 if not found
+                //int scopeLevel = vTable.getScopeLevel("this." + name); //-1 if not found
                 // getSize() is total size, getCurrScopeSize is child size
-                int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize(); //0 if not found
-                if (scopeLevel <= inheritedScopeSize) {
+                //int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize(); //0 if not found
+                if (varType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
@@ -1852,10 +2022,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 //check the parent's VarSymbolTable scope for type of b in a.b
                 varType = (String) classMap.get(className).getParent()
                                         .getVarSymbolTable().lookup("this." + name);
-                int scopeLevel = vTable.getScopeLevel("this." + name); //-1 if not found
-                int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize();
+                //int scopeLevel = vTable.getScopeLevel("this." + name); //-1 if not found
                 //TODO
-                if (scopeLevel <= inheritedScopeSize) {
+                if (varType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,

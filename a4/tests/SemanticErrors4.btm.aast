@@ -52,9 +52,11 @@ SemanticErrors4.btm:43:semantic error: expression type 'Object[]' of declaration
 
 SemanticErrors4.btm:44:semantic error: size in the array construction has type 'boolean[]' rather than int
 
+SemanticErrors4.btm:45:semantic error: bad reference 'be': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
+
 SemanticErrors4.btm:47:semantic error: the lefthand type 'boolean[]' and righthand type 'int[]' are not compatible in assignment
 
-SemanticErrors4.btm:48:semantic error: the righthand type 'int' does not conform to the lefthand type 'boolean[]' in assignment
+SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean[]' and righthand type 'int' are not compatible in assignment
 
 SemanticErrors4.btm:50:semantic error: bad reference to 'boolean[]': arrays do not have this field (they only have a 'length' field)
 
@@ -67,4 +69,4 @@ SemanticErrors4.btm:53:semantic error: the expression type 'boolean' in the unar
 SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
 
 Stopping compilation due to errors
-34 error(s)
+35 error(s)

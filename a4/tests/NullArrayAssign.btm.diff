@@ -1,4 +1,4 @@
-1,13c1,8
+1,13c1,6
 < // Source file: NullArrayAssign.btm
 < // Source line: 1
 < class Main extends Object {
@@ -17,7 +17,5 @@
 > 
 > NullArrayAssign.btm:3:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
 > 
-> NullArrayAssign.btm:4:semantic error: the righthand type 'int' does not conform to the lefthand type 'int[]' in assignment
-> 
 > Stopping compilation due to errors
-> 3 error(s)
+> 2 error(s)

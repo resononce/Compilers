@@ -177,8 +177,9 @@ public class ClassEnvVisitor extends SemanticVisitor{
                 }
             }
         }
-        if (noError)
+        if (noError) {
             mTable.add(name, node);
+        }
         return node;
     }
 }

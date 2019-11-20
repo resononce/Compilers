@@ -31,11 +31,11 @@
 <     }
 < }
 ---
-> ArrayStoreError2.btm:9:semantic error: the righthand type 'B' does not conform to the lefthand type 'Object[]' in assignment
+> ArrayStoreError2.btm:9:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'B' in assignment
 > 
-> ArrayStoreError2.btm:10:semantic error: the righthand type 'D' does not conform to the lefthand type 'Object[]' in assignment
+> ArrayStoreError2.btm:10:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'D' in assignment
 > 
-> ArrayStoreError2.btm:11:semantic error: the righthand type 'A' does not conform to the lefthand type 'Object[]' in assignment
+> ArrayStoreError2.btm:11:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'A' in assignment
 > 
 > Stopping compilation due to errors
 > 3 error(s)

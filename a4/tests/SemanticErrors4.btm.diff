@@ -43,25 +43,23 @@
 < SemanticErrors4.btm:43:semantic error: expression type 'Object' of declaration 'ia' does not conform to declared type 'int[]'
 ---
 > SemanticErrors4.btm:43:semantic error: expression type 'Object[]' of declaration 'ia' does not match declared type 'int[]'
-55,57c55
+55c55
 < SemanticErrors4.btm:45:semantic error: length field in array 'be': cannot be modified
-< 
+---
+> SemanticErrors4.btm:45:semantic error: bad reference 'be': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
+57c57
 < SemanticErrors4.btm:47:semantic error: the righthand type 'int[]' does not conform to the lefthand type 'boolean[]' in assignment
 ---
 > SemanticErrors4.btm:47:semantic error: the lefthand type 'boolean[]' and righthand type 'int[]' are not compatible in assignment
-59c57
+59c59
 < SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 ---
-> SemanticErrors4.btm:48:semantic error: the righthand type 'int' does not conform to the lefthand type 'boolean[]' in assignment
-61c59
+> SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean[]' and righthand type 'int' are not compatible in assignment
+61c61
 < SemanticErrors4.btm:50:semantic error: bad reference to 'i': arrays do not have this field (they only have a 'length' field)
 ---
 > SemanticErrors4.btm:50:semantic error: bad reference to 'boolean[]': arrays do not have this field (they only have a 'length' field)
-69c67
+69c69
 < SemanticErrors4.btm:55:semantic error: variable 'c' in assignment is undeclared
 ---
 > SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
-72c70
-< 35 error(s)
----
-> 34 error(s)

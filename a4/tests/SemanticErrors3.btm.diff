@@ -1,9 +1,0 @@
-1,4d0
-< SemanticErrors3.btm:3:semantic error: 'main' method in class 'Main' cannot take arguments
-< 
-< SemanticErrors3.btm:3:semantic error: 'main' method in class 'Main' must be void
-< 
-8c4
-< 3 error(s)
----
-> 1 error(s)
