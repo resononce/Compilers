@@ -1,4 +1,0 @@
-7c7
-<         int x = (/*L3,type:int*/(/*L3,type:int*/3) % (/*L3,type:int*/0));
----
->         int x = (/*L3*/(/*L3,type:int*/3) % (/*L3,type:int*/0));

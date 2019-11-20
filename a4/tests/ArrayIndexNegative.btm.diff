@@ -1,0 +1,23 @@
+1,15c1,6
+< // Source file: ArrayIndexNegative.btm
+< // Source line: 1
+< class Main extends Object {
+<     // Source line: 2
+<     void main() {
+<         // Source line: 3
+<         int[] array = (/*L3,type:int[]*/new int[(/*L3,type:int*/3)]);
+<         // Source line: 4
+<         (/*L4,type:int*/array[(/*L4,type:int*/0)] = (/*L4,type:int*/0));
+<         // Source line: 5
+<         (/*L5,type:int*/array[(/*L5,type:int*/-((/*L5,type:int*/1)))] = (/*L5,type:int*/1));
+<         // Source line: 6
+<         return;
+<     }
+< }
+---
+> ArrayIndexNegative.btm:3:semantic error: type 'int[]' of declaration 'array' is undefined
+> 
+> ArrayIndexNegative.btm:3:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
+> 
+> Stopping compilation due to errors
+> 2 error(s)

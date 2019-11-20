@@ -1,4 +1,4 @@
-1,96c1,26
+1,96c1,18
 < // Source file: ArrayTest1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -96,8 +96,6 @@
 <     }
 < }
 ---
-> ArrayTest1.btm:2:semantic error: expression type 'null' of field 'goo' does not match declared type 'boolean[]'
-> 
 > ArrayTest1.btm:20:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'String' in assignment
 > 
 > ArrayTest1.btm:20:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'String' in assignment
@@ -108,17 +106,11 @@
 > 
 > ArrayTest1.btm:27:semantic error: expression type 'Object' of declaration 'strings' does not conform to declared type 'String[]'
 > 
-> ArrayTest1.btm:28:semantic error: type 'null' of declaration 'array2' is undefined
-> 
-> ArrayTest1.btm:28:semantic error: expression type 'Object' of declaration 'array2' does not match declared type 'int[]'
-> 
 > ArrayTest1.btm:29:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
 > 
 > ArrayTest1.btm:39:semantic error: actual parameter 1 with type 'Object' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
 > 
 > ArrayTest1.btm:39:semantic error: dispatch to unknown method 'putString'
 > 
-> ArrayTest1.btm:43:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'null'
-> 
 > Stopping compilation due to errors
-> 12 error(s)
+> 8 error(s)

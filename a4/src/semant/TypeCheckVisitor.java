@@ -46,8 +46,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             String name = node.getName();
             String rCheckType = rhsType.replace("[]", "");
             String lCheckType = lhsType.replace("[]", "");
-            boolean isLNotPrimitive = !lhsType.equals("int") && !lhsType.equals("boolean");
-            boolean isRNotPrimitve = !rhsType.equals("int") && !rhsType.equals("boolean");
             //checks if assigning a void to  the lhs
             if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
@@ -56,14 +54,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "expression type '" + rhsType +  
                                       "' of field '" + name +
                                       "' cannot be void");
-            }
-            else if(isLNotPrimitive && rCheckType.equals("null")){
-                //assigning null to a class or array
-            }
+            } 
             //checks if either lhs or rhs is primitive and do not match
-            else if (isLNotPrimitive && isRNotPrimitve 
-                    && !lCheckType.equals(rCheckType) 
-                    && !rCheckType.equals("null")) {
+            else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) 
+                    || (rCheckType.equals("boolean") || rCheckType.equals("int"))) 
+                    && !lCheckType.equals(rCheckType) && !rCheckType.equals("null")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -73,12 +68,13 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lhsType + "'");
             } 
             //checks if they are Class type and if rhs is subtype of lhs
-            else if (classMap.containsKey(lCheckType) 
-                    && classMap.containsKey(rCheckType)) {
+                else if (classMap.containsKey(lCheckType) 
+                        && classMap.containsKey(rCheckType) 
+                        && !rCheckType.equals("null")) {
                 boolean notChild = true;
                 for (ClassTreeNode parent = classMap.get(rCheckType); 
-                    parent != null && notChild; 
-                    parent = parent.getParent()) {
+                     parent != null && notChild; 
+                     parent = parent.getParent()){
 
                     if (parent.getASTNode().getName().equals(lCheckType)) {
                         notChild = false;
@@ -202,29 +198,30 @@ public class TypeCheckVisitor extends SemanticVisitor {
         boolean lhsIsArray = lhsType.contains("[]");
         boolean rhsIsArray = rhsType.contains("[]");
 
-        boolean isLNotPrimitive = !lhsType.equals("boolean") && !lhsType.equals("int");
-        boolean isRNotPrimitive = !rhsType.equals("boolean") && !rhsType.equals("int");
-
         String lhsTypeNoBracket = lhsType.replace("[]", "");
         String rhsTypeNoBracket = rhsType.replace("[]", "");
 
         boolean duplicate = false;
         //Type heck of lhs
-        if (isLNotPrimitive && !classMap.containsKey(lhsTypeNoBracket) && !lhsType.contains("[]")) {
+        if ((!lhsTypeNoBracket.equals("int") && 
+             !lhsTypeNoBracket.equals("boolean")) &&
+             !classMap.containsKey(lhsTypeNoBracket)) {
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                 fileName, 
                                 lineNum,
                                 "type '" + lhsType +  
                                 "' of declaration '" + name + 
                                 "' is undefined");
-
-
+            if (lhsIsArray) {
+                lhsType = "Object[]";
+            }
+            else {
                 lhsType = "Object";
-            
+            }
         }
         //Type Check of rhs
-        if (isRNotPrimitive &&
-             !rhsTypeNoBracket.equals("null") &&
+        if ((!rhsTypeNoBracket.equals("boolean") && 
+             !rhsTypeNoBracket.equals("int")) &&
              !classMap.containsKey(rhsTypeNoBracket)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
@@ -233,9 +230,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' of declaration '" + name + 
                                       "' is undefined");
                 //Sets to default type "Object" when unknown
-
+                if (rhsIsArray) {
+                    rhsType = "Object[]";
+                }
+                else {
                     rhsType = "Object";
-                
+                }
         }
         //Reserved name check
         if (name.equals("null") || name.equals("super") || 
@@ -265,12 +265,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
             if(lhsTypeNoBracket.equals("Object")){
                 //everything is awesome
             }
-            else if (rhsType.equals("null") && isLNotPrimitive){
-                //we can do this with classes/arrays
-            }
             //Need to check if conforms or not
-            else if (classMap.containsKey(rhsTypeNoBracket) 
-                    && classMap.containsKey(lhsTypeNoBracket)){
+            else if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(lhsTypeNoBracket)){
                 boolean doesConform = false;
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
@@ -299,7 +295,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           );
                 }
             } 
-            
             //at least one is not a class, and they don't match
             else {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -875,7 +870,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   fileName,
                                   lineNum,
                                   "type '" + type + "' of new" 
-                                  + "construction is undefined");
+                                  + " construction is undefined");
             type = "Object";
         }
         String size = (String) node.getSize().accept(this);
@@ -974,36 +969,54 @@ public class TypeCheckVisitor extends SemanticVisitor {
         node.getExpr().setExprType(exprType);
         String castTypeNoArr = castType.replace("[]", "");
         String exprTypeNoArr = exprType.replace("[]", "");
-
-        if (castTypeNoArr.equals("int") || castTypeNoArr.equals("boolean")) {
+        //if it is an int or boolean cast
+        if (castType.equals("int") || castType.equals("boolean")) {
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,
                                   "the target type '" + castType +
                                   "' is primitive and not an object type");
-            castType = "Object";
-            castTypeNoArr = "Object";
-            //Maybe node.setExprType("Object"); Slide 15-20
         }
+        //If it is a int[] or boolean[] cast
         else if (!classMap.containsKey(castTypeNoArr)) {
-            errorHandler.register(errorHandler.SEMANT_ERROR,
+            if (!castType.contains("[]")) {
+                castType = "Object[]";
+                errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
                                   lineNum,
-                                  "the target type '" +
-                                  castType + "' is undefined");
-            castType = "Object";
+                                  "the base type in the target " +
+                                   "array type '" + castTypeNoArr
+                                   + "' is undefined");
+            }
+            else {
+                castType = "Object";
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                    fileName,
+                                    lineNum,
+                                    "the target type '" +
+                                    castType + "' is undefined");
+            }
             castTypeNoArr = "Object";
         }
         //if expr, from node.getExpr() is primitive or neither an up or down cast, register error
         //Set boolean flag and setExprType()
         if (exprTypeNoArr.equals("int") || exprTypeNoArr.equals("boolean")) {
-            //Register an error
-            errorHandler.register(errorHandler.SEMANT_ERROR,
-                                   fileName,
-                                   lineNum,
-                                   "expression in cast has type '" +
-                                   exprType + "', which is primitive"
-                                   + " and can't be casted");
+            if (!exprType.contains("[]")) {
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                    fileName,
+                                    lineNum,
+                                    "expression in cast has type '" +
+                                    exprType + "', which is primitive"
+                                    + " and can't be casted");
+            }
+            // (boolean[]) (int[])
+            else if (!exprType.equals(castType)) {
+                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                      fileName,
+                                      lineNum,
+                                      "inconvertible types ('" + exprType 
+                                      + "'=>'" + castType + "')");
+            }
         } 
         //Check for appropriate upcasting and downcasting
         else {          
@@ -1027,7 +1040,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
             if (castTypeNoArr.equals(exprTypeNoArr)) {
                 legitCast = true;
             }
-
             if (!legitCast) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
@@ -1069,7 +1081,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                 }
                 else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1086,11 +1098,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
                         if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
                             boolean notChild = true;
-                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                            for (ClassTreeNode parent = classMap.get(rhsTypeNoArr); 
                                 parent != null && notChild; 
                                 parent = parent.getParent()){
 
-                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                if (parent.getASTNode().getName().equals(lhsTypeNoArr)) {
                                     notChild = false;
                                 }
                             }
@@ -1098,9 +1110,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the lefthand type '" + lhsType +
-                                          "' does not conform to the righthand"
-                                          + " type '" + rhsType + "'" +
+                                          "the righthand type '" + rhsType +
+                                          "' does not conform to the lefthand"
+                                          + " type '" + lhsType + "'" +
                                           " in assignment");
                             }
                             if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
@@ -1108,9 +1120,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the lefthand type '" + lhsType +
-                                          "' does not conform to the righthand"
-                                          + " type '" + rhsType + "'" +
+                                          "the righthand type '" + rhsType +
+                                          "' does not conform to the lefthand"
+                                          + " type '" + lhsType + "'" +
                                           " in assignment");
                             }
                         }
@@ -1138,7 +1150,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                 }
                 else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1155,11 +1167,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
                         if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
                             boolean notChild = true;
-                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                            for (ClassTreeNode parent = classMap.get(rhsTypeNoArr); 
                                 parent != null && notChild; 
                                 parent = parent.getParent()){
 
-                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                if (parent.getASTNode().getName().equals(lhsTypeNoArr)) {
                                     notChild = false;
                                 }
                             }
@@ -1214,7 +1226,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       fileName,
                                       lineNum,
                                       "variable '" + varName + 
-                                      "in assignment is undeclared");
+                                      "' in assignment is undeclared");
             }
             else if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1234,11 +1246,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     else if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
                         if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
                             boolean notChild = true;
-                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                            for (ClassTreeNode parent = classMap.get(rhsTypeNoArr); 
                                 parent != null && notChild; 
                                 parent = parent.getParent()){
 
-                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                if (parent.getASTNode().getName().equals(lhsTypeNoArr)) {
                                     notChild = false;
                                 }
                             }
@@ -1246,9 +1258,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the lefthand type '" + lhsType +
-                                          "' does not conform to the righthand"
-                                          + " type '" + rhsType + "'" +
+                                          "the righthand type '" + rhsType +
+                                          "' does not conform to the lefthand"
+                                          + " type '" + lhsType + "'" +
                                           " in assignment");
                             }
                             if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
@@ -1256,10 +1268,22 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the lefthand type '" + lhsType +
-                                          "' does not conform to the righthand"
-                                          + " type '" + rhsType + "'" +
+                                          "the righthand type '" + rhsType +
+                                          "' does not conform to the lefthand"
+                                          + " type '" + lhsType + "'" +
                                           " in assignment");
+                            }
+                        }
+                        //New stuff
+                        else {
+                            if (lhsType.contains("[]") != rhsType.contains("[]")) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                                      fileName,
+                                                      lineNum,
+                                                      "the righthand type '" + rhsType +
+                                                      "' does not conform to the lefthand"
+                                                      + " type '" + lhsType + "'" +
+                                                      " in assignment");
                             }
                         }
                     }
@@ -1308,7 +1332,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                 }
                 else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1377,7 +1401,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                 }
                 else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1453,7 +1477,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       fileName,
                                       lineNum,
                                       "variable '" + varName + 
-                                      "in assignment is undeclared");
+                                      "' in assignment is undeclared");
             }
             else if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1614,7 +1638,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     }
                 }
 
-                if (!foundRelation && !type2.equals("null")) {
+                if (!foundRelation && !type1.equals("boolean")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
@@ -2023,7 +2047,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + name + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                     //Maybe delete later
                     node.setExprType("Object");
                     return "Object";
@@ -2043,7 +2067,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + name + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                     node.setExprType("Object");
                     return "Object";
                 }
@@ -2133,15 +2157,15 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + name + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                     //Maybe delete later
                     node.setExprType("Object");
                     return "Object";
                 }
                 //everything is good when ref is this
                 else {
-                    node.setExprType(varType);
-                    return varType;
+                    node.setExprType(varType.replace("[]", ""));
+                    return varType.replace("[]", "");
                 }   
             }
             else if (refName.equals("super")) {
@@ -2156,14 +2180,14 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           fileName,
                                           lineNum,
                                           "variable '" + name + 
-                                          "in assignment is undeclared");
+                                          "' in assignment is undeclared");
                     node.setExprType("Object");
                     return "Object";
                 }
                 //Everything is correct when ref is super
                 else {
-                    node.setExprType(varType);
-                    return varType;
+                    node.setExprType(varType.replace("[]", ""));
+                    return varType.replace("[]", "");
                 }
             }
             //NEXT LOGIC POINT

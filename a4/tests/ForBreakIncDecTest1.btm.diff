@@ -1,4 +1,4 @@
-1,82c1,4
+1,82c1,8
 < // Source file: ForBreakIncDecTest1.btm
 < // Source line: 1
 < class Main extends Object {
@@ -82,7 +82,11 @@
 <     }
 < }
 ---
+> ForBreakIncDecTest1.btm:3:semantic error: type 'int[]' of declaration 'array' is undefined
+> 
+> ForBreakIncDecTest1.btm:3:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
+> 
 > ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
 > 
 > Stopping compilation due to errors
-> 1 error(s)
+> 3 error(s)

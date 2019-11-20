@@ -1,3 +1,7 @@
+ArrayTest2.btm:8:semantic error: type 'int[]' of declaration 'array' is undefined
+
+ArrayTest2.btm:8:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
+
 ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
@@ -9,4 +13,4 @@ ArrayTest2.btm:33:semantic error: the righthand type 'Object' in the binary oper
 ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 Stopping compilation due to errors
-5 error(s)
+7 error(s)
