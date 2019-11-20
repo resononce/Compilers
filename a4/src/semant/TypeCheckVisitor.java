@@ -46,6 +46,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
             String name = node.getName();
             String rCheckType = rhsType.replace("[]", "");
             String lCheckType = lhsType.replace("[]", "");
+            boolean isLNotPrimitive = !lhsType.equals("int") && !lhsType.equals("boolean");
+            boolean isRNotPrimitve = !rhsType.equals("int") && !rhsType.equals("boolean");
             //checks if assigning a void to  the lhs
             if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
@@ -54,11 +56,14 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "expression type '" + rhsType +  
                                       "' of field '" + name +
                                       "' cannot be void");
-            } 
+            }
+            else if(isLNotPrimitive && rCheckType.equals("null")){
+                //assigning null to a class or array
+            }
             //checks if either lhs or rhs is primitive and do not match
-            else if (((lCheckType.equals("boolean") || lCheckType.equals("int")) 
-                    || (rCheckType.equals("boolean") || rCheckType.equals("int"))) 
-                    && !lCheckType.equals(rCheckType) && !rCheckType.equals("null")) {
+            else if (isLNotPrimitive && isRNotPrimitve 
+                    && !lCheckType.equals(rCheckType) 
+                    && !rCheckType.equals("null")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -68,13 +73,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lhsType + "'");
             } 
             //checks if they are Class type and if rhs is subtype of lhs
-                else if (classMap.containsKey(lCheckType) 
-                        && classMap.containsKey(rCheckType) 
-                        && !rCheckType.equals("null")) {
+            else if (classMap.containsKey(lCheckType) 
+                    && classMap.containsKey(rCheckType)) {
                 boolean notChild = true;
                 for (ClassTreeNode parent = classMap.get(rCheckType); 
-                     parent != null && notChild; 
-                     parent = parent.getParent()){
+                    parent != null && notChild; 
+                    parent = parent.getParent()) {
 
                     if (parent.getASTNode().getName().equals(lCheckType)) {
                         notChild = false;
@@ -198,30 +202,29 @@ public class TypeCheckVisitor extends SemanticVisitor {
         boolean lhsIsArray = lhsType.contains("[]");
         boolean rhsIsArray = rhsType.contains("[]");
 
+        boolean isLNotPrimitive = !lhsType.equals("boolean") && !lhsType.equals("int");
+        boolean isRNotPrimitive = !rhsType.equals("boolean") && !rhsType.equals("int");
+
         String lhsTypeNoBracket = lhsType.replace("[]", "");
         String rhsTypeNoBracket = rhsType.replace("[]", "");
 
         boolean duplicate = false;
         //Type heck of lhs
-        if ((!lhsTypeNoBracket.equals("int") && 
-             !lhsTypeNoBracket.equals("boolean")) &&
-             !classMap.containsKey(lhsTypeNoBracket)) {
+        if (isLNotPrimitive && !classMap.containsKey(lhsTypeNoBracket) && !lhsType.contains("[]")) {
             errorHandler.register(errorHandler.SEMANT_ERROR, 
                                 fileName, 
                                 lineNum,
                                 "type '" + lhsType +  
                                 "' of declaration '" + name + 
                                 "' is undefined");
-            if (lhsIsArray) {
-                lhsType = "Object[]";
-            }
-            else {
+
+
                 lhsType = "Object";
-            }
+            
         }
         //Type Check of rhs
-        if ((!rhsTypeNoBracket.equals("boolean") && 
-             !rhsTypeNoBracket.equals("int")) &&
+        if (isRNotPrimitive &&
+             !rhsTypeNoBracket.equals("null") &&
              !classMap.containsKey(rhsTypeNoBracket)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
@@ -230,12 +233,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' of declaration '" + name + 
                                       "' is undefined");
                 //Sets to default type "Object" when unknown
-                if (rhsIsArray) {
-                    rhsType = "Object[]";
-                }
-                else {
+
                     rhsType = "Object";
-                }
+                
         }
         //Reserved name check
         if (name.equals("null") || name.equals("super") || 
@@ -265,8 +265,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
             if(lhsTypeNoBracket.equals("Object")){
                 //everything is awesome
             }
+            else if (rhsType.equals("null") && isLNotPrimitive){
+                //we can do this with classes/arrays
+            }
             //Need to check if conforms or not
-            else if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(lhsTypeNoBracket)){
+            else if (classMap.containsKey(rhsTypeNoBracket) 
+                    && classMap.containsKey(lhsTypeNoBracket)){
                 boolean doesConform = false;
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
@@ -295,6 +299,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           );
                 }
             } 
+            
             //at least one is not a class, and they don't match
             else {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1609,7 +1614,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     }
                 }
 
-                if (!foundRelation && !type1.equals("boolean")) {
+                if (!foundRelation && !type2.equals("null")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
