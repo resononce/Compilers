@@ -224,11 +224,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
                     parent = parent.getParent()){
-<<<<<<< HEAD
-                    if (parent.getName().equals(checkType)) {
-=======
                     if (parent.getName().equals(lhsTypeNoBracket)) {
->>>>>>> 5150626e3a4504de989dcdb242bfc4e99120bc24
                         doesConform = true;
                     }             
                 }
@@ -993,79 +989,210 @@ public class TypeCheckVisitor extends SemanticVisitor {
     public Object visit(AssignExpr node) {
         //Slide example a.b = RHS
         int lineNum = node.getLineNum();
-        String rhsType = (String) node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
-        String lhsType;
+        String rhsType = (String) node.getExpr().accept(this);  
         String refName = node.getRefName();
         String varName = node.getName();
-        String varType;
-
+        String lhsType;
+ 
         if (refName != null) {
             if (refName.equals("this")) {
-                varType = (String) vTable.lookup("this." + varName);
-                lhsType = varType;
-                if (varType == null) {
+                lhsType = (String) vTable.lookup("this." + varName);
+                if (lhsType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
                                           "in assignment is undeclared");
                 }
-                else if (!varType.equals(rhsType)) {
+                else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
+                                        fileName,
+                                        lineNum,
+                                        "the righthand type  'void' does not" + 
+                                        " conform to the lefthand type '" +
+                                        lhsType + "' in assignment");
+                }
+                else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "the lefthand type '" + lhsType +
                                           "' does not conform to the righthand"
-                                          + " type '" + varType + "'" +
+                                          + " type '" + rhsType + "'" +
                                           " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsType.equals(rhsType)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
                 }
                 node.setExprType(rhsType);
-            } else if (refName.equals("super")) {
+            } 
+            else if (refName.equals("super")) {
                 //check the parent's VarSymbolTable scope for type of b in a.b
-                varType = (String) classMap.get(className).getParent()
+                lhsType = (String) classMap.get(className).getParent()
                                         .getVarSymbolTable().lookup(varName);
                 int scopeLevel = vTable.getScopeLevel("this." + varName); //-1 if not found
-                int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize();
-                lhsType = varType;
-                //TODO
-                if (scopeLevel <= inheritedScopeSize) {
+                //Couldn't find the variable
+                if (scopeLevel <= 0) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "variable '" + varName + 
                                           "in assignment is undeclared");
                 }
-                else if (!varType.equals(rhsType)) {
+                else if (rhsType.equals("void")) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
+                                        fileName,
+                                        lineNum,
+                                        "the righthand type  'void' does not" + 
+                                        " conform to the lefthand type '" +
+                                        lhsType + "' in assignment");
+                }
+                else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
                                           "the lefthand type '" + lhsType +
                                           "' does not conform to the righthand"
-                                          + " type '" + varType + "'" +
+                                          + " type '" + rhsType + "'" +
                                           " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsType.equals(rhsType)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
                 }
                 node.setExprType(rhsType);
             }
         }
         else {
-            varType = (String) vTable.lookup(varName);
-            lhsType = varType;
-            if (varType == null) {
+            lhsType = (String) vTable.lookup(varName);
+            if (lhsType == null) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
                                       "variable '" + varName + 
                                       "in assignment is undeclared");
             }
-            else if (!varType.equals(rhsType)) {
+            else if (rhsType.equals("void")) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
-                                      fileName,
-                                      lineNum,
-                                      "the lefthand type '" + lhsType +
-                                      "' does not conform to the righthand"
-                                      + " type '" + varType + "'" +
-                                      " in assignment");
+                                    fileName,
+                                    lineNum,
+                                    "the righthand type  'void' does not" + 
+                                    " conform to the lefthand type '" +
+                                    lhsType + "' in assignment");
             }
+            else if (!lhsType.equals(rhsType)) {
+                    String lhsTypeNoArr = lhsType.replace("[]", "");
+                    String rhsTypeNoArr = rhsType.replace("[]", "");
+                    //They can conform with class types
+                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                        if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                            boolean notChild = true;
+                            for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
+                                parent != null && notChild; 
+                                parent = parent.getParent()){
+
+                                if (parent.getASTNode().getName().equals(rhsTypeNoArr)) {
+                                    notChild = false;
+                                }
+                            }
+                            if (notChild) {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                            if (!notChild && (rhsType.contains("[]") != lhsType.contains("[]")))
+                            {
+                                errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
+                                          + " type '" + rhsType + "'" +
+                                          " in assignment");
+                            }
+                        }
+                    }
+                    else if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
+                        errorHandler.register(errorHandler.SEMANT_ERROR,
+                                          fileName,
+                                          lineNum,
+                                          "the lefthand type '" + lhsType +
+                                          "' and righthand type '" +
+                                          rhsType + "' are not compatible" +
+                                          " in assignment");
+                    }
+                }
             node.setExprType(rhsType);
         }
         //If RHS = void, error register
