@@ -1,4 +1,4 @@
-1,61c1,8
+1,61c1,6
 < // Source file: PrimesSieves.btm
 < // Source line: 4
 < class Main extends Object {
@@ -65,7 +65,5 @@
 > 
 > PrimesSieves.btm:11:semantic error: expression type 'Object' of declaration 'primes' does not match declared type 'boolean[]'
 > 
-> PrimesSieves.btm:31:semantic error: the expression type 'boolean[]' in the unary operation ('!') is incorrect; should have been: boolean
-> 
 > Stopping compilation due to errors
-> 3 error(s)
+> 2 error(s)

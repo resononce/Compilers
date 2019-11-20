@@ -1,4 +1,4 @@
-1,668c1,50
+1,668c1,44
 < // Source file: VectorTest.btm
 < // Source line: 4
 < class Main extends Object {
@@ -708,13 +708,7 @@
 > 
 > Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
-> Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
-> 
-> Vector.btm:96:semantic error: return type 'Object[]' is not compatible with declared return type 'Object' in method 'elementAt'
-> 
 > Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'Object'
 > 
-> Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
-> 
 > Stopping compilation due to errors
-> 24 error(s)
+> 21 error(s)

@@ -10,13 +10,7 @@ ArrayTest3.btm:38:semantic error: the righthand type 'Object' in the binary oper
 
 ArrayTest3.btm:40:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
-ArrayTest3.btm:41:semantic error: the lefthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
-
-ArrayTest3.btm:41:semantic error: the righthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
-
-ArrayTest3.btm:42:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
-
 ArrayTest3.btm:55:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 Stopping compilation due to errors
-10 error(s)
+7 error(s)

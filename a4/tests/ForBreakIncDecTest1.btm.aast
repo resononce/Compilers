@@ -1,8 +1,4 @@
-ForBreakIncDecTest1.btm:7:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
-
-ForBreakIncDecTest1.btm:8:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
-
 ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
 
 Stopping compilation due to errors
-3 error(s)
+1 error(s)

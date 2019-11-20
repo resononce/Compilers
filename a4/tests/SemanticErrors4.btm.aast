@@ -6,15 +6,13 @@ SemanticErrors4.btm:12:semantic error: predicate in if-statement does not have t
 
 SemanticErrors4.btm:13:semantic error: predicate in if-statement does not have type boolean
 
-SemanticErrors4.btm:15:semantic error: predicate in for-statement does not have type boolean
-
 SemanticErrors4.btm:15:semantic error: the expression type 'boolean[]' in the unary operation ('++') is incorrect; should have been: int
 
 SemanticErrors4.btm:16:semantic error: predicate in for-statement does not have type boolean
 
 SemanticErrors4.btm:18:semantic error: break statement is not inside a loop
 
-SemanticErrors4.btm:20:semantic error: return type 'boolean[]' is not compatible with declared return type 'void' in method 'main'
+SemanticErrors4.btm:20:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method 'main'
 
 SemanticErrors4.btm:21:semantic error: return type 'boolean[]' is not compatible with declared return type 'void' in method 'main'
 
@@ -69,4 +67,4 @@ SemanticErrors4.btm:53:semantic error: the expression type 'boolean' in the unar
 SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
 
 Stopping compilation due to errors
-35 error(s)
+34 error(s)

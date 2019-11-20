@@ -1,65 +1,62 @@
-8a9,10
-> SemanticErrors4.btm:15:semantic error: predicate in for-statement does not have type boolean
-> 
-15c17
-< SemanticErrors4.btm:20:semantic error: return type 'boolean' is not compatible with declared return type 'void' in method 'main'
----
-> SemanticErrors4.btm:20:semantic error: return type 'boolean[]' is not compatible with declared return type 'void' in method 'main'
-27,29c29
+27c27
 < SemanticErrors4.btm:32:semantic error: the righthand type 'String' does not conform to the lefthand type 'String[]' in assignment
-< 
-< SemanticErrors4.btm:33:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
 ---
 > SemanticErrors4.btm:33:semantic error: inconvertible types ('String[]'=>'Object')
+29c29
+< SemanticErrors4.btm:33:semantic error: the righthand type 'Object' does not conform to the lefthand type 'Object[]' in assignment
+---
+> SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
 31c31
 < SemanticErrors4.btm:34:semantic error: the base type in the target array type 'string' is undefined
 ---
-> SemanticErrors4.btm:34:semantic error: the target type 'string[]' is undefined
+> SemanticErrors4.btm:34:semantic error: inconvertible types ('Object[]'=>'Object')
 33c33
 < SemanticErrors4.btm:34:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
 ---
-> SemanticErrors4.btm:34:semantic error: inconvertible types ('Object[]'=>'Object')
+> SemanticErrors4.btm:34:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'Object' in assignment
 35c35
 < SemanticErrors4.btm:35:semantic error: inconvertible types ('boolean[]'=>'String[]')
 ---
-> SemanticErrors4.btm:34:semantic error: the lefthand type 'String[]' does not conform to the righthand type 'Object' in assignment
+> SemanticErrors4.btm:35:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
 37c37
 < SemanticErrors4.btm:36:semantic error: inconvertible types ('boolean[]'=>'Object[]')
 ---
-> SemanticErrors4.btm:35:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
-39c39
-< SemanticErrors4.btm:36:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
----
 > SemanticErrors4.btm:36:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
-41c41
+39,41c39
+< SemanticErrors4.btm:36:semantic error: the righthand type 'Object[]' does not conform to the lefthand type 'String[]' in assignment
+< 
 < SemanticErrors4.btm:39:semantic error: the base type in the instanceof righthand array type 'string' is undefined
 ---
 > SemanticErrors4.btm:39:semantic error: the base type in the instanceofrighthand array type 'string' is undefined
-49c49
+49c47
 < SemanticErrors4.btm:43:semantic error: type 'integer' of new construction is undefined
 ---
 > SemanticErrors4.btm:43:semantic error: type 'integer' of newconstruction is undefined
-51c51
+51c49
 < SemanticErrors4.btm:43:semantic error: expression type 'Object' of declaration 'ia' does not conform to declared type 'int[]'
 ---
 > SemanticErrors4.btm:43:semantic error: expression type 'Object[]' of declaration 'ia' does not match declared type 'int[]'
-55c55
+55c53
 < SemanticErrors4.btm:45:semantic error: length field in array 'be': cannot be modified
 ---
 > SemanticErrors4.btm:45:semantic error: bad reference 'be': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
-57c57
+57c55
 < SemanticErrors4.btm:47:semantic error: the righthand type 'int[]' does not conform to the lefthand type 'boolean[]' in assignment
 ---
 > SemanticErrors4.btm:47:semantic error: the lefthand type 'boolean[]' and righthand type 'int[]' are not compatible in assignment
-59c59
+59c57
 < SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 ---
 > SemanticErrors4.btm:48:semantic error: the lefthand type 'boolean[]' and righthand type 'int' are not compatible in assignment
-61c61
+61c59
 < SemanticErrors4.btm:50:semantic error: bad reference to 'i': arrays do not have this field (they only have a 'length' field)
 ---
 > SemanticErrors4.btm:50:semantic error: bad reference to 'boolean[]': arrays do not have this field (they only have a 'length' field)
-69c69
+69c67
 < SemanticErrors4.btm:55:semantic error: variable 'c' in assignment is undeclared
 ---
 > SemanticErrors4.btm:55:semantic error: variable 'cin assignment is undeclared
+72c70
+< 35 error(s)
+---
+> 34 error(s)

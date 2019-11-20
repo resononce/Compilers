@@ -1,4 +1,0 @@
-15c15
-<             (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int*/array[(/*L7,type:int*/i)]))).putString((/*L7,type:String*/"\n")));
----
->             (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int[]*/array[(/*L7,type:int*/i)]))).putString((/*L7,type:String*/"\n")));

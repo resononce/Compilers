@@ -2193,8 +2193,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 return "Object";
             }
             else {
-                node.setExprType(varType);
-                return varType;
+                node.setExprType(varType.replace("[]", ""));
+                return varType.replace("[]", "");
             }
         }
         return "Object"; 

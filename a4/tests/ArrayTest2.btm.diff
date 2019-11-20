@@ -1,4 +1,4 @@
-1,100c1,18
+1,100c1,12
 < // Source file: ArrayTest2.btm
 < // Source line: 4
 < class Main extends Object {
@@ -108,13 +108,7 @@
 > 
 > ArrayTest2.btm:33:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
-> ArrayTest2.btm:34:semantic error: the lefthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
-> 
-> ArrayTest2.btm:34:semantic error: the righthand type 'int[]' in the binary operation ('>') is incorrect; should have been: int
-> 
-> ArrayTest2.btm:35:semantic error: expression type 'int[]' of declaration 'tmp' does not match declared type 'int'
-> 
 > ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
 > Stopping compilation due to errors
-> 8 error(s)
+> 5 error(s)

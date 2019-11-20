@@ -2,7 +2,5 @@ NullArrayUse.btm:3:semantic error: type 'null' of declaration 'array' is undefin
 
 NullArrayUse.btm:3:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
 
-NullArrayUse.btm:4:semantic error: expression type 'int[]' of declaration 'x' does not match declared type 'int'
-
 Stopping compilation due to errors
-3 error(s)
+2 error(s)
