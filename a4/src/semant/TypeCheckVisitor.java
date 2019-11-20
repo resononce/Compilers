@@ -90,6 +90,16 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                           lhsType + "'");
                 } 
             }
+            else if ((lCheckType.equals("boolean") || lCheckType.equals("int"))
+                     && rhsType.equals("null")) {
+                errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                      fileName, 
+                                      lineNum,
+                                      "expression type '" + rhsType +  
+                                      "' of field '" + name +
+                                      "' does not match declared type '" +
+                                      lhsType + "'");
+            }
         }
         
         return null; 
@@ -779,8 +789,24 @@ public class TypeCheckVisitor extends SemanticVisitor {
     
     //Returns a String of its type
     public Object visit(NewExpr node) { 
+        int lineNum = node.getLineNum();
         String newType = node.getType();
-        if (!classMap.containsKey(newType)) {
+        if (newType.equals("int") || newType.equals("boolean")) {
+            errorHandler.register(errorHandler.SEMANT_ERROR,
+                                  fileName,
+                                  lineNum,
+                                  "type '" + newType + "' of new" 
+                                  + " construction is primitive and " +
+                                  "cannot be constructed");
+            newType = "Object";
+            node.setExprType("Object");
+        }
+        else if (!classMap.containsKey(newType)) {
+            errorHandler.register(errorHandler.SEMANT_ERROR,
+                                  fileName,
+                                  lineNum,
+                                  "type '" + newType + "' of new" 
+                                  + " construction is undefined");
             newType = "Object";
             node.setExprType("Object");
         }
@@ -965,7 +991,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
-                                      "Inconvertible types: ('" + exprType 
+                                      "inconvertible types ('" + exprType 
                                       + "'=>'" + castType + "')");
             }
         }
@@ -978,13 +1004,18 @@ public class TypeCheckVisitor extends SemanticVisitor {
         //Slide example a.b = RHS
         int lineNum = node.getLineNum();
         String rhsType = (String) node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
+<<<<<<< HEAD
         node.getExpr().setExprType(rhsType);
+=======
+        String lhsType;
+>>>>>>> 8939a286658dfe06cbc3351772605ee94ffd2e49
         String refName = node.getRefName();
         String varName = node.getName();
         String varType;
         if (refName != null) {
             if (refName.equals("this")) {
                 varType = (String) vTable.lookup("this." + varName);
+                lhsType = varType;
                 if (varType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
@@ -996,8 +1027,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the righthand type '" + rhsType +
-                                          "' does not conform to the lefthand"
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
                                           + " type '" + varType + "'" +
                                           " in assignment");
                 }
@@ -1008,6 +1039,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                         .getVarSymbolTable().lookup(varName);
                 int scopeLevel = vTable.getScopeLevel("this." + varName); //-1 if not found
                 int inheritedScopeSize = vTable.getSize() - vTable.getCurrScopeSize();
+                lhsType = varType;
                 //TODO
                 if (scopeLevel <= inheritedScopeSize) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
@@ -1020,8 +1052,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
                                           lineNum,
-                                          "the righthand type '" + rhsType +
-                                          "' does not conform to the lefthand"
+                                          "the lefthand type '" + lhsType +
+                                          "' does not conform to the righthand"
                                           + " type '" + varType + "'" +
                                           " in assignment");
                 }
@@ -1030,6 +1062,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         }
         else {
             varType = (String) vTable.lookup(varName);
+            lhsType = varType;
             if (varType == null) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
@@ -1041,14 +1074,15 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
-                                      "the righthand type '" + rhsType +
-                                      "' does not conform to the lefthand"
+                                      "the lefthand type '" + lhsType +
+                                      "' does not conform to the righthand"
                                       + " type '" + varType + "'" +
                                       " in assignment");
             }
             node.setExprType(rhsType);
         }
         //If RHS = void, error register
+
         //If RHS != LHS type b, error register
         //return the RHS return type
         node.setExprType(rhsType);
