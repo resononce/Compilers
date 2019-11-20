@@ -11,7 +11,7 @@ class Main extends Object {
         // Source line: 14
         int x = (/*L14,type:int*/(/*L14,type:TextIO*/io).getInt());
         // Source line: 16
-        if ((/*L16*/(/*L16,type:int*/x) < (/*L16,type:int*/0)))
+        if ((/*L16,type:boolean*/(/*L16,type:int*/x) < (/*L16,type:int*/0)))
             // Source line: 16
             {
                 // Source line: 17
@@ -33,9 +33,9 @@ class Main extends Object {
         // Source line: 34
         int result = (/*L34,type:int*/1);
         // Source line: 37
-        if ((/*L37*/(/*L37,type:int*/n) > (/*L37,type:int*/1)))
+        if ((/*L37,type:boolean*/(/*L37,type:int*/n) > (/*L37,type:int*/1)))
             // Source line: 38
-            (/*L38,type:int*/result = (/*L38*/(/*L38,type:int*/n) * (/*L38,type:int*/(/*L38,type:Main*/this).fact((/*L38*/(/*L38,type:int*/n) - (/*L38,type:int*/1))))));
+            (/*L38,type:int*/result = (/*L38,type:int*/(/*L38,type:int*/n) * (/*L38,type:int*/(/*L38,type:Main*/this).fact((/*L38,type:int*/(/*L38,type:int*/n) - (/*L38,type:int*/1))))));
         else
             // Source line: 37
             {

@@ -1,4 +1,0 @@
-9c9
-<         (/*L4,type:Object[]*/array = (/*L4,type:Object[]*/new Object[(/*L4,type:int*/-((/*L4,type:int*/1)))]));
----
->         (/*L4,type:Object[]*/array = (/*L4,type:Object[]*/new Object[(/*L4*/-((/*L4,type:int*/1)))]));

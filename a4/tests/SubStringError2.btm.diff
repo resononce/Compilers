@@ -1,4 +1,0 @@
-9c9
-<         String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4,type:int*/-((/*L4,type:int*/1))), (/*L4,type:int*/4)));
----
->         String s2 = (/*L4,type:String*/(/*L4,type:String*/s).substring((/*L4*/-((/*L4,type:int*/1))), (/*L4,type:int*/4)));

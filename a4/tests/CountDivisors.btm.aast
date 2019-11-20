@@ -14,7 +14,7 @@ class Main extends Object {
         // Source line: 13
         (/*L13,type:int*/upperBound = (/*L13,type:int*/(/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"Enter a number >= 1: "))).getInt()));
         // Source line: 14
-        if ((/*L14*/(/*L14,type:int*/upperBound) < (/*L14,type:int*/1)))
+        if ((/*L14,type:boolean*/(/*L14,type:int*/upperBound) < (/*L14,type:int*/1)))
             // Source line: 14
             {
                 // Source line: 15
@@ -29,7 +29,7 @@ class Main extends Object {
         // Source line: 20
         int i = (/*L20,type:int*/1);
         // Source line: 21
-        while ((/*L21*/(/*L21,type:int*/i) <= (/*L21,type:int*/upperBound)))
+        while ((/*L21,type:boolean*/(/*L21,type:int*/i) <= (/*L21,type:int*/upperBound)))
             // Source line: 21
             {
                 // Source line: 23
@@ -37,11 +37,11 @@ class Main extends Object {
                 // Source line: 24
                 int j = (/*L24,type:int*/1);
                 // Source line: 25
-                while ((/*L25*/(/*L25,type:int*/j) <= (/*L25,type:int*/i)))
+                while ((/*L25,type:boolean*/(/*L25,type:int*/j) <= (/*L25,type:int*/i)))
                     // Source line: 25
                     {
                         // Source line: 27
-                        if ((/*L27*/(/*L27*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
+                        if ((/*L27,type:boolean*/(/*L27,type:int*/(/*L27,type:int*/i) % (/*L27,type:int*/j)) == (/*L27,type:int*/0)))
                             // Source line: 28
                             (/*L28,type:int*/numDivisors = (/*L28,type:int*/(/*L28,type:int*/numDivisors) + (/*L28,type:int*/1)));
                         else
@@ -52,7 +52,7 @@ class Main extends Object {
                         (/*L29,type:int*/j = (/*L29,type:int*/(/*L29,type:int*/j) + (/*L29,type:int*/1)));
                     }
                 // Source line: 34
-                if ((/*L34*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
+                if ((/*L34,type:boolean*/(/*L34,type:int*/numDivisors) > (/*L34,type:int*/maxDivisors)))
                     // Source line: 34
                     {
                         // Source line: 35

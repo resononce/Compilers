@@ -11,7 +11,7 @@ class Main extends Object {
         // Source line: 13
         int max = (/*L13,type:int*/(/*L13,type:TextIO*/io).getInt());
         // Source line: 15
-        if ((/*L15*/(/*L15,type:int*/max) < (/*L15,type:int*/2)))
+        if ((/*L15,type:boolean*/(/*L15,type:int*/max) < (/*L15,type:int*/2)))
             // Source line: 15
             {
                 // Source line: 16
@@ -25,7 +25,7 @@ class Main extends Object {
                 // Source line: 21
                 int i = (/*L21,type:int*/2);
                 // Source line: 22
-                while ((/*L22*/(/*L22,type:int*/i) <= (/*L22,type:int*/max)))
+                while ((/*L22,type:boolean*/(/*L22,type:int*/i) <= (/*L22,type:int*/max)))
                     // Source line: 22
                     {
                         // Source line: 24
@@ -50,11 +50,11 @@ class Main extends Object {
         // Source line: 38
         int i = (/*L38,type:int*/2);
         // Source line: 39
-        while ((/*L39*/(/*L39*/(/*L39,type:int*/i) < (/*L39*/(/*L39,type:int*/n) - (/*L39,type:int*/1))) && (/*L39,type:boolean*/isPrime)))
+        while ((/*L39,type:boolean*/(/*L39,type:boolean*/(/*L39,type:int*/i) < (/*L39,type:int*/(/*L39,type:int*/n) - (/*L39,type:int*/1))) && (/*L39,type:boolean*/isPrime)))
             // Source line: 39
             {
                 // Source line: 40
-                if ((/*L40*/(/*L40*/(/*L40,type:int*/n) % (/*L40,type:int*/i)) == (/*L40,type:int*/0)))
+                if ((/*L40,type:boolean*/(/*L40,type:int*/(/*L40,type:int*/n) % (/*L40,type:int*/i)) == (/*L40,type:int*/0)))
                     // Source line: 41
                     (/*L41,type:boolean*/isPrime = (/*L41,type:boolean*/false));
                 else

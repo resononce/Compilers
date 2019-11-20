@@ -420,6 +420,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
             returnType = (String) node.getExpr().accept(this);
             Expr expr = (Expr) node.getExpr();
             lineNum = expr.getLineNum();
+
             if (returnType.equals("void")) {
                 noError = false;
                 //Register void return error
@@ -429,9 +430,8 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "cannot return an expression of"
                                       + " type 'void' from a method");
                 //set to default type "Object" when type is void
-                return "Object";
+                returnType = "Object";
             }
-
             
             String returnTypeNotArray = returnType.replace("[]", "");
             //Double check this if later

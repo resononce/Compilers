@@ -12,7 +12,7 @@ class Main extends Object {
         // Source line: 6
         Sys sys = (/*L6,type:Sys*/new Sys());
         // Source line: 8
-        if ((/*L8*/(/*L8,type:Object*/o) instanceof Object))
+        if ((/*L8,type:boolean*/(/*L8,type:Object*/o) instanceof Object))
             // Source line: 8
             {
                 // Source line: 9
@@ -28,7 +28,7 @@ class Main extends Object {
             // Source line: 15
             (/*L15,type:TextIO*/(/*L15,type:TextIO*/io).putString((/*L15,type:String*/"Object object not instance of Object\n")));
         // Source line: 16
-        if ((/*L16*/(/*L16,type:Object*/o) instanceof TextIO))
+        if ((/*L16,type:boolean*/(/*L16,type:Object*/o) instanceof TextIO))
             // Source line: 16
             {
                 // Source line: 17
@@ -44,7 +44,7 @@ class Main extends Object {
             // Source line: 23
             (/*L23,type:TextIO*/(/*L23,type:TextIO*/io).putString((/*L23,type:String*/"Object object not instance of TextIO\n")));
         // Source line: 24
-        if ((/*L24*/(/*L24,type:Object*/o) instanceof String))
+        if ((/*L24,type:boolean*/(/*L24,type:Object*/o) instanceof String))
             // Source line: 24
             {
                 // Source line: 25
@@ -60,7 +60,7 @@ class Main extends Object {
             // Source line: 31
             (/*L31,type:TextIO*/(/*L31,type:TextIO*/io).putString((/*L31,type:String*/"Object object not instance of String\n")));
         // Source line: 32
-        if ((/*L32*/(/*L32,type:Object*/o) instanceof Sys))
+        if ((/*L32,type:boolean*/(/*L32,type:Object*/o) instanceof Sys))
             // Source line: 32
             {
                 // Source line: 33
@@ -76,7 +76,7 @@ class Main extends Object {
             // Source line: 39
             (/*L39,type:TextIO*/(/*L39,type:TextIO*/io).putString((/*L39,type:String*/"Object object not instance of Sys\n")));
         // Source line: 43
-        if ((/*L43*/(/*L43,type:TextIO*/io) instanceof Object))
+        if ((/*L43,type:boolean*/(/*L43,type:TextIO*/io) instanceof Object))
             // Source line: 43
             {
                 // Source line: 44
@@ -92,7 +92,7 @@ class Main extends Object {
             // Source line: 50
             (/*L50,type:TextIO*/(/*L50,type:TextIO*/io).putString((/*L50,type:String*/"TextIO object not instance of Object\n")));
         // Source line: 51
-        if ((/*L51*/(/*L51,type:TextIO*/io) instanceof TextIO))
+        if ((/*L51,type:boolean*/(/*L51,type:TextIO*/io) instanceof TextIO))
             // Source line: 51
             {
                 // Source line: 52
@@ -108,7 +108,7 @@ class Main extends Object {
             // Source line: 58
             (/*L58,type:TextIO*/(/*L58,type:TextIO*/io).putString((/*L58,type:String*/"TextIO object not instance of TextIO\n")));
         // Source line: 62
-        if ((/*L62*/(/*L62,type:String*/s) instanceof Object))
+        if ((/*L62,type:boolean*/(/*L62,type:String*/s) instanceof Object))
             // Source line: 62
             {
                 // Source line: 63
@@ -124,7 +124,7 @@ class Main extends Object {
             // Source line: 69
             (/*L69,type:TextIO*/(/*L69,type:TextIO*/io).putString((/*L69,type:String*/"String object not instance of Object\n")));
         // Source line: 70
-        if ((/*L70*/(/*L70,type:String*/s) instanceof String))
+        if ((/*L70,type:boolean*/(/*L70,type:String*/s) instanceof String))
             // Source line: 70
             {
                 // Source line: 71
@@ -140,7 +140,7 @@ class Main extends Object {
             // Source line: 77
             (/*L77,type:TextIO*/(/*L77,type:TextIO*/io).putString((/*L77,type:String*/"String object not instance of String\n")));
         // Source line: 81
-        if ((/*L81*/(/*L81,type:Sys*/sys) instanceof Object))
+        if ((/*L81,type:boolean*/(/*L81,type:Sys*/sys) instanceof Object))
             // Source line: 81
             {
                 // Source line: 82
@@ -156,7 +156,7 @@ class Main extends Object {
             // Source line: 88
             (/*L88,type:TextIO*/(/*L88,type:TextIO*/io).putString((/*L88,type:String*/"Sys object not instance of Object\n")));
         // Source line: 89
-        if ((/*L89*/(/*L89,type:Sys*/sys) instanceof Sys))
+        if ((/*L89,type:boolean*/(/*L89,type:Sys*/sys) instanceof Sys))
             // Source line: 89
             {
                 // Source line: 90

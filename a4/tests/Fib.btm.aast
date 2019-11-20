@@ -9,7 +9,7 @@ class Main extends Object {
         // Source line: 13
         int n = (/*L13,type:int*/(/*L13,type:TextIO*/(/*L13,type:TextIO*/io).putString((/*L13,type:String*/"Enter a non-negative number:  "))).getInt());
         // Source line: 16
-        if ((/*L16*/(/*L16,type:int*/n) < (/*L16,type:int*/0)))
+        if ((/*L16,type:boolean*/(/*L16,type:int*/n) < (/*L16,type:int*/0)))
             // Source line: 16
             {
                 // Source line: 18
@@ -24,7 +24,7 @@ class Main extends Object {
         // Source line: 23
         int i = (/*L23,type:int*/0);
         // Source line: 24
-        while ((/*L24*/(/*L24,type:int*/i) < (/*L24,type:int*/n)))
+        while ((/*L24,type:boolean*/(/*L24,type:int*/i) < (/*L24,type:int*/n)))
             // Source line: 24
             {
                 // Source line: 26
@@ -42,17 +42,17 @@ class Main extends Object {
         // Source line: 39
         int result = (/*L39,type:int*/0);
         // Source line: 42
-        if ((/*L42*/(/*L42,type:int*/n) == (/*L42,type:int*/0)))
+        if ((/*L42,type:boolean*/(/*L42,type:int*/n) == (/*L42,type:int*/0)))
             // Source line: 43
             (/*L43,type:int*/result = (/*L43,type:int*/0));
         else
             // Source line: 45
-            if ((/*L45*/(/*L45,type:int*/n) == (/*L45,type:int*/1)))
+            if ((/*L45,type:boolean*/(/*L45,type:int*/n) == (/*L45,type:int*/1)))
                 // Source line: 46
                 (/*L46,type:int*/result = (/*L46,type:int*/1));
             else
                 // Source line: 50
-                (/*L50,type:int*/result = (/*L50,type:int*/(/*L50,type:int*/(/*L50,type:Main*/this).fib((/*L50*/(/*L50,type:int*/n) - (/*L50,type:int*/1)))) + (/*L50,type:int*/(/*L50,type:Main*/this).fib((/*L50*/(/*L50,type:int*/n) - (/*L50,type:int*/2))))));
+                (/*L50,type:int*/result = (/*L50,type:int*/(/*L50,type:int*/(/*L50,type:Main*/this).fib((/*L50,type:int*/(/*L50,type:int*/n) - (/*L50,type:int*/1)))) + (/*L50,type:int*/(/*L50,type:Main*/this).fib((/*L50,type:int*/(/*L50,type:int*/n) - (/*L50,type:int*/2))))));
         // Source line: 52
         return (/*L52,type:int*/result);
     }

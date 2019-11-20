@@ -19,12 +19,12 @@ class Main extends Object {
                 // Source line: 22
                 (/*L22,type:int*/pickedBeans = (/*L22,type:int*/(/*L22,type:TextIO*/io).getInt()));
                 // Source line: 25
-                if ((/*L25*/(/*L25*/(/*L25,type:int*/pickedBeans) < (/*L25,type:int*/1)) || (/*L25*/(/*L25,type:int*/pickedBeans) > (/*L25,type:int*/3))))
+                if ((/*L25,type:boolean*/(/*L25,type:boolean*/(/*L25,type:int*/pickedBeans) < (/*L25,type:int*/1)) || (/*L25,type:boolean*/(/*L25,type:int*/pickedBeans) > (/*L25,type:int*/3))))
                     // Source line: 26
                     (/*L26,type:TextIO*/(/*L26,type:TextIO*/io).putString((/*L26,type:String*/"number of beans must be 1, 2, or 3\n")));
                 else
                     // Source line: 28
-                    if ((/*L28*/(/*L28,type:int*/pickedBeans) > (/*L28,type:int*/numBeansLeft)))
+                    if ((/*L28,type:boolean*/(/*L28,type:int*/pickedBeans) > (/*L28,type:int*/numBeansLeft)))
                         // Source line: 29
                         (/*L29,type:TextIO*/(/*L29,type:TextIO*/io).putString((/*L29,type:String*/"can't pick up more beans than are left\n")));
                     else
@@ -49,7 +49,7 @@ class Main extends Object {
         // Source line: 51
         int totalBeans = (/*L51,type:int*/(/*L51,type:TextIO*/io).getInt());
         // Source line: 54
-        while ((/*L54*/(/*L54,type:int*/totalBeans) < (/*L54,type:int*/1)))
+        while ((/*L54,type:boolean*/(/*L54,type:int*/totalBeans) < (/*L54,type:int*/1)))
             // Source line: 54
             {
                 // Source line: 55
@@ -64,21 +64,21 @@ class Main extends Object {
         // Source line: 67
         int i = (/*L67,type:int*/0);
         // Source line: 68
-        while ((/*L68*/(/*L68,type:int*/numBeansLeft) > (/*L68,type:int*/0)))
+        while ((/*L68,type:boolean*/(/*L68,type:int*/numBeansLeft) > (/*L68,type:int*/0)))
             // Source line: 68
             {
                 // Source line: 70
                 int pickedBeans = (/*L70,type:int*/(/*L70,type:Main*/this).turn((/*L70,type:String*/currentPlayer), (/*L70,type:int*/numBeansLeft)));
                 // Source line: 72
-                (/*L72,type:int*/numBeansLeft = (/*L72*/(/*L72,type:int*/numBeansLeft) - (/*L72,type:int*/pickedBeans)));
+                (/*L72,type:int*/numBeansLeft = (/*L72,type:int*/(/*L72,type:int*/numBeansLeft) - (/*L72,type:int*/pickedBeans)));
                 // Source line: 75
-                if ((/*L75*/(/*L75,type:int*/numBeansLeft) > (/*L75,type:int*/0)))
+                if ((/*L75,type:boolean*/(/*L75,type:int*/numBeansLeft) > (/*L75,type:int*/0)))
                     // Source line: 75
                     {
                         // Source line: 77
                         (/*L77,type:String*/currentPlayer = (/*L77,type:String*/player2));
                         // Source line: 78
-                        if ((/*L78*/(/*L78*/(/*L78,type:int*/i) % (/*L78,type:int*/2)) == (/*L78,type:int*/1)))
+                        if ((/*L78,type:boolean*/(/*L78,type:int*/(/*L78,type:int*/i) % (/*L78,type:int*/2)) == (/*L78,type:int*/1)))
                             // Source line: 79
                             (/*L79,type:String*/currentPlayer = (/*L79,type:String*/player1));
                         else

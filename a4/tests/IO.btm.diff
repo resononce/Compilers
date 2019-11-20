@@ -1,4 +1,0 @@
-13c13
-<         while ((/*L6,type:boolean*/(/*L6,type:int*/i) < (/*L6,type:int*/n)))
----
->         while ((/*L6*/(/*L6,type:int*/i) < (/*L6,type:int*/n)))

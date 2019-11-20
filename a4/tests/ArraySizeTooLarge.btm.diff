@@ -1,7 +1,3 @@
-13c13
-<         for ((/*L6,type:int*/i = (/*L6,type:int*/1500)); (/*L6,type:boolean*/(/*L6,type:int*/i) < (/*L6,type:int*/2000)); (/*L6,type:int*/((/*L6,type:int*/i))++))
----
->         for ((/*L6,type:int*/i = (/*L6,type:int*/1500)); (/*L6*/(/*L6,type:int*/i) < (/*L6,type:int*/2000)); (/*L6*/((/*L6,type:int*/i))++))
 15c15
 <             (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int*/array[(/*L7,type:int*/i)]))).putString((/*L7,type:String*/"\n")));
 ---

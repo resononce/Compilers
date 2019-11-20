@@ -10,7 +10,7 @@ class Main extends Object {
         // Source line: 5
         int i = (/*L5,type:int*/0);
         // Source line: 6
-        while ((/*L6*/(/*L6,type:int*/i) < (/*L6,type:int*/n)))
+        while ((/*L6,type:boolean*/(/*L6,type:int*/i) < (/*L6,type:int*/n)))
             // Source line: 6
             {
                 // Source line: 7

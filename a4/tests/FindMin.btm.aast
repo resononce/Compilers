@@ -8,9 +8,9 @@ class Main extends Object {
         // Source line: 4
         int min = (/*L4,type:int*/0);
         // Source line: 6
-        int n = (/*L6*/-((/*L6,type:int*/1)));
+        int n = (/*L6,type:int*/-((/*L6,type:int*/1)));
         // Source line: 7
-        while ((/*L7*/(/*L7,type:int*/n) < (/*L7,type:int*/0)))
+        while ((/*L7,type:boolean*/(/*L7,type:int*/n) < (/*L7,type:int*/0)))
             // Source line: 7
             {
                 // Source line: 8
@@ -18,7 +18,7 @@ class Main extends Object {
                 // Source line: 9
                 (/*L9,type:int*/n = (/*L9,type:int*/(/*L9,type:TextIO*/io).getInt()));
                 // Source line: 10
-                if ((/*L10*/(/*L10,type:int*/n) < (/*L10,type:int*/0)))
+                if ((/*L10,type:boolean*/(/*L10,type:int*/n) < (/*L10,type:int*/0)))
                     // Source line: 11
                     (/*L11,type:TextIO*/(/*L11,type:TextIO*/io).putString((/*L11,type:String*/"Error: must enter non-negative number\n")));
                 else
@@ -31,7 +31,7 @@ class Main extends Object {
         // Source line: 15
         int i = (/*L15,type:int*/1);
         // Source line: 16
-        while ((/*L16*/(/*L16,type:int*/i) <= (/*L16,type:int*/n)))
+        while ((/*L16,type:boolean*/(/*L16,type:int*/i) <= (/*L16,type:int*/n)))
             // Source line: 16
             {
                 // Source line: 17
@@ -39,7 +39,7 @@ class Main extends Object {
                 // Source line: 18
                 int userInput = (/*L18,type:int*/(/*L18,type:TextIO*/io).getInt());
                 // Source line: 19
-                if ((/*L19*/(/*L19*/(/*L19,type:int*/userInput) < (/*L19,type:int*/min)) || (/*L19*/(/*L19,type:int*/i) == (/*L19,type:int*/1))))
+                if ((/*L19,type:boolean*/(/*L19,type:boolean*/(/*L19,type:int*/userInput) < (/*L19,type:int*/min)) || (/*L19,type:boolean*/(/*L19,type:int*/i) == (/*L19,type:int*/1))))
                     // Source line: 20
                     (/*L20,type:int*/min = (/*L20,type:int*/userInput));
                 else

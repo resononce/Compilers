@@ -78,7 +78,7 @@ SemanticErrors1.btm:69:semantic error: type 'super' of formal 'y' is undefined
 
 SemanticErrors1.btm:69:semantic error: type 'null' of formal 'z' is undefined
 
-SemanticErrors1.btm:69:semantic error: formals cannot be named 'this'
+SemanticErrors1.btm:70:semantic error: formals cannot be named 'this'
 
 SemanticErrors1.btm:70:semantic error: formals cannot be named 'super'
 
@@ -170,21 +170,21 @@ SemanticErrors1.btm:128:semantic error: the instanceof righthand type 'string' i
 
 SemanticErrors1.btm:130:semantic error: type 'int' of new construction is primitive and cannot be constructed
 
-SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'Object' in assignment
+SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
 
 SemanticErrors1.btm:132:semantic error: type 'Integer' of new construction is undefined
 
-SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'Object' in assignment
+SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' and righthand type 'Object' are not compatible in assignment
 
-SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'int' in assignment
+SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' and righthand type 'int' are not compatible in assignment
 
-SemanticErrors1.btm:135:semantic error: the lefthand type 'int' does not conform to the righthand type 'TextIO' in assignment
+SemanticErrors1.btm:135:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 
-SemanticErrors1.btm:136:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'void' in assignment
+SemanticErrors1.btm:136:semantic error: the righthand type  'void' does not conform to the lefthand type 'TextIO' in assignment
 
-SemanticErrors1.btm:138:semantic error: the lefthand type 'int' does not conform to the righthand type 'TextIO' in assignment
+SemanticErrors1.btm:138:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
 
-SemanticErrors1.btm:139:semantic error: variable 'yin assignment is undeclared
+SemanticErrors1.btm:139:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 
 SemanticErrors1.btm:142:semantic error: the expression type 'int' in the unary operation ('!') is incorrect; should have been: boolean
 
@@ -218,5 +218,7 @@ SemanticErrors1.btm:156:semantic error: the lefthand type 'int' in the binary op
 
 SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'void' from a method
 
+SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
+
 Stopping compilation due to errors
-110 error(s)
+111 error(s)

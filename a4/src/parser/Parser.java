@@ -315,10 +315,11 @@ Precedence (from highest to lowest)
   }
 
   static final public Formal Formal() throws ParseException {
-  int lineNum = JavaCharStream.getBeginLine();
+  int lineNum;
   Token type, name;
   String lb = "";
     type = jj_consume_token(ID);
+                 lineNum = JavaCharStream.getBeginLine();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LEFTBRACKET:
       jj_consume_token(LEFTBRACKET);
