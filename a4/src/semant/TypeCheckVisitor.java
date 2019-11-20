@@ -101,7 +101,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       lhsType + "'");
             }
         }
-        
         return null; 
     }
 
@@ -178,7 +177,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
 
         String lhsType = node.getType();
         String rhsType = (String)node.getInit().accept(this);
-        node.getInit().setExprType(rhsType);
 
         String lhsTypeNoBracket = lhsType.replace("[]", "");
         String rhsTypeNoBracket = rhsType.replace("[]", "");
@@ -1003,23 +1001,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
     public Object visit(AssignExpr node) {
         //Slide example a.b = RHS
         int lineNum = node.getLineNum();
-<<<<<<< HEAD
         String rhsType = (String) node.getExpr().accept(this);  
         String refName = node.getRefName();
         String varName = node.getName();
         String lhsType;
- 
-=======
-        String rhsType = (String) node.getExpr().accept(this);  //This type checks the rhs, maybe type-check before grabbing node
-<<<<<<< HEAD
         node.getExpr().setExprType(rhsType);
-=======
-        String lhsType;
->>>>>>> 8939a286658dfe06cbc3351772605ee94ffd2e49
-        String refName = node.getRefName();
-        String varName = node.getName();
-        String varType;
->>>>>>> 53f6e947cdf15a09d1ba773381a0f2d1238599e6
+
         if (refName != null) {
             if (refName.equals("this")) {
                 lhsType = (String) vTable.lookup("this." + varName);
