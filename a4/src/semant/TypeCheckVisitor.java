@@ -262,8 +262,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                     methodName );
         }
         if (!rhsType.equals(lhsType)) {
+            if(lhsTypeNoBracket.equals("Object")){
+                //everything is awesome
+            }
             //Need to check if conforms or not
-            if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(lhsTypeNoBracket)){
+            else if (classMap.containsKey(rhsTypeNoBracket) && classMap.containsKey(lhsTypeNoBracket)){
                 boolean doesConform = false;
                 for(ClassTreeNode parent = classMap.get(rhsTypeNoBracket); 
                     parent != null && !doesConform;
@@ -893,7 +896,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         boolean noError = true;
         String toBeReturned = "boolean";
         //Check LHS
-        if (lhsNoArr.equals("boolean") || lhsNoArr.equals("int")) {
+        if (lhs.equals("boolean") || lhs.equals("int")) {
             noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -911,7 +914,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
         }
 
         //Check RHS
-        if (rhsNoArr.equals("boolean") || rhsNoArr.equals("int")) {
+        if(rhsNoArr.equals("Object")){
+            //everything is an instance of object
+        }
+        else if (rhsNoArr.equals("boolean") || rhsNoArr.equals("int")) {
             noError = false;
             errorHandler.register(errorHandler.SEMANT_ERROR,
                                   fileName,
@@ -995,8 +1001,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                    + " and can't be casted");
         } 
         //Check for appropriate upcasting and downcasting
-        else {
-            
+        else {          
             //Checks for a upcast from the current
             for (ClassTreeNode parent = classMap.get(exprTypeNoArr); 
                 parent != null && legitCast == false; 
@@ -1027,8 +1032,9 @@ public class TypeCheckVisitor extends SemanticVisitor {
             }
             //This should take care of the array portion
             //If legal cast but does not pass array check, register error
-            if ((exprType.contains("[]") != castType.contains("[]")) && 
-                legitCast) {
+            if ((exprType.contains("[]") != castType.contains("[]"))
+                && !castType.equals("Object") 
+                && legitCast) {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                       fileName,
                                       lineNum,
@@ -1217,7 +1223,10 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     String lhsTypeNoArr = lhsType.replace("[]", "");
                     String rhsTypeNoArr = rhsType.replace("[]", "");
                     //They can conform with class types
-                    if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
+                    if(lhsType.equals("Object")){
+                        //everything is awesome
+                    }
+                    else if (classMap.containsKey(lhsTypeNoArr) && classMap.containsKey(rhsTypeNoArr)) {
                         if (!lhsTypeNoArr.equals(rhsTypeNoArr)) {
                             boolean notChild = true;
                             for (ClassTreeNode parent = classMap.get(lhsTypeNoArr); 
@@ -1860,6 +1869,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                   + "the binary operation ('%') is incorrect;"
                                   + " should have been: int");
         }
+        node.setExprType(node.getOpType());
         return "int"; 
     }
     
@@ -1992,6 +2002,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         //Much more, check slide 15-24 for rest
         int lineNum = node.getLineNum();
         String name = node.getName();
+        
         if (node.getRef() != null)
         {
             String varType;        
@@ -2022,8 +2033,6 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 //check the parent's VarSymbolTable scope for type of b in a.b
                 varType = (String) classMap.get(className).getParent()
                                         .getVarSymbolTable().lookup("this." + name);
-                //int scopeLevel = vTable.getScopeLevel("this." + name); //-1 if not found
-                //TODO
                 if (varType == null) {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                           fileName,
@@ -2085,6 +2094,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 return varType;
             }
         }
+        node.setExprType("Object");
         return "Object"; 
     }
     
@@ -2193,10 +2203,11 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 return "Object";
             }
             else {
-                node.setExprType(varType.replace("[]", ""));
-                return varType.replace("[]", "");
+                node.setExprType(varType);
+                return varType;
             }
         }
+        node.setExprType("Object");
         return "Object"; 
     }
     
