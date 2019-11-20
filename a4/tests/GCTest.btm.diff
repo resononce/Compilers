@@ -1,4 +1,4 @@
-1,1338c1,26
+1,1338c1,24
 < // Source file: GCTest.btm
 < // Source line: 1
 < class Main extends Object {
@@ -1348,8 +1348,6 @@
 > 
 > Vector.btm:54:semantic error: the lefthand type 'Object' in the binary operation ('*') is incorrect; should have been: int
 > 
-> Vector.btm:54:semantic error: expression type 'Object' of declaration 'tmp' does not conform to declared type 'Object[]'
-> 
 > Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
 > Vector.btm:82:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
@@ -1363,4 +1361,4 @@
 > Vector.btm:168:semantic error: the lefthand type 'Object[]' in the binary operation ('==') does not match the righthand type 'Object'
 > 
 > Stopping compilation due to errors
-> 12 error(s)
+> 11 error(s)

@@ -1,6 +1,6 @@
-PrimesSieves.btm:11:semantic error: expression type 'null' of declaration 'primes' does not match declared type 'boolean[]'
+PrimesSieves.btm:11:semantic error: type 'null' of declaration 'primes' is undefined
 
-PrimesSieves.btm:25:semantic error: the lefthand type 'boolean[]' does not conform to the righthand type 'boolean[]' in assignment
+PrimesSieves.btm:11:semantic error: expression type 'Object' of declaration 'primes' does not match declared type 'boolean[]'
 
 PrimesSieves.btm:31:semantic error: the expression type 'boolean[]' in the unary operation ('!') is incorrect; should have been: boolean
 

@@ -1,18 +1,8 @@
-ForBreakIncDecTest1.btm:3:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
-
 ForBreakIncDecTest1.btm:7:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
 
 ForBreakIncDecTest1.btm:8:semantic error: the expression type 'int[]' in the unary operation ('--') is incorrect; should have been: int
 
 ForBreakIncDecTest1.btm:25:semantic error: break statement is not inside a loop
 
-ForBreakIncDecTest1.btm:28:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-
-ForBreakIncDecTest1.btm:28:semantic error: dispatch to unknown method 'putString'
-
-ForBreakIncDecTest1.btm:29:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-
-ForBreakIncDecTest1.btm:29:semantic error: dispatch to unknown method 'putString'
-
 Stopping compilation due to errors
-8 error(s)
+3 error(s)

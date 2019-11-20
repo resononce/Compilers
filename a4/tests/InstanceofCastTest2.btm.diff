@@ -1,4 +1,4 @@
-1,263c1,50
+1,263c1,38
 < // Source file: InstanceofCastTest2.btm
 < // Source line: 1
 < class Main extends Object {
@@ -263,18 +263,6 @@
 <     }
 < }
 ---
-> InstanceofCastTest2.btm:4:semantic error: expression type 'Object' of declaration 'objects' does not conform to declared type 'Object[]'
-> 
-> InstanceofCastTest2.btm:5:semantic error: expression type 'TextIO' of declaration 'ios' does not conform to declared type 'TextIO[]'
-> 
-> InstanceofCastTest2.btm:6:semantic error: expression type 'String' of declaration 'strings' does not conform to declared type 'String[]'
-> 
-> InstanceofCastTest2.btm:7:semantic error: expression type 'Sys' of declaration 'sys' does not conform to declared type 'Sys[]'
-> 
-> InstanceofCastTest2.btm:8:semantic error: expression type 'int' of declaration 'ints' does not match declared type 'int[]'
-> 
-> InstanceofCastTest2.btm:9:semantic error: expression type 'boolean' of declaration 'bools' does not match declared type 'boolean[]'
-> 
 > InstanceofCastTest2.btm:14:semantic error: inconvertible types ('Object[]'=>'Object')
 > 
 > InstanceofCastTest2.btm:33:semantic error: inconvertible types ('TextIO[]'=>'Object')
@@ -283,33 +271,33 @@
 > 
 > InstanceofCastTest2.btm:87:semantic error: inconvertible types ('Sys[]'=>'Object')
 > 
-> InstanceofCastTest2.btm:111:semantic error: the instanceof lefthand expression hastype 'int[]', which is primitive and not an object type
+> InstanceofCastTest2.btm:111:semantic error: the instanceof lefthand expression has type 'int[]', which is primitive and not an object type
 > 
-> InstanceofCastTest2.btm:114:semantic error: expression in cast has type 'int[]' which is primitive and can't be casted
+> InstanceofCastTest2.btm:114:semantic error: expression in cast has type 'int[]', which is primitive and can't be casted
 > 
-> InstanceofCastTest2.btm:119:semantic error: the instanceof lefthand expression hastype 'int[]', which is primitive and not an object type
+> InstanceofCastTest2.btm:119:semantic error: the instanceof lefthand expression has type 'int[]', which is primitive and not an object type
 > 
 > InstanceofCastTest2.btm:119:semantic error: the instanceof righthand type 'int[]' is primitive and not an object type
 > 
-> InstanceofCastTest2.btm:122:semantic error: expression in cast has type 'int[]' which is primitive and can't be casted
+> InstanceofCastTest2.btm:122:semantic error: expression in cast has type 'int[]', which is primitive and can't be casted
 > 
 > InstanceofCastTest2.btm:122:semantic error: the target type 'int[]' is primitive and not an object type
 > 
 > InstanceofCastTest2.btm:122:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int[]'
 > 
-> InstanceofCastTest2.btm:131:semantic error: the instanceof lefthand expression hastype 'boolean[]', which is primitive and not an object type
+> InstanceofCastTest2.btm:131:semantic error: the instanceof lefthand expression has type 'boolean[]', which is primitive and not an object type
 > 
-> InstanceofCastTest2.btm:134:semantic error: expression in cast has type 'boolean[]' which is primitive and can't be casted
+> InstanceofCastTest2.btm:134:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
 > 
-> InstanceofCastTest2.btm:139:semantic error: the instanceof lefthand expression hastype 'boolean[]', which is primitive and not an object type
+> InstanceofCastTest2.btm:139:semantic error: the instanceof lefthand expression has type 'boolean[]', which is primitive and not an object type
 > 
 > InstanceofCastTest2.btm:139:semantic error: the instanceof righthand type 'boolean[]' is primitive and not an object type
 > 
 > InstanceofCastTest2.btm:142:semantic error: the target type 'boolean[]' is primitive and not an object type
 > 
-> InstanceofCastTest2.btm:142:semantic error: expression in cast has type 'boolean[]' which is primitive and can't be casted
+> InstanceofCastTest2.btm:142:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
 > 
 > InstanceofCastTest2.btm:142:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'boolean[]'
 > 
 > Stopping compilation due to errors
-> 24 error(s)
+> 18 error(s)

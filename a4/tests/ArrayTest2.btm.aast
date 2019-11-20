@@ -1,5 +1,3 @@
-ArrayTest2.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
-
 ArrayTest2.btm:22:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
 ArrayTest2.btm:23:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
@@ -20,9 +18,5 @@ ArrayTest2.btm:37:semantic error: the righthand type 'int' does not conform to t
 
 ArrayTest2.btm:48:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 
-ArrayTest2.btm:49:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-
-ArrayTest2.btm:49:semantic error: dispatch to unknown method 'putString'
-
 Stopping compilation due to errors
-13 error(s)
+10 error(s)

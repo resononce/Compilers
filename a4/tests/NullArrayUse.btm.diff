@@ -1,4 +1,4 @@
-1,13c1,6
+1,13c1,8
 < // Source file: NullArrayUse.btm
 < // Source line: 1
 < class Main extends Object {
@@ -13,9 +13,11 @@
 <     }
 < }
 ---
-> NullArrayUse.btm:3:semantic error: expression type 'null' of declaration 'array' does not match declared type 'int[]'
+> NullArrayUse.btm:3:semantic error: type 'null' of declaration 'array' is undefined
+> 
+> NullArrayUse.btm:3:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
 > 
 > NullArrayUse.btm:4:semantic error: expression type 'int[]' of declaration 'x' does not match declared type 'int'
 > 
 > Stopping compilation due to errors
-> 2 error(s)
+> 3 error(s)

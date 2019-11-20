@@ -1,4 +1,4 @@
-1,114c1,34
+1,114c1,28
 < // Source file: ArrayTest3.btm
 < // Source line: 4
 < class Main extends Object {
@@ -114,8 +114,6 @@
 <     }
 < }
 ---
-> ArrayTest3.btm:8:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
-> 
 > ArrayTest3.btm:18:semantic error: the target type 'int[]' is primitive and not an object type
 > 
 > ArrayTest3.btm:18:semantic error: expression type 'Object' of declaration 'array2' does not match declared type 'int[]'
@@ -142,9 +140,5 @@
 > 
 > ArrayTest3.btm:55:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
 > 
-> ArrayTest3.btm:56:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-> 
-> ArrayTest3.btm:56:semantic error: dispatch to unknown method 'putString'
-> 
 > Stopping compilation due to errors
-> 16 error(s)
+> 13 error(s)

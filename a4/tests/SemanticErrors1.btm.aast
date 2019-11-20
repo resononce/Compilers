@@ -136,21 +136,21 @@ SemanticErrors1.btm:108:semantic error: can't dispatch on a primitive or void ty
 
 SemanticErrors1.btm:109:semantic error: dispatch to unknown method 'm25'
 
-SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs fromnumber of formal parameters (2) in dispatch method 'm6'
+SemanticErrors1.btm:111:semantic error: number of actual parameters (3) differs from number of formal parameters (2) in dispatch to method 'm6'
 
-SemanticErrors1.btm:112:semantic error: actual parameter 1in the call to method m6 is void and cannot be used within an expression
+SemanticErrors1.btm:112:semantic error: actual parameter 2 in the call to method m6 is void and cannot be used within an expression
 
-SemanticErrors1.btm:113:semantic error: actual parameter 1 with type 'boolean' does not match formal parameter 1 with declared type 'int' in dispatch to method 'm6'
+SemanticErrors1.btm:113:semantic error: actual parameter 2 with type 'boolean' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 
-SemanticErrors1.btm:114:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'int' in dispatch to method 'm6'
+SemanticErrors1.btm:114:semantic error: actual parameter 2 with type 'String' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 
 SemanticErrors1.btm:115:semantic error: the target type 'int' is primitive and not an object type
 
-SemanticErrors1.btm:115:semantic error: actual parameter 1 with type 'Object' does not match formal parameter 1 with declared type 'int' in dispatch to method 'm6'
+SemanticErrors1.btm:115:semantic error: actual parameter 2 with type 'Object' does not match formal parameter 2 with declared type 'int' in dispatch to method 'm6'
 
 SemanticErrors1.btm:117:semantic error: the target type 'int' is primitive and not an object type
 
-SemanticErrors1.btm:117:semantic error: expression in cast has type 'int' which is primitive and can't be casted
+SemanticErrors1.btm:117:semantic error: expression in cast has type 'int', which is primitive and can't be casted
 
 SemanticErrors1.btm:117:semantic error: expression type 'Object' of declaration 'u' does not match declared type 'int'
 
@@ -160,29 +160,29 @@ SemanticErrors1.btm:120:semantic error: expression type 'Object' of declaration 
 
 SemanticErrors1.btm:123:semantic error: inconvertible types ('String'=>'TextIO')
 
-SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+SemanticErrors1.btm:126:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 
 SemanticErrors1.btm:126:semantic error: the instanceof righthand type 'int' is primitive and not an object type
 
-SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression hastype 'int', which is primitive and not an object type
+SemanticErrors1.btm:128:semantic error: the instanceof lefthand expression has type 'int', which is primitive and not an object type
 
 SemanticErrors1.btm:128:semantic error: the instanceof righthand type 'string' is undefined
 
 SemanticErrors1.btm:130:semantic error: type 'int' of new construction is primitive and cannot be constructed
 
-SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'boolean' in assignment
+SemanticErrors1.btm:130:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'Object' in assignment
 
 SemanticErrors1.btm:132:semantic error: type 'Integer' of new construction is undefined
 
-SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'boolean' in assignment
+SemanticErrors1.btm:132:semantic error: the lefthand type 'boolean' does not conform to the righthand type 'Object' in assignment
 
-SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'TextIO' in assignment
+SemanticErrors1.btm:134:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'int' in assignment
 
-SemanticErrors1.btm:135:semantic error: the lefthand type 'int' does not conform to the righthand type 'int' in assignment
+SemanticErrors1.btm:135:semantic error: the lefthand type 'int' does not conform to the righthand type 'TextIO' in assignment
 
-SemanticErrors1.btm:136:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'TextIO' in assignment
+SemanticErrors1.btm:136:semantic error: the lefthand type 'TextIO' does not conform to the righthand type 'void' in assignment
 
-SemanticErrors1.btm:138:semantic error: the lefthand type 'int' does not conform to the righthand type 'int' in assignment
+SemanticErrors1.btm:138:semantic error: the lefthand type 'int' does not conform to the righthand type 'TextIO' in assignment
 
 SemanticErrors1.btm:139:semantic error: variable 'yin assignment is undeclared
 
@@ -204,7 +204,7 @@ SemanticErrors1.btm:148:semantic error: the lefthand type 'boolean' in the binar
 
 SemanticErrors1.btm:149:semantic error: can't dispatch on a primitive or void type
 
-SemanticErrors1.btm:149:semantic error: actual parameter 1 with type 'Object' does not match formal parameter 1 with declared type 'String' in dispatch to method 'putString'
+SemanticErrors1.btm:149:semantic error: actual parameter 1 with type 'Object' does not conform to formal parameter 1 with declared type 'String' in dispatch to method 'putString'
 
 SemanticErrors1.btm:151:semantic error: the lefthand type 'String' in the binary operation ('*') is incorrect; should have been: int
 

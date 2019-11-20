@@ -1,10 +1,19 @@
-ArraySizeTooLarge.btm:4:semantic error: expression type 'int' of declaration 'array' does not match declared type 'int[]'
-
-ArraySizeTooLarge.btm:5:semantic error: the lefthand type 'int[]' does not conform to the righthand type 'int[]' in assignment
-
-ArraySizeTooLarge.btm:7:semantic error: actual parameter 1 with type 'int[]' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-
-ArraySizeTooLarge.btm:7:semantic error: dispatch to unknown method 'putString'
-
-Stopping compilation due to errors
-4 error(s)
+// Source file: ArraySizeTooLarge.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        int i = (/*L3,type:int*/0);
+        // Source line: 4
+        int[] array = (/*L4,type:int[]*/new int[(/*L4,type:int*/1500)]);
+        // Source line: 5
+        (/*L5,type:int[]*/array = (/*L5,type:int[]*/new int[(/*L5,type:int*/2000)]));
+        // Source line: 6
+        for ((/*L6,type:int*/i = (/*L6,type:int*/1500)); (/*L6*/(/*L6,type:int*/i) < (/*L6,type:int*/2000)); (/*L6*/((/*L6,type:int*/i))++))
+            // Source line: 7
+            (/*L7,type:TextIO*/(/*L7,type:TextIO*/(/*L7,type:TextIO*/new TextIO()).putInt((/*L7,type:int[]*/array[(/*L7,type:int*/i)]))).putString((/*L7,type:String*/"\n")));
+        // Source line: 8
+        return;
+    }
+}

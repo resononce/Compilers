@@ -178,13 +178,34 @@ public class TypeCheckVisitor extends SemanticVisitor {
         String lhsType = node.getType();
         String rhsType = (String)node.getInit().accept(this);
 
+        boolean lhsIsArray = lhsType.contains("[]");
+        boolean rhsIsArray = rhsType.contains("[]");
+
         String lhsTypeNoBracket = lhsType.replace("[]", "");
         String rhsTypeNoBracket = rhsType.replace("[]", "");
 
         boolean duplicate = false;
+        //Type heck of lhs
+        if ((!lhsTypeNoBracket.equals("int") && 
+             !lhsTypeNoBracket.equals("boolean")) &&
+             !classMap.containsKey(lhsTypeNoBracket)) {
+            errorHandler.register(errorHandler.SEMANT_ERROR, 
+                                fileName, 
+                                lineNum,
+                                "type '" + lhsType +  
+                                "' of declaration '" + name + 
+                                "' is undefined");
+            if (lhsIsArray) {
+                lhsType = "Object[]";
+            }
+            else {
+                lhsType = "Object";
+            }
+        }
         //Type Check of rhs
-        if ((!rhsType.equals("boolean") && !rhsType.equals("int")) &&
-            !classMap.containsKey(rhsTypeNoBracket)) {
+        if ((!rhsTypeNoBracket.equals("boolean") && 
+             !rhsTypeNoBracket.equals("int")) &&
+             !classMap.containsKey(rhsTypeNoBracket)) {
                 errorHandler.register(errorHandler.SEMANT_ERROR, 
                                       fileName, 
                                       lineNum,
@@ -192,7 +213,12 @@ public class TypeCheckVisitor extends SemanticVisitor {
                                       "' of declaration '" + name + 
                                       "' is undefined");
                 //Sets to default type "Object" when unknown
-                lhsType = "Object";
+                if (rhsIsArray) {
+                    rhsType = "Object[]";
+                }
+                else {
+                    rhsType = "Object";
+                }
         }
         //Reserved name check
         if (name.equals("null") || name.equals("super") || 
