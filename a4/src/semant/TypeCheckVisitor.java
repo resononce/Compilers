@@ -1047,7 +1047,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                         fileName,
                                         lineNum,
-                                        "the righthand type  'void' does not" + 
+                                        "the righthand type 'void' does not" + 
                                         " conform to the lefthand type '" +
                                         lhsType + "' in assignment");
                 }
@@ -1116,7 +1116,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                     errorHandler.register(errorHandler.SEMANT_ERROR,
                                         fileName,
                                         lineNum,
-                                        "the righthand type  'void' does not" + 
+                                        "the righthand type 'void' does not" + 
                                         " conform to the lefthand type '" +
                                         lhsType + "' in assignment");
                 }
@@ -1182,7 +1182,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
                 errorHandler.register(errorHandler.SEMANT_ERROR,
                                     fileName,
                                     lineNum,
-                                    "the righthand type  'void' does not" + 
+                                    "the righthand type 'void' does not" + 
                                     " conform to the lefthand type '" +
                                     lhsType + "' in assignment");
             }
