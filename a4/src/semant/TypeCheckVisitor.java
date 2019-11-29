@@ -500,6 +500,7 @@ public class TypeCheckVisitor extends SemanticVisitor {
         return null; 
     }
     
+    //---------------------------------------------------------------------------REDO THIS WHOLE THING, IT'S TOO UGLY****************** CURRENT SEGMENT I AM ON
     public Object visit(ReturnStmt node) { 
         int lineNum = node.getLineNum();
         String returnType = "void";

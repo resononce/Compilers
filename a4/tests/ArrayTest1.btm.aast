@@ -1,18 +1,6 @@
-ArrayTest1.btm:20:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'String' in assignment
+ArrayTest1.btm:28:semantic error: expression type 'null' of declaration 'array2' does not match declared type 'int[]'
 
-ArrayTest1.btm:20:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'String' in assignment
-
-ArrayTest1.btm:20:semantic error: the lefthand type 'Object[]' does not conform to the righthand type 'String' in assignment
-
-ArrayTest1.btm:27:semantic error: actual parameter 1 with type 'null' does not match formal parameter 1 with declared type 'int[]' in dispatch to method 'foo'
-
-ArrayTest1.btm:27:semantic error: expression type 'Object' of declaration 'strings' does not conform to declared type 'String[]'
-
-ArrayTest1.btm:29:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int'
-
-ArrayTest1.btm:39:semantic error: actual parameter 1 with type 'Object' does not match formal parameter 1 with declared type 'int' in dispatch to method 'putInt'
-
-ArrayTest1.btm:39:semantic error: dispatch to unknown method 'putString'
+ArrayTest1.btm:43:semantic error: the lefthand type 'int[]' in the binary operation ('!=') does not match the righthand type 'null'
 
 Stopping compilation due to errors
-8 error(s)
+2 error(s)

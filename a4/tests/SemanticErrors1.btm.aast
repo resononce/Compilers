@@ -48,11 +48,15 @@ SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'bo
 
 SemanticErrors1.btm:46:semantic error: overriding method 'm' has formal type 'int' for formal 2, which differs from the inherited method's formal type 'boolean'
 
+SemanticErrors1.btm:52:semantic error: expression type 'boolean' of field 'x' does not match declared type 'int'
+
+SemanticErrors1.btm:53:semantic error: expression type 'String' of field 'b' does not match declared type 'boolean'
+
 SemanticErrors1.btm:54:semantic error: expression type 'null' of field 'z' does not match declared type 'int'
 
 SemanticErrors1.btm:55:semantic error: expression type 'void' of field 's' cannot be void
 
-SemanticErrors1.btm:56:semantic error: expression type 'String' of field 't' does not match declared type 'TextIO'
+SemanticErrors1.btm:56:semantic error: expression type 'String' of field 't' does not conform to declared type 'TextIO'
 
 SemanticErrors1.btm:59:semantic error: return type 'boolean' is not compatible with declared return type 'int' in method 'm1'
 
@@ -180,6 +184,8 @@ SemanticErrors1.btm:136:semantic error: the righthand type 'void' does not confo
 
 SemanticErrors1.btm:137:semantic error: bad reference 't': fields are 'protected' and can only be accessed within the class or subclass via 'this' or 'super'
 
+SemanticErrors1.btm:138:semantic error: the lefthand type 'int' and righthand type 'TextIO' are not compatible in assignment
+
 SemanticErrors1.btm:139:semantic error: the lefthand type 'boolean' and righthand type 'int' are not compatible in assignment
 
 SemanticErrors1.btm:142:semantic error: the expression type 'int' in the unary operation ('!') is incorrect; should have been: boolean
@@ -217,4 +223,4 @@ SemanticErrors1.btm:161:semantic error: cannot return an expression of type 'voi
 SemanticErrors1.btm:161:semantic error: return type 'Object' is not compatible with declared return type 'void' in method 'm8'
 
 Stopping compilation due to errors
-109 error(s)
+112 error(s)

@@ -1,4 +1,4 @@
-1,114c1,20
+1,114c1,8
 < // Source file: ArrayTest3.btm
 < // Source line: 4
 < class Main extends Object {
@@ -114,23 +114,11 @@
 <     }
 < }
 ---
-> ArrayTest3.btm:8:semantic error: type 'int[]' of declaration 'array' is undefined
+> ArrayTest3.btm:18:semantic error: the base type in the target array type 'int' is undefined
 > 
-> ArrayTest3.btm:8:semantic error: expression type 'Object' of declaration 'array' does not match declared type 'int[]'
+> ArrayTest3.btm:18:semantic error: inconvertible types ('Object'=>'Object[]')
 > 
-> ArrayTest3.btm:18:semantic error: the target type 'int[]' is primitive and not an object type
-> 
-> ArrayTest3.btm:18:semantic error: expression type 'Object' of declaration 'array2' does not match declared type 'int[]'
-> 
-> ArrayTest3.btm:29:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
-> 
-> ArrayTest3.btm:30:semantic error: the lefthand type 'Object' in the binary operation ('-') is incorrect; should have been: int
-> 
-> ArrayTest3.btm:38:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
-> 
-> ArrayTest3.btm:40:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
-> 
-> ArrayTest3.btm:55:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
+> ArrayTest3.btm:18:semantic error: expression type 'Object[]' of declaration 'array2' does not conform to declared type 'int[]'
 > 
 > Stopping compilation due to errors
-> 9 error(s)
+> 3 error(s)

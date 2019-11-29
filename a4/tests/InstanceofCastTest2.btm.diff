@@ -1,4 +1,4 @@
-1,263c1,30
+1,263c1,24
 < // Source file: InstanceofCastTest2.btm
 < // Source line: 1
 < class Main extends Object {
@@ -263,33 +263,27 @@
 <     }
 < }
 ---
-> InstanceofCastTest2.btm:8:semantic error: type 'int[]' of declaration 'ints' is undefined
+> InstanceofCastTest2.btm:114:semantic error: inconvertible types ('int[]'=>'Object')
 > 
-> InstanceofCastTest2.btm:8:semantic error: expression type 'Object' of declaration 'ints' does not match declared type 'int[]'
+> InstanceofCastTest2.btm:119:semantic error: the base type in the instanceof righthand array type 'int' is undefined
 > 
-> InstanceofCastTest2.btm:9:semantic error: type 'boolean[]' of declaration 'bools' is undefined
+> InstanceofCastTest2.btm:122:semantic error: inconvertible types ('int[]'=>'Object')
 > 
-> InstanceofCastTest2.btm:9:semantic error: expression type 'Object' of declaration 'bools' does not match declared type 'boolean[]'
+> InstanceofCastTest2.btm:122:semantic error: the base type in the target array type 'int' is undefined
 > 
-> InstanceofCastTest2.btm:114:semantic error: expression in cast has type 'int[]', which is primitive and can't be casted
+> InstanceofCastTest2.btm:122:semantic error: inconvertible types ('Object'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:119:semantic error: the instanceof righthand type 'int[]' is primitive and not an object type
+> InstanceofCastTest2.btm:122:semantic error: expression type 'Object[]' of declaration 'x' does not conform to declared type 'int[]'
 > 
-> InstanceofCastTest2.btm:122:semantic error: expression in cast has type 'int[]', which is primitive and can't be casted
+> InstanceofCastTest2.btm:134:semantic error: inconvertible types ('boolean[]'=>'Object')
 > 
-> InstanceofCastTest2.btm:122:semantic error: the target type 'int[]' is primitive and not an object type
+> InstanceofCastTest2.btm:139:semantic error: the base type in the instanceof righthand array type 'boolean' is undefined
 > 
-> InstanceofCastTest2.btm:122:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'int[]'
+> InstanceofCastTest2.btm:142:semantic error: the base type in the target array type 'boolean' is undefined
 > 
-> InstanceofCastTest2.btm:134:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
+> InstanceofCastTest2.btm:142:semantic error: inconvertible types ('boolean[]'=>'Object[]')
 > 
-> InstanceofCastTest2.btm:139:semantic error: the instanceof righthand type 'boolean[]' is primitive and not an object type
-> 
-> InstanceofCastTest2.btm:142:semantic error: the target type 'boolean[]' is primitive and not an object type
-> 
-> InstanceofCastTest2.btm:142:semantic error: expression in cast has type 'boolean[]', which is primitive and can't be casted
-> 
-> InstanceofCastTest2.btm:142:semantic error: expression type 'Object' of declaration 'x' does not match declared type 'boolean[]'
+> InstanceofCastTest2.btm:142:semantic error: expression type 'Object[]' of declaration 'x' does not conform to declared type 'boolean[]'
 > 
 > Stopping compilation due to errors
-> 14 error(s)
+> 11 error(s)

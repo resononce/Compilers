@@ -1,18 +1,10 @@
 Strings.btm:14:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 
-Strings.btm:14:semantic error: predicate in if-statement does not have type boolean
-
 Strings.btm:18:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
-
-Strings.btm:18:semantic error: predicate in if-statement does not have type boolean
 
 Strings.btm:26:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 
-Strings.btm:26:semantic error: predicate in if-statement does not have type boolean
-
 Strings.btm:30:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'equals'
 
-Strings.btm:30:semantic error: predicate in if-statement does not have type boolean
-
 Stopping compilation due to errors
-8 error(s)
+4 error(s)

@@ -1,4 +1,4 @@
-1,1338c1,16
+1,1338c1,10
 < // Source file: GCTest.btm
 < // Source line: 1
 < class Main extends Object {
@@ -1346,11 +1346,5 @@
 > 
 > GCTest.btm:25:semantic error: actual parameter 1 with type 'String' does not match formal parameter 1 with declared type 'Object' in dispatch to method 'addElement'
 > 
-> Vector.btm:54:semantic error: the lefthand type 'Object' in the binary operation ('*') is incorrect; should have been: int
-> 
-> Vector.btm:57:semantic error: the righthand type 'Object' in the binary operation ('<') is incorrect; should have been: int
-> 
-> Vector.btm:107:semantic error: the lefthand type 'int' in the binary operation ('==') does not match the righthand type 'Object'
-> 
 > Stopping compilation due to errors
-> 7 error(s)
+> 4 error(s)
