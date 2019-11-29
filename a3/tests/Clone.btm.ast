@@ -1,66 +1,10 @@
-// Source file: Clone.btm
-// Source line: 1
-class Main extends Object {
-    // Source line: 2
-    TextIO io = 
-(/*L2*/new TextIO());
-    // Source line: 3
-    int x;
-    // Source line: 4
-    int y;
-    // Source line: 5
-    void setX(/*line:5*/int x) {
-        // Source line: 6
-        (/*L6*/this.x = (/*L6*/x));
-        // Source line: 7
-        return;
-    }
-    // Source line: 9
-    int getX() {
-        // Source line: 10
-        return (/*L10*/x);
-    }
-    // Source line: 12
-    void setY(/*line:12*/int y) {
-        // Source line: 13
-        (/*L13*/this.y = (/*L13*/y));
-        // Source line: 14
-        return;
-    }
-    // Source line: 16
-    int getY() {
-        // Source line: 17
-        return (/*L17*/y);
-    }
-    // Source line: 19
-    void main() {
-        // Source line: 20
-        (/*L20*/(/*L20*/io).putString((/*L20*/"Creating main object (m) and setting X to 5 and Y to 3\n")));
-        // Source line: 21
-        Main m = (/*L21*/new Main());
-        // Source line: 22
-        (/*L22*/(/*L22*/m).setX((/*L22*/5)));
-        // Source line: 23
-        (/*L23*/(/*L23*/m).setY((/*L23*/3)));
-        // Source line: 24
-        (/*L24*/(/*L24*/(/*L24*/(/*L24*/io).putString((/*L24*/"m.x="))).putInt((/*L24*/(/*L24*/m).getX()))).putString((/*L24*/"\n")));
-        // Source line: 25
-        (/*L25*/(/*L25*/(/*L25*/(/*L25*/io).putString((/*L25*/"m.y="))).putInt((/*L25*/(/*L25*/m).getY()))).putString((/*L25*/"\n")));
-        // Source line: 26
-        (/*L26*/(/*L26*/io).putString((/*L26*/"Cloning main object (m2) and setting X to 6\n")));
-        // Source line: 27
-        Main m2 = (/*L27*/(Main)((/*L27*/(/*L27*/m).clone())));
-        // Source line: 28
-        (/*L28*/(/*L28*/m2).setX((/*L28*/6)));
-        // Source line: 29
-        (/*L29*/(/*L29*/(/*L29*/(/*L29*/io).putString((/*L29*/"m.x="))).putInt((/*L29*/(/*L29*/m).getX()))).putString((/*L29*/"\n")));
-        // Source line: 30
-        (/*L30*/(/*L30*/(/*L30*/(/*L30*/io).putString((/*L30*/"m.y="))).putInt((/*L30*/(/*L30*/m).getY()))).putString((/*L30*/"\n")));
-        // Source line: 31
-        (/*L31*/(/*L31*/(/*L31*/(/*L31*/io).putString((/*L31*/"m2.x="))).putInt((/*L31*/(/*L31*/m2).getX()))).putString((/*L31*/"\n")));
-        // Source line: 32
-        (/*L32*/(/*L32*/(/*L32*/(/*L32*/io).putString((/*L32*/"m2.y="))).putInt((/*L32*/(/*L32*/m2).getY()))).putString((/*L32*/"\n")));
-        // Source line: 33
-        return;
-    }
-}
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\src" Main Clone.btm 
+Clone.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "}" ...
+    <ID> ...
+    
+
+Stopping compilation due to errors
+1 error(s)

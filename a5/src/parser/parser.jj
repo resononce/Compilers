@@ -1,0 +1,168 @@
+/* Bantam Java Compiler and Language Toolset.
+
+   Copyright (C) 2007 by Marc Corliss (corliss@hws.edu) and 
+                         E Christopher Lewis (lewis@vmware.com).
+   ALL RIGHTS RESERVED.
+
+   The Bantam Java toolset is distributed under the following 
+   conditions:
+
+     You may make copies of the toolset for your own use and 
+     modify those copies.
+
+     All copies of the toolset must retain the author names and 
+     copyright notice.
+
+     You may not sell the toolset or distribute it in 
+     conjunction with a commerical product or service without 
+     the expressed written consent of the authors.
+
+   THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS 
+   OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE 
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+   PARTICULAR PURPOSE. 
+*/
+
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(Parser)
+  package parser;
+
+  import ast.*;
+  import util.ErrorHandler;
+  import java.util.Stack;
+  import java.util.Iterator;
+
+  /** A class for performing syntactic analysis */
+  public class Parser 
+  {
+      /** Maximum string size allowed */
+      public static final int MAX_STRING_SIZE = 5000;
+
+      /** Is debugging enabled? */
+      private static boolean debug = false;
+
+      /** Filenames of source files */
+      private static String[] filenames = null;
+
+      /** Input streams of source files */
+      private static java.io.FileInputStream[] fileReaders = null;
+
+      /** Current file number (index into filenames and fileReaders) */
+      private static int fileCnt = 0;
+
+      public Parser(String[] filenames, boolean debug) 
+      {
+	  // set debugging flag
+	  this.debug = debug;
+	  
+	  // initialize filenames field to parameter filenames
+	  // used later for finding the name of the current file
+	  this.filenames = filenames;
+	  
+	  // check that there is at least one specified filename
+	  if (filenames.length == 0)
+	      throw new RuntimeException("Must specify at least one filename to scan");
+	  // must initialize readers for each file (FileInputStream)
+	  fileReaders = new java.io.FileInputStream[filenames.length];
+	  for (int i = 0; i < filenames.length; i++) {
+	      // try...catch checks if file is found
+	      try {
+		  // create the ith file reader
+		  fileReaders[i] = new java.io.FileInputStream(filenames[i]);
+	      }
+	      catch(java.io.FileNotFoundException e) {
+		  // if file not found then report an error and exit
+		  System.err.println("Error: file '" + filenames[i] + "' not found");
+		  System.exit(1);
+	      }
+	  }
+
+	  if (jj_initialized_once) {
+	      System.out.println("ERROR: Second call to constructor of static parser.  You must");
+	      System.out.println("       either use ReInit() or set the JavaCC option STATIC to false");
+	      System.out.println("       during parser generation.");
+	      throw new Error();
+	  }
+	  jj_initialized_once = true;
+
+	  try { jj_input_stream = new JavaCharStream(fileReaders[0], null, 1, 1); } 
+	  catch(java.io.UnsupportedEncodingException e) { 
+	      throw new RuntimeException(e); 
+	  }
+
+	  ReInit(fileReaders[0]);
+      }
+
+
+      /** Parse the program
+        * @return parsed program as an AST (abstract syntax tree)
+        * */
+      public Program parse() {
+	  // initialize the error handler and class list
+	  ErrorHandler errorHandler = new ErrorHandler();
+	  ClassList classList = new ClassList(0);
+
+	  // loop over the files
+	  for (fileCnt = 0; fileCnt < fileReaders.length; fileCnt++) {
+	      try {
+		  if (fileCnt > 0) jj_input_stream.ReInit(fileReaders[fileCnt], 1, 1);
+		  Program p = Parser.Program();
+		  
+		  for (Iterator iter = p.getClassList().getIterator(); iter.hasNext(); )
+		     classList.addElement((Class_)iter.next());
+
+
+	      }
+	      catch(ParseException e) {
+		  String message = e.toString();
+		  int index = message.indexOf(": ");
+		  message = message.substring(index+2,message.length());
+		  errorHandler.register(errorHandler.PARSE_ERROR, filenames[fileCnt], 
+					JavaCharStream.getBeginLine(), message);
+	      }
+	  }
+
+	  errorHandler.checkErrors();
+
+	  return new Program(0, classList);
+      }
+
+      /** Get the filename of the file currently being scanned */
+      public static String getCurrFilename() {
+	  return filenames[fileCnt];
+      }
+
+  }
+PARSER_END(Parser)
+
+TOKEN_MGR_DECLS :
+{
+    // Use this for error handling
+    private static ErrorHandler errorHandler = new ErrorHandler();
+}
+
+/******************************************/
+/* copy your lexer from A1 below...       */
+/******************************************/
+
+
+<*>
+TOKEN : /* EOF */
+{
+  <EOF> { errorHandler.checkErrors(); }
+}
+
+/******************************************/
+/* Add your parser from A3 below...       */
+/******************************************/
+
+Program Program() :
+{ 
+}
+{
+  <EOF>
+  { return null; }
+}

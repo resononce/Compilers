@@ -1,0 +1,116 @@
+Comparing files TicTacToe.btm.ast.ref and TICTACTOE.BTM.AST
+Resync Failed.  Files are too different.
+***** TicTacToe.btm.ast.ref
+// Source file: TicTacToe.btm
+// Source line: 3
+class Main extends Object {
+    // Source line: 4
+    TextIO io = 
+(/*L4*/new TextIO());
+    // Source line: 5
+    int player = 
+(/*L5*/1);
+    // Source line: 6
+    int[] board = 
+(/*L6*/new int[(/*L6*/9)]);
+    // Source line: 9
+    void main() {
+        // Source line: 11
+        (/*L11*/(/*L11*/io).putString((/*L11*/"*** Tic Tac Toe ***\n")));
+        // Source line: 14
+        while ((/*L14*/true))
+            // Source line: 14
+            {
+                // Source line: 16
+                (/*L16*/(/*L16*/this).printBoard());
+                // Source line: 19
+                (/*L19*/(/*L19*/this).getMove());
+                // Source line: 22
+                if ((/*L22*/(/*L22*/this).isGameOver()))
+                    // Source line: 22
+                    {
+                        // Source line: 24
+                        if ((/*L24*/(/*L24*/this).isDraw()))
+                            // Source line: 24
+                            {
+                                // Source line: 25
+                                (/*L25*/(/*L25*/this).printBoard());
+                                // Source line: 26
+                                (/*L26*/(/*L26*/io).putString((/*L26*/"Game is a draw\n")));
+                                // Source line: 27
+                                break;
+                            }
+                        else
+                            // Source line: 29
+                            {
+                                // Source line: 30
+                                (/*L30*/(/*L30*/this).printBoard());
+                                // Source line: 31
+                                (/*L31*/(/*L31*/(/*L31*/(/*L31*/io).putString((/*L31*/"Player "))).putInt((/*L31*/player))).put
+String((/*L31*/" wins!\n")));
+                                // Source line: 32
+                                break;
+                            }
+                    }
+                else
+                    // Source line: 22
+                    {
+                    }
+                // Source line: 37
+                if ((/*L37*/(/*L37*/player) == (/*L37*/1)))
+                    // Source line: 38
+                    (/*L38*/player = (/*L38*/2));
+                else
+                    // Source line: 40
+                    (/*L40*/player = (/*L40*/1));
+            }
+    }
+    // Source line: 46
+    boolean isGameOver() {
+        // Source line: 48
+        if ((/*L48*/(/*L48*/this).wasGameWon()))
+            // Source line: 49
+            return (/*L49*/true);
+        else
+            // Source line: 51
+            if ((/*L51*/(/*L51*/this).isDraw()))
+                // Source line: 52
+                return (/*L52*/true);
+            else
+                // Source line: 51
+                {
+                }
+        // Source line: 54
+        return (/*L54*/false);
+    }
+    // Source line: 60
+    boolean wasGameWon() {
+        // Source line: 62
+        if ((/*L63*/(/*L62*/(/*L62*/(/*L62*/(/*L62*/(/*L62*/board[(/*L62*/0)]) == (/*L62*/board[(/*L62*/1)])) && (/*L62*/(/*L62
+*/board[(/*L62*/1)]) == (/*L62*/board[(/*L62*/2)]))) && (/*L62*/(/*L62*/board[(/*L62*/0)]) != (/*L62*/0))) || (/*L63*/(/*L63*/(
+/*L63*/(/*L63*/board[(/*L63*/3)]) == (/*L63*/board[(/*L63*/4)])) && (/*L63*/(/*L63*/board[(/*L63*/4)]) == (/*L63*/board[(/*L63*
+/5)]))) && (/*L63*/(/*L63*/board[(/*L63*/3)]) != (/*L63*/0)))) || (/*L64*/(/*L64*/(/*L64*/(/*L64*/board[(/*L64*/6)]) == (/*L64*
+/board[(/*L64*/7)])) && (/*L64*/(/*L64*/board[(/*L64*/7)]) == (/*L64*/board[(/*L64*/8)]))) && (/*L64*/(/*L64*/board[(/*L64*/6)]
+) != (/*L64*/0)))))
+            // Source line: 64
+            {
+                // Source line: 65
+                return (/*L65*/true);
+            }
+        else
+            // Source line: 68
+            if ((/*L69*/(/*L68*/(/*L68*/(/*L68*/(/*L68*/(/*L68*/board[(/*L68*/0)]) == (/*L68*/board[(/*L68*/3)])) && (/*L68*/(/
+*L68*/board[(/*L68*/3)]) == (/*L68*/board[(/*L68*/6)]))) && (/*L68*/(/*L68*/board[(/*L68*/0)]) != (/*L68*/0))) || (/*L69*/(/*L6
+***** TICTACTOE.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main TicTacToe.btm 
+TicTacToe.btm:2:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 2, column 27.
+Was expecting:
+    "class" ...
+    
+
+Stopping compilation due to errors
+1 error(s)
+*****
+

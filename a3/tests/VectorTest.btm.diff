@@ -1,0 +1,131 @@
+Comparing files VectorTest.btm.ast.ref and VECTORTEST.BTM.AST
+Resync Failed.  Files are too different.
+***** VectorTest.btm.ast.ref
+// Source file: VectorTest.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 5
+    TextIO io = 
+(/*L5*/new TextIO());
+    // Source line: 6
+    Vector v = 
+(/*L6*/new Vector());
+    // Source line: 8
+    void main() {
+        // Source line: 9
+        (/*L9*/(/*L9*/this).test1());
+        // Source line: 10
+        (/*L10*/(/*L10*/this).test2());
+        // Source line: 11
+        return;
+    }
+    // Source line: 14
+    void printVector() {
+        // Source line: 15
+        int i = (/*L15*/0);
+        // Source line: 16
+        while ((/*L16*/(/*L16*/i) < (/*L16*/(/*L16*/v).size())))
+            // Source line: 16
+            {
+                // Source line: 17
+                (/*L17*/(/*L17*/(/*L17*/(/*L17*/io).putString((/*L17*/"Element "))).putInt((/*L17*/i))).putString((/*L17*/": ")
+));
+                // Source line: 18
+                if ((/*L18*/(/*L18*/(/*L18*/v).elementAt((/*L18*/i))) instanceof Boolean))
+                    // Source line: 18
+                    {
+                        // Source line: 19
+                        Boolean b = (/*L19*/(Boolean)((/*L19*/(/*L19*/v).elementAt((/*L19*/i)))));
+                        // Source line: 20
+                        (/*L20*/(/*L20*/io).putString((/*L20*/"Boolean (")));
+                        // Source line: 21
+                        if ((/*L21*/(/*L21*/b).booleanValue()))
+                            // Source line: 22
+                            (/*L22*/(/*L22*/io).putString((/*L22*/"true)\n")));
+                        else
+                            // Source line: 24
+                            (/*L24*/(/*L24*/io).putString((/*L24*/"false)\n")));
+                    }
+                else
+                    // Source line: 26
+                    if ((/*L26*/(/*L26*/(/*L26*/v).elementAt((/*L26*/i))) instanceof Integer))
+                        // Source line: 26
+                        {
+                            // Source line: 27
+                            Integer integer = (/*L27*/(Integer)((/*L27*/(/*L27*/v).elementAt((/*L27*/i)))));
+                            // Source line: 28
+                            (/*L28*/(/*L28*/(/*L28*/(/*L28*/io).putString((/*L28*/"Integer ("))).putInt((/*L28*/(/*L28*/integer
+).intValue()))).putString((/*L28*/")\n")));
+                        }
+                    else
+                        // Source line: 30
+                        if ((/*L30*/(/*L30*/(/*L30*/v).elementAt((/*L30*/i))) instanceof String))
+                            // Source line: 30
+                            {
+                                // Source line: 31
+                                String s = (/*L31*/(String)((/*L31*/(/*L31*/v).elementAt((/*L31*/i)))));
+                                // Source line: 32
+                                (/*L32*/(/*L32*/(/*L32*/(/*L32*/io).putString((/*L32*/"String ("))).putString((/*L32*/s))).putS
+tring((/*L32*/")\n")));
+                            }
+                        else
+                            // Source line: 30
+                            {
+                            }
+                // Source line: 34
+                (/*L34*/i = (/*L34*/(/*L34*/i) + (/*L34*/1)));
+            }
+        // Source line: 37
+        return;
+    }
+    // Source line: 40
+    void test1() {
+        // Source line: 41
+        Integer integer = (/*L41*/(/*L41*/new Integer()).init((/*L41*/5)));
+        // Source line: 42
+        Boolean b = (/*L42*/(/*L42*/new Boolean()).init((/*L42*/true)));
+        // Source line: 43
+        String s = (/*L43*/"abc");
+        // Source line: 45
+        (/*L45*/(/*L45*/v).addElement((/*L45*/integer)));
+        // Source line: 46
+        (/*L46*/(/*L46*/io).putString((/*L46*/"Added Integer (5) to Vector\n")));
+        // Source line: 48
+        (/*L48*/(/*L48*/io).putString((/*L48*/"Printing vector:\n")));
+        // Source line: 49
+        (/*L49*/(/*L49*/this).printVector());
+        // Source line: 51
+        (/*L51*/(/*L51*/v).addElementAt((/*L51*/b), (/*L51*/0)));
+        // Source line: 52
+        (/*L52*/(/*L52*/io).putString((/*L52*/"Added Boolean (true) to first position (0th) of Vector\n")));
+        // Source line: 54
+        (/*L54*/(/*L54*/io).putString((/*L54*/"Printing vector:\n")));
+        // Source line: 55
+***** VECTORTEST.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main VectorTest.btm Vector.btm Boolean.btm Integer.btm 
+VectorTest.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 7.
+Was expecting:
+    "class" ...
+    
+
+Vector.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 7.
+Was expecting:
+    "class" ...
+    
+
+Boolean.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 7.
+Was expecting:
+    "class" ...
+    
+
+Integer.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 7.
+Was expecting:
+    "class" ...
+    
+
+Stopping compilation due to errors
+4 error(s)
+*****
+

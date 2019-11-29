@@ -44,7 +44,7 @@
       <arg line ="${A}"/>
     </exec>      
 
-    <exec executable="diff" output="${M}.diff">
+    <exec executable="FC" output="${M}.diff">
       <arg value="${M}.ast.ref"/>
       <arg value="${M}.ast"/>
     </exec>

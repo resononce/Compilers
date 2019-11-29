@@ -1,0 +1,123 @@
+Comparing files FileIO.btm.ast.ref and FILEIO.BTM.AST
+Resync Failed.  Files are too different.
+***** FileIO.btm.ast.ref
+// Source file: FileIO.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        TextIO io = (/*L3*/new TextIO());
+        // Source line: 4
+        Vector fileInput = (/*L4*/new Vector());
+        // Source line: 5
+        Vector stdin = (/*L5*/new Vector());
+        // Source line: 7
+        (/*L7*/(/*L7*/io).readFile((/*L7*/"FileIO-input.txt")));
+        // Source line: 8
+        boolean eof = (/*L8*/false);
+        // Source line: 9
+        while ((/*L9*/!((/*L9*/eof))))
+            // Source line: 9
+            {
+                // Source line: 10
+                String s = (/*L10*/(/*L10*/io).getString());
+                // Source line: 11
+                if ((/*L11*/(/*L11*/s) == (/*L11*/null)))
+                    // Source line: 12
+                    (/*L12*/eof = (/*L12*/true));
+                else
+                    // Source line: 13
+                    {
+                        // Source line: 14
+                        (/*L14*/(/*L14*/(/*L14*/(/*L14*/io).putString((/*L14*/"Read string from FileIO-input.txt: "))).putStrin
+g((/*L14*/s))).putString((/*L14*/"\n")));
+                        // Source line: 15
+                        (/*L15*/(/*L15*/fileInput).addElement((/*L15*/s)));
+                    }
+            }
+        // Source line: 19
+        (/*L19*/(/*L19*/io).readStdin());
+        // Source line: 20
+        (/*L20*/(/*L20*/io).putString((/*L20*/"\nEnter some text to write to file (empty line to end):\n")));
+        // Source line: 21
+        boolean endOfInput = (/*L21*/false);
+        // Source line: 22
+        while ((/*L22*/!((/*L22*/endOfInput))))
+            // Source line: 22
+            {
+                // Source line: 23
+                String s = (/*L23*/(/*L23*/io).getString());
+                // Source line: 24
+                if ((/*L24*/(/*L24*/s).equals((/*L24*/""))))
+                    // Source line: 25
+                    (/*L25*/endOfInput = (/*L25*/true));
+                else
+                    // Source line: 26
+                    {
+                        // Source line: 27
+                        (/*L27*/(/*L27*/(/*L27*/(/*L27*/io).putString((/*L27*/"Read string from FileIO-input.txt: "))).putStrin
+g((/*L27*/s))).putString((/*L27*/"\n")));
+                        // Source line: 28
+                        (/*L28*/(/*L28*/stdin).addElement((/*L28*/s)));
+                    }
+            }
+        // Source line: 32
+        String s = (/*L32*/(String)((/*L32*/(/*L32*/stdin).elementAt((/*L32*/0)))));
+        // Source line: 34
+        (/*L34*/(/*L34*/io).writeStderr());
+        // Source line: 35
+        (/*L35*/(/*L35*/io).putString((/*L35*/"This string was sent to stderr.\n\n")));
+        // Source line: 37
+        (/*L37*/(/*L37*/io).writeStdout());
+        // Source line: 38
+        (/*L38*/(/*L38*/io).putString((/*L38*/"Writing stdin and input file contents to FileIO-output.txt (stdin first)\n\n")))
+;
+        // Source line: 39
+        (/*L39*/(/*L39*/io).writeFile((/*L39*/"FileIO-output.txt")));
+        // Source line: 40
+        int i = (/*L40*/0);
+        // Source line: 41
+        while ((/*L41*/(/*L41*/i) < (/*L41*/(/*L41*/stdin).size())))
+            // Source line: 41
+            {
+                // Source line: 42
+                (/*L42*/(/*L42*/(/*L42*/io).putString((/*L42*/(String)((/*L42*/(/*L42*/stdin).elementAt((/*L42*/i))))))).putStr
+ing((/*L42*/"\n")));
+                // Source line: 43
+                (/*L43*/i = (/*L43*/(/*L43*/i) + (/*L43*/1)));
+            }
+        // Source line: 45
+        (/*L45*/i = (/*L45*/0));
+        // Source line: 46
+        while ((/*L46*/(/*L46*/i) < (/*L46*/(/*L46*/fileInput).size())))
+            // Source line: 46
+            {
+                // Source line: 47
+                (/*L47*/(/*L47*/(/*L47*/io).putString((/*L47*/(String)((/*L47*/(/*L47*/fileInput).elementAt((/*L47*/i))))))).pu
+tString((/*L47*/"\n")));
+                // Source line: 48
+                (/*L48*/i = (/*L48*/(/*L48*/i) + (/*L48*/1)));
+            }
+        // Source line: 51
+        (/*L51*/(/*L51*/io).writeStdout());
+***** FILEIO.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main FileIO.btm Vector.btm 
+FileIO.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "}" ...
+    <ID> ...
+    
+
+Vector.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "class" ...
+    <ID> ...
+    
+
+Stopping compilation due to errors
+2 error(s)
+*****
+

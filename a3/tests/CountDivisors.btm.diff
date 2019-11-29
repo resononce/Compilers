@@ -1,0 +1,94 @@
+Comparing files CountDivisors.btm.ast.ref and COUNTDIVISORS.BTM.AST
+***** CountDivisors.btm.ast.ref
+// Source file: CountDivisors.btm
+// Source line: 5
+class Main extends Object {
+    // Source line: 7
+    void main() {
+        // Source line: 8
+        TextIO io = (/*L8*/new TextIO());
+        // Source line: 9
+        int upperBound = (/*L9*/1);
+        // Source line: 10
+        int numWithMostDivisors = (/*L10*/0);
+        // Source line: 11
+        int maxDivisors = (/*L11*/0);
+        // Source line: 13
+        (/*L13*/upperBound = (/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"Enter a number >= 1: "))).getInt()));
+        // Source line: 14
+        if ((/*L14*/(/*L14*/upperBound) < (/*L14*/1)))
+            // Source line: 14
+            {
+                // Source line: 15
+                (/*L15*/(/*L15*/io).putString((/*L15*/"Number must be >= 1")));
+                // Source line: 16
+                (/*L16*/(/*L16*/new Sys()).exit((/*L16*/1)));
+            }
+        else
+            // Source line: 14
+            {
+            }
+        // Source line: 20
+        int i = (/*L20*/1);
+        // Source line: 21
+        while ((/*L21*/(/*L21*/i) <= (/*L21*/upperBound)))
+            // Source line: 21
+            {
+                // Source line: 23
+                int numDivisors = (/*L23*/0);
+                // Source line: 24
+                int j = (/*L24*/1);
+                // Source line: 25
+                while ((/*L25*/(/*L25*/j) <= (/*L25*/i)))
+                    // Source line: 25
+                    {
+                        // Source line: 27
+                        if ((/*L27*/(/*L27*/(/*L27*/i) % (/*L27*/j)) == (/*L27*/0)))
+                            // Source line: 28
+                            (/*L28*/numDivisors = (/*L28*/(/*L28*/numDivisors) + (/*L28*/1)));
+                        else
+                            // Source line: 27
+                            {
+                            }
+                        // Source line: 29
+                        (/*L29*/j = (/*L29*/(/*L29*/j) + (/*L29*/1)));
+                    }
+                // Source line: 34
+                if ((/*L34*/(/*L34*/numDivisors) > (/*L34*/maxDivisors)))
+                    // Source line: 34
+                    {
+                        // Source line: 35
+                        (/*L35*/numWithMostDivisors = (/*L35*/i));
+                        // Source line: 36
+                        (/*L36*/maxDivisors = (/*L36*/numDivisors));
+                    }
+                else
+                    // Source line: 34
+                    {
+                    }
+                // Source line: 39
+                (/*L39*/i = (/*L39*/(/*L39*/i) + (/*L39*/1)));
+            }
+        // Source line: 43
+        (/*L43*/(/*L43*/(/*L43*/(/*L43*/io).putString((/*L43*/"Number with most divisors: "))).putInt((/*L43*/numWithMostDiviso
+rs))).putString((/*L43*/"\n")));
+        // Source line: 44
+        (/*L44*/(/*L44*/(/*L44*/(/*L44*/io).putString((/*L44*/"Number of divisors: "))).putInt((/*L44*/maxDivisors))).putString
+((/*L44*/"\n")));
+        // Source line: 46
+        return;
+    }
+}
+***** COUNTDIVISORS.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main CountDivisors.btm 
+CountDivisors.btm:4:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 4, column 3.
+Was expecting:
+    "class" ...
+    
+
+Stopping compilation due to errors
+1 error(s)
+*****
+

@@ -1,96 +1,10 @@
-// Source file: ArrayTest1.btm
-// Source line: 1
-class Main extends Object {
-    // Source line: 2
-    boolean[] goo = 
-(/*L2*/null);
-    // Source line: 4
-    void printElement(/*line:4*/Object o, /*line:4*/int i) {
-        // Source line: 5
-        (/*L5*/(/*L5*/(/*L5*/(/*L5*/new TextIO()).putString((/*L5*/"array["))).putInt((/*L5*/i))).putString((/*L5*/"] is ")));
-        // Source line: 6
-        if ((/*L6*/(/*L6*/o) == (/*L6*/null)))
-            // Source line: 7
-            (/*L7*/(/*L7*/new TextIO()).putString((/*L7*/"null (error)\n")));
-        else
-            // Source line: 8
-            if ((/*L8*/!((/*L8*/(/*L8*/o) instanceof String))))
-                // Source line: 9
-                (/*L9*/(/*L9*/new TextIO()).putString((/*L9*/"not a string (error)\n")));
-            else
-                // Source line: 11
-                (/*L11*/(/*L11*/(/*L11*/new TextIO()).putString((/*L11*/(String)((/*L11*/o))))).putString((/*L11*/"\n")));
-        // Source line: 12
-        return;
-    }
-    // Source line: 15
-    void main() {
-        // Source line: 16
-        Object[] array = (/*L17*/new Object[(/*L17*/(/*L17*/5) * (/*L17*/2))]);
-        // Source line: 18
-        (/*L18*/array[(/*L18*/(/*L18*/0) + (/*L18*/5))] = (/*L18*/new Object()));
-        // Source line: 19
-        String s = (/*L19*/"abc");
-        // Source line: 20
-        (/*L20*/array[(/*L20*/0)] = (/*L20*/array[(/*L20*/1)] = (/*L20*/array[(/*L20*/2)] = (/*L20*/s))));
-        // Source line: 21
-        (/*L21*/(/*L21*/this).printElement((/*L21*/array[(/*L21*/0)]), (/*L21*/0)));
-        // Source line: 22
-        (/*L22*/(/*L22*/this).printElement((/*L22*/array[(/*L22*/1)]), (/*L22*/1)));
-        // Source line: 23
-        (/*L23*/(/*L23*/this).printElement((/*L23*/array[(/*L23*/2)]), (/*L23*/2)));
-        // Source line: 24
-        Object o = (/*L24*/array[(/*L24*/0)]);
-        // Source line: 25
-        (/*L25*/goo = (/*L25*/new boolean[(/*L25*/(/*L25*/5) * (/*L25*/2))]));
-        // Source line: 26
-        (/*L26*/(/*L26*/this).foo((/*L26*/new int[(/*L26*/10)])));
-        // Source line: 27
-        String[] strings = (/*L27*/(/*L27*/this).foo((/*L27*/null)));
-        // Source line: 28
-        int[] array2 = (/*L28*/null);
-        // Source line: 29
-        int x = (/*L29*/(/*L29*/array).length);
-        // Source line: 30
-        (/*L30*/strings = (/*L30*/new String[(/*L30*/10)]));
-        // Source line: 31
-        int i = (/*L31*/0);
-        // Source line: 32
-        while ((/*L32*/(/*L32*/i) < (/*L32*/10)))
-            // Source line: 32
-            {
-                // Source line: 33
-                (/*L33*/strings[(/*L33*/i)] = (/*L33*/"abc"));
-                // Source line: 34
-                (/*L34*/i = (/*L34*/(/*L34*/i) + (/*L34*/1)));
-            }
-        // Source line: 36
-        (/*L36*/strings[(/*L36*/2)] = (/*L36*/(/*L36*/(/*L36*/strings[(/*L36*/0)]).concat((/*L36*/strings[(/*L36*/1)]))).substring((/*L36*/1), (/*L36*/4))));
-        // Source line: 37
-        (/*L37*/(/*L37*/(/*L37*/new TextIO()).putString((/*L37*/strings[(/*L37*/2)]))).putString((/*L37*/"\n")));
-        // Source line: 38
-        (/*L39*/(/*L39*/(/*L38*/(/*L38*/new TextIO()).putString((/*L38*/"(new int[10]).length="))).putInt((/*L39*/(/*L39*/new int[(/*L39*/10)]).length))).putString((/*L39*/"\n")));
-        // Source line: 40
-        return;
-    }
-    // Source line: 42
-    String[] foo(/*line:42*/int[] array) {
-        // Source line: 43
-        if ((/*L43*/(/*L43*/array) != (/*L43*/null)))
-            // Source line: 43
-            {
-                // Source line: 44
-                (/*L44*/array[(/*L44*/(/*L44*/3) * (/*L44*/2))] = (/*L44*/array[(/*L44*/array[(/*L44*/2)])]));
-                // Source line: 45
-                (/*L45*/array[(/*L45*/array[(/*L45*/1)])] = (/*L45*/array[(/*L45*/(/*L45*/3) * (/*L45*/2))]));
-                // Source line: 46
-                (/*L46*/array[(/*L46*/array[(/*L46*/1)])] = (/*L46*/array[(/*L46*/array[(/*L46*/2)])]));
-            }
-        else
-            // Source line: 43
-            {
-            }
-        // Source line: 48
-        return (/*L48*/null);
-    }
-}
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\src" Main ArrayTest1.btm 
+ArrayTest1.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "}" ...
+    <ID> ...
+    
+
+Stopping compilation due to errors
+1 error(s)

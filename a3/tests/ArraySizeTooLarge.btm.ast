@@ -1,19 +1,10 @@
-// Source file: ArraySizeTooLarge.btm
-// Source line: 1
-class Main extends Object {
-    // Source line: 2
-    void main() {
-        // Source line: 3
-        int i = (/*L3*/0);
-        // Source line: 4
-        int[] array = (/*L4*/new int[(/*L4*/1500)]);
-        // Source line: 5
-        (/*L5*/array = (/*L5*/new int[(/*L5*/2000)]));
-        // Source line: 6
-        for ((/*L6*/i = (/*L6*/1500)); (/*L6*/(/*L6*/i) < (/*L6*/2000)); (/*L6*/((/*L6*/i))++))
-            // Source line: 7
-            (/*L7*/(/*L7*/(/*L7*/new TextIO()).putInt((/*L7*/array[(/*L7*/i)]))).putString((/*L7*/"\n")));
-        // Source line: 8
-        return;
-    }
-}
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\src" Main ArraySizeTooLarge.btm 
+ArraySizeTooLarge.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "}" ...
+    <ID> ...
+    
+
+Stopping compilation due to errors
+1 error(s)

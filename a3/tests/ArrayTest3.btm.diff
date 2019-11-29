@@ -1,0 +1,116 @@
+Comparing files ArrayTest3.btm.ast.ref and ARRAYTEST3.BTM.AST
+Resync Failed.  Files are too different.
+***** ArrayTest3.btm.ast.ref
+// Source file: ArrayTest3.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 5
+    TextIO io = 
+(/*L5*/new TextIO());
+    // Source line: 7
+    void main() {
+        // Source line: 8
+        int[] array = (/*L8*/new int[(/*L8*/10)]);
+        // Source line: 9
+        (/*L9*/(/*L9*/io).putString((/*L9*/"Building reverse sorted array...\n")));
+        // Source line: 10
+        (/*L10*/(/*L10*/this).buildArray((/*L10*/array)));
+        // Source line: 11
+        (/*L11*/(/*L11*/io).putString((/*L11*/"Unsorted array:\n")));
+        // Source line: 12
+        (/*L12*/(/*L12*/this).printArray((/*L12*/array)));
+        // Source line: 13
+        (/*L13*/(/*L13*/io).putString((/*L13*/"Sorting array...\n")));
+        // Source line: 14
+        (/*L14*/(/*L14*/this).sortArray((/*L14*/array)));
+        // Source line: 15
+        (/*L15*/(/*L15*/io).putString((/*L15*/"Sorted array:\n")));
+        // Source line: 16
+        (/*L16*/(/*L16*/this).printArray((/*L16*/array)));
+        // Source line: 17
+        (/*L17*/(/*L17*/io).putString((/*L17*/"Cloning array and setting element 5 to -1...\n")));
+        // Source line: 18
+        int[] array2 = (/*L18*/(int[])((/*L18*/(/*L18*/array).clone())));
+        // Source line: 19
+        (/*L19*/array2[(/*L19*/5)] = (/*L19*/-((/*L19*/1))));
+        // Source line: 20
+        (/*L20*/(/*L20*/io).putString((/*L20*/"Cloned array:\n")));
+        // Source line: 21
+        (/*L21*/(/*L21*/this).printArray((/*L21*/array2)));
+        // Source line: 22
+        (/*L22*/(/*L22*/io).putString((/*L22*/"Original array:\n")));
+        // Source line: 23
+        (/*L23*/(/*L23*/this).printArray((/*L23*/array)));
+        // Source line: 24
+        return;
+    }
+    // Source line: 27
+    void buildArray(/*line:27*/int[] array) {
+        // Source line: 28
+        int i = (/*L28*/0);
+        // Source line: 29
+        while ((/*L29*/(/*L29*/i) < (/*L29*/(/*L29*/array).length)))
+            // Source line: 29
+            {
+                // Source line: 30
+                (/*L30*/array[(/*L30*/i)] = (/*L30*/(/*L30*/(/*L30*/(/*L30*/array).length) - (/*L30*/i)) - (/*L30*/1)));
+                // Source line: 31
+                (/*L31*/i = (/*L31*/(/*L31*/i) + (/*L31*/1)));
+            }
+        // Source line: 33
+        return;
+    }
+    // Source line: 36
+    void sortArray(/*line:36*/int[] array) {
+        // Source line: 37
+        int i = (/*L37*/0);
+        // Source line: 38
+        while ((/*L38*/(/*L38*/i) < (/*L38*/(/*L38*/array).length)))
+            // Source line: 38
+            {
+                // Source line: 39
+                int j = (/*L39*/(/*L39*/i) + (/*L39*/1));
+                // Source line: 40
+                while ((/*L40*/(/*L40*/j) < (/*L40*/(/*L40*/array).length)))
+                    // Source line: 40
+                    {
+                        // Source line: 41
+                        if ((/*L41*/(/*L41*/array[(/*L41*/i)]) > (/*L41*/array[(/*L41*/j)])))
+                            // Source line: 41
+                            {
+                                // Source line: 42
+                                int tmp = (/*L42*/array[(/*L42*/i)]);
+                                // Source line: 43
+                                (/*L43*/array[(/*L43*/i)] = (/*L43*/array[(/*L43*/j)]));
+                                // Source line: 44
+                                (/*L44*/array[(/*L44*/j)] = (/*L44*/tmp));
+                            }
+                        else
+                            // Source line: 41
+                            {
+                            }
+                        // Source line: 46
+                        (/*L46*/j = (/*L46*/(/*L46*/j) + (/*L46*/1)));
+                    }
+                // Source line: 48
+                (/*L48*/i = (/*L48*/(/*L48*/i) + (/*L48*/1)));
+            }
+        // Source line: 50
+        return;
+    }
+    // Source line: 53
+    void printArray(/*line:53*/int[] array) {
+        // Source line: 54
+***** ARRAYTEST3.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main ArrayTest3.btm 
+ArrayTest3.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 7.
+Was expecting:
+    "class" ...
+    
+
+Stopping compilation due to errors
+1 error(s)
+*****
+

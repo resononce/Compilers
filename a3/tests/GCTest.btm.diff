@@ -1,0 +1,123 @@
+Comparing files GCTest.btm.ast.ref and GCTEST.BTM.AST
+Resync Failed.  Files are too different.
+***** GCTest.btm.ast.ref
+// Source file: GCTest.btm
+// Source line: 1
+class Main extends Object {
+    // Source line: 2
+    void main() {
+        // Source line: 3
+        TextIO io = (/*L3*/new TextIO());
+        // Source line: 4
+        Vector v = (/*L4*/new Vector());
+        // Source line: 5
+        int i = (/*L5*/0);
+        // Source line: 6
+        while ((/*L6*/(/*L6*/i) < (/*L6*/1000)))
+            // Source line: 6
+            {
+                // Source line: 7
+                (/*L7*/(/*L7*/(/*L7*/io).putInt((/*L7*/i))).putString((/*L7*/"-1\n")));
+                // Source line: 8
+                if ((/*L8*/(/*L8*/(/*L8*/i) % (/*L8*/100)) == (/*L8*/0)))
+                    // Source line: 9
+                    (/*L9*/(/*L9*/v).addElement((/*L9*/new A())));
+                else
+                    // Source line: 8
+                    {
+                    }
+                // Source line: 10
+                (/*L10*/(/*L10*/(/*L10*/io).putInt((/*L10*/i))).putString((/*L10*/"-2\n")));
+                // Source line: 11
+                (/*L11*/(/*L11*/(/*L11*/new TextIO()).putInt((/*L11*/i))).putString((/*L11*/"-3\n")));
+                // Source line: 12
+                String s = (/*L12*/"abcdefhijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+                // Source line: 13
+                (/*L13*/(/*L13*/(/*L13*/io).putInt((/*L13*/i))).putString((/*L13*/"-4\n")));
+                // Source line: 14
+                (/*L14*/new Sys());
+                // Source line: 15
+                (/*L15*/(/*L15*/(/*L15*/io).putInt((/*L15*/i))).putString((/*L15*/"-5\n")));
+                // Source line: 16
+                (/*L16*/new A());
+                // Source line: 17
+                (/*L17*/(/*L17*/(/*L17*/io).putInt((/*L17*/i))).putString((/*L17*/"-6\n")));
+                // Source line: 18
+                (/*L18*/(/*L18*/v).addElement((/*L18*/new TextIO())));
+                // Source line: 19
+                (/*L19*/(/*L19*/(/*L19*/io).putInt((/*L19*/i))).putString((/*L19*/"-7\n")));
+                // Source line: 20
+                (/*L20*/(/*L20*/(/*L20*/new TextIO()).putInt((/*L20*/i))).putString((/*L20*/"-8\n")));
+                // Source line: 21
+                (/*L21*/new Sys());
+                // Source line: 22
+                (/*L22*/(/*L22*/(/*L22*/io).putInt((/*L22*/i))).putString((/*L22*/"-9\n")));
+                // Source line: 23
+                (/*L23*/(/*L23*/v).addElement((/*L23*/new Sys())));
+                // Source line: 24
+                (/*L24*/(/*L24*/(/*L24*/io).putInt((/*L24*/i))).putString((/*L24*/"-10\n")));
+                // Source line: 25
+                (/*L25*/(/*L25*/v).addElement((/*L25*/"abc")));
+                // Source line: 26
+                (/*L26*/i = (/*L26*/(/*L26*/i) + (/*L26*/1)));
+            }
+        // Source line: 28
+        return;
+    }
+}
+// Source file: GCTest.btm
+// Source line: 32
+class A extends Object {
+    // Source line: 33
+    int a0;
+    // Source line: 34
+    int a1;
+    // Source line: 35
+    int a2;
+    // Source line: 36
+    int a3;
+    // Source line: 37
+    int a4;
+    // Source line: 38
+    int a5;
+    // Source line: 39
+    int a6;
+    // Source line: 40
+    int a7;
+    // Source line: 41
+    int a8;
+    // Source line: 42
+    int a9;
+    // Source line: 43
+    int a10;
+    // Source line: 44
+    int a11;
+    // Source line: 45
+    int a12;
+    // Source line: 46
+    int a13;
+    // Source line: 47
+    int a14;
+    // Source line: 48
+    int a15;
+    // Source line: 49
+***** GCTEST.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main GCTest.btm Vector.btm 
+GCTest.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "}" ...
+    <ID> ...
+    
+
+Vector.btm:1:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 1, column 13.
+Was expecting one of:
+    "class" ...
+    <ID> ...
+    
+
+Stopping compilation due to errors
+2 error(s)
+*****
+

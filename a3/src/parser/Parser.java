@@ -1391,7 +1391,14 @@ Precedence (from highest to lowest)
                                   t.image
                                   .toString()
                                   .substring(1, t.image.toString().length()-1)
-                                  .replaceAll("\u005c\u005c\u005c\u005c\u005c"", "\u005c""));}
+                                  .replaceAll("\u005c\u005c\u005c\u005c\u005c"", "\u005c"")
+                                  .replaceAll("\u005c\u005c\u005c\u005ct", "\u005ct")
+                                  .replaceAll("\u005c\u005c\u005c\u005cb", "\u005cb")
+                                  .replaceAll("\u005c\u005c\u005c\u005cn", "\u005cn")
+                                  .replaceAll("\u005c\u005c\u005c\u005cr", "\u005cr")
+                                  .replaceAll("\u005c\u005c\u005c\u005cf", "\u005cf")
+                                  .replaceAll("\u005c\u005c\u005c\u005c'", "\u005c'")
+                                  .replaceAll("\u005c\u005c\u005c\u005c\u005c\u005c", "\u005c\u005c"));}
       break;
     default:
       jj_la1[53] = jj_gen;

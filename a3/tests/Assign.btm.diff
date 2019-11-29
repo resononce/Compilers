@@ -1,0 +1,48 @@
+Comparing files Assign.btm.ast.ref and ASSIGN.BTM.AST
+***** Assign.btm.ast.ref
+// Source file: Assign.btm
+// Source line: 4
+class Main extends Object {
+    // Source line: 6
+    void main() {
+        // Source line: 7
+        TextIO io = (/*L7*/new TextIO());
+        // Source line: 8
+        int x = (/*L8*/0);
+        // Source line: 9
+        int y = (/*L9*/1);
+        // Source line: 10
+        int z = (/*L10*/2);
+        // Source line: 12
+        (/*L12*/(/*L12*/(/*L12*/(/*L12*/io).putString((/*L12*/"x="))).putInt((/*L12*/x))).putString((/*L12*/"\n")));
+        // Source line: 13
+        (/*L13*/(/*L13*/(/*L13*/(/*L13*/io).putString((/*L13*/"y="))).putInt((/*L13*/y))).putString((/*L13*/"\n")));
+        // Source line: 14
+        (/*L14*/(/*L14*/(/*L14*/(/*L14*/io).putString((/*L14*/"z="))).putInt((/*L14*/z))).putString((/*L14*/"\n")));
+        // Source line: 16
+        (/*L16*/(/*L16*/io).putString((/*L16*/"Executing: x = y = z\n")));
+        // Source line: 17
+        (/*L17*/x = (/*L17*/y = (/*L17*/z)));
+        // Source line: 19
+        (/*L19*/(/*L19*/(/*L19*/(/*L19*/io).putString((/*L19*/"x="))).putInt((/*L19*/x))).putString((/*L19*/"\n")));
+        // Source line: 20
+        (/*L20*/(/*L20*/(/*L20*/(/*L20*/io).putString((/*L20*/"y="))).putInt((/*L20*/y))).putString((/*L20*/"\n")));
+        // Source line: 21
+        (/*L21*/(/*L21*/(/*L21*/(/*L21*/io).putString((/*L21*/"z="))).putInt((/*L21*/z))).putString((/*L21*/"\n")));
+        // Source line: 23
+        return;
+    }
+}
+***** ASSIGN.BTM.AST
+
+C:\Users\Resononce\Documents\Projects\Compilers\A3\a3\tests>java -classpath "C:\Users\Resononce\Documents\Projects\Compilers\A3
+\a3\src" Main Assign.btm 
+Assign.btm:3:syntactic error: Encountered " <UNSUPPORTEDCHAR> "\r "" at line 3, column 3.
+Was expecting:
+    "class" ...
+    
+
+Stopping compilation due to errors
+1 error(s)
+*****
+
